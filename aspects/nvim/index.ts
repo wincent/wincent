@@ -154,20 +154,56 @@ task('install shellbot', async () => {
   });
 });
 
-task('download spell files', async () => {
-  for (
-    const url of [
-      'https://ftp.icm.edu.pl/packages/vim/runtime/spell/es.utf-8.spl',
-      'https://ftp.icm.edu.pl/packages/vim/runtime/spell/es.utf-8.sug',
-    ]
-  ) {
-    const dest = path('~/.config/nvim/spell').join(path(url).basename);
+// We'll try several mirrors for each file because historically they've been
+// unreliable.
+const SPELL_FILE_URLS = {
+  'es.utf-8.spl': [
+    'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.spl',
+    'https://ftp.fu-berlin.de/pub/unix/editors/vim/runtime/spell/es.utf-8.spl',
+    'https://ftp.icm.edu.pl/packages/vim/runtime/spell/es.utf-8.spl',
+  ],
+  'es.utf-8.sug': [
+    'https://ftp.nluug.nl/pub/vim/runtime/spell/es.utf-8.sug',
+    'https://ftp.fu-berlin.de/pub/unix/editors/vim/runtime/spell/es.utf-8.sug',
+    'https://ftp.icm.edu.pl/packages/vim/runtime/spell/es.utf-8.sug',
+  ],
+};
 
-    await fetch({
-      dest,
-      encoding: null, // Spellfiles aren't UTF-8; they are arbitrary binary.
-      url,
-    });
+const SPELL_FILE_TIMEOUT = 5000;
+
+task('download spell files', async () => {
+  const errors: Array<unknown> = [];
+  const missing: Array<string> = [];
+
+  for (const [name, urls] of Object.entries(SPELL_FILE_URLS)) {
+    let downloaded = false;
+
+    for (const url of urls) {
+      try {
+        await fetch({
+          dest: path('~/.config/nvim/spell').join(name),
+          encoding: null, // Spellfiles aren't UTF-8; they are arbitrary binary.
+          timeout: SPELL_FILE_TIMEOUT,
+          url,
+        });
+
+        downloaded = true;
+        break;
+      } catch (error) {
+        errors.push(error);
+      }
+    }
+
+    if (!downloaded) {
+      missing.push(name);
+    }
+  }
+
+  if (missing.length) {
+    throw new AggregateError(
+      errors,
+      `No mirror could supply: ${missing.join(', ')}`,
+    );
   }
 });
 
