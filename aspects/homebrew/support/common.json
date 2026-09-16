@@ -806,6 +806,14 @@
       "note": null
     },
     {
+      "name": "nono",
+      "tap": "homebrew/core",
+      "description": "Capability-based sandbox shell for AI agents with OS-enforced isolation",
+      "args": [],
+      "restartService": false,
+      "note": null
+    },
+    {
       "name": "openssl@3",
       "tap": "homebrew/core",
       "description": "Cryptography and SSL/TLS Toolkit",

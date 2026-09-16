@@ -730,6 +730,13 @@ task('install ninja formula', async () => {
   });
 });
 
+// Capability-based sandbox shell for AI agents with OS-enforced isolation.
+task('install nono formula', async () => {
+  await command('brew', ['install', 'nono'], {
+    creates: '/opt/homebrew/Cellar/nono',
+  });
+});
+
 // Cryptography and SSL/TLS Toolkit.
 task('install openssl@3 formula', async () => {
   await command('brew', ['install', 'openssl@3'], {
