@@ -26,6 +26,14 @@ async function promptImpl(
     throw new Error('prompt(): called, but NON_INTERACTIVE is set');
   }
 
+  // Without this, `readline` sees EOF, closes itself, and `rl.question()`
+  // below throws an inscrutable `ERR_USE_AFTER_CLOSE`.
+  if (!process.stdin.isTTY) {
+    throw new Error(
+      'prompt(): called, but stdin is not a TTY; re-run interactively, or set NON_INTERACTIVE',
+    );
+  }
+
   let muted = false;
 
   // https://stackoverflow.com/a/33500118/2103996
