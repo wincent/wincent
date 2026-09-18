@@ -94,8 +94,9 @@ function apiErrors(raw: unknown): string[] {
     if (!isRecord(error)) {
       return JSON.stringify(error);
     }
-    const message =
-      typeof error['message'] === 'string' ? error['message'] : undefined;
+    const message = typeof error['message'] === 'string'
+      ? error['message']
+      : undefined;
     const code = typeof error['code'] === 'string' ? error['code'] : undefined;
     if (message && code) {
       return `${message} (${code})`;
