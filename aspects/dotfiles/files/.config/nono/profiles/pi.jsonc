@@ -6,7 +6,8 @@
     "description": "Pi sandbox config."
   },
 
-  // - `deny_credentials` blocks "~/.config/op"
+  // - `deny_credentials` blocks "~/.config/op" (still blocked) and "~/.gnupg"
+  //   (homedir is re-granted below for signing, then secret subtrees are denied)
   // - `deny_keychains_macos` blocks "~/Library/Group Containers/2BUA8C4S2C.com.1password"
   "extends": "default",
 
@@ -86,6 +87,10 @@
       "~/.config/git",
       "~/.config/jj",
       "~/.rgrc",
+
+      // Needed so `jj`/Git can read the public keyring and gpg.conf. Secret
+      // subtrees are denied below; signing itself goes through gpg-agent.
+      "~/.gnupg",
       "~/.zsh/bin",
 
       // Allow Neovim to read color configuration (necessary because Pi spawns
@@ -105,7 +110,11 @@
 
     "unix_socket": [
       // Needed for `clip` and `notify` to reach clipper.
-      "~/.clipper.sock"
+      "~/.clipper.sock",
+
+      // gpg-agent holds the unlocked private key; `jj` signing talks to this
+      // rather than decrypting key files in-process.
+      "~/.gnupg/S.gpg-agent"
     ],
 
     "deny": [
@@ -114,7 +123,18 @@
       "~/.zsh/host/comp-*",
 
       // Don't leak unsandboxed nvim undo/view/shada to the agent.
-      "~/.local/state/nvim"
-    ]
+      "~/.local/state/nvim",
+
+      // nono cannot grant individual files under a denied directory without
+      // also granting (and bypassing) the directory, which is recursive. Carve
+      // the secret material back out (macOS Seatbelt deny-within-allow).
+      "~/.gnupg/private-keys-v1.d",
+      "~/.gnupg/openpgp-revocs.d",
+      "~/.gnupg/secring.gpg"
+    ],
+
+    // Lift `deny_credentials` on "~/.gnupg" so the read/socket grants above
+    // can take effect. Does not grant access by itself.
+    "bypass_protection": ["~/.gnupg"]
   }
 }
