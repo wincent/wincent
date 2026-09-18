@@ -1,0 +1,61 @@
+// Validate with `nono profile validate pi`.
+// Use with `nono run --profile pi [--allow-cwd] -- pi`.
+{
+  "meta": {
+    "name": "pi",
+    "description": "Pi sandbox config."
+  },
+
+  // - `deny_credentials` blocks "~/.config/op"
+  // - `deny_keychains_macos` blocks "~/Library/Group Containers/2BUA8C4S2C.com.1password"
+  "extends": "default",
+
+  "groups": {
+    // Read-only access to node/npm/pnpm cache and runtime paths.
+    "include": ["node_runtime"]
+  },
+
+  "workdir": {
+    "access": "readwrite"
+  },
+
+  "filesystem": {
+    // Read+write.
+    "allow": [
+      // Sessions, models, extension state, auth.json etc
+      // (TODO: use nono's oauth_capture phantom rewriting).
+      "~/.pi"
+    ],
+
+    // Read-only.
+    "read": [
+      // `node` and `pi` live under "~/n" (installed via `n`).
+      "~/n",
+
+      "~/.claude/skills",
+      "~/.claude/plugins",
+      "~/.config/git",
+      "~/.rgrc",
+      "~/.zsh/bin",
+
+      // Allow Neovim to read color configuration (necessary because Pi spawns
+      // a copy of $EDITOR when using `/edit-answer` or CTRL-g).
+      "~/.zsh/.tinted",
+
+      // Only on work machine; on personal machine harmlessly ignored.
+      "$DATADOG_ROOT/wincent/.pi",
+      "$DATADOG_ROOT/wincent/.config/git"
+    ],
+
+    "unix_socket": [
+      // Needed for `clip` and `notify` to reach clipper.
+      "~/.clipper.sock"
+    ],
+
+    "deny": [
+      // Deny access to tokens; trailing "*" also covers .zwc (compiled) files.
+      "~/.zsh/*.private.zsh*",
+      "~/.zsh/host/comp-*"
+    ]
+  }
+}
