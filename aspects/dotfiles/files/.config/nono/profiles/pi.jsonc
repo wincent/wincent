@@ -20,7 +20,7 @@
   },
 
   "environment": {
-    // Keep sandboxed agent state separate (don't comingle with non-sandboxed
+    // Keep sandboxed agent state separate (don't commingle with non-sandboxed
     // state in  "~/.local/state" or "~/.cache").
     "set_vars": {
       "XDG_CACHE_HOME": "$TMPDIR/nono-pi/cache",
