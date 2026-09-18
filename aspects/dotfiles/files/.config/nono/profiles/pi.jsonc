@@ -20,8 +20,20 @@
   },
 
   "network": {
-    "credentials": ["kagi_search"],
+    "credentials": ["anthropic_api_key", "kagi_search"],
     "custom_credentials": {
+      "anthropic_api_key": {
+        "upstream": "https://api.anthropic.com",
+        "credential_key": "op://CLI/anthropic-api-key/credential",
+        "inject_header": "x-api-key",
+        "credential_format": "{}",
+        "env_var": "ANTHROPIC_API_KEY",
+        "endpoint_rules": [
+          {"method": "POST", "path": "/v1/messages"},
+          {"method": "POST", "path": "/v1/messages/count_tokens"},
+          {"method": "GET", "path": "/v1/models"}
+        ]
+      },
       "kagi_search": {
         "upstream": "https://kagi.com",
         "credential_key": "op://CLI/kagi-api-token/credential",
