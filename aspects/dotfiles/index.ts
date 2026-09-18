@@ -11,13 +11,14 @@ import {
   path,
   prompt,
   resource,
+  skip,
   task,
   template,
   variable,
   variables,
 } from 'fig';
 
-const {is, when} = helpers;
+const {is, isDecrypted, when} = helpers;
 
 variables(async ({hostHandle, identity, platform, profile}) => {
   // Docker doesn't support "include" files, so roll our own by
@@ -203,6 +204,7 @@ task('make directories', async () => {
     recurse: true,
     state: 'directory',
   });
+  await file({path: '~/.docker', state: 'directory'});
   await file({mode: '0700', path: '~/.gnupg', state: 'directory'});
   await file({path: '~/.irssi', state: 'directory'});
   await file({path: '~/.mail', state: 'directory'});
@@ -242,6 +244,31 @@ task('fill templates', async () => {
       src: path.aspect.join('templates', src),
     });
   }
+});
+
+task('install ~/.npmrc', async () => {
+  await file({
+    path: '~/.npmrc',
+    src: resource.file('.npmrc'),
+    state: 'file',
+  });
+});
+
+task('install ~/.docker/host/*', async () => {
+  const hostHandle = variable.string('hostHandle');
+  const src = resource.file('.docker/host', `${hostHandle}.json`);
+
+  if (!(await isDecrypted(src))) {
+    await skip(`no per-host Docker config for ${hostHandle}`);
+    return;
+  }
+
+  await file({path: '~/.docker/host', state: 'directory'});
+  await file({
+    path: path.home.join('.docker/host', `${hostHandle}.json`),
+    src,
+    state: 'file',
+  });
 });
 
 task('zcompile shell files', async () => {
