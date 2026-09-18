@@ -1,0 +1,221 @@
+#!/bin/bash
+#
+# Run nono's credential-injecting proxy as a standalone server, for use by
+# processes that are *not* inside a nono sandbox.
+#
+# Why: the sandbox hides API keys from the agent by handing it a phantom token
+# and swapping in the real credential on the way out (see
+# ~/.config/nono/profiles/pi.jsonc). Outside the sandbox there is no phantom,
+# so an unsandboxed Pi would need real keys in its environment again. Pointing
+# it at this proxy keeps 1Password as the only place a key lives, keeps the
+# per-endpoint restrictions, and keeps one credential path for sandboxed Pi,
+# unsandboxed Pi, and (later) VMs.
+#
+# This does *not* hide credentials from an unsandboxed agent, which can run
+# `op` itself. What it buys is no plaintext in the dotfiles, one place to
+# rotate, endpoint restrictions, and a log of every use.
+#
+# Usage:
+#
+#   nono-proxy start|stop|status|env|ca|help
+#
+#   eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
+#   nono-proxy stop
+#
+# Environment:
+#
+#   NONO_PROXY_PORT      loopback port to listen on (default: 18099)
+#   NONO_PROXY_PROFILE   nono profile supplying the credential routes
+#                        (default: pi)
+#   OP_ACCOUNT           required, because "op://" URIs cannot name an account
+#                        and a bare `op read` is ambiguous with more than one
+#                        account signed in
+
+set -euo pipefail
+
+PORT="${NONO_PROXY_PORT:-18099}"
+PROFILE="${NONO_PROXY_PROFILE:-pi}"
+
+STATE="${XDG_STATE_HOME:-$HOME/.local/state}/nono-proxy"
+CA_CERT="$STATE/ca.crt"
+CA_KEY="$STATE/ca.key"
+CA_BUNDLE="$STATE/bundle.crt"
+PASS_FILE="$STATE/pass"
+PID_FILE="$STATE/pid"
+LOG_FILE="$STATE/log"
+
+die() {
+  echo "nono-proxy: $*" >&2
+  exit 1
+}
+
+# The CA is only ever trusted by clients on this machine (and, later, by a VM
+# we hand it to), so regenerating it is cheap: nothing depends on the old one
+# beyond restarting whatever trusted it.
+#
+# Must be EC (P-256) in PKCS#8: nono rejects an RSA key with "Key rejected by
+# ring: WrongAlgorithm".
+ensure_ca() {
+  if [ -f "$CA_CERT" ] && [ -f "$CA_KEY" ]; then
+    # Refuse to hand nono an expired CA; the failure mode otherwise is a TLS
+    # error in whatever client is using the proxy, far from the cause.
+    if ! openssl x509 -in "$CA_CERT" -checkend 0 >/dev/null 2>&1; then
+      echo "nono-proxy: CA expired; regenerating" >&2
+      rm -f "$CA_CERT" "$CA_KEY"
+    else
+      # Explicit 0: a bare `return` here would propagate $? from the negated
+      # condition above (ie. 1), and `set -e` would abort the caller.
+      return 0
+    fi
+  fi
+
+  echo "nono-proxy: generating CA in $STATE" >&2
+  openssl req -x509 -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -nodes \
+    -keyout "$CA_KEY" -out "$CA_CERT" -days 365 \
+    -subj "/CN=nono proxy (local)" \
+    -addext "basicConstraints=critical,CA:TRUE" 2>/dev/null \
+    || die "failed to generate CA"
+  chmod 600 "$CA_KEY"
+}
+
+# Clients that take a single CA *file* (curl, Python, Ruby, Go) need the
+# public roots as well as ours, or every unintercepted host breaks. Node is
+# the exception: $NODE_EXTRA_CA_CERTS is additive, so it gets the bare CA.
+#
+# macOS ships no PEM bundle of the system roots (its curl uses SecureTransport
+# and the keychain), so take Homebrew's if present and fall back to exporting
+# the login keychain's roots.
+ensure_bundle() {
+  if [ -f "$CA_BUNDLE" ] && [ "$CA_BUNDLE" -nt "$CA_CERT" ]; then
+    return 0
+  fi
+
+  local roots="/opt/homebrew/etc/ca-certificates/cert.pem"
+  if [ -f "$roots" ]; then
+    cat "$roots" "$CA_CERT" > "$CA_BUNDLE"
+  else
+    {
+      security find-certificate -a -p \
+        /System/Library/Keychains/SystemRootCertificates.keychain 2>/dev/null
+      cat "$CA_CERT"
+    } > "$CA_BUNDLE"
+  fi
+}
+
+ensure_pass() {
+  if [ ! -f "$PASS_FILE" ]; then
+    (umask 077; openssl rand -hex 16 > "$PASS_FILE")
+  fi
+}
+
+running() {
+  [ -f "$PID_FILE" ] || return 1
+  local pid
+  pid="$(<"$PID_FILE")"
+  [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null
+}
+
+cmd_start() {
+  if running; then
+    return 0
+  fi
+
+  command -v nono >/dev/null || die "nono is not installed"
+  [ -n "${OP_ACCOUNT:-}" ] || die "OP_ACCOUNT is not set; credential lookups would be ambiguous"
+
+  mkdir -p "$STATE"
+  chmod 700 "$STATE"
+  ensure_ca
+  ensure_bundle
+  ensure_pass
+
+  # Loopback only: the proxy holds live credentials, and binding anything
+  # wider would lend them to the local network. A VM should reach this over
+  # `ssh -R`, which arrives on loopback too.
+  NONO_PROXY_PASS="$(<"$PASS_FILE")" \
+    nohup nono proxy \
+      --profile "$PROFILE" \
+      --listen 127.0.0.1 \
+      --port "$PORT" \
+      --proxy-ca-cert "$CA_CERT" \
+      --proxy-ca-key "$CA_KEY" \
+      >"$LOG_FILE" 2>&1 &
+  echo $! > "$PID_FILE"
+
+  # Wait for the listener rather than assuming: a bad profile or a failed
+  # credential lookup shows up here, not later in some client.
+  local i
+  for i in $(seq 1 30); do
+    if ! running; then
+      die "proxy exited during startup; see $LOG_FILE"
+    fi
+    if nc -z 127.0.0.1 "$PORT" 2>/dev/null; then
+      return 0
+    fi
+    sleep 0.2
+  done
+  die "proxy did not start listening on port $PORT; see $LOG_FILE"
+}
+
+cmd_stop() {
+  if ! running; then
+    rm -f "$PID_FILE"
+    return 0
+  fi
+  kill "$(<"$PID_FILE")" 2>/dev/null || true
+  rm -f "$PID_FILE"
+}
+
+cmd_status() {
+  if running; then
+    echo "running (pid $(<"$PID_FILE"), profile $PROFILE, port $PORT)"
+  else
+    echo "not running"
+    return 1
+  fi
+}
+
+# Placeholder credentials: the proxy overwrites the injected header, so the
+# value is never used. They exist because clients check that a variable is set
+# before making a request (Pi's `web_search` throws without $KAGI_API_TOKEN,
+# and a provider with no key is treated as unavailable).
+#
+# $NO_PROXY keeps loopback traffic direct, so that local services (eg. agent
+# observability on 127.0.0.1) are not routed through, and intercepted by, the
+# proxy.
+cmd_env() {
+  cmd_start
+  local pass
+  pass="$(<"$PASS_FILE")"
+  cat <<EOF
+export HTTP_PROXY=http://x:$pass@127.0.0.1:$PORT
+export HTTPS_PROXY=http://x:$pass@127.0.0.1:$PORT
+export NO_PROXY=localhost,127.0.0.1,::1
+export NODE_EXTRA_CA_CERTS=$CA_CERT
+export CURL_CA_BUNDLE=$CA_BUNDLE
+export SSL_CERT_FILE=$CA_BUNDLE
+export REQUESTS_CA_BUNDLE=$CA_BUNDLE
+export ANTHROPIC_API_KEY=proxied
+export KAGI_API_TOKEN=proxied
+EOF
+}
+
+cmd_ca() {
+  ensure_ca
+  ensure_bundle
+  echo "$CA_CERT"
+}
+
+cmd_help() {
+  sed -n '3,30p' "$0" | sed 's/^# \{0,1\}//'
+}
+
+case "${1:-help}" in
+  start) cmd_start ;;
+  stop) cmd_stop ;;
+  status) cmd_status ;;
+  env) cmd_env ;;
+  ca) cmd_ca ;;
+  help | --help | -h) cmd_help ;;
+  *) die "unknown command: $1 (try \`nono-proxy help\`)" ;;
+esac
