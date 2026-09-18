@@ -59,10 +59,7 @@
 
       // Only on work machine; on personal machine harmlessly ignored.
       "$DATADOG_ROOT/wincent/.pi",
-      "$DATADOG_ROOT/wincent/.config/git",
-
-      // Wrappers that shadow "nvim" (spawned as $EDITOR) and "dog" on $PATH.
-      "$DATADOG_ROOT/wincent/.zsh/bin"
+      "$DATADOG_ROOT/wincent/.config/git"
     ],
 
     "unix_socket": [
