@@ -20,9 +20,11 @@ task('make directories', async () => {
   await file({path: '~/.backups', state: 'directory'});
   await file({path: '~/.config', state: 'directory'});
   await file({path: '~/.local/state/nvim', recurse: true, state: 'directory'});
-  for (const dir of ['backup', 'swap', 'undo', 'view']) {
-    await file({path: `~/.local/state/nvim/${dir}`, state: 'directory'});
-  }
+  await file({path: '~/.local/state/nvim/backup', state: 'directory'});
+  await file({path: '~/.local/state/nvim/shada', state: 'directory'});
+  await file({path: '~/.local/state/nvim/swap', state: 'directory'});
+  await file({path: '~/.local/state/nvim/undo', state: 'directory'});
+  await file({path: '~/.local/state/nvim/view', state: 'directory'});
 });
 
 task('clone neovim', when('debian'), async () => {

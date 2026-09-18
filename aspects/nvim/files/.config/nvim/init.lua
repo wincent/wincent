@@ -105,9 +105,11 @@ else
   -- - '0 store marks for 0 files
   -- - <0 don't save registers
   -- - f0 don't store file marks
-  -- - n: store under XDG state (see `scratch` above)
+  -- - n: store under XDG state (see `scratch` above).
+  --     Use Neovim's default filename so this does not collide with the
+  --     `shada/` directory Neovim creates for `main.shada`.
   --
-  vim.opt.shada = "'0,<0,f0,n" .. scratch .. '/shada'
+  vim.opt.shada = "'0,<0,f0,n" .. scratch .. '/shada/main.shada'
 end
 
 vim.opt.shell = 'sh' -- shell to use for `!`, `:!`, `system()` etc.
