@@ -113,11 +113,8 @@
       "~/.zsh/*.private.zsh*",
       "~/.zsh/host/comp-*",
 
-      // Avoid writing session state to shared location.
-      "~/.config/nvim/shada",
-      "~/.config/nvim/swap",
-      "~/.config/nvim/undo",
-      "~/.config/nvim/view"
+      // Don't leak unsandboxed nvim undo/view/shada to the agent.
+      "~/.local/state/nvim"
     ]
   }
 }

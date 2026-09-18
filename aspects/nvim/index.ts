@@ -19,6 +19,10 @@ task('make directories', async () => {
   // Some overlap with "dotfiles" aspect here.
   await file({path: '~/.backups', state: 'directory'});
   await file({path: '~/.config', state: 'directory'});
+  await file({path: '~/.local/state/nvim', recurse: true, state: 'directory'});
+  for (const dir of ['backup', 'swap', 'undo', 'view']) {
+    await file({path: `~/.local/state/nvim/${dir}`, state: 'directory'});
+  }
 });
 
 task('clone neovim', when('debian'), async () => {

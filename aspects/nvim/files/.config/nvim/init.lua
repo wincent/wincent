@@ -16,16 +16,19 @@ local config = home .. '/.config/nvim'
 local root = vim.env.USER == 'root'
 local vi = vim.v.progname == 'vi'
 
--- If ~/.config/nvim isn't writeable, we're probably in an agent sandbox.
-local undo = config .. '/undo'
-pcall(vim.fn.mkdir, undo, 'p')
-local sandboxed = vim.fn.filewritable(undo) ~= 2
-local scratch = config
-if sandboxed then
-  local base = vim.env.XDG_STATE_HOME or vim.env.TMPDIR or '/tmp'
-  scratch = (base:gsub('/+$', '')) .. '/nvim-session'
-  vim.fn.mkdir(scratch, 'p')
+-- Session state lives under $XDG_STATE_HOME/nvim when set, otherwise
+-- ~/.local/state/nvim (created by the nvim aspect installer).
+local state_home = vim.env.XDG_STATE_HOME
+local scratch
+if state_home and state_home ~= '' then
+  scratch = state_home:gsub('/+$', '') .. '/nvim'
+else
+  scratch = home .. '/.local/state/nvim'
 end
+
+-- If the unsandboxed state dir isn't writable, we're probably in an agent sandbox.
+local sandboxed = vim.fn.filewritable(home .. '/.local/state/nvim') ~= 2
+local undo = scratch .. '/undo'
 
 vim.opt.autoindent = true -- maintain indent of current line
 vim.opt.backspace = 'indent,start,eol' -- allow unrestricted backspacing in insert mode
@@ -102,9 +105,9 @@ else
   -- - '0 store marks for 0 files
   -- - <0 don't save registers
   -- - f0 don't store file marks
-  -- - n: store in ~/.config/nvim/
+  -- - n: store under XDG state (see `scratch` above)
   --
-  vim.opt.shada = "'0,<0,f0,n~/.config/nvim/shada"
+  vim.opt.shada = "'0,<0,f0,n" .. scratch .. '/shada'
 end
 
 vim.opt.shell = 'sh' -- shell to use for `!`, `:!`, `system()` etc.
