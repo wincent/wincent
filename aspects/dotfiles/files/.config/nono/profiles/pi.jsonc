@@ -71,7 +71,9 @@
     "allow": [
       // Sessions, models, extension state, etc
       // (TODO: use nono's oauth_capture phantom rewriting).
-      "~/.pi"
+      "~/.pi",
+
+      "~/.config/jj/repos"
     ],
 
     // Read-only.
@@ -82,6 +84,7 @@
       "~/.claude/skills",
       "~/.claude/plugins",
       "~/.config/git",
+      "~/.config/jj",
       "~/.rgrc",
       "~/.zsh/bin",
 
