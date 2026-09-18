@@ -184,6 +184,15 @@ export PI_SKIP_VERSION_CHECK=1
 # So nono can resolve `op://` URIs without having to guess the account.
 export OP_ACCOUNT=my.1password.eu
 
+# Nono prompts to add grants to the profile at each exit, leading to approval
+# fatigue. This undocumented env var suppresses the prompts but still lets
+# Nono print what was denied. Note that even if it weren't for the approval
+# fatigue, we wouldn't want Nono upating the profile because it blows away all
+# the comments in the JSONC.
+#
+# See: https://github.com/nolabs-ai/nono/commit/f1243c75338caeeba9d8e337
+export NONO_NO_SAVE_PROMPT=1
+
 export RESTIC_REPOSITORY=/opt/restic/repo
 
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
