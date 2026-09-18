@@ -19,6 +19,15 @@
     "access": "readwrite"
   },
 
+  "environment": {
+    // Keep sandboxed agent state separate (don't comingle with non-sandboxed
+    // state in  "~/.local/state" or "~/.cache").
+    "set_vars": {
+      "XDG_CACHE_HOME": "$TMPDIR/nono-pi/cache",
+      "XDG_STATE_HOME": "$TMPDIR/nono-pi/state"
+    }
+  },
+
   "filesystem": {
     // Read+write.
     "allow": [
@@ -42,9 +51,18 @@
       // a copy of $EDITOR when using `/edit-answer` or CTRL-g).
       "~/.zsh/.tinted",
 
+      // Ditto, for Neovim's config and data directories. Literal paths rather
+      // than "$XDG_CONFIG_HOME"/"$XDG_DATA_HOME", which are unset here, and so
+      // would expand to no grant at all.
+      "~/.config/nvim",
+      "~/.local/share/nvim",
+
       // Only on work machine; on personal machine harmlessly ignored.
       "$DATADOG_ROOT/wincent/.pi",
-      "$DATADOG_ROOT/wincent/.config/git"
+      "$DATADOG_ROOT/wincent/.config/git",
+
+      // Wrappers that shadow "nvim" (spawned as $EDITOR) and "dog" on $PATH.
+      "$DATADOG_ROOT/wincent/.zsh/bin"
     ],
 
     "unix_socket": [
@@ -55,7 +73,13 @@
     "deny": [
       // Deny access to tokens; trailing "*" also covers .zwc (compiled) files.
       "~/.zsh/*.private.zsh*",
-      "~/.zsh/host/comp-*"
+      "~/.zsh/host/comp-*",
+
+      // Avoid writing session state to shared location.
+      "~/.config/nvim/shada",
+      "~/.config/nvim/swap",
+      "~/.config/nvim/undo",
+      "~/.config/nvim/view"
     ]
   }
 }

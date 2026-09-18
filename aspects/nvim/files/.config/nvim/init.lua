@@ -16,11 +16,22 @@ local config = home .. '/.config/nvim'
 local root = vim.env.USER == 'root'
 local vi = vim.v.progname == 'vi'
 
+-- If ~/.config/nvim isn't writeable, we're probably in an agent sandbox.
+local undo = config .. '/undo'
+pcall(vim.fn.mkdir, undo, 'p')
+local sandboxed = vim.fn.filewritable(undo) ~= 2
+local scratch = config
+if sandboxed then
+  local base = vim.env.XDG_STATE_HOME or vim.env.TMPDIR or '/tmp'
+  scratch = (base:gsub('/+$', '')) .. '/nvim-session'
+  vim.fn.mkdir(scratch, 'p')
+end
+
 vim.opt.autoindent = true -- maintain indent of current line
 vim.opt.backspace = 'indent,start,eol' -- allow unrestricted backspacing in insert mode
 vim.opt.backup = false -- don't make backups before writing
 vim.opt.backupcopy = 'yes' -- overwrite files to update, instead of renaming + rewriting
-vim.opt.backupdir = config .. '/backup//' -- keep backup files out of the way (ie. if 'backup' is ever set)
+vim.opt.backupdir = scratch .. '/backup//' -- keep backup files out of the way (ie. if 'backup' is ever set)
 vim.opt.backupdir = vim.opt.backupdir + '.' -- fallback
 vim.opt.backupskip = vim.opt.backupskip + '*.re,*.rei' -- prevent bsb's watch mode from getting confused (if 'backup' is ever set)
 vim.opt.belloff = 'all' -- never ring the bell for any reason
@@ -30,7 +41,7 @@ vim.opt.completeopt = vim.opt.completeopt + 'noselect' -- don't automatically se
 vim.opt.cursorline = true -- highlight current line
 vim.opt.diffopt:append('algorithm:histogram') -- use "histogram" in internal diff engine instead of "myers"
 vim.opt.diffopt:append('foldcolumn:0') -- don't show fold column in diff view
-vim.opt.directory = config .. '/swap//' -- keep swap files out of the way
+vim.opt.directory = scratch .. '/swap//' -- keep swap files out of the way
 vim.opt.directory = vim.opt.directory + '.' -- fallback
 vim.opt.emoji = false -- don't assume all emoji are double width
 vim.opt.expandtab = true -- always use spaces instead of tabs
@@ -74,8 +85,8 @@ vim.opt.pumheight = 20 -- max number of lines to show in pop-up menu
 vim.opt.relativenumber = true -- show relative numbers in gutter
 vim.opt.scrolloff = 3 -- start scrolling 3 lines before edge of viewport
 
-if root then
-  vim.opt.shada = '' -- Don't create root-owned files.
+if root or sandboxed then
+  vim.opt.shada = '' -- Don't create root-owned files, or leak history to an agent.
   vim.opt.shadafile = 'NONE'
 else
   -- Defaults:
@@ -130,17 +141,17 @@ vim.opt.tabstop = 2 -- spaces per tab
 vim.opt.termguicolors = true -- use guifg/guibg instead of ctermfg/ctermbg in terminal
 vim.opt.textwidth = 80 -- automatically hard wrap at 80 columns
 
-if root then
-  vim.opt.undofile = false -- don't create root-owned files
+if root or sandboxed then
+  vim.opt.undofile = false -- don't create root-owned files, or leak file contents to an agent
 else
-  vim.opt.undodir = config .. '/undo//' -- keep undo files out of the way
+  vim.opt.undodir = undo .. '//' -- keep undo files out of the way
   vim.opt.undodir = vim.opt.undodir + '.' -- fallback
   vim.opt.undofile = true -- actually use undo files
 end
 
 vim.opt.updatetime = 2000 -- CursorHold interval
 vim.opt.updatecount = 0 -- update swapfiles every 80 typed chars
-vim.opt.viewdir = config .. '/view' -- where to store files for :mkview
+vim.opt.viewdir = scratch .. '/view' -- where to store files for :mkview
 vim.opt.viewoptions = 'cursor,folds' -- save/restore just these (with `:{mk,load}view`)
 vim.opt.virtualedit = 'block' -- allow cursor to move where there is no text in visual block mode
 vim.opt.visualbell = true -- stop annoying beeping for non-error errors
