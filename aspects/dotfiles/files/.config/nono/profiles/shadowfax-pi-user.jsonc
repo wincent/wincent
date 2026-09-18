@@ -15,7 +15,6 @@
     // endpoints Pi needs.
     "credentials": [
       "anthropic_api_key",
-      "gemini_generation",
       "kagi_search"
     ],
     "custom_credentials": {
@@ -29,19 +28,6 @@
           {
             "method": "POST",
             "path": "/v1/messages"
-          }
-        ]
-      },
-      "gemini_generation": {
-        "upstream": "https://generativelanguage.googleapis.com",
-        "credential_key": "env://GEMINI_API_KEY",
-        "inject_header": "x-goog-api-key",
-        "credential_format": "{}",
-        "env_var": "GEMINI_API_KEY",
-        "endpoint_rules": [
-          {
-            "method": "POST",
-            "path": "/v1beta/models/*:streamGenerateContent"
           }
         ]
       },
@@ -63,7 +49,6 @@
   "environment": {
     "deny_vars": [
       "ANTHROPIC_API_KEY",
-      "GEMINI_API_KEY",
       "GOOGLE_API_KEY",
       "KAGI_API_TOKEN"
     ]
