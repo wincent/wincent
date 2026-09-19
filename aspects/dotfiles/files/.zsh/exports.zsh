@@ -181,6 +181,9 @@ fi
 # run the `pi-update` skill manually from time to time.
 export PI_SKIP_VERSION_CHECK=1
 
+# So nono can resolve `op://` URIs without having to guess the account.
+export OP_ACCOUNT=my.1password.eu
+
 export RESTIC_REPOSITORY=/opt/restic/repo
 
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
