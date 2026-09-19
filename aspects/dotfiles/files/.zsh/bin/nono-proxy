@@ -197,6 +197,7 @@ export SSL_CERT_FILE=$CA_BUNDLE
 export REQUESTS_CA_BUNDLE=$CA_BUNDLE
 export ANTHROPIC_API_KEY=proxied
 export KAGI_API_TOKEN=proxied
+export XAI_API_KEY=proxied
 EOF
 }
 
