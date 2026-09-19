@@ -246,6 +246,17 @@ task('fill templates', async () => {
   }
 });
 
+// Copy rather than symlink to prevent agent changes to their own sandbox
+// from going live immediately without human review (and without an explicit
+// `./install dotfiles`).
+task('install ~/.config/nono/profiles/pi.jsonc', async () => {
+  await file({
+    path: '~/.config/nono/profiles/pi.jsonc',
+    src: resource.file('.config/nono/profiles/pi.jsonc'),
+    state: 'file',
+  });
+});
+
 task('install ~/.npmrc', async () => {
   await file({
     path: '~/.npmrc',
