@@ -142,6 +142,8 @@ sb status # Check whether sandbox is running and its IP.
 sb ssh # Connect to the VM.
 ```
 
+`sb ssh` starts host `nono-proxy` if needed, remote-forwards it onto the guest loopback, copies the proxy CA, and exports phantom API credentials in the session. The guest never holds a real key. `bin/pi` inside the VM falls through to unsandboxed `pi` (there is no Seatbelt on Linux) and talks to Grok (and other routed providers) through that proxy.
+
 ### Updating dotfiles in a VM
 
 Inside the VM, `~/code/wincent` is a Git checkout but no `origin` pointing at GitHub is configured.

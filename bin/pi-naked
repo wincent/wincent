@@ -6,14 +6,19 @@
 #
 #   bin/pi-naked [pi-args...]
 #
-# Starts `nono-proxy` if needed, exports its proxy/CA/phantom variables,
-# then execs `pi`. The agent is unsandboxed, so it can reach 1Password and
-# the rest of the filesystem; API keys still live only in 1Password and are
-# injected on matching requests.
+# On Darwin this starts `nono-proxy` if needed, exports its proxy/CA/phantom
+# variables, then execs `pi`. The agent is unsandboxed, so it can reach
+# 1Password and the rest of the filesystem; API keys still live only in
+# 1Password and are injected on matching requests.
+#
+# Inside a Linux VM, `sb ssh` already exported those variables, so this
+# falls through to `pi`.
 #
 # A PATH shim may replace this later. Until then, invoke it by path.
 
 set -e
 
-eval "$(nono-proxy env)"
+if command -v nono-proxy >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
+  eval "$(nono-proxy env)"
+fi
 exec pi "$@"

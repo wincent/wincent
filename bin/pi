@@ -6,11 +6,17 @@
 #
 #   bin/pi [pi-args...]
 #
-# Equivalent to:
+# On Darwin this is:
 #
 #   nono run --profile pi --allow-cwd -- pi [pi-args...]
+#
+# Inside a Linux VM there is no Seatbelt sandbox; `sb ssh` already pointed
+# the session at host `nono-proxy`, so this falls through to `pi`.
 #
 # A PATH shim may replace this later. Until then, invoke it by path so it
 # does not shadow the real `pi` binary.
 
-exec nono run --profile pi --allow-cwd -- pi "$@"
+if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
+  exec nono run --profile pi --allow-cwd -- pi "$@"
+fi
+exec pi "$@"

@@ -9,7 +9,7 @@
 # so an unsandboxed Pi would need real keys in its environment again. Pointing
 # it at this proxy keeps 1Password as the only place a key lives, keeps the
 # per-endpoint restrictions, and keeps one credential path for sandboxed Pi,
-# unsandboxed Pi, and (later) VMs.
+# unsandboxed Pi, and VMs (via `ssh -R`, see `sb ssh`).
 #
 # This does *not* hide credentials from an unsandboxed agent, which can run
 # `op` itself. What it buys is no plaintext in the dotfiles, one place to
@@ -21,9 +21,10 @@
 #
 # Usage:
 #
-#   nono-proxy start|stop|status|env|ca|help
+#   nono-proxy start|stop|status|env|guest-env|port|ca|help
 #
 #   eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
+#   nono-proxy guest-env <guest-ca-path>
 #   nono-proxy stop
 
 set -euo pipefail
@@ -117,26 +118,58 @@ cmd_status() {
 # $NO_PROXY keeps loopback traffic direct, so that local services (eg. agent
 # observability on 127.0.0.1) are not routed through, and intercepted by, the
 # proxy.
+proxy_url() {
+  local pass
+  pass="$(<"$PASS_FILE")"
+  echo "http://x:$pass@127.0.0.1:$PORT"
+}
+
+print_proxy_exports() {
+  local url ca_certs
+  url="$(proxy_url)"
+  ca_certs="$1"
+  cat <<EOF
+export HTTP_PROXY=$url
+export HTTPS_PROXY=$url
+export NO_PROXY=localhost,127.0.0.1,::1
+export NODE_EXTRA_CA_CERTS=$ca_certs
+EOF
+}
+
+print_phantoms() {
+  if [ -f "$PHANTOMS" ]; then
+    cat "$PHANTOMS"
+  fi
+}
+
 cmd_env() {
   need_state
   if ! openssl x509 -in "$CA_CERT" -checkend 0 >/dev/null 2>&1; then
     die "CA expired; run \`./install dotfiles\`"
   fi
   cmd_start
-  local pass
-  pass="$(<"$PASS_FILE")"
+  print_proxy_exports "$CA_CERT"
   cat <<EOF
-export HTTP_PROXY=http://x:$pass@127.0.0.1:$PORT
-export HTTPS_PROXY=http://x:$pass@127.0.0.1:$PORT
-export NO_PROXY=localhost,127.0.0.1,::1
-export NODE_EXTRA_CA_CERTS=$CA_CERT
 export CURL_CA_BUNDLE=$CA_BUNDLE
 export SSL_CERT_FILE=$CA_BUNDLE
 export REQUESTS_CA_BUNDLE=$CA_BUNDLE
 EOF
-  if [ -f "$PHANTOMS" ]; then
-    cat "$PHANTOMS"
-  fi
+  print_phantoms
+}
+
+# Guest-oriented exports for `sb ssh`. The CA path must be the copy on the
+# guest; the host bundle is macOS roots and must not be used as CURL_CA_BUNDLE
+# inside Linux. Does not start the proxy: the caller does that.
+cmd_guest_env() {
+  need_state
+  local ca_path="${1:-}"
+  [ -n "$ca_path" ] || die "guest-env requires the guest CA path"
+  print_proxy_exports "$ca_path"
+  print_phantoms
+}
+
+cmd_port() {
+  echo "$PORT"
 }
 
 cmd_ca() {
@@ -151,9 +184,10 @@ by processes that are not inside a nono sandbox.
 
 Usage:
 
-  nono-proxy start|stop|status|env|ca|help
+  nono-proxy start|stop|status|env|guest-env|port|ca|help
 
   eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
+  nono-proxy guest-env <guest-ca-path>
   nono-proxy stop
 
 CA, password, and phantom exports are created by `./install dotfiles`.
@@ -167,6 +201,8 @@ case "${1:-help}" in
   stop) cmd_stop ;;
   status) cmd_status ;;
   env) cmd_env ;;
+  guest-env) cmd_guest_env "${2:-}" ;;
+  port) cmd_port ;;
   ca) cmd_ca ;;
   help | --help | -h) cmd_help ;;
   *) die "unknown command: $1 (try \`nono-proxy help\`)" ;;

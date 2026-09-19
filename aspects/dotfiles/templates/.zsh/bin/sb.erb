@@ -34,7 +34,7 @@ SB_VM_IMAGE="<%= variables.sbVmImage %>"
 
 VM_USER="admin"
 VM_PASS="admin"
-SSH_OPTS=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=5 -o ControlPath=none -o SendEnv=ANTHROPIC_API_KEY -o SendEnv=CLAUDE_CODE_OAUTH_TOKEN -o SendEnv=KAGI_API_TOKEN -o SendEnv=LANG -o 'SendEnv=LC_*')
+SSH_OPTS=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=5 -o ControlPath=none -o SendEnv=LANG -o 'SendEnv=LC_*')
 
 # --- Helpers (available to .sandboxrc) ---
 
@@ -269,6 +269,59 @@ setup_git_remote() {
     git -C "$PROJECT_ROOT" config remote.vm.skipDefaultUpdate true
 }
 
+# Start host `nono-proxy`, copy its CA into the guest, and prepare a remote
+# command prefix that exports proxy/phantom variables. Credentials stay on
+# the host: the guest sees only phantoms, and `ssh -R` keeps the proxy off
+# the LAN. Env is injected as a remote command (not SendEnv) so it works
+# before the guest sshd AcceptEnv is updated, and so a host shell that still
+# holds a real key cannot leak it.
+#
+# Sets GUEST_ENV_SCRIPT and SB_NONO_PROXY_PORT on success.
+setup_nono_proxy_for_vm() {
+    local ip="$1"
+    GUEST_ENV_SCRIPT=""
+    SB_NONO_PROXY_PORT=""
+
+    if ! command -v nono-proxy >/dev/null 2>&1; then
+        echo "sb: nono-proxy not found; guest will have no API credentials" >&2
+        return 1
+    fi
+
+    if ! nono-proxy start; then
+        echo "sb: failed to start nono-proxy; guest will have no API credentials" >&2
+        return 1
+    fi
+
+    local ca port guest_dir guest_ca
+    ca="$(nono-proxy ca)" || {
+        echo "sb: nono-proxy CA missing; run ./install dotfiles" >&2
+        return 1
+    }
+    port="$(nono-proxy port)" || {
+        echo "sb: nono-proxy port failed" >&2
+        return 1
+    }
+    guest_dir="/home/$VM_USER/.local/state/nono-proxy"
+    guest_ca="$guest_dir/ca.crt"
+
+    if ! sb_ssh "$ip" "mkdir -p $(printf '%q' "$guest_dir") && chmod 700 $(printf '%q' "$guest_dir")"; then
+        echo "sb: could not create $guest_dir on the guest" >&2
+        return 1
+    fi
+    if ! sb_scp "$ca" "$VM_USER@$ip:$guest_ca"; then
+        echo "sb: could not copy nono-proxy CA to the guest" >&2
+        return 1
+    fi
+
+    GUEST_ENV_SCRIPT="$(nono-proxy guest-env "$guest_ca")" || {
+        echo "sb: nono-proxy guest-env failed" >&2
+        return 1
+    }
+    GUEST_ENV_SCRIPT="${GUEST_ENV_SCRIPT%$'\n'}"$'\n'
+    SB_NONO_PROXY_PORT="$port"
+    return 0
+}
+
 # --- Commands ---
 
 cmd_create() {
@@ -334,15 +387,32 @@ cmd_ssh() {
         local vm_sock="${sock##*:}"
         socket_args+=(-R "$vm_sock:$host_sock")
     done
+    local proxy_args=()
+    GUEST_ENV_SCRIPT=""
+    SB_NONO_PROXY_PORT=""
+    if setup_nono_proxy_for_vm "$ip"; then
+        proxy_args+=(-R "$SB_NONO_PROXY_PORT:127.0.0.1:$SB_NONO_PROXY_PORT")
+    else
+        echo "sb: continuing without credential proxy" >&2
+    fi
     local cmd_args=()
     if [ $# -gt 0 ]; then
-        cmd_args=("$@")
+        if [ -n "$GUEST_ENV_SCRIPT" ]; then
+            cmd_args=("${GUEST_ENV_SCRIPT}$(printf '%q ' "$@")")
+        else
+            cmd_args=("$@")
+        fi
     elif [ -n "$SB_SSH_EXEC" ]; then
-        cmd_args=(-t "$SB_SSH_EXEC")
+        if [ -n "$GUEST_ENV_SCRIPT" ]; then
+            cmd_args=(-t "${GUEST_ENV_SCRIPT}${SB_SSH_EXEC}")
+        else
+            cmd_args=(-t "$SB_SSH_EXEC")
+        fi
     fi
     exec ssh "${SSH_OPTS[@]}" \
         "${port_args[@]+"${port_args[@]}"}" \
         "${socket_args[@]+"${socket_args[@]}"}" \
+        "${proxy_args[@]+"${proxy_args[@]}"}" \
         "$VM_USER@$ip" "${cmd_args[@]+"${cmd_args[@]}"}"
 }
 
@@ -666,7 +736,9 @@ Manage sandbox VMs for isolated development with coding agents.
 
 Commands:
   create       Create and provision a sandbox VM [--use-registry]
-  ssh [cmd]    SSH into the VM; with args, runs command non-interactively
+  ssh [cmd]    SSH into the VM; with args, runs command non-interactively.
+               Starts host nono-proxy, forwards it over ssh -R, and exports
+               phantom API credentials in the guest.
   scp          Copy files to/from VM (use vm: prefix for VM paths)
   start        Start a stopped VM
   stop         Stop the VM (preserves state)
