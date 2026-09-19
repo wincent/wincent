@@ -20,6 +20,12 @@
     "access": "readwrite"
   },
 
+  // Hide expected CFPreferences / NSUserDefaults probes from Node and Apple
+  // frameworks. Does not grant access.
+  "diagnostics": {
+    "suppress_system_services": ["user-preference-read"]
+  },
+
   "network": {
     "credentials": ["anthropic_api_key", "kagi_search", "xai_api_key"],
     "custom_credentials": {
