@@ -27,7 +27,7 @@
   },
 
   "network": {
-    "credentials": ["anthropic_api_key", "kagi_search", "xai_api_key"],
+    "credentials": ["anthropic_api_key", "kagi_search", "openrouter_api_key", "xai_api_key"],
     "custom_credentials": {
       "anthropic_api_key": {
         "upstream": "https://api.anthropic.com",
@@ -48,6 +48,17 @@
         "credential_format": "Bot {}",
         "env_var": "KAGI_API_TOKEN",
         "endpoint_rules": [{"method": "POST", "path": "/api/v1/search"}]
+      },
+      "openrouter_api_key": {
+        "upstream": "https://openrouter.ai",
+        "credential_key": "op://CLI/openrouter-api-key/credential",
+        "inject_header": "Authorization",
+        "credential_format": "Bearer {}",
+        "env_var": "OPENROUTER_API_KEY",
+        "endpoint_rules": [
+          {"method": "POST", "path": "/api/v1/chat/completions"},
+          {"method": "GET", "path": "/api/v1/models"}
+        ]
       },
       "xai_api_key": {
         "upstream": "https://api.x.ai",

@@ -1,6 +1,6 @@
 {
-  "defaultModel": "grok-4.6",
-  "defaultProvider": "xai",
+  "defaultModel": "deepseek/deepseek-v4.1-flash",
+  "defaultProvider": "openrouter-fireworks",
   "defaultThinkingLevel": "high",
   "enabledModels": [
     "anthropic/claude-fable-5",
@@ -8,6 +8,7 @@
     "anthropic/claude-sonnet-5",
     "anthropic/claude-haiku-4-5",
     "xai/grok-4.6",
+    "openrouter-fireworks/deepseek/deepseek-v4.1-flash",
     "openai/gpt-5.6-sol",
     "openai/gpt-5.6-luna",
     "openai/gpt-5.6-terra",

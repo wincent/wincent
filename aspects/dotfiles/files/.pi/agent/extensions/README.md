@@ -10,6 +10,10 @@ The general-purpose extensions (`edit-answer`, `jj-guard`, `model-info`, `slack-
 
 Sends a desktop notification when pi finishes and is waiting for input. Delegates to the `notify` shell dispatcher (see `~/.zsh/bin/notify` in this dotfiles repo), which picks an appropriate backend (`clip-notify`, `terminal-notifier`, or `notify-send`) based on the current environment.
 
+### `openrouter-fireworks.ts`
+
+Registers an `openrouter-fireworks` provider that exposes [DeepSeek V4.1 Flash](https://openrouter.ai/deepseek/deepseek-v4.1-flash) via OpenRouter, pinned to Fireworks with zero-data-retention routing (no fallbacks, `data_collection: "deny"`). Requires `OPENROUTER_API_KEY`.
+
 ### `web-search.ts`
 
 Registers a `web_search` tool backed by the [Kagi Search API](https://help.kagi.com/kagi/api/search.html) at a cost of $12 per 1,000 queries (ie. 1.2 cents per query). Requires `KAGI_API_TOKEN` in the environment, and throws if unset.
