@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Launch Pi inside the nono sandbox.
+#
+# Usage:
+#
+#   bin/pi [pi-args...]
+#
+# Equivalent to:
+#
+#   nono run --profile pi --allow-cwd -- pi [pi-args...]
+#
+# A PATH shim may replace this later. Until then, invoke it by path so it
+# does not shadow the real `pi` binary.
+
+exec nono run --profile pi --allow-cwd -- pi "$@"

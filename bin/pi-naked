@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Launch Pi outside the nono sandbox, still via the credential proxy.
+#
+# Usage:
+#
+#   bin/pi-naked [pi-args...]
+#
+# Starts `nono-proxy` if needed, exports its proxy/CA/phantom variables,
+# then execs `pi`. The agent is unsandboxed, so it can reach 1Password and
+# the rest of the filesystem; API keys still live only in 1Password and are
+# injected on matching requests.
+#
+# A PATH shim may replace this later. Until then, invoke it by path.
+
+set -e
+
+eval "$(nono-proxy env)"
+exec pi "$@"
