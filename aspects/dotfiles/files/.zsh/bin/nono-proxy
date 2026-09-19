@@ -15,160 +15,93 @@
 # `op` itself. What it buys is no plaintext in the dotfiles, one place to
 # rotate, endpoint restrictions, and a log of every use.
 #
+# The process is started from this script (not launchd) so `op` can talk to
+# the 1Password app in the user session. CA, password, and phantom exports
+# are created by `./install dotfiles`.
+#
 # Usage:
 #
 #   nono-proxy start|stop|status|env|ca|help
 #
 #   eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
 #   nono-proxy stop
-#
-# Environment:
-#
-#   NONO_PROXY_PORT      loopback port to listen on (default: 18099)
-#   NONO_PROXY_PROFILE   nono profile supplying the credential routes
-#                        (default: pi)
-#   OP_ACCOUNT           required, because "op://" URIs cannot name an account
-#                        and a bare `op read` is ambiguous with more than one
-#                        account signed in
 
 set -euo pipefail
 
-PORT="${NONO_PROXY_PORT:-18099}"
-PROFILE="${NONO_PROXY_PROFILE:-pi}"
-
-STATE="${XDG_STATE_HOME:-$HOME/.local/state}/nono-proxy"
+PORT=18099
+PROFILE=pi
+STATE="$HOME/.local/state/nono-proxy"
 CA_CERT="$STATE/ca.crt"
 CA_KEY="$STATE/ca.key"
 CA_BUNDLE="$STATE/bundle.crt"
 PASS_FILE="$STATE/pass"
-PID_FILE="$STATE/pid"
+PHANTOMS="$STATE/phantoms.env"
 LOG_FILE="$STATE/log"
+PID_FILE="$STATE/pid"
 
 die() {
   echo "nono-proxy: $*" >&2
   exit 1
 }
 
-# The CA is only ever trusted by clients on this machine (and, later, by a VM
-# we hand it to), so regenerating it is cheap: nothing depends on the old one
-# beyond restarting whatever trusted it.
-#
-# Must be EC (P-256) in PKCS#8: nono rejects an RSA key with "Key rejected by
-# ring: WrongAlgorithm".
-ensure_ca() {
-  if [ -f "$CA_CERT" ] && [ -f "$CA_KEY" ]; then
-    # Refuse to hand nono an expired CA; the failure mode otherwise is a TLS
-    # error in whatever client is using the proxy, far from the cause.
-    if ! openssl x509 -in "$CA_CERT" -checkend 0 >/dev/null 2>&1; then
-      echo "nono-proxy: CA expired; regenerating" >&2
-      rm -f "$CA_CERT" "$CA_KEY"
-    else
-      # Explicit 0: a bare `return` here would propagate $? from the negated
-      # condition above (ie. 1), and `set -e` would abort the caller.
-      return 0
-    fi
-  fi
-
-  echo "nono-proxy: generating CA in $STATE" >&2
-  openssl req -x509 -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -nodes \
-    -keyout "$CA_KEY" -out "$CA_CERT" -days 365 \
-    -subj "/CN=nono proxy (local)" \
-    -addext "basicConstraints=critical,CA:TRUE" 2>/dev/null \
-    || die "failed to generate CA"
-  chmod 600 "$CA_KEY"
+need_state() {
+  [ -f "$PASS_FILE" ] && [ -f "$CA_CERT" ] && [ -f "$CA_KEY" ] && [ -f "$CA_BUNDLE" ] ||
+    die "state missing under $STATE; run \`./install dotfiles\`"
 }
 
-# Clients that take a single CA *file* (curl, Python, Ruby, Go) need the
-# public roots as well as ours, or every unintercepted host breaks. Node is
-# the exception: $NODE_EXTRA_CA_CERTS is additive, so it gets the bare CA.
-#
-# macOS ships no PEM bundle of the system roots (its curl uses SecureTransport
-# and the keychain), so take Homebrew's if present and fall back to exporting
-# the login keychain's roots.
-ensure_bundle() {
-  if [ -f "$CA_BUNDLE" ] && [ "$CA_BUNDLE" -nt "$CA_CERT" ]; then
-    return 0
-  fi
-
-  local roots="/opt/homebrew/etc/ca-certificates/cert.pem"
-  if [ -f "$roots" ]; then
-    cat "$roots" "$CA_CERT" > "$CA_BUNDLE"
-  else
-    {
-      security find-certificate -a -p \
-        /System/Library/Keychains/SystemRootCertificates.keychain 2>/dev/null
-      cat "$CA_CERT"
-    } > "$CA_BUNDLE"
-  fi
+listening() {
+  nc -z 127.0.0.1 "$PORT" 2>/dev/null
 }
 
-ensure_pass() {
-  if [ ! -f "$PASS_FILE" ]; then
-    (umask 077; openssl rand -hex 16 > "$PASS_FILE")
-  fi
-}
-
-running() {
-  [ -f "$PID_FILE" ] || return 1
-  local pid
-  pid="$(<"$PID_FILE")"
-  [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null
-}
-
-cmd_start() {
-  if running; then
-    return 0
-  fi
-
-  command -v nono >/dev/null || die "nono is not installed"
-  [ -n "${OP_ACCOUNT:-}" ] || die "OP_ACCOUNT is not set; credential lookups would be ambiguous"
-
-  mkdir -p "$STATE"
-  chmod 700 "$STATE"
-  ensure_ca
-  ensure_bundle
-  ensure_pass
-
-  # Loopback only: the proxy holds live credentials, and binding anything
-  # wider would lend them to the local network. A VM should reach this over
-  # `ssh -R`, which arrives on loopback too.
-  NONO_PROXY_PASS="$(<"$PASS_FILE")" \
-    nohup nono proxy \
-      --profile "$PROFILE" \
-      --listen 127.0.0.1 \
-      --port "$PORT" \
-      --proxy-ca-cert "$CA_CERT" \
-      --proxy-ca-key "$CA_KEY" \
-      >"$LOG_FILE" 2>&1 &
-  echo $! > "$PID_FILE"
-
-  # Wait for the listener rather than assuming: a bad profile or a failed
-  # credential lookup shows up here, not later in some client.
+wait_for_listen() {
   local i
-  for i in $(seq 1 30); do
-    if ! running; then
-      die "proxy exited during startup; see $LOG_FILE"
-    fi
-    if nc -z 127.0.0.1 "$PORT" 2>/dev/null; then
+  for i in $(seq 1 50); do
+    if listening; then
       return 0
     fi
-    sleep 0.2
+    sleep 0.1
   done
   die "proxy did not start listening on port $PORT; see $LOG_FILE"
 }
 
-cmd_stop() {
-  if ! running; then
-    rm -f "$PID_FILE"
+cmd_start() {
+  need_state
+  if listening; then
     return 0
   fi
-  kill "$(<"$PID_FILE")" 2>/dev/null || true
-  rm -f "$PID_FILE"
+
+  command -v nono >/dev/null || die "nono is not installed"
+  export OP_ACCOUNT="${OP_ACCOUNT:-my.1password.eu}"
+  export NONO_PROXY_PASS="$(<"$PASS_FILE")"
+
+  # Loopback only: the proxy holds live credentials. A VM should reach this
+  # over `ssh -R`, which arrives on loopback too.
+  nohup nono proxy \
+    --profile "$PROFILE" \
+    --listen 127.0.0.1 \
+    --port "$PORT" \
+    --proxy-ca-cert "$CA_CERT" \
+    --proxy-ca-key "$CA_KEY" \
+    >"$LOG_FILE" 2>&1 &
+  echo $! > "$PID_FILE"
+
+  wait_for_listen
+}
+
+cmd_stop() {
+  if [ -f "$PID_FILE" ]; then
+    local pid
+    pid="$(<"$PID_FILE")"
+    if [ -n "$pid" ]; then
+      kill "$pid" 2>/dev/null || true
+    fi
+    rm -f "$PID_FILE"
+  fi
 }
 
 cmd_status() {
-  if running; then
-    echo "running (pid $(<"$PID_FILE"), profile $PROFILE, port $PORT)"
+  if listening; then
+    echo "running (profile $PROFILE, port $PORT)"
   else
     echo "not running"
     return 1
@@ -178,12 +111,17 @@ cmd_status() {
 # Placeholder credentials: the proxy overwrites the injected header, so the
 # value is never used. They exist because clients check that a variable is set
 # before making a request (Pi's `web_search` throws without $KAGI_API_TOKEN,
-# and a provider with no key is treated as unavailable).
+# and a provider with no key is treated as unavailable). The names themselves
+# come from the profile, via $PHANTOMS, written at install time.
 #
 # $NO_PROXY keeps loopback traffic direct, so that local services (eg. agent
 # observability on 127.0.0.1) are not routed through, and intercepted by, the
 # proxy.
 cmd_env() {
+  need_state
+  if ! openssl x509 -in "$CA_CERT" -checkend 0 >/dev/null 2>&1; then
+    die "CA expired; run \`./install dotfiles\`"
+  fi
   cmd_start
   local pass
   pass="$(<"$PASS_FILE")"
@@ -195,20 +133,33 @@ export NODE_EXTRA_CA_CERTS=$CA_CERT
 export CURL_CA_BUNDLE=$CA_BUNDLE
 export SSL_CERT_FILE=$CA_BUNDLE
 export REQUESTS_CA_BUNDLE=$CA_BUNDLE
-export ANTHROPIC_API_KEY=proxied
-export KAGI_API_TOKEN=proxied
-export XAI_API_KEY=proxied
 EOF
+  if [ -f "$PHANTOMS" ]; then
+    cat "$PHANTOMS"
+  fi
 }
 
 cmd_ca() {
-  ensure_ca
-  ensure_bundle
+  need_state
   echo "$CA_CERT"
 }
 
 cmd_help() {
-  sed -n '3,30p' "$0" | sed 's/^# \{0,1\}//'
+  cat <<'EOF'
+Run nono's credential-injecting proxy as a standalone server, for use
+by processes that are not inside a nono sandbox.
+
+Usage:
+
+  nono-proxy start|stop|status|env|ca|help
+
+  eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
+  nono-proxy stop
+
+CA, password, and phantom exports are created by `./install dotfiles`.
+The process itself is started from this script so 1Password CLI can
+talk to the unlocked 1Password app.
+EOF
 }
 
 case "${1:-help}" in

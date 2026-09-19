@@ -17,6 +17,7 @@ import {
   variable,
   variables,
 } from 'fig';
+import {phantomEnvExports} from './support/nono-proxy.ts';
 
 const {is, isDecrypted, when} = helpers;
 
@@ -253,6 +254,124 @@ task('install ~/.config/nono/profiles/pi.jsonc', async () => {
   await file({
     path: '~/.config/nono/profiles/pi.jsonc',
     src: resource.file('.config/nono/profiles/pi.jsonc'),
+    state: 'file',
+  });
+});
+
+// CA, password, bundle, and phantom env for the unsandboxed
+// credential proxy. The process itself is started by ~/.zsh/bin/nono-proxy
+// from the user session (1Password CLI cannot run under launchd).
+task('set up nono-proxy state', when('darwin'), async () => {
+  const stateDir = path.home.join('.local/state/nono-proxy');
+  const caCert = stateDir.join('ca.crt');
+  const caKey = stateDir.join('ca.key');
+  const bundle = stateDir.join('bundle.crt');
+  const passFile = stateDir.join('pass');
+
+  await file({
+    mode: '0700',
+    path: stateDir.toString(),
+    state: 'directory',
+  });
+
+  const caPresent = fs.existsSync(caCert) && fs.existsSync(caKey);
+  const caCheck = caPresent
+    ? await command(
+      'openssl',
+      ['x509', '-in', caCert.toString(), '-checkend', '0'],
+      {failedWhen: () => false},
+    )
+    : null;
+  // `command` returns null in check mode: treat an on-disk CA as valid so we
+  // do not pretend we are about to regenerate it.
+  const caValid = caPresent && (caCheck === null || caCheck.status === 0);
+
+  if (!caValid) {
+    if (caPresent) {
+      await log.warn('nono-proxy CA expired; regenerating');
+      await command('rm', ['-f', caCert.toString(), caKey.toString()]);
+    } else {
+      await log.info(`generating nono-proxy CA in ${stateDir}`);
+    }
+
+    // Must be EC (P-256) in PKCS#8: nono rejects RSA with WrongAlgorithm.
+    await command('openssl', [
+      'req',
+      '-x509',
+      '-newkey',
+      'ec',
+      '-pkeyopt',
+      'ec_paramgen_curve:prime256v1',
+      '-nodes',
+      '-keyout',
+      caKey.toString(),
+      '-out',
+      caCert.toString(),
+      '-days',
+      '365',
+      '-subj',
+      '/CN=nono proxy (local)',
+      '-addext',
+      'basicConstraints=critical,CA:TRUE',
+    ]);
+    await command('chmod', ['600', caKey.toString()]);
+  }
+
+  if (!fs.existsSync(caCert) || !fs.existsSync(caKey)) {
+    await skip('nono-proxy CA not present');
+    return;
+  }
+
+  // macOS has no PEM bundle of the system roots. Export them from the
+  // SystemRootCertificates keychain.
+  const result = await command('security', [
+    'find-certificate',
+    '-a',
+    '-p',
+    '/System/Library/Keychains/SystemRootCertificates.keychain',
+  ]);
+
+  if (!result) {
+    await skip('could not read system TLS roots');
+    return;
+  }
+
+  const roots = result.stdout;
+  const caPem = await fs.promises.readFile(caCert, 'utf8');
+  const rootsWithNl = roots.endsWith('\n') ? roots : `${roots}\n`;
+
+  await file({
+    contents: `${rootsWithNl}${caPem}`,
+    path: bundle.toString(),
+    state: 'file',
+  });
+
+  if (!fs.existsSync(passFile)) {
+    const rand = await command('openssl', ['rand', '-hex', '16']);
+
+    if (rand) {
+      await file({
+        contents: `${rand.stdout.trim()}\n`,
+        mode: '0600',
+        path: passFile.toString(),
+        state: 'file',
+      });
+    }
+  }
+
+  if (!fs.existsSync(passFile)) {
+    await skip('nono-proxy password not present');
+    return;
+  }
+
+  const profileText = await fs.promises.readFile(
+    resource.file('.config/nono/profiles/pi.jsonc'),
+    'utf8',
+  );
+
+  await file({
+    contents: phantomEnvExports(profileText),
+    path: stateDir.join('phantoms.env').toString(),
     state: 'file',
   });
 });
