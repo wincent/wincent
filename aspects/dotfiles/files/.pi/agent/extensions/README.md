@@ -10,9 +10,9 @@ The general-purpose extensions (`edit-answer`, `jj-guard`, `model-info`, `slack-
 
 Sends a desktop notification when pi finishes and is waiting for input. Delegates to the `notify` shell dispatcher (see `~/.zsh/bin/notify` in this dotfiles repo), which picks an appropriate backend (`clip-notify`, `terminal-notifier`, or `notify-send`) based on the current environment.
 
-### `openrouter-fireworks.ts`
+### `openrouter-zdr.ts`
 
-Registers an `openrouter-fireworks` provider that exposes [DeepSeek V4.1 Flash](https://openrouter.ai/deepseek/deepseek-v4.1-flash) via OpenRouter, pinned to Fireworks with zero-data-retention routing (no fallbacks, `data_collection: "deny"`). Requires `OPENROUTER_API_KEY`.
+Registers an `openrouter-zdr` provider that exposes [DeepSeek V4.1 Flash](https://openrouter.ai/deepseek/deepseek-v4.1-flash) via OpenRouter, with separate Fireworks and DeepInfra pins. Both pins disable fallbacks and require zero-data-retention (`data_collection: "deny"`). The provider id is not `openrouter`, so pi's built-in OpenRouter catalog is left alone. Requires `OPENROUTER_API_KEY`.
 
 ### `web-search.ts`
 

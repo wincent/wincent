@@ -1,6 +1,6 @@
 {
-  "defaultModel": "deepseek/deepseek-v4.1-flash",
-  "defaultProvider": "openrouter-fireworks",
+  "defaultModel": "deepseek/deepseek-v4.1-flash-deepinfra",
+  "defaultProvider": "openrouter-zdr",
   "defaultThinkingLevel": "high",
   "enabledModels": [
     "anthropic/claude-haiku-4-5",
@@ -10,7 +10,8 @@
     "openai-codex/gpt-6-sol",
     "openai-codex/gpt-5.6-terra",
     "openai-codex/gpt-6-astra",
-    "openrouter-fireworks/deepseek/deepseek-v4.1-flash",
+    "openrouter-zdr/deepseek/deepseek-v4.1-flash-fireworks",
+    "openrouter-zdr/deepseek/deepseek-v4.1-flash-deepinfra",
     "xai/grok-4.7"
   ],
   "extensions": [
