@@ -14,9 +14,8 @@ export default {
       'luajit', // Lua interpreter (for Neovim).
       'libevent-dev', // Event notification library (for tmux).
       'libncurses-dev', // Terminal handling library (for tmux).
-      'libssl-dev', // OpenSSL headers (for shellbot).
       'ninja-build', // Build tool (for Neovim).
-      'pkg-config', // Build tool (for shellbot).
+      'pkg-config', // Build tool (for tmux).
       'ripgrep', // Grep replacement.
       'ruby', // Object-oriented scripting language.
       'tree', // Displays an indented directory tree.

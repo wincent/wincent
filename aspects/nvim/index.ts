@@ -136,30 +136,6 @@ task('install Command-T (Lua)', async () => {
   });
 });
 
-task('build shellbot', async () => {
-  const base = CACHE.join('github/wincent/shellbot');
-
-  await command('cargo', ['build', '--release'], {
-    chdir: base,
-    creates: base.join('target/release/shellbot'),
-  });
-});
-
-task('install shellbot', async () => {
-  const src = CACHE.join('github/wincent/shellbot/target/release/shellbot');
-  const dest = path.aspect.join(
-    'files/.config/nvim/pack/bundle/opt/shellbot/target/release',
-  );
-
-  await file({path: dest, recurse: true, state: 'directory'});
-
-  await file({
-    path: dest.join('shellbot'),
-    src,
-    state: 'file',
-  });
-});
-
 // We'll try several mirrors for each file because historically they've been
 // unreliable.
 const SPELL_FILE_URLS = {

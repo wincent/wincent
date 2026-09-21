@@ -12,7 +12,6 @@ if [[ -o interactive ]]; then
   alias b=bundle
   alias be='bundle exec'
   alias cd..='cd ..'
-  alias shellbot='nvim -c Claude -c only'
   alias d='hash -d'
   alias e=exit
   alias f='find . -name'

@@ -199,10 +199,6 @@ export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
 export SB_CONFIG_PATH="$HOME/.config/sb/repos"
 
-# Shellbot.
-# For now, requires a manual `cargo build --release`.
-export SHELLBOT="$HOME/.config/nvim/pack/bundle/opt/shellbot/target/release/shellbot $HOME/.config/shellbot/prompt"
-
 export WATCHMAN_CONFIG_FILE=$HOME/.config/watchman/config.json
 
 () {

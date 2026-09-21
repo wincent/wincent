@@ -24,7 +24,6 @@
       ".config/picom.conf",
       ".config/pry",
       ".config/screenkey.json",
-      ".config/shellbot",
       ".config/sxhkd",
       ".config/tmux",
       ".config/watchman",

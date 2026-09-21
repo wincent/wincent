@@ -263,7 +263,6 @@ if vim.o.loadplugins then
     'rust.vim',
     'scalpel',
     'shannon',
-    'shellbot',
     'terminus',
     'vcs-jump',
     'vim-ansible-yaml',
@@ -445,32 +444,6 @@ if has_commandt then
   commandt.setup({
     height = 1000, -- Default is 15.
 
-    finders = {
-      -- Choose from a list of :Shellbot sessions.
-      shellbot = {
-        candidates = function()
-          local buffers = {}
-          for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
-            if vim.bo[buffer].filetype == 'shellbot' then
-              local bufpath = vim.api.nvim_buf_get_name(buffer)
-              if bufpath ~= '' then
-                local bufname = vim.fn.fnamemodify(bufpath, ':.')
-                table.insert(buffers, bufname)
-              end
-            end
-          end
-          return buffers
-        end,
-        mode = 'virtual',
-        -- TODO: maybe use `wincent.commandt.private.options.force_dotfiles`, if I decide to make it public
-        options = function(options)
-          -- `options` is a copy, so we're free to mutate it.
-          options.always_show_dot_files = true
-          options.never_show_dot_files = false
-          return options
-        end,
-      },
-    },
     scanners = {
       file = {
         max_files = 1000000,
@@ -488,12 +461,6 @@ if has_commandt then
         include_filenames = true,
       },
     },
-  })
-
-  vim.api.nvim_create_user_command('CommandTShellbot', function(options)
-    require('wincent.commandt.finder')('shellbot', options.args)
-  end, {
-    nargs = 0,
   })
 end
 
