@@ -1,4 +1,5 @@
-# Don't commit this; it has access tokens in it.
+# Don't commit these; they have access tokens in them.
+aster-endpoint.json
 config.json
 
 /node-compile-cache
