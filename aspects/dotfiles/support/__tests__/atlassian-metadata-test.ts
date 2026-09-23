@@ -1,10 +1,7 @@
 import * as assert from 'node:assert/strict';
 import {test} from 'node:test';
 
-import {
-  readAtlassianMetadata,
-  shouldPreserveProfile,
-} from '../atlassian-metadata.ts';
+import {readAtlassianMetadata} from '../atlassian-metadata.ts';
 import {phantomEnvExports, stripJsoncLineComments} from '../nono-proxy.ts';
 import {fixtureMetadata, renderFixtureProfile} from './nono-profile-fixture.ts';
 
@@ -22,7 +19,6 @@ test('metadata reads only site/email, with a fallback account before shell setup
     'my.1password.eu',
   ]]);
   assert.deepEqual(result, {status: 'available', metadata: fixtureMetadata});
-  assert.equal(shouldPreserveProfile(result, true), false);
 });
 
 test('metadata honors an explicit account and normalizes the hostname', async () => {
@@ -48,11 +44,9 @@ test('missing op/auth failure is optional and does not retry or expose subproces
   });
   assert.equal(calls, 1);
   assert.deepEqual(result, {status: 'unavailable', metadata: null});
-  assert.equal(shouldPreserveProfile(result, false), false);
-  assert.equal(shouldPreserveProfile(result, true), true);
 });
 
-test('a failed second field discards partial metadata and preserves an existing profile', async () => {
+test('a failed second field discards partial metadata', async () => {
   const result = await readAtlassianMetadata({
     read: async (field) => {
       if (field === 'site') {
@@ -62,7 +56,6 @@ test('a failed second field discards partial metadata and preserves an existing 
     },
   });
   assert.deepEqual(result, {status: 'unavailable', metadata: null});
-  assert.equal(shouldPreserveProfile(result, true), true);
 });
 
 test('dry runs and VMs can skip 1Password entirely', async () => {
@@ -73,8 +66,6 @@ test('dry runs and VMs can skip 1Password entirely', async () => {
     },
   });
   assert.deepEqual(result, {status: 'skipped', metadata: null});
-  assert.equal(shouldPreserveProfile(result, false), false);
-  assert.equal(shouldPreserveProfile(result, true), true);
 });
 
 test('invalid or expansion-bearing metadata never produces a partial route', async () => {
@@ -96,11 +87,10 @@ test('invalid or expansion-bearing metadata never produces a partial route', asy
       read: async (field) => metadata[field],
     });
     assert.deepEqual(result, {status: 'invalid', metadata: null});
-    assert.equal(shouldPreserveProfile(result, true), true);
   }
 });
 
-test('first-run template has no Atlassian route or exports', () => {
+test('template without metadata has no Atlassian route or exports', () => {
   const rendered = renderFixtureProfile(null);
   const parsed = JSON.parse(stripJsoncLineComments(rendered));
   assert.equal(parsed.network.custom_credentials.atlassian, undefined);
@@ -111,7 +101,7 @@ test('first-run template has no Atlassian route or exports', () => {
   assert.match(phantomEnvExports(rendered), /ANTHROPIC_API_KEY=proxied/);
 });
 
-test('second-run template activates the exact tenant with escaped metadata and an op reference only', () => {
+test('template with metadata activates the exact tenant with escaped metadata and an op reference only', () => {
   const metadata = {...fixtureMetadata, email: "o'brien@example.com"};
   const rendered = renderFixtureProfile(metadata);
   const parsed = JSON.parse(stripJsoncLineComments(rendered));

@@ -19,10 +19,7 @@ import {
   variable,
   variables,
 } from 'fig';
-import {
-  readAtlassianMetadata,
-  shouldPreserveProfile,
-} from './support/atlassian-metadata.ts';
+import {readAtlassianMetadata} from './support/atlassian-metadata.ts';
 import {
   phantomEnvExports,
   sharedEnvExports,
@@ -273,13 +270,6 @@ task(
       );
     }
 
-    if (shouldPreserveProfile(result, fs.existsSync(destination))) {
-      await skip(
-        'preserving installed nono profile; private metadata was not refreshed',
-      );
-      return;
-    }
-
     await template({
       mode: '0600',
       path: destination.toString(),
@@ -402,8 +392,7 @@ task(
       return;
     }
 
-    // Always derive exports from the installed effective profile, including
-    // when a failed metadata refresh preserved the previous profile.
+    // Always derive exports from the installed effective profile.
     const installedProfile = path.home.join('.config/nono/profiles/pi.jsonc');
     if (!fs.existsSync(installedProfile)) {
       await skip('nono profile not present (first-run check mode)');

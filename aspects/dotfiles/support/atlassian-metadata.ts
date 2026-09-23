@@ -62,11 +62,3 @@ export async function readAtlassianMetadata({
     return {status: 'unavailable', metadata: null};
   }
 }
-
-/** Preserve an installed profile if optional metadata cannot be refreshed. */
-export function shouldPreserveProfile(
-  result: MetadataResult,
-  installed: boolean,
-): boolean {
-  return installed && result.status !== 'available';
-}
