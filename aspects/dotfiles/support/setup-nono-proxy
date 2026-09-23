@@ -1,0 +1,56 @@
+#!/bin/bash
+# Provision the macOS credential proxy's CA, TLS bundle, and password.
+# Profile-derived exports are written separately by the dotfiles installer.
+# This does not start or restart the proxy.
+
+set -euo pipefail
+umask 077
+
+STATE="$HOME/.local/state/nono-proxy"
+CA_CERT="$STATE/ca.crt"
+CA_KEY="$STATE/ca.key"
+PASS_FILE="$STATE/pass"
+
+mkdir -p "$STATE"
+chmod 700 "$STATE"
+for secret in "$CA_KEY" "$PASS_FILE"; do
+  if [ -f "$secret" ]; then
+    chmod 600 "$secret"
+  fi
+done
+
+TEMP="$(mktemp -d "$STATE/.setup.XXXXXX")"
+trap 'rm -rf "$TEMP"' EXIT
+trap 'exit 1' HUP INT TERM
+
+cert="$CA_CERT"
+if [ ! -f "$CA_CERT" ] || [ ! -f "$CA_KEY" ] ||
+  ! openssl x509 -in "$CA_CERT" -checkend 0 >/dev/null 2>&1; then
+  echo "nono-proxy: generating missing or expired CA in $STATE" >&2
+
+  # Must be EC (P-256) in PKCS#8: nono rejects RSA with WrongAlgorithm.
+  openssl req -x509 -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 \
+    -nodes -keyout "$TEMP/ca.key" -out "$TEMP/ca.crt" -days 365 \
+    -subj '/CN=nono proxy (local)' -addext 'basicConstraints=critical,CA:TRUE'
+  cert="$TEMP/ca.crt"
+fi
+
+# macOS has no PEM bundle of the system roots. Export them from the keychain.
+roots="$(security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain)"
+printf '%s\n' "$roots" > "$TEMP/bundle.crt"
+cat "$cert" >> "$TEMP/bundle.crt"
+
+if [ ! -f "$PASS_FILE" ]; then
+  openssl rand -hex 16 > "$TEMP/pass"
+fi
+
+# Finish generating everything before replacing any installed files. Individual
+# renames keep readers from seeing partially written files.
+if [ "$cert" = "$TEMP/ca.crt" ]; then
+  mv "$TEMP/ca.key" "$CA_KEY"
+  mv "$TEMP/ca.crt" "$CA_CERT"
+fi
+mv "$TEMP/bundle.crt" "$STATE/bundle.crt"
+if [ -f "$TEMP/pass" ]; then
+  mv "$TEMP/pass" "$PASS_FILE"
+fi

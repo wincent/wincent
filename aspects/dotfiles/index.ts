@@ -20,11 +20,7 @@ import {
   variables,
 } from 'fig';
 import {readAtlassianMetadata} from './support/atlassian-metadata.ts';
-import {
-  phantomEnvExports,
-  sharedEnvExports,
-  stripJsoncLineComments,
-} from './support/nono-proxy.ts';
+import {proxyEnvExports} from './support/nono-proxy.ts';
 
 const {is, isDecrypted, not, when} = helpers;
 
@@ -291,133 +287,25 @@ task(
   when('wincent', 'darwin', not('vm')),
   async () => {
     const stateDir = path.home.join('.local/state/nono-proxy');
-    const caCert = stateDir.join('ca.crt');
-    const caKey = stateDir.join('ca.key');
-    const bundle = stateDir.join('bundle.crt');
-    const passFile = stateDir.join('pass');
-
-    await file({
-      mode: '0700',
-      path: stateDir.toString(),
-      state: 'directory',
-    });
-
-    const caPresent = fs.existsSync(caCert) && fs.existsSync(caKey);
-    const caCheck = caPresent
-      ? await command(
-        'openssl',
-        ['x509', '-in', caCert.toString(), '-checkend', '0'],
-        {failedWhen: () => false},
-      )
-      : null;
-    // `command` returns null in check mode: treat an on-disk CA as valid so we
-    // do not pretend we are about to regenerate it.
-    const caValid = caPresent && (caCheck === null || caCheck.status === 0);
-
-    if (!caValid) {
-      if (caPresent) {
-        await log.warn('nono-proxy CA expired; regenerating');
-        await command('rm', ['-f', caCert.toString(), caKey.toString()]);
-      } else {
-        await log.info(`generating nono-proxy CA in ${stateDir}`);
-      }
-
-      // Must be EC (P-256) in PKCS#8: nono rejects RSA with WrongAlgorithm.
-      await command('openssl', [
-        'req',
-        '-x509',
-        '-newkey',
-        'ec',
-        '-pkeyopt',
-        'ec_paramgen_curve:prime256v1',
-        '-nodes',
-        '-keyout',
-        caKey.toString(),
-        '-out',
-        caCert.toString(),
-        '-days',
-        '365',
-        '-subj',
-        '/CN=nono proxy (local)',
-        '-addext',
-        'basicConstraints=critical,CA:TRUE',
-      ]);
-      await command('chmod', ['600', caKey.toString()]);
-    }
-
-    if (!fs.existsSync(caCert) || !fs.existsSync(caKey)) {
-      await skip('nono-proxy CA not present');
-      return;
-    }
-
-    // macOS has no PEM bundle of the system roots. Export them from the
-    // SystemRootCertificates keychain.
-    const result = await command('security', [
-      'find-certificate',
-      '-a',
-      '-p',
-      '/System/Library/Keychains/SystemRootCertificates.keychain',
-    ]);
-
-    if (!result) {
-      await skip('could not read system TLS roots');
-      return;
-    }
-
-    const roots = result.stdout;
-    const caPem = await fs.promises.readFile(caCert, 'utf8');
-    const rootsWithNl = roots.endsWith('\n') ? roots : `${roots}\n`;
-
-    await file({
-      contents: `${rootsWithNl}${caPem}`,
-      path: bundle.toString(),
-      state: 'file',
-    });
-
-    if (!fs.existsSync(passFile)) {
-      const rand = await command('openssl', ['rand', '-hex', '16']);
-
-      if (rand) {
-        await file({
-          contents: `${rand.stdout.trim()}\n`,
-          mode: '0600',
-          path: passFile.toString(),
-          state: 'file',
-        });
-      }
-    }
-
-    if (!fs.existsSync(passFile)) {
-      await skip('nono-proxy password not present');
+    // `command` skips execution in check mode. Do not derive exports from
+    // an older installed profile when the new one has not been rendered.
+    if (!(await command(resource.support('setup-nono-proxy'), []))) {
       return;
     }
 
     // Always derive exports from the installed effective profile.
     const installedProfile = path.home.join('.config/nono/profiles/pi.jsonc');
-    if (!fs.existsSync(installedProfile)) {
-      await skip('nono profile not present (first-run check mode)');
-      return;
-    }
     const profileText = await fs.promises.readFile(installedProfile, 'utf8');
-    const setVars =
-      JSON.parse(stripJsoncLineComments(profileText)).environment?.set_vars ??
-        {};
-
-    // Explicitly share only portable, nonsecret metadata.
-    const sharedNames = ['ATLASSIAN_SITE', 'ATLASSIAN_EMAIL'];
-    const sharedEnv = sharedEnvExports(
-      profileText,
-      sharedNames.filter((name) => Object.hasOwn(setVars, name)),
-    );
+    const {shared, phantoms} = proxyEnvExports(profileText);
 
     await file({
-      contents: sharedEnv,
+      contents: shared,
       path: stateDir.join('shared.env').toString(),
       state: 'file',
     });
 
     await file({
-      contents: phantomEnvExports(profileText),
+      contents: phantoms,
       path: stateDir.join('phantoms.env').toString(),
       state: 'file',
     });

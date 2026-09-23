@@ -14,6 +14,27 @@ type Profile = {
 };
 
 /**
+ * Derive client exports from the installed profile, sharing only portable,
+ * nonsecret metadata that is present in that profile.
+ */
+export function proxyEnvExports(profileText: string): {
+  shared: string;
+  phantoms: string;
+} {
+  const parsed = JSON.parse(stripJsoncLineComments(profileText)) as Profile;
+  const setVars = parsed.environment?.set_vars ?? {};
+  const sharedNames = ['ATLASSIAN_SITE', 'ATLASSIAN_EMAIL'];
+
+  return {
+    shared: sharedEnvExports(
+      profileText,
+      sharedNames.filter((name) => Object.hasOwn(setVars, name)),
+    ),
+    phantoms: phantomEnvExports(profileText),
+  };
+}
+
+/**
  * Copy explicitly selected, nonsecret set_vars into host/guest environments.
  * Do not expand host paths or read env_credentials/credential sources. Values
  * must be literal so they have the same meaning outside nono's sandbox.

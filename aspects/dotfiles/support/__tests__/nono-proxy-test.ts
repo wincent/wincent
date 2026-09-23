@@ -16,6 +16,7 @@ import {fileURLToPath} from 'node:url';
 
 import {
   phantomEnvExports,
+  proxyEnvExports,
   sharedEnvExports,
   stripJsoncLineComments,
 } from '../nono-proxy.ts';
@@ -219,6 +220,36 @@ test('the rendered profile exports fixture metadata and a placeholder without sa
     /^export ATLASSIAN_API_KEY=proxied$/m,
   );
   assert.doesNotMatch(phantomEnvExports(source), /op:\/\/|XDG_/);
+});
+
+test('proxy exports follow optional metadata in the installed profile', () => {
+  const source = renderFixtureProfile();
+  assert.deepEqual(proxyEnvExports(source), {
+    shared: sharedEnvExports(source, ['ATLASSIAN_SITE', 'ATLASSIAN_EMAIL']),
+    phantoms: phantomEnvExports(source),
+  });
+
+  const withoutAtlassian = renderFixtureProfile(null);
+  const exports = proxyEnvExports(withoutAtlassian);
+  assert.equal(exports.shared, '');
+  assert.equal(exports.phantoms, phantomEnvExports(withoutAtlassian));
+  assert.doesNotMatch(exports.phantoms, /ATLASSIAN_API_KEY/);
+  assert.deepEqual(proxyEnvExports('{}'), {shared: '', phantoms: ''});
+
+  // Unselected profile variables stay private; selected values still receive
+  // the existing literal-value and shell-quoting checks.
+  assert.equal(proxyEnvExports(profile).shared, '');
+  assert.equal(
+    proxyEnvExports(JSON.stringify({
+      environment: {set_vars: {ATLASSIAN_EMAIL: "o'brien@example.com"}},
+    })).shared,
+    "export ATLASSIAN_EMAIL='o'\\''brien@example.com'\n",
+  );
+  assert.throws(() =>
+    proxyEnvExports(JSON.stringify({
+      environment: {set_vars: {ATLASSIAN_SITE: '$HOST'}},
+    }))
+  );
 });
 
 test('the Atlassian route allows all operations but binds credentials to the exact tenant', () => {
