@@ -142,7 +142,17 @@ sb status # Check whether sandbox is running and its IP.
 sb ssh # Connect to the VM.
 ```
 
-`sb ssh` starts host `nono-proxy` if needed, remote-forwards it onto the guest loopback, copies the proxy CA, and exports phantom API credentials in the session. The guest never holds a real key. `bin/pi` inside the VM falls through to unsandboxed `pi` (there is no Seatbelt on Linux) and talks to Grok (and other routed providers) through that proxy.
+`sb ssh` starts host `nono-proxy` if needed, remote-forwards it onto the guest loopback, copies the proxy CA, and exports phantom API credentials in the session. It rebuilds a private CA bundle from Ubuntu's native roots plus the proxy CA on each connection, so curl and Python trust both intercepted and passthrough destinations. Node receives the proxy CA through `NODE_EXTRA_CA_CERTS`; curl/Python receive the combined bundle through `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, and `REQUESTS_CA_BUNDLE`. No global guest trust-store changes or host root-bundle copies are needed. The guest never receives real upstream API keys. `bin/pi` inside the VM falls through to unsandboxed `pi` (there is no Seatbelt on Linux) and talks to Grok (and other routed providers) through that proxy.
+
+### Testing credential proxy plumbing
+
+`bin/test` includes metadata lookup, bootstrap/preservation, template rendering, export, and guest CA-bundle unit tests, all using fictional metadata without accessing 1Password. To additionally test standalone nono Basic-auth substitution and destination isolation, run this outside the agent sandbox (it must bind loopback listeners):
+
+```sh
+NONO_PROXY_INTEGRATION=1 bin/node --test aspects/dotfiles/support/__tests__/nono-basic-auth-test.ts
+```
+
+This opt-in fixture requires `nono`, `openssl`, and `curl`. It exercises the production Atlassian policy using disposable certificates, fake credentials, an HTTPS upstream, and a separate proxy on temporary loopback ports. The policy protects credential material, not individual operations: all methods and paths are allowed on the exact tenant, subject to Atlassian account permissions. The fixture verifies reads and writes against the mock, refuses an unauthenticated proxy client, and checks that a different hostname receives no injected credential. The intercepted target uses `localhost` because nono's interception certificate resolver requires DNS SNI; the other hostname uses an opaque CONNECT tunnel. It does not read 1Password, contact Atlassian, perform live writes, or restart the normal proxy. Real-account and VM verification remain separate activation checks.
 
 ### Updating dotfiles in a VM
 

@@ -232,6 +232,17 @@ git config --file ~/.config/git/config.local user.name "John Doe"
 git config --file ~/.config/git/config.local user.email johndoe@example.com
 ```
 
+### First install and private configuration
+
+A fresh clone from the public GitHub URL can be installed before any private configuration is available. On macOS, the dotfiles aspect runs before Homebrew, so the first pass may not yet have `op`, `age`, an authenticated 1Password app, or shell exports such as `OP_ACCOUNT`.
+
+1. Run `./install` and acknowledge the missing-private-file warnings as appropriate. Let Homebrew install the prerequisites; private integrations are not expected to work yet.
+2. Open and sign in to 1Password, then enable **Integrate with 1Password CLI** in its Developer settings.
+3. Run `bin/decrypt` for the remaining encrypted dotfiles (see "Encrypted files" below for more details).
+4. Rerun `./install dotfiles` to install the now-available private configuration.
+5. On macOS, run `nono-proxy stop` after reinstalling so the next unsandboxed agent launch or `sb ssh` connection starts the proxy with the updated profile. Repeat this whenever the proxy profile or credentials change; opening a fresh shell alone does not reload a running proxy.
+6. Start a fresh shell/session to pick up updated exports. Sandboxed agents also need a fresh sandbox to pick up profile changes.
+
 ### Encrypted files
 
 There are some encrypted files in the repo. If you run `./install dotfiles` you will see a warning like this:

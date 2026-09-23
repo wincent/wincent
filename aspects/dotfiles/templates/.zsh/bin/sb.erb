@@ -269,10 +269,10 @@ setup_git_remote() {
     git -C "$PROJECT_ROOT" config remote.vm.skipDefaultUpdate true
 }
 
-# Start host `nono-proxy`, copy its CA into the guest, and prepare a remote
-# command prefix that exports proxy/phantom variables. Credentials stay on
-# the host: the guest sees only phantoms, and `ssh -R` keeps the proxy off
-# the LAN. Env is injected as a remote command (not SendEnv) so it works
+# Start host `nono-proxy`, copy its CA into the guest, combine it with guest
+# roots, and prepare a command prefix with proxy/CA/phantom exports. Upstream
+# credentials stay on the host: the guest sees phantoms, and `ssh -R` keeps
+# the proxy off the LAN. Env is injected as a remote command (not SendEnv) so it works
 # before the guest sshd AcceptEnv is updated, and so a host shell that still
 # holds a real key cannot leak it.
 #
@@ -292,7 +292,7 @@ setup_nono_proxy_for_vm() {
         return 1
     fi
 
-    local ca port guest_dir guest_ca
+    local ca port guest_dir guest_ca guest_bundle
     ca="$(nono-proxy ca)" || {
         echo "sb: nono-proxy CA missing; run ./install dotfiles" >&2
         return 1
@@ -303,6 +303,7 @@ setup_nono_proxy_for_vm() {
     }
     guest_dir="/home/$VM_USER/.local/state/nono-proxy"
     guest_ca="$guest_dir/ca.crt"
+    guest_bundle="$guest_dir/bundle.crt"
 
     if ! sb_ssh "$ip" "mkdir -p $(printf '%q' "$guest_dir") && chmod 700 $(printf '%q' "$guest_dir")"; then
         echo "sb: could not create $guest_dir on the guest" >&2
@@ -313,7 +314,30 @@ setup_nono_proxy_for_vm() {
         return 1
     fi
 
-    GUEST_ENV_SCRIPT="$(nono-proxy guest-env "$guest_ca")" || {
+    # Use Ubuntu's own roots so curl/Python can reach both intercepted and
+    # passthrough destinations. Rebuild atomically on each connection so CA
+    # rotation and guest root-store updates cannot leave a stale bundle.
+    if ! sb_ssh "$ip" "bash -s -- $(printf '%q' "$guest_ca") $(printf '%q' "$guest_bundle") /etc/ssl/certs/ca-certificates.crt" <<'CA_BUNDLE'
+set -euo pipefail
+umask 077
+ca="$1"
+bundle="$2"
+roots="$3"
+[ -s "$ca" ] && [ -s "$roots" ] || {
+    echo "sb: proxy CA or guest system roots missing" >&2
+    exit 1
+}
+tmp="$(mktemp "${bundle}.XXXXXX")"
+trap 'rm -f "$tmp"' EXIT
+{ cat "$roots"; printf '\n'; cat "$ca"; } > "$tmp"
+mv -f "$tmp" "$bundle"
+CA_BUNDLE
+    then
+        echo "sb: could not build guest CA bundle" >&2
+        return 1
+    fi
+
+    GUEST_ENV_SCRIPT="$(nono-proxy guest-env "$guest_ca" "$guest_bundle")" || {
         echo "sb: nono-proxy guest-env failed" >&2
         return 1
     }

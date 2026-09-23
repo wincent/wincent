@@ -16,15 +16,15 @@
 # rotate, endpoint restrictions, and a log of every use.
 #
 # The process is started from this script (not launchd) so `op` can talk to
-# the 1Password app in the user session. CA, password, and phantom exports
-# are created by `./install dotfiles`.
+# the 1Password app in the user session. CA, password, phantom exports, and
+# explicitly shared nonsecret profile metadata come from `./install dotfiles`.
 #
 # Usage:
 #
 #   nono-proxy start|stop|status|env|guest-env|port|ca|help
 #
 #   eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
-#   nono-proxy guest-env <guest-ca-path>
+#   nono-proxy guest-env <guest-ca-path> <guest-bundle-path>
 #   nono-proxy stop
 
 set -euo pipefail
@@ -37,6 +37,7 @@ CA_KEY="$STATE/ca.key"
 CA_BUNDLE="$STATE/bundle.crt"
 PASS_FILE="$STATE/pass"
 PHANTOMS="$STATE/phantoms.env"
+SHARED_ENV="$STATE/shared.env"
 LOG_FILE="$STATE/log"
 PID_FILE="$STATE/pid"
 
@@ -46,7 +47,8 @@ die() {
 }
 
 need_state() {
-  [ -f "$PASS_FILE" ] && [ -f "$CA_CERT" ] && [ -f "$CA_KEY" ] && [ -f "$CA_BUNDLE" ] ||
+  [ -f "$PASS_FILE" ] && [ -f "$CA_CERT" ] && [ -f "$CA_KEY" ] &&
+    [ -f "$CA_BUNDLE" ] && [ -f "$PHANTOMS" ] && [ -f "$SHARED_ENV" ] ||
     die "state missing under $STATE; run \`./install dotfiles\`"
 }
 
@@ -124,22 +126,29 @@ proxy_url() {
   echo "http://x:$pass@127.0.0.1:$PORT"
 }
 
-print_proxy_exports() {
-  local url ca_certs
-  url="$(proxy_url)"
-  ca_certs="$1"
-  cat <<EOF
-export HTTP_PROXY=$url
-export HTTPS_PROXY=$url
-export NO_PROXY=localhost,127.0.0.1,::1
-export NODE_EXTRA_CA_CERTS=$ca_certs
-EOF
+print_export() {
+  printf 'export %s=%q\n' "$1" "$2"
 }
 
-print_phantoms() {
-  if [ -f "$PHANTOMS" ]; then
-    cat "$PHANTOMS"
-  fi
+print_proxy_exports() {
+  local url
+  url="$(proxy_url)"
+  print_export HTTP_PROXY "$url"
+  print_export HTTPS_PROXY "$url"
+  print_export NO_PROXY localhost,127.0.0.1,::1
+  print_export NODE_EXTRA_CA_CERTS "$1"
+}
+
+print_bundle_exports() {
+  print_export CURL_CA_BUNDLE "$1"
+  print_export SSL_CERT_FILE "$1"
+  print_export REQUESTS_CA_BUNDLE "$1"
+}
+
+print_client_env() {
+  # Generated, shell-quoted metadata only. Phantoms win on any collision;
+  # dynamic proxy/CA exports are emitted afterward and take precedence too.
+  cat "$SHARED_ENV" "$PHANTOMS"
 }
 
 cmd_env() {
@@ -148,24 +157,22 @@ cmd_env() {
     die "CA expired; run \`./install dotfiles\`"
   fi
   cmd_start
+  print_client_env
   print_proxy_exports "$CA_CERT"
-  cat <<EOF
-export CURL_CA_BUNDLE=$CA_BUNDLE
-export SSL_CERT_FILE=$CA_BUNDLE
-export REQUESTS_CA_BUNDLE=$CA_BUNDLE
-EOF
-  print_phantoms
+  print_bundle_exports "$CA_BUNDLE"
 }
 
-# Guest-oriented exports for `sb ssh`. The CA path must be the copy on the
-# guest; the host bundle is macOS roots and must not be used as CURL_CA_BUNDLE
-# inside Linux. Does not start the proxy: the caller does that.
+# Guest-oriented exports for `sb ssh`. Both paths refer to files on the
+# guest. The bundle must combine guest-native roots with the proxy CA, not
+# the host's macOS roots. Does not start the proxy: the caller does that.
 cmd_guest_env() {
   need_state
-  local ca_path="${1:-}"
-  [ -n "$ca_path" ] || die "guest-env requires the guest CA path"
+  local ca_path="${1:-}" bundle_path="${2:-}"
+  [ -n "$ca_path" ] && [ -n "$bundle_path" ] ||
+    die "guest-env requires the guest CA and combined bundle paths"
+  print_client_env
   print_proxy_exports "$ca_path"
-  print_phantoms
+  print_bundle_exports "$bundle_path"
 }
 
 cmd_port() {
@@ -187,10 +194,11 @@ Usage:
   nono-proxy start|stop|status|env|guest-env|port|ca|help
 
   eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
-  nono-proxy guest-env <guest-ca-path>
+  nono-proxy guest-env <guest-ca-path> <guest-bundle-path>
   nono-proxy stop
 
-CA, password, and phantom exports are created by `./install dotfiles`.
+CA, password, phantom exports, and shared nonsecret profile metadata
+are created by `./install dotfiles`.
 The process itself is started from this script so 1Password CLI can
 talk to the unlocked 1Password app.
 EOF
@@ -201,7 +209,7 @@ case "${1:-help}" in
   stop) cmd_stop ;;
   status) cmd_status ;;
   env) cmd_env ;;
-  guest-env) cmd_guest_env "${2:-}" ;;
+  guest-env) cmd_guest_env "${2:-}" "${3:-}" ;;
   port) cmd_port ;;
   ca) cmd_ca ;;
   help | --help | -h) cmd_help ;;

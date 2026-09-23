@@ -1,3 +1,4 @@
+import Context from 'fig/Context.ts';
 import * as fs from 'fig/fs.ts';
 import merge from 'fig/merge.ts';
 
@@ -8,6 +9,7 @@ import {
   file,
   helpers,
   log,
+  options,
   path,
   prompt,
   resource,
@@ -17,7 +19,15 @@ import {
   variable,
   variables,
 } from 'fig';
-import {phantomEnvExports} from './support/nono-proxy.ts';
+import {
+  readAtlassianMetadata,
+  shouldPreserveProfile,
+} from './support/atlassian-metadata.ts';
+import {
+  phantomEnvExports,
+  sharedEnvExports,
+  stripJsoncLineComments,
+} from './support/nono-proxy.ts';
 
 const {is, isDecrypted, when} = helpers;
 
@@ -247,14 +257,39 @@ task('fill templates', async () => {
   }
 });
 
-// Copy rather than symlink to prevent agent changes to their own sandbox
-// from going live immediately without human review (and without an explicit
-// `./install dotfiles`).
+// Render rather than symlink: private metadata stays out of the checkout,
+// and source changes need an explicit install before affecting the sandbox.
+// This is separate from `fill templates` because metadata may be unavailable.
 task('install ~/.config/nono/profiles/pi.jsonc', async () => {
-  await file({
-    path: '~/.config/nono/profiles/pi.jsonc',
-    src: resource.file('.config/nono/profiles/pi.jsonc'),
-    state: 'file',
+  const destination = path.home.join('.config/nono/profiles/pi.jsonc');
+  const result = await readAtlassianMetadata({
+    enabled: !options.check && !is('vm'),
+  });
+
+  if (result.status !== 'available') {
+    await log.warn(
+      `Atlassian metadata ${result.status}; configure 1Password CLI and the ` +
+        'CLI/atlassian-api-key site/email fields, then rerun ./install dotfiles. ' +
+        'Dry runs and VMs do not query 1Password.',
+    );
+  }
+
+  if (shouldPreserveProfile(result, fs.existsSync(destination))) {
+    await skip(
+      'preserving installed nono profile; private metadata was not refreshed',
+    );
+    return;
+  }
+
+  await template({
+    mode: '0600',
+    path: destination.toString(),
+    src: resource.template('.config/nono/profiles/pi.jsonc.erb'),
+    variables: {
+      ...Context.currentVariables,
+      atlassianSite: result.metadata?.site ?? '',
+      atlassianEmail: result.metadata?.email ?? '',
+    },
   });
 });
 
@@ -364,10 +399,29 @@ task('set up nono-proxy state', when('darwin'), async () => {
     return;
   }
 
-  const profileText = await fs.promises.readFile(
-    resource.file('.config/nono/profiles/pi.jsonc'),
-    'utf8',
+  // Always derive exports from the installed effective profile, including
+  // when a failed metadata refresh preserved the previous profile.
+  const installedProfile = path.home.join('.config/nono/profiles/pi.jsonc');
+  if (!fs.existsSync(installedProfile)) {
+    await skip('nono profile not present (first-run check mode)');
+    return;
+  }
+  const profileText = await fs.promises.readFile(installedProfile, 'utf8');
+  const setVars =
+    JSON.parse(stripJsoncLineComments(profileText)).environment?.set_vars ?? {};
+
+  // Explicitly share only portable, nonsecret metadata.
+  const sharedNames = ['ATLASSIAN_SITE', 'ATLASSIAN_EMAIL'];
+  const sharedEnv = sharedEnvExports(
+    profileText,
+    sharedNames.filter((name) => Object.hasOwn(setVars, name)),
   );
+
+  await file({
+    contents: sharedEnv,
+    path: stateDir.join('shared.env').toString(),
+    state: 'file',
+  });
 
   await file({
     contents: phantomEnvExports(profileText),
