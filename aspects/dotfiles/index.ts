@@ -29,7 +29,7 @@ import {
   stripJsoncLineComments,
 } from './support/nono-proxy.ts';
 
-const {is, isDecrypted, when} = helpers;
+const {is, isDecrypted, not, when} = helpers;
 
 variables(async ({hostHandle, identity, platform, profile}) => {
   // Docker doesn't support "include" files, so roll our own by
@@ -139,11 +139,7 @@ const CRYPT_STATES: {
   },
 };
 
-task('check encryption status', when('wincent'), async () => {
-  if (is('vm')) {
-    return;
-  }
-
+task('check encryption status', when('wincent', not('vm')), async () => {
   const result = await command('bin/crypt-status', ['--porcelain'], {
     failedWhen: () => false,
   });
@@ -260,10 +256,10 @@ task('fill templates', async () => {
 // Render rather than symlink: private metadata stays out of the checkout,
 // and source changes need an explicit install before affecting the sandbox.
 // This is separate from `fill templates` because metadata may be unavailable.
-task('install ~/.config/nono/profiles/pi.jsonc', async () => {
+task('install ~/.config/nono/profiles/pi.jsonc', when(not('vm')), async () => {
   const destination = path.home.join('.config/nono/profiles/pi.jsonc');
   const result = await readAtlassianMetadata({
-    enabled: !options.check && !is('vm'),
+    enabled: !options.check,
   });
 
   if (result.status !== 'available') {

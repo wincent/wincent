@@ -15,20 +15,23 @@ type Condition =
   | 'personal'
   | 'vm'
   | 'wincent'
-  | 'work';
+  | 'work'
+  | {not: Condition};
 
 /**
- * Returns `true` if `conditions` apply.
+ * Returns `true` if `conditions` apply, which makes it useful in `if`
+ * statements and expression contexts.
  *
- * Note that although it is possible to specify multiple conditions with AND
- * and OR semantics (as described in `when()` below), the `is()` function is
- * probably best reserved for simple (non-compound) cases only; eg:
+ * `is()` wraps `when()` (see below), so it inherits its "AND" semantics at the
+ * top level, and "OR" semantics for nested arrays of conditions. Nevertheless,
+ * for readability, it is probably best reserved for simple (non-compound) cases
+ * only; eg:
  *
  *    if (is('darwin')) {
  *      // Do something on Darwin only...
  *    }
  *
- * because using it for compound conditionals:
+ * Using it for compound conditionals:
  *
  *    if (is(['codespaces', 'work'])) {
  *      // ...
@@ -54,16 +57,17 @@ export function is(
  *
  *    task('do this thing', when('darwin'), async () => {
  *      // Only on Darwin... When not on Darwin, task will be skipped
- *      //  with the message "unsatisfied condition: (darwin)".
+ *      // with the message "unsatisfied condition: (darwin)".
  *    });
  *
  * `conditions` is an array, and its entries must be either strings or nested
- * arrays of strings. Top-level conditions must be true using AND semantics.
- * Nested conditions employ OR semantics.
+ * arrays of strings. Top-level conditions must be true using "AND" semantics.
+ * Nested conditions employ "OR" semantics.
  *
- * That is, if `conditions` is `[['arch', 'debian'], 'wincent']`, the semantics
- * are equivalent to "(arch OR debian) AND (wincent)", which is incidentally
- * also in the string that is returned if the conditions are not met:
+ * For example, given `conditions` is `[['arch', 'debian'], 'wincent']`, the
+ * semantics are equivalent to "(arch OR debian) AND (wincent)", which is
+ * incidentally also in the string that is returned if the conditions are not
+ * met:
  *
  *    unsatisfied condition: (arch OR debian) AND (wincent)
  */
@@ -81,10 +85,20 @@ export function when(
       return true;
     }
 
+    const toString = (condition: Condition): string => {
+      if (typeof condition === 'string') {
+        return condition;
+      } else {
+        return `NOT ${condition.not}`;
+      }
+    };
+
     const description = conditions
       .map((condition) => {
         return `(${
-          Array.isArray(condition) ? condition.join(' OR ') : condition
+          Array.isArray(condition)
+            ? condition.map(toString).join(' OR ')
+            : toString(condition)
         })`;
       })
       .join(' AND ');
@@ -94,32 +108,59 @@ export function when(
 }
 
 /**
+ * For use in conjunction with `when()`, inverting the sense of the specified
+ * condition. For example:
+ *
+ *    task('do this thing', when(not('darwin')), async () => {
+ *      // On Darwin, task will be skipped with the message
+ *      // "unsatisfied condition: (NOT darwin)".
+ *    });
+ *
+ * Note that you could use it with `is()` as well, but there's not much point as
+ * you can more simply write:
+ *
+ *    if (!is('darwin')) {}
+ *
+ */
+export function not(condition: Condition): Condition {
+  if (typeof condition === 'string') {
+    return {not: condition};
+  } else {
+    return condition.not;
+  }
+}
+
+/**
  * Provides a uniform interface for checking conditionals identified by a label.
  *
  * @internal
  */
 function checkCondition(condition: Condition): boolean {
-  switch (condition) {
-    case 'arch':
-      return attributes.distribution === 'arch';
-    case 'arm64':
-      return attributes.arch === 'arm64' || attributes.arch === 'aarch64';
-    case 'darwin':
-      return attributes.platform === 'darwin';
-    case 'debian':
-      return attributes.distribution === 'debian';
-    case 'linux':
-      return attributes.platform === 'linux';
-    case 'personal':
-      return variable('profile') === 'personal';
-    case 'vm':
-      return attributes.distribution === 'debian';
-    case 'wincent':
-      return variable('identity') === 'wincent';
-    case 'work':
-      return variable('profile') === 'work';
-    default:
-      throw new UnsupportedValueError(condition);
+  if (typeof condition === 'string') {
+    switch (condition) {
+      case 'arch':
+        return attributes.distribution === 'arch';
+      case 'arm64':
+        return attributes.arch === 'arm64' || attributes.arch === 'aarch64';
+      case 'darwin':
+        return attributes.platform === 'darwin';
+      case 'debian':
+        return attributes.distribution === 'debian';
+      case 'linux':
+        return attributes.platform === 'linux';
+      case 'personal':
+        return variable('profile') === 'personal';
+      case 'vm':
+        return attributes.distribution === 'debian';
+      case 'wincent':
+        return variable('identity') === 'wincent';
+      case 'work':
+        return variable('profile') === 'work';
+      default:
+        throw new UnsupportedValueError(condition);
+    }
+  } else {
+    return !checkCondition(condition.not);
   }
 }
 
