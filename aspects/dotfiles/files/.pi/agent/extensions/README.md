@@ -12,7 +12,7 @@ Sends a desktop notification when pi finishes and is waiting for input. Delegate
 
 ### `openrouter-zdr.ts`
 
-Registers an `openrouter-zdr` provider that exposes [DeepSeek V4.1 Flash](https://openrouter.ai/deepseek/deepseek-v4.1-flash) via OpenRouter, with separate Fireworks and DeepInfra pins. Both pins disable fallbacks and require zero-data-retention (`data_collection: "deny"`). The provider id is not `openrouter`, so pi's built-in OpenRouter catalog is left alone. Requires `OPENROUTER_API_KEY`.
+Registers an `openrouter-zdr` provider that exposes [DeepSeek V4.1 Flash](https://openrouter.ai/deepseek/deepseek-v4.1-flash) via OpenRouter, with separate Fireworks and DeepInfra pins. Both pins disable fallbacks and require zero-data-retention (`data_collection: "deny"`). The provider id is not `openrouter`, so pi's built-in OpenRouter catalog is left alone. Requires `OPENROUTER_API_KEY`, and ideally "BYOK" (Bring Your Own Key) keys set in the OpenRouter control panel so that you don't run into usage limits of the shared upstream quota.
 
 ### `web-search.ts`
 
