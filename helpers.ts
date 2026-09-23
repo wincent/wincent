@@ -120,7 +120,6 @@ export function when(
  * you can more simply write:
  *
  *    if (!is('darwin')) {}
- *
  */
 export function not(condition: Condition): Condition {
   if (typeof condition === 'string') {
