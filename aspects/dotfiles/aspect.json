@@ -55,6 +55,7 @@
       ".docker/config.json.erb",
       ".fehbg",
       ".gnupg/gpg-agent.conf.erb",
+      ".pi/agent/settings.json.erb",
       ".zsh/bin/asdf-wrapper.erb",
       ".zsh/bin/asdf.erb",
       ".zsh/bin/sb.erb",
