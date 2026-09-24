@@ -173,6 +173,7 @@ if [ -d /opt/homebrew ]; then
   export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
   export HOMEBREW_NO_AUTO_UPDATE=1
   export HOMEBREW_REPOSITORY="/opt/homebrew"
+  export HOMEBREW_UPDATE_TO_TAG=1
 fi
 
 # Pi releases multiple times per week, but given that we use min-release-age=7,
