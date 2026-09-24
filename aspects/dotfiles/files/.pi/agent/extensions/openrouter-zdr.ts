@@ -49,6 +49,7 @@ export default function (pi: ExtensionAPI) {
       ...deepseekV41Flash,
       id: `${UPSTREAM_ID}-fireworks`,
       name: 'DeepSeek V4.1 Flash (Fireworks, ZDR)',
+      // USD per million tokens: https://fireworks.ai/models/deepseek-ai/deepseek-v4p1-flash
       cost: {input: 0.22, output: 0.66, cacheRead: 0.007, cacheWrite: 0},
       compat: {
         ...deepseekV41Flash.compat,
@@ -63,6 +64,7 @@ export default function (pi: ExtensionAPI) {
       ...deepseekV41Flash,
       id: `${UPSTREAM_ID}-deepinfra`,
       name: 'DeepSeek V4.1 Flash (DeepInfra, ZDR)',
+      // USD per million tokens: https://deepinfra.com/deepseek-ai/DeepSeek-V4.1-Flash
       cost: {input: 0.14, output: 0.42, cacheRead: 0.0042, cacheWrite: 0},
       compat: {
         ...deepseekV41Flash.compat,
