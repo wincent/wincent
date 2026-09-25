@@ -15,6 +15,7 @@ import prompt from './prompt.ts';
 import readAspect from './readAspect.ts';
 import readConfig from './readConfig.ts';
 import regExpFromString from './regExpFromString.ts';
+import runBatch from './runBatch.ts';
 import stringify from './stringify.ts';
 
 import type {Aspect} from './types/Project.ts';
@@ -183,6 +184,49 @@ async function main() {
   try {
     let stepping = options.step;
 
+    async function executeItem(
+      kind: 'task' | 'handler',
+      scope: {aspect: Aspect; task: string; variables: Variables},
+      callback: () => Promise<void>,
+    ): Promise<void> {
+      if (stepping) {
+        for (;;) {
+          const reply = (
+            await prompt(
+              `Run ${kind} ${scope.task}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `,
+            )
+          ).toLowerCase().trim();
+
+          if ('yes'.startsWith(reply)) {
+            break;
+          } else if ('no'.startsWith(reply)) {
+            await Context.informSkipped(`${kind} ${scope.task}`);
+            return;
+          } else if ('quit'.startsWith(reply)) {
+            throw new AbortError();
+          } else if ('continue'.startsWith(reply)) {
+            stepping = false;
+            break;
+          } else if ('help'.startsWith(reply)) {
+            await log(
+              dedent`
+                [y]es:      run the ${kind}
+                [n]o:       skip the ${kind}
+                [q]uit:     stop running
+                [c]ontinue: run all remaining ${
+                kind === 'task' ? 'tasks' : 'handlers and tasks'
+              }
+              `,
+            );
+          } else {
+            await log.warn('Invalid choice; try again.');
+          }
+        }
+      }
+
+      await Context.execute(scope, callback);
+    }
+
     // Stepping and starting at a task require deterministic task ordering.
     const batches = aspects.flatMap((groupOrAspect) => {
       if (Array.isArray(groupOrAspect)) {
@@ -196,18 +240,13 @@ async function main() {
       }
     });
 
-    for (const batch of batches) {
-      // Once one worker fails, peers finish their active work but do not start
-      // another task or handler. Keep the first error even if it is undefined.
-      let firstFailure: {error: unknown} | undefined;
-      const promises = batch.map(async (aspect) => {
+    for (const group of batches) {
+      await runBatch(group, async (aspect, batch) => {
         const {variables: aspectVariables = {}} = await readAspect(
           join(root, 'aspects', aspect),
         );
 
-        if (firstFailure) {
-          return;
-        }
+        batch.checkpoint();
 
         if (
           (options.focused.size && !options.focused.has(aspect)) ||
@@ -227,73 +266,13 @@ async function main() {
         await log.debug(`Variables:\n\n${stringify(variables)}\n`);
 
         for (const [callback, name] of Context.tasks.get(aspect)) {
-          if (firstFailure) {
-            return;
-          }
           if (!options.startAt.found || name === options.startAt.literal) {
             options.startAt.found = false;
-            await log.notice(`Task: ${name}`);
-
-            // Logging yields too; a sibling may have failed in the meantime.
-            if (firstFailure) {
-              return;
-            }
-
-            if (stepping) {
-              for (;;) {
-                const reply = (
-                  await prompt(
-                    `Run task ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `,
-                  )
-                )
-                  .toLowerCase()
-                  .trim();
-
-                if ('yes'.startsWith(reply)) {
-                  await Context.execute(
-                    {
-                      aspect,
-                      task: name,
-                      variables,
-                    },
-                    callback,
-                  );
-                  break;
-                } else if ('no'.startsWith(reply)) {
-                  await Context.informSkipped(`task ${name}`);
-                  break;
-                } else if ('quit'.startsWith(reply)) {
-                  throw new AbortError();
-                } else if ('continue'.startsWith(reply)) {
-                  stepping = false;
-                  await Context.execute(
-                    {
-                      aspect,
-                      task: name,
-                      variables,
-                    },
-                    callback,
-                  );
-                  break;
-                } else if ('help'.startsWith(reply)) {
-                  await log(
-                    dedent`
-                      [y]es:      run the task
-                      [n]o:       skip the task
-                      [q]uit:     stop running
-                      [c]ontinue: run all remaining tasks
-                    `,
-                  );
-                } else {
-                  await log.warn('Invalid choice; try again.');
-                }
-              }
-            } else {
-              await Context.execute(
-                {aspect, task: name, variables},
-                callback,
-              );
-            }
+            await batch.runItem(
+              `Task: ${name}`,
+              () =>
+                executeItem('task', {aspect, task: name, variables}, callback),
+            );
           }
         }
 
@@ -301,103 +280,33 @@ async function main() {
           const {callbacks, notifications} = Context.handlers.get(aspect);
 
           for (const name of notifications) {
-            if (firstFailure) {
-              return;
-            }
-            await log.notice(`Handler: ${name}`);
-            if (firstFailure) {
-              return;
-            }
+            await batch.runItem(`Handler: ${name}`, () => {
+              const callback = callbacks.get(name);
 
-            const callback = callbacks.get(name);
-
-            if (!callback) {
-              throw new ErrorWithMetadata(
-                `Failed to find handler with named ${stringify(name)}`,
-              );
-            }
-
-            if (stepping) {
-              // TODO: DRY up -- almost same as task handling
-              // above
-              for (;;) {
-                const reply = (
-                  await prompt(
-                    `Run handler ${name}? [y]es/[n]o/[q]uit]/[c]ontinue/[h]elp: `,
-                  )
-                )
-                  .toLowerCase()
-                  .trim();
-
-                if ('yes'.startsWith(reply)) {
-                  await Context.execute(
-                    {
-                      aspect,
-                      task: name,
-                      variables,
-                    },
-                    callback,
-                  );
-                  break;
-                } else if ('no'.startsWith(reply)) {
-                  await Context.informSkipped(`handler ${name}`);
-                  break;
-                } else if ('quit'.startsWith(reply)) {
-                  throw new AbortError();
-                } else if ('continue'.startsWith(reply)) {
-                  stepping = false;
-                  await Context.execute(
-                    {
-                      aspect,
-                      task: name,
-                      variables,
-                    },
-                    callback,
-                  );
-                  break;
-                } else if ('help'.startsWith(reply)) {
-                  await log(
-                    dedent`
-                      [y]es:      run the handler
-                      [n]o:       skip the handler
-                      [q]uit:     stop running
-                      [c]ontinue: run all remaining handlers and tasks
-                    `,
-                  );
-                } else {
-                  await log.warn('Invalid choice; try again.');
-                }
+              if (!callback) {
+                throw new ErrorWithMetadata(
+                  `Failed to find handler with named ${stringify(name)}`,
+                );
               }
-            } else {
-              await Context.execute(
+
+              return executeItem(
+                'handler',
                 {aspect, task: name, variables},
                 callback,
               );
-            }
+            });
           }
 
           for (const name of callbacks.keys()) {
-            if (firstFailure) {
-              return;
-            }
             if (!notifications.has(name)) {
-              await log.notice(`Handler: ${name}`);
-              await Context.informSkipped(`handler ${name}`);
+              await batch.runItem(
+                `Handler: ${name}`,
+                () => Context.informSkipped(`handler ${name}`),
+              );
             }
           }
         }
-      }).map((promise) =>
-        promise.catch((error) => {
-          firstFailure ??= {error};
-        })
-      );
-
-      // Every rejection is recorded above, so this waits for all active work
-      // before the summary and process exit, rather than failing fast.
-      await Promise.all(promises);
-      if (firstFailure) {
-        throw firstFailure.error;
-      }
+      });
     }
   } catch (error) {
     if (!(error instanceof AbortError)) {

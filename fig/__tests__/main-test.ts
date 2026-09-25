@@ -178,6 +178,66 @@ handler('reload', async () => { console.log('EVENT unwanted handler'); });
   );
 });
 
+for (const kind of ['task', 'handler']) {
+  test(`${kind} failure stops a peer whose logging resumes during rejection propagation`, async (t) => {
+    const run = await project(t, {
+      dotfiles: `
+import {log} from '../../fig/console.ts';
+const logging = Promise.withResolvers<void>();
+const failed = Promise.withResolvers<void>();
+const execute = Context.execute.bind(Context);
+Context.execute = (scope, callback) => {
+  const promise = execute(scope, callback);
+  if (scope.task === 'dotfiles | fail') {
+    // Observe rejection without wrapping the promise returned to the runner.
+    promise.catch(() => failed.resolve());
+  }
+  return promise;
+};
+const notice = log.notice;
+log.notice = async (message) => {
+  if (message === '${
+        kind === 'task' ? 'Task' : 'Handler'
+      }: meta | not started') {
+    logging.resolve();
+    await failed.promise;
+    // Let the original worker-level failure observer run before logging ends.
+    // Additional async wrappers must not postpone cancellation past this point.
+    await Promise.resolve();
+  } else {
+    await notice(message);
+  }
+};
+${
+        kind === 'handler'
+          ? "task('notify', async () => { await Context.informChanged('fixture', 'fail'); });"
+          : ''
+      }
+${kind}('fail', async () => {
+  await logging.promise;
+  throw new Error('expected failure');
+});
+`,
+      meta: `
+${
+        kind === 'handler'
+          ? "task('notify', async () => { await Context.informChanged('fixture', 'not started'); });"
+          : ''
+      }
+${kind}('not started', async () => { console.log('EVENT unwanted peer'); });
+`,
+      node:
+        "task('not started', async () => { console.log('EVENT unwanted batch'); });",
+    });
+
+    const result = await run('--parallel');
+    assert.strictEqual(result.status, 1, result.stderr);
+    assert.deepStrictEqual(result.events, []);
+    assert.match(result.stderr, /task `dotfiles \| fail` failed/);
+    assert.match(result.stderr, /failed=1/);
+  });
+}
+
 test('derivation failure also drains active siblings before exiting', async (t) => {
   const run = await project(t, {
     dotfiles: `
