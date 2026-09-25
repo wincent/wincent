@@ -1,0 +1,19 @@
+{
+  "defaultThinkingLevel": "high",
+  "extensions": [
+    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions"
+  ],
+  "hideThinkingBlock": true,
+  "lastChangelogVersion": "0.87.1",
+  "prompts": [
+    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts"
+  ],
+  "skills": [
+    "~/.claude/skills",
+    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills"
+  ],
+  "terminal": {
+    "hyperlinks": true
+  },
+  "theme": "dark"
+}

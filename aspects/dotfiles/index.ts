@@ -32,8 +32,16 @@ variables(async ({hostHandle}) => {
     {optional: resource.file('.docker/host/', `${hostHandle}.json`)},
   );
 
+  // Ditto for Pi.
+  const piConfig = await mergePaths(
+    resource.file('.pi/agent/settings-base.json'),
+    is('personal') ? resource.file('.pi/agent/settings-personal.json') : null,
+    is('work') ? resource.file('.pi/agent/settings-work.json') : null,
+  );
+
   return {
     dockerConfig: JSON.stringify(dockerConfig, null, 2),
+    piConfig: JSON.stringify(piConfig, null, 2),
 
     // This one is because Kitty defines these names to be the same:
     //
