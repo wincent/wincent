@@ -2,9 +2,9 @@
 
 **NEVER** hard-wrap Markdown in ".md" files. That is, a paragraph or a list item should be a single long line rather than many 80-character lines broken with newlines.
 
-# Em dashes and en dashes
+# "Smart" quotes and apostrophes
 
-**Never** use em dashes or en dashes for any purpose: not in commit messages, not in code comments, not in documentation — nowhere!
+**NEVER** use "smart" quotes (“”) or apostrophes (‘’) in generated text. Instead, use the simple ASCII variants — 0x22 (") and 0x27 (').
 
 # Showing file paths
 
