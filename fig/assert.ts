@@ -1,6 +1,6 @@
 import * as assert from 'node:assert';
 
-import {isJSONValue} from './types/JSONValue.ts';
+import {isJSONObject, isJSONValue} from './types/JSONValue.ts';
 
 export function assertJSONArray(
   value: unknown,
@@ -18,12 +18,9 @@ export function assertJSONArray(
 export function assertJSONObject(
   value: unknown,
   message?: string,
-): asserts value is {[key: string]: JSONValue} {
+): asserts value is JSONObject {
   assert.ok(
-    value &&
-      !Array.isArray(value) &&
-      typeof value === 'object' &&
-      Object.values(value).every(isJSONValue),
+    isJSONObject(value),
     message || 'Expected value to be a JSON object',
   );
 }

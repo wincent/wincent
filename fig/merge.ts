@@ -1,10 +1,20 @@
-type Variables = {
-  [key: string]: JSONValue;
-};
+import {isJSONObject} from './types/JSONValue.ts';
 
+/**
+ * Merge collections of Variables.
+ *
+ * - Objects are merged recursively.
+ * - Arrays are replaced.
+ * - Returns a copy of the merged variables; input values are not mutated.
+ *
+ * Example:
+ *
+ *    // Merge `c` into `b`, then merge that into `a`.
+ *    merge(a, b, c);
+ */
 export default function merge(
-  variables: Variables,
-  ...rest: Array<Variables>
+  variables: Readonly<Variables>,
+  ...rest: Array<Readonly<Variables>>
 ): Variables {
   if (!rest.length) {
     return variables;
@@ -23,14 +33,10 @@ function mergeObjects(target: Variables, source: Variables): Variables {
 
   Object.entries(source).forEach(([key, value]) => {
     if (
-      value &&
-      typeof value === 'object' &&
-      !Array.isArray(value) &&
-      target[key] &&
-      typeof target[key] === 'object' &&
-      !Array.isArray(target[key])
+      isJSONObject(value) &&
+      isJSONObject(target[key])
     ) {
-      output[key] = mergeObjects(target[key] as Variables, value as Variables);
+      output[key] = mergeObjects(target[key], value);
     } else {
       output[key] = value;
     }

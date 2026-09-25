@@ -1,6 +1,6 @@
 import Context from 'fig/Context.ts';
 import * as fs from 'fig/fs.ts';
-import merge from 'fig/merge.ts';
+import mergePaths from 'fig/mergePaths.ts';
 
 import {
   backup,
@@ -27,31 +27,13 @@ const {is, isDecrypted, not, when} = helpers;
 variables(async ({hostHandle}) => {
   // Docker doesn't support "include" files, so roll our own by
   // merging host-specific config (if present) into base config.
-  const dockerBase = JSON.parse(
-    await fs.promises.readFile(
-      resource.file('.docker/config-base.json'),
-      'utf8',
-    ),
+  const dockerConfig = await mergePaths(
+    resource.file('.docker/config-base.json'),
+    {optional: resource.file('.docker/host/', `${hostHandle}.json`)},
   );
-  const dockerHostSpecific = resource.file(
-    '.docker/host',
-    `${hostHandle}.json`,
-  );
-  const dockerConfig = fs.existsSync(dockerHostSpecific)
-    ? JSON.stringify(
-      merge(
-        dockerBase,
-        JSON.parse(
-          await fs.promises.readFile(dockerHostSpecific, 'utf8'),
-        ),
-      ),
-      null,
-      2,
-    )
-    : JSON.stringify(dockerBase, null, 2);
 
   return {
-    dockerConfig,
+    dockerConfig: JSON.stringify(dockerConfig, null, 2),
 
     // This one is because Kitty defines these names to be the same:
     //

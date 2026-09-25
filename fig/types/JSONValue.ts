@@ -8,6 +8,15 @@ export function assertJSONValue(value: unknown): asserts value is JSONValue {
   assert.ok(isJSONValue(value));
 }
 
+export function isJSONObject(value: unknown): value is JSONObject {
+  return !!(
+    value &&
+    !Array.isArray(value) &&
+    typeof value === 'object' &&
+    Object.values(value).every(isJSONValue)
+  );
+}
+
 export function isJSONValue(value: unknown): value is JSONValue {
     const seen = new Set();
 

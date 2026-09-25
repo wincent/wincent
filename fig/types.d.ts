@@ -1,9 +1,10 @@
+type JSONObject = {[property: string]: JSONValue};
 type JSONValue =
   | boolean
   | null
   | number
   | string
-  | {[property: string]: JSONValue}
+  | JSONObject
   | Array<JSONValue>;
 
 // See `man 1 chmod`.
@@ -32,8 +33,6 @@ type SpecialPermission =
 type Mode = `${SpecialPermission}${Permission}${Permission}${Permission}`;
 
 // TODO move this somewhere else so that we can explicitly import it?
-type Variables = {
-  [key: string]: JSONValue;
-};
+type Variables = JSONObject;
 
 type OperationResult = 'changed' | 'failed' | 'ok' | 'skipped';
