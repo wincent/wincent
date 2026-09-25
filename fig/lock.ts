@@ -1,4 +1,5 @@
 import * as assert from 'node:assert';
+import {AsyncLocalStorage} from 'node:async_hooks';
 
 type Queue = {
   items: Array<{
@@ -28,7 +29,9 @@ export default function lock(
 
   return new Promise((resolve, reject) => {
     queue.items.push({
-      callback,
+      // The queue's timer may belong to a different caller. Preserve the
+      // submitting caller's async context instead of inheriting the timer's.
+      callback: AsyncLocalStorage.bind(callback),
       resolve,
       reject,
     });

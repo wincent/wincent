@@ -1,4 +1,5 @@
 import * as assert from 'node:assert';
+import {AsyncLocalStorage} from 'node:async_hooks';
 import * as process from 'node:process';
 
 import Attributes from './Attributes.ts';
@@ -9,6 +10,7 @@ import TaskRegistry from './TaskRegistry.ts';
 import VariableRegistry from './VariableRegistry.ts';
 import getAspectFromCallers from './getAspectFromCallers.ts';
 import getCallers from './getCallers.ts';
+import merge from './merge.ts';
 import prompt from './prompt.ts';
 import run from './run.ts';
 import * as status from './status.ts';
@@ -26,6 +28,12 @@ type Counts = {
   skipped: number;
 };
 
+type ExecutionScope = {
+  aspect: Aspect;
+  task?: string;
+  variables: Variables;
+};
+
 /**
  * Try to keep nasty global state all together in one place.
  *
@@ -37,7 +45,7 @@ class Context {
   #compiler: Compiler;
   #counts: Counts;
   #currentAspect?: Aspect;
-  #currentTask: Map<Aspect, string>;
+  #execution: AsyncLocalStorage<ExecutionScope>;
   #handlers: HandlerRegistry;
   #options?: Options;
   #sudoPassphrase?: Promise<string>;
@@ -55,7 +63,7 @@ class Context {
       skipped: 0,
     };
 
-    this.#currentTask = new Map();
+    this.#execution = new AsyncLocalStorage();
     this.#handlers = new HandlerRegistry();
     this.#tasks = new TaskRegistry();
     this.#variables = new VariableRegistry();
@@ -130,6 +138,24 @@ class Context {
     return 'skipped';
   }
 
+  /**
+   * Run the callback registered with the aspect's `variables()` DSL call.
+   * Both its argument and `variable()` expose the merged global and
+   * aspect-static variables. Merge the callback's returned overrides into
+   * those inputs to produce the final variables for task execution.
+   */
+  async deriveVariables(
+    aspect: Aspect,
+    variables: Variables,
+  ): Promise<Variables> {
+    return this.#execution.run({aspect, variables}, async () => {
+      const derived = await this.#variables.getVariablesCallback(aspect)(
+        variables,
+      );
+      return merge(variables, derived);
+    });
+  }
+
   async execute(
     {
       aspect,
@@ -143,26 +169,26 @@ class Context {
     callback: () => Promise<void>,
   ): Promise<void> {
     this.#variables.registerFinalVariables(aspect, variables);
-    this.#currentTask.set(aspect, task);
-    // Centralize failure bookkeeping here so the `failed` count in the final
-    // summary is accurate regardless of which DSL operation (or raw `throw`)
-    // produced the error. Operations that want a friendly headline
-    // (e.g. `command \`...\` failed`, `fetch \`<url>\` failed`) wrap the
-    // underlying cause in an `ErrorWithMetadata` and re-throw; we use that
-    // verbatim. Anything else gets a generic `task \`<name>\` failed`
-    // wrapper, with the original error preserved as `cause` so that
-    // `stringify()` can render it (see `fig/stringify.ts`).
-    try {
-      await callback();
-    } catch (error) {
-      if (error instanceof ErrorWithMetadata) {
-        await this.informFailed(error);
-      } else {
-        await this.informFailed(
-          new ErrorWithMetadata(`task \`${task}\` failed`, {cause: error}),
-        );
+    // Scope follows this task's async work, including shared helpers and event
+    // callbacks. Concurrent tasks get separate scopes; nested calls restore
+    // the outer scope automatically, including when a callback throws.
+    await this.#execution.run({aspect, task, variables}, async () => {
+      // Centralize failure bookkeeping here so the `failed` count in the final
+      // summary is accurate regardless of which operation produced the error.
+      // Preserve operation-specific errors, wrapping other failures with the
+      // task name and original cause.
+      try {
+        await callback();
+      } catch (error) {
+        if (error instanceof ErrorWithMetadata) {
+          await this.informFailed(error);
+        } else {
+          await this.informFailed(
+            new ErrorWithMetadata(`task \`${task}\` failed`, {cause: error}),
+          );
+        }
       }
-    }
+    });
   }
 
   get attributes(): Attributes {
@@ -174,8 +200,10 @@ class Context {
   }
 
   get currentAspect(): Aspect {
-    // Try `#currentAspect` first (used in tests), then try inference.
-    const aspect = this.#currentAspect || getAspectFromCallers(getCallers());
+    // Runtime identity comes from the execution scope. Stack inference is
+    // still useful outside execution, such as during aspect registration.
+    const aspect = this.#execution.getStore()?.aspect || this.#currentAspect ||
+      getAspectFromCallers(getCallers());
     assertAspect(aspect);
     return aspect;
   }
@@ -188,24 +216,14 @@ class Context {
   }
 
   get currentTask(): string {
-    const task = this.#currentTask.get(this.currentAspect);
+    const task = this.#execution.getStore()?.task;
     assert.ok(task);
     return task;
   }
 
   get currentVariables(): Variables {
-    const aspect = getAspectFromCallers(getCallers());
-    if (aspect) {
-      const task = this.#currentTask.get(aspect);
-      if (task) {
-        return this.#variables.getFinalVariables(aspect);
-      }
-    }
-
-    // If we have no aspect, we are somewhere global, like in "helpers.ts".
-    // If we have an aspect but no task, we're probably in `variables()` or
-    // similar, so we don't have the final variables yet.
-    return this.#variables.getGlobalVariables();
+    return this.#execution.getStore()?.variables ??
+      this.#variables.getGlobalVariables();
   }
 
   get handlers(): HandlerRegistry {

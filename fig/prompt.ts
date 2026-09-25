@@ -16,8 +16,6 @@ interface Prompt {
   confirm(text: string): Promise<boolean>;
 }
 
-// TODO: consider making a mutex that will ensure only one thing actually
-// prompts at a time (or that nothing else prints while prompting)
 async function promptImpl(
   text: string,
   options: Options = {},
@@ -34,30 +32,33 @@ async function promptImpl(
     );
   }
 
-  let muted = false;
+  const result = await lock('console', async () => {
+    // Creating an interface attaches stdin listeners, so its entire lifetime
+    // must be inside the lock, not just the call to `question()`.
+    let muted = false;
 
-  // https://stackoverflow.com/a/33500118/2103996
-  const stdout = new Writable({
-    write: (chunk, _encoding, callback) => {
-      if (!muted) {
-        process.stdout.write(chunk);
-      }
-      callback();
-    },
-  });
+    // https://stackoverflow.com/a/33500118/2103996
+    const stdout = new Writable({
+      write: (chunk, _encoding, callback) => {
+        if (!muted) {
+          process.stdout.write(chunk);
+        }
+        callback();
+      },
+    });
 
-  const rl = readline.createInterface({
-    historySize: 0,
-    input: process.stdin,
-    output: stdout,
-    terminal: true,
-  });
+    const rl = readline.createInterface({
+      historySize: 0,
+      input: process.stdin,
+      output: stdout,
+      terminal: true,
+    });
 
-  try {
-    let result;
-
-    await lock('console', async () => {
-      const response = new Promise<string>((resolve) => {
+    try {
+      const response = new Promise<string>((resolve, reject) => {
+        rl.once('close', () => {
+          reject(new Error('prompt(): input closed before a response'));
+        });
         rl.question(COLORS.yellow(text), (response) => {
           process.stdout.write('\n');
           resolve(response);
@@ -66,14 +67,14 @@ async function promptImpl(
 
       muted = !!options.private;
 
-      result = await response;
-    });
+      return await response;
+    } finally {
+      rl.close();
+    }
+  });
 
-    assert.ok(typeof result === 'string');
-    return result;
-  } finally {
-    rl.close();
-  }
+  assert.ok(typeof result === 'string');
+  return result;
 }
 
 async function confirm(text: string): Promise<boolean> {

@@ -183,10 +183,10 @@ async function main() {
   try {
     let stepping = options.step;
 
-    // Execute within each batch in parallel, unless stepping.
+    // Stepping and starting at a task require deterministic task ordering.
     const batches = aspects.flatMap((groupOrAspect) => {
       if (Array.isArray(groupOrAspect)) {
-        if (stepping || !options.parallel) {
+        if (stepping || options.startAt.literal || !options.parallel) {
           return groupOrAspect.map((aspect) => [aspect]);
         } else {
           return [groupOrAspect];
@@ -197,10 +197,17 @@ async function main() {
     });
 
     for (const batch of batches) {
+      // Once one worker fails, peers finish their active work but do not start
+      // another task or handler. Keep the first error even if it is undefined.
+      let firstFailure: {error: unknown} | undefined;
       const promises = batch.map(async (aspect) => {
         const {variables: aspectVariables = {}} = await readAspect(
           join(root, 'aspects', aspect),
         );
+
+        if (firstFailure) {
+          return;
+        }
 
         if (
           (options.focused.size && !options.focused.has(aspect)) ||
@@ -212,17 +219,25 @@ async function main() {
 
         const mergedVariables = merge(baseVariables, aspectVariables);
 
-        const variables = merge(
+        const variables = await Context.deriveVariables(
+          aspect,
           mergedVariables,
-          await Context.variables.getVariablesCallback(aspect)(mergedVariables),
         );
 
         await log.debug(`Variables:\n\n${stringify(variables)}\n`);
 
         for (const [callback, name] of Context.tasks.get(aspect)) {
+          if (firstFailure) {
+            return;
+          }
           if (!options.startAt.found || name === options.startAt.literal) {
             options.startAt.found = false;
             await log.notice(`Task: ${name}`);
+
+            // Logging yields too; a sibling may have failed in the meantime.
+            if (firstFailure) {
+              return;
+            }
 
             if (stepping) {
               for (;;) {
@@ -286,7 +301,13 @@ async function main() {
           const {callbacks, notifications} = Context.handlers.get(aspect);
 
           for (const name of notifications) {
+            if (firstFailure) {
+              return;
+            }
             await log.notice(`Handler: ${name}`);
+            if (firstFailure) {
+              return;
+            }
 
             const callback = callbacks.get(name);
 
@@ -356,15 +377,27 @@ async function main() {
           }
 
           for (const name of callbacks.keys()) {
+            if (firstFailure) {
+              return;
+            }
             if (!notifications.has(name)) {
               await log.notice(`Handler: ${name}`);
               await Context.informSkipped(`handler ${name}`);
             }
           }
         }
-      });
+      }).map((promise) =>
+        promise.catch((error) => {
+          firstFailure ??= {error};
+        })
+      );
 
+      // Every rejection is recorded above, so this waits for all active work
+      // before the summary and process exit, rather than failing fast.
       await Promise.all(promises);
+      if (firstFailure) {
+        throw firstFailure.error;
+      }
     }
   } catch (error) {
     if (!(error instanceof AbortError)) {

@@ -124,6 +124,12 @@ Fig implements a simplified, tiny subset [of Ansible's nearly 3,400 "modules"](h
 | [line](https://github.com/wincent/wincent/blob/main/fig/dsl/operations/line.ts)         | [lineinfile](https://docs.ansible.com/ansible/latest/modules/lineinfile_module.html)     |
 | [template](https://github.com/wincent/wincent/blob/main/fig/dsl/operations/template.ts) | [template](https://docs.ansible.com/ansible/latest/modules/template_module.html)         |
 
+## Parallel execution
+
+With `--parallel`, aspects in a nested array in `fig.config.ts` run concurrently; separate entries remain sequential, and tasks and handlers within an aspect remain sequential. `--step` and `--start-at-task` force sequential execution, even with `--parallel`.
+
+On failure, Fig stops starting further tasks and handlers, waits for active work in the batch to settle, then reports the summary and exits. This does not cancel or roll back an active task. Parallel aspects must still avoid conflicting writes to shared resources such as files, crontabs, or package-manager state. Tasks must await all work they start.
+
 ## Variables
 
 Because Fig tasks are defined using TypeScript, you can define and use variables just like you would in any TypeScript program. As built-in language features, these follow the lexical scoping rules that you would expect to apply to `const` and `let`.
@@ -144,6 +150,8 @@ The levels are, from lowest to highest precedence:
 | Aspect (derived) | Derived using [the `variables()` API](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/fig/dsl/variables.ts) (eg. [dotfiles `variables()` example](https://github.com/wincent/wincent/blob/796ee1c02ad257fd565569ab6082b7685a52b83f/aspects/dotfiles/index.ts#L18-L22))                                              |
 
 Most of these are static, arising from JSON files, but two of the later levels ("Dynamic" and "Aspect (derived)") provide the means to dynamically set or derive the value of a variable at runtime.
+
+Inside an aspect's `variables()` callback, both the callback argument and `variable()` expose levels 1 through 7. The callback's returned overrides are merged afterward to produce the final task variables. During derivation, tasks, and handlers, Fig scopes the aspect identity and variables to the current async execution; tasks and handlers also have a scoped task name. Shared helpers and async work started in that scope see the same context, without leaking it between parallel aspects. Outside execution, variable lookups use global variables. Custom callback queues must preserve their callers' async context, as Fig's `lock()` does.
 
 ## Extensibility
 

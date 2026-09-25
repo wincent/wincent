@@ -28,14 +28,13 @@ export type VariablesCallback = (
  *   called during start-up from "main.ts", before any tasks actually run.
  * - "Derived" variables: These are the optional aspect-specific variables
  *   defined at level 8. Aspects which use the `variables()` DSL register their
- *   callbacks using the `registerVariablesCallback()` method. "main.ts" calls
- *   the appropriate callback while preparing to run a task, mixing the result
- *   in to produce the final set of variables.
+ *   callbacks using the `registerVariablesCallback()` method.
+ *   `Context.deriveVariables()` calls the callback with levels 1 through 7,
+ *   exposing that same input through `variable()`, then merges the result.
  * - "Final" variables: Are the composition of all levels 1 through 8.
- *   "main.mts" calls `Context.execute()`, which calls
- *   `registerFinalVariables()` before running each task so that various
- *   aspect-aware parts of the codebase can look up the current applicable set
- *   of all variables with a simple `Context.currentVariables` access.
+ *   `Context.execute()` registers these before each task for explicit
+ *   aspect-based lookups. It also establishes an async execution scope, which
+ *   `Context.currentVariables` uses for implicit lookups in tasks and helpers.
  */
 export default class VariableRegistry {
   #callbacks: Map<Aspect, VariablesCallback>;
