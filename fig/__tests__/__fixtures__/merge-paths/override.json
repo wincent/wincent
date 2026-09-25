@@ -1,0 +1,5 @@
+{
+  "name": "override",
+  "list": ["override"],
+  "nested": { "new": 2 }
+}

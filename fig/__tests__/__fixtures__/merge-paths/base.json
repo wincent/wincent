@@ -1,0 +1,5 @@
+{
+  "name": "base",
+  "list": ["base"],
+  "nested": { "old": 1 }
+}

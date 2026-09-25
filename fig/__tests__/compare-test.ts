@@ -7,18 +7,10 @@
  */
 
 import * as assert from 'node:assert';
-import {join} from 'node:path';
 import {describe, test} from 'node:test';
 
 import compare from '../compare.ts';
-import root from '../dsl/root.ts';
-
-/**
- * Helper to get fixtures (in "fig/") irrespective of where we run from.
- */
-function fixture(...components: Array<string>): string {
-  return join(root, 'fig', '__tests__', '__fixtures__', ...components);
-}
+import fixture from './fixture.ts';
 
 describe('compare()', () => {
   describe('with {state: file} (implied)', () => {
