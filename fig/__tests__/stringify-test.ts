@@ -1,56 +1,64 @@
 import * as assert from 'node:assert';
-import {test} from 'node:test';
+import {describe, test} from 'node:test';
 
 import dedent from '../dedent.ts';
 import stringify from '../stringify.ts';
 
-test('stringify() null', () => {
-  assert.strictEqual(stringify(null), 'null');
-});
+// @ts-ignore: suppress TS7006: Parameter 'a' implicitly has an 'any' type.
+function fn(a, b) {
+  if (a > 0) {
+    return a + b;
+  }
+}
 
-test('stringify() undefined', () => {
-  assert.strictEqual(stringify(undefined), 'undefined');
-});
+describe('stringify()', () => {
+  test('null', () => {
+    assert.strictEqual(stringify(null), 'null');
+  });
 
-test('stringify() true', () => {
-  assert.strictEqual(stringify(true), 'true');
-});
+  test('undefined', () => {
+    assert.strictEqual(stringify(undefined), 'undefined');
+  });
 
-test('stringify() false', () => {
-  assert.strictEqual(stringify(false), 'false');
-});
+  test('true', () => {
+    assert.strictEqual(stringify(true), 'true');
+  });
 
-test('stringify() a number', () => {
-  assert.strictEqual(stringify(9000), '9000');
-});
+  test('false', () => {
+    assert.strictEqual(stringify(false), 'false');
+  });
 
-test('stringify() a string', () => {
-  assert.strictEqual(stringify('thing'), '"thing"');
-});
+  test('a number', () => {
+    assert.strictEqual(stringify(9000), '9000');
+  });
 
-test('stringify() a String', () => {
-  assert.strictEqual(stringify(new String('thing')), '"thing"');
-});
+  test('a string', () => {
+    assert.strictEqual(stringify('thing'), '"thing"');
+  });
 
-test('stringify() a Symbol', () => {
-  assert.strictEqual(stringify(Symbol.for('sample')), 'Symbol(sample)');
-});
+  test('a String', () => {
+    assert.strictEqual(stringify(new String('thing')), '"thing"');
+  });
 
-test('stringify() an Error', () => {
-  assert.strictEqual(
-    stringify(new Error('Utter failure')),
-    '"Error: Utter failure"',
-  );
-});
+  test('a Symbol', () => {
+    assert.strictEqual(stringify(Symbol.for('sample')), 'Symbol(sample)');
+  });
 
-test('stringify() an AggregateError', () => {
-  const error = new AggregateError(
-    [new Error('a'), new Error('b')],
-    'all failed',
-  );
-  assert.strictEqual(
-    stringify(error),
-    dedent`
+  test('an Error', () => {
+    assert.strictEqual(
+      stringify(new Error('Utter failure')),
+      '"Error: Utter failure"',
+    );
+  });
+
+  test('an AggregateError', () => {
+    const error = new AggregateError(
+      [new Error('a'), new Error('b')],
+      'all failed',
+    );
+    assert.strictEqual(
+      stringify(error),
+      dedent`
             "AggregateError: all failed" {
               "errors": [
                 "Error: a",
@@ -58,59 +66,59 @@ test('stringify() an AggregateError', () => {
               ],
             }
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() an Error with a cause', () => {
-  const error = new Error('outer', {cause: new Error('inner')});
-  assert.strictEqual(
-    stringify(error),
-    dedent`
+  test('an Error with a cause', () => {
+    const error = new Error('outer', {cause: new Error('inner')});
+    assert.strictEqual(
+      stringify(error),
+      dedent`
             "Error: outer" {
               "cause": "Error: inner",
             }
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() an Error with a circular cause', () => {
-  const error: Error & {cause?: unknown} = new Error('outer');
-  error.cause = error;
-  assert.strictEqual(
-    stringify(error),
-    dedent`
+  test('an Error with a circular cause', () => {
+    const error: Error & {cause?: unknown} = new Error('outer');
+    error.cause = error;
+    assert.strictEqual(
+      stringify(error),
+      dedent`
             "Error: outer" {
               "cause": «circular»,
             }
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() a RegExp', () => {
-  assert.strictEqual(stringify(/stuff \w+/i), '/stuff \\w+/i');
-});
+  test('a RegExp', () => {
+    assert.strictEqual(stringify(/stuff \w+/i), '/stuff \\w+/i');
+  });
 
-test('stringify() an array', () => {
-  assert.strictEqual(
-    stringify([1, true, 'thing']),
-    dedent`
+  test('an array', () => {
+    assert.strictEqual(
+      stringify([1, true, 'thing']),
+      dedent`
             [
               1,
               true,
               "thing",
             ]
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() an empty array', () => {
-  assert.strictEqual(stringify([]), '[]');
-});
+  test('an empty array', () => {
+    assert.strictEqual(stringify([]), '[]');
+  });
 
-test('stringify() nested arrays', () => {
-  assert.strictEqual(
-    stringify([1, true, 'thing', ['nested', null]]),
-    dedent`
+  test('nested arrays', () => {
+    assert.strictEqual(
+      stringify([1, true, 'thing', ['nested', null]]),
+      dedent`
             [
               1,
               true,
@@ -121,17 +129,17 @@ test('stringify() nested arrays', () => {
               ],
             ]
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() an array with circular references', () => {
-  const array: Array<unknown> = [1, true, 'thing'];
+  test('an array with circular references', () => {
+    const array: Array<unknown> = [1, true, 'thing'];
 
-  array.push(array);
+    array.push(array);
 
-  assert.strictEqual(
-    stringify(array),
-    dedent`
+    assert.strictEqual(
+      stringify(array),
+      dedent`
             [
               1,
               true,
@@ -139,29 +147,29 @@ test('stringify() an array with circular references', () => {
               «circular»,
             ]
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() an object', () => {
-  assert.strictEqual(
-    stringify({a: 1, b: true}),
-    dedent`
+  test('an object', () => {
+    assert.strictEqual(
+      stringify({a: 1, b: true}),
+      dedent`
             {
               "a": 1,
               "b": true,
             }
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() an empty object', () => {
-  assert.strictEqual(stringify({}), '{}');
-});
+  test('an empty object', () => {
+    assert.strictEqual(stringify({}), '{}');
+  });
 
-test('stringify() a nested object', () => {
-  assert.strictEqual(
-    stringify({a: 1, b: true, c: {d: null}}),
-    dedent`
+  test('a nested object', () => {
+    assert.strictEqual(
+      stringify({a: 1, b: true, c: {d: null}}),
+      dedent`
             {
               "a": 1,
               "b": true,
@@ -170,62 +178,55 @@ test('stringify() a nested object', () => {
               },
             }
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() an object with circular references', () => {
-  const object: {[key: string]: any} = {a: 1, b: true};
+  test('an object with circular references', () => {
+    const object: {[key: string]: any} = {a: 1, b: true};
 
-  object.c = object;
+    object.c = object;
 
-  assert.strictEqual(
-    stringify(object),
-    dedent`
+    assert.strictEqual(
+      stringify(object),
+      dedent`
             {
               "a": 1,
               "b": true,
               "c": «circular»,
             }
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() a Date', () => {
-  assert.strictEqual(stringify(new Date()), '[object Date]');
-});
+  test('a Date', () => {
+    assert.strictEqual(stringify(new Date()), '[object Date]');
+  });
 
-test('stringify() a Set', () => {
-  assert.strictEqual(
-    stringify(new Set([1, true, 'thing'])),
-    dedent`
+  test('a Set', () => {
+    assert.strictEqual(
+      stringify(new Set([1, true, 'thing'])),
+      dedent`
             Set {
               1,
               true,
               "thing",
             }
         `.trimEnd(),
-  );
-});
+    );
+  });
 
-test('stringify() an empty Set', () => {
-  assert.strictEqual(stringify(new Set()), 'Set {}');
-});
+  test('an empty Set', () => {
+    assert.strictEqual(stringify(new Set()), 'Set {}');
+  });
 
-test('stringify() a one-line Function', () => {
-  assert.strictEqual(stringify(() => 1), '() => 1');
-});
+  test('a one-line Function', () => {
+    assert.strictEqual(stringify(() => 1), '() => 1');
+  });
 
-// @ts-ignore: suppress TS7006: Parameter 'a' implicitly has an 'any' type.
-function fn(a, b) {
-  if (a > 0) {
-    return a + b;
-  }
-}
-
-test('stringify() a multi-line Function', () => {
-  assert.strictEqual(
-    stringify({fn}),
-    dedent`
+  test('a multi-line Function', () => {
+    assert.strictEqual(
+      stringify({fn}),
+      dedent`
             {
               "fn": function fn(a, b) {
                 if (a > 0) {
@@ -234,5 +235,6 @@ test('stringify() a multi-line Function', () => {
               },
             }
         `.trimEnd(),
-  );
+    );
+  });
 });
