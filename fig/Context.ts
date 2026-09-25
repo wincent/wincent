@@ -196,13 +196,16 @@ class Context {
   get currentVariables(): Variables {
     const aspect = getAspectFromCallers(getCallers());
     if (aspect) {
-      const variables = this.#variables.getFinalVariables(aspect);
-      assert.ok(variables);
-      return variables;
-    } else {
-      // If no aspect, we are somewhere global, like in "helpers.ts".
-      return this.#variables.getGlobalVariables();
+      const task = this.#currentTask.get(aspect);
+      if (task) {
+        return this.#variables.getFinalVariables(aspect);
+      }
     }
+
+    // If we have no aspect, we are somewhere global, like in "helpers.ts".
+    // If we have an aspect but no task, we're probably in `variables()` or
+    // similar, so we don't have the final variables yet.
+    return this.#variables.getGlobalVariables();
   }
 
   get handlers(): HandlerRegistry {

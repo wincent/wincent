@@ -24,7 +24,7 @@ import {proxyEnvExports} from './support/nono-proxy.ts';
 
 const {is, isDecrypted, not, when} = helpers;
 
-variables(async ({hostHandle, identity, platform, profile}) => {
+variables(async ({hostHandle}) => {
   // Docker doesn't support "include" files, so roll our own by
   // merging host-specific config (if present) into base config.
   const dockerBase = JSON.parse(
@@ -85,24 +85,24 @@ variables(async ({hostHandle, identity, platform, profile}) => {
     // appears to only affect the behavior of the "option" key (ie. it makes it
     // behave like "alt") but it does not actually _swap_ the functionality of
     // the other key, so the other key ("cmd") continues to behave like "cmd".
-    kittyAlt: platform === 'darwin' ? 'cmd' : 'alt',
+    kittyAlt: is('darwin') ? 'cmd' : 'alt',
 
     gitHostSpecificInclude: `host/${hostHandle}`,
 
     // These are the personal dotfiles of Greg Hurrell, so only set up
     // "wincent" GitHub handle if identity is "wincent".
-    gitHubUsername: identity === 'wincent' ? 'wincent' : '',
+    gitHubUsername: is('wincent') ? 'wincent' : '',
 
-    sbVmImage: identity === 'wincent'
+    sbVmImage: is('wincent')
       ? 'ghcr.io/wincent/wincent-base:latest'
       : 'ghcr.io/cirruslabs/ubuntu:latest',
 
-    vcsGpgSign: identity === 'wincent' && !is('vm'),
+    vcsGpgSign: is('wincent') && !is('vm'),
 
-    vcsUserEmail: identity === 'wincent'
-      ? profile === 'work' ? 'greg.hurrell@datadoghq.com' : 'greg@hurrell.net'
+    vcsUserEmail: is('wincent')
+      ? is('work') ? 'greg.hurrell@datadoghq.com' : 'greg@hurrell.net'
       : '',
-    vcsUserName: identity === 'wincent' ? 'Greg Hurrell' : '',
+    vcsUserName: is('wincent') ? 'Greg Hurrell' : '',
   };
 });
 

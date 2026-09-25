@@ -31,8 +31,9 @@ export type VariablesCallback = (
  *   callbacks using the `registerVariablesCallback()` method. "main.ts" calls
  *   the appropriate callback while preparing to run a task, mixing the result
  *   in to produce the final set of variables.
- * - "Final" variables: Are the composition of all levels 1 through 8. "main.ts"
- *   calls `registerFinalVariables()` before running each task so that various
+ * - "Final" variables: Are the composition of all levels 1 through 8.
+ *   "main.mts" calls `Context.execute()`, which calls
+ *   `registerFinalVariables()` before running each task so that various
  *   aspect-aware parts of the codebase can look up the current applicable set
  *   of all variables with a simple `Context.currentVariables` access.
  */
