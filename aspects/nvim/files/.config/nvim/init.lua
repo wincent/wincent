@@ -192,6 +192,9 @@ vim.g.filetype_m = 'objc'
 -- centering, which can be annoying.
 vim.g.LoupeCenterResults = 0
 
+-- Prevent unwanted defaults from overriding my preferred settings.
+vim.g.markdown_recommended_style = 0
+
 -- Using <F13> instead of actual <Nop> to avoid messing with "<" mappings.
 -- (<Nop> works fine in RHS of mappings, but on LHS, Vim treats it like "<" +
 -- "n" + "o" + "p" + ">".)
