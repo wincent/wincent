@@ -1,7 +1,8 @@
 {
   "defaultThinkingLevel": "high",
   "extensions": [
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions"
+    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
+    "-builtin:mcp"
   ],
   "hideThinkingBlock": true,
   "lastChangelogVersion": "0.87.1",

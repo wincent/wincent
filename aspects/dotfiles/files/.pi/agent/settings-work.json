@@ -5,6 +5,8 @@
     "anthropic/claude-haiku-4-5",
     "anthropic/claude-opus-5-5",
     "anthropic/claude-sonnet-5-5",
+    "datadog-anthropic/*",
+    "datadog-openai/*",
     "openai-codex/gpt-6-luna",
     "openai-codex/gpt-6-sol",
     "openai-codex/gpt-5.6-terra",
@@ -15,7 +17,8 @@
   ],
   "extensions": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
-    "~/dd/wincent/.pi/agent/extensions"
+    "~/dd/wincent/.pi/agent/extensions",
+    "-builtin:mcp"
   ],
   "prompts": [
     "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts",
