@@ -1,6 +1,15 @@
 // <%= variables.figManaged %>
 //
 // Validate the installed profile with `nono profile validate pi`.
+<%-
+const local = variables.nonoProxyConfig ?? {credentials: {}, capture: {}};
+const reserved = ['anthropic_api_key', 'atlassian', 'kagi_search', 'openrouter_api_key', 'xai_api_key'];
+for (const name of Object.keys(local.credentials)) {
+  if (reserved.includes(name)) {
+    throw new Error(`Local proxy credential conflicts with built-in route: ${name}`);
+  }
+}
+-%>
 {
   "meta": {
     "name": "pi",
@@ -28,8 +37,11 @@
   },
 
   "network": {
-    "credentials": ["anthropic_api_key", <%= variables.atlassianSite ? '"atlassian", ' : '' %>"kagi_search", "openrouter_api_key", "xai_api_key"],
+    "credentials": [<%= Object.keys(local.credentials).map(name => JSON.stringify(name) + ', ').join('') %>"anthropic_api_key", <%= variables.atlassianSite ? '"atlassian", ' : '' %>"kagi_search", "openrouter_api_key", "xai_api_key"],
     "custom_credentials": {
+      <%- for (const [name, config] of Object.entries(local.credentials)) { -%>
+      <%= JSON.stringify(name) %>: <%= JSON.stringify(config) %>,
+      <%- } -%>
       "anthropic_api_key": {
         "upstream": "https://api.anthropic.com",
         "credential_key": "op://CLI/anthropic-api-key/credential",
@@ -87,6 +99,10 @@
       }
     }
   },
+
+  <%- if (Object.keys(local.capture).length) { -%>
+  "credential_capture": <%= JSON.stringify(local.capture) %>,
+  <%- } -%>
 
   "environment": {
     "set_vars": {

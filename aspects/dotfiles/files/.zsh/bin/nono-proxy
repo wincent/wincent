@@ -1,217 +1,587 @@
-#!/bin/bash
-#
-# Run nono's credential-injecting proxy as a standalone server, for use by
-# processes that are *not* inside a nono sandbox.
-#
-# Why: the sandbox hides API keys from the agent by handing it a phantom token
-# and swapping in the real credential on the way out (see
-# ~/.config/nono/profiles/pi.jsonc). Outside the sandbox there is no phantom,
-# so an unsandboxed Pi would need real keys in its environment again. Pointing
-# it at this proxy keeps 1Password as the only place a key lives, keeps the
-# per-endpoint restrictions, and keeps one credential path for sandboxed Pi,
-# unsandboxed Pi, and VMs (via `ssh -R`, see `sb ssh`).
-#
-# This does *not* hide credentials from an unsandboxed agent, which can run
-# `op` itself. What it buys is no plaintext in the dotfiles, one place to
-# rotate, endpoint restrictions, and a log of every use.
-#
-# The process is started from this script (not launchd) so `op` can talk to
-# the 1Password app in the user session. CA, password, phantom exports, and
-# explicitly shared nonsecret profile metadata come from `./install dotfiles`.
-#
-# Usage:
-#
-#   nono-proxy start|stop|status|env|guest-env|port|ca|help
-#
-#   eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
-#   nono-proxy guest-env <guest-ca-path> <guest-bundle-path>
-#   nono-proxy stop
+#!/usr/bin/env python3
+"""Generation-aware host credential proxy (Python standard library only).
 
-set -euo pipefail
+acquire PID selects a current generation and leases it to that process. The
+lease survives exec, so wrappers can still exec Pi/ssh rather than supervise
+another foreground process. Startup/gc reap leases whose PID/start time died.
+Manual start/env pins a generation until explicit stop. Legacy proxies are
+never automatically stopped: their clients predate lease tracking.
+"""
 
-PORT=18099
-PROFILE=pi
-STATE="$HOME/.local/state/nono-proxy"
-CA_CERT="$STATE/ca.crt"
-CA_KEY="$STATE/ca.key"
-CA_BUNDLE="$STATE/bundle.crt"
-PASS_FILE="$STATE/pass"
-PHANTOMS="$STATE/phantoms.env"
-SHARED_ENV="$STATE/shared.env"
-LOG_FILE="$STATE/log"
-PID_FILE="$STATE/pid"
+import argparse
+import contextlib
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shlex
+import shutil
+import signal
+import socket
+import subprocess
+import sys
+import tempfile
+import time
+import uuid
 
-die() {
-  echo "nono-proxy: $*" >&2
-  exit 1
-}
+STATE = Path.home() / '.local/state/nono-proxy'
+GENERATIONS = STATE / 'generations'
+ASSETS = ('ca.crt', 'ca.key', 'bundle.crt', 'pass', 'shared.env', 'phantoms.env')
+# Bump when changing generation semantics, even if installed inputs are unchanged.
+FORMAT = 3
 
-need_state() {
-  [ -f "$PASS_FILE" ] && [ -f "$CA_CERT" ] && [ -f "$CA_KEY" ] &&
-    [ -f "$CA_BUNDLE" ] && [ -f "$PHANTOMS" ] && [ -f "$SHARED_ENV" ] ||
-    die "state missing under $STATE; run \`./install dotfiles\`"
-}
 
-listening() {
-  nc -z 127.0.0.1 "$PORT" 2>/dev/null
-}
+class Error(Exception):
+    pass
 
-wait_for_listen() {
-  local i
-  for i in $(seq 1 50); do
-    if listening; then
-      return 0
-    fi
-    sleep 0.1
-  done
-  die "proxy did not start listening on port $PORT; see $LOG_FILE"
-}
 
-cmd_start() {
-  need_state
-  if listening; then
-    return 0
-  fi
+def command(args, **kwargs):
+    result = subprocess.run(args, capture_output=True, **kwargs)
+    if result.returncode:
+        # Credential helpers and even nono errors may include secrets.
+        raise Error(f'{Path(args[0]).name} failed (exit {result.returncode}); output suppressed')
+    return result.stdout
 
-  command -v nono >/dev/null || die "nono is not installed"
-  export OP_ACCOUNT="${OP_ACCOUNT:-my.1password.eu}"
-  export NONO_PROXY_PASS="$(<"$PASS_FILE")"
 
-  # Loopback only: the proxy holds live credentials. A VM should reach this
-  # over `ssh -R`, which arrives on loopback too.
-  nohup nono proxy \
-    --profile "$PROFILE" \
-    --listen 127.0.0.1 \
-    --port "$PORT" \
-    --proxy-ca-cert "$CA_CERT" \
-    --proxy-ca-key "$CA_KEY" \
-    >"$LOG_FILE" 2>&1 &
-  echo $! > "$PID_FILE"
+def identity(pid):
+    if pid <= 1:
+        return None
+    result = subprocess.run(['/bin/ps', '-p', str(pid), '-o', 'uid=,stat=,lstart='],
+                            env={**os.environ, 'LC_ALL': 'C', 'TZ': 'UTC'}, capture_output=True, text=True)
+    fields = result.stdout.strip().split(maxsplit=2)
+    if result.returncode or len(fields) != 3 or fields[0] != str(os.getuid()) or fields[1].startswith('Z'):
+        return None
+    return fields[2]
 
-  wait_for_listen
-}
 
-cmd_stop() {
-  if [ -f "$PID_FILE" ]; then
-    local pid
-    pid="$(<"$PID_FILE")"
-    if [ -n "$pid" ]; then
-      kill "$pid" 2>/dev/null || true
-    fi
-    rm -f "$PID_FILE"
-  fi
-}
+def alive(record):
+    return identity(record['pid']) == record['birth']
 
-cmd_status() {
-  if listening; then
-    echo "running (profile $PROFILE, port $PORT)"
-  else
-    echo "not running"
-    return 1
-  fi
-}
 
-# Placeholder credentials: the proxy overwrites the injected header, so the
-# value is never used. They exist because clients check that a variable is set
-# before making a request (Pi's `web_search` throws without $KAGI_API_TOKEN,
-# and a provider with no key is treated as unavailable). The names themselves
-# come from the profile, via $PHANTOMS, written at install time.
-#
-# $NO_PROXY keeps loopback traffic direct, so that local services (eg. agent
-# observability on 127.0.0.1) are not routed through, and intercepted by, the
-# proxy.
-proxy_url() {
-  local pass
-  pass="$(<"$PASS_FILE")"
-  echo "http://x:$pass@127.0.0.1:$PORT"
-}
+def listening(record):
+    if not alive(record):
+        return False
+    try:
+        with socket.create_connection(('127.0.0.1', record['port']), timeout=0.5):
+            return True
+    except OSError:
+        return False
 
-print_export() {
-  printf 'export %s=%q\n' "$1" "$2"
-}
 
-print_proxy_exports() {
-  local url
-  url="$(proxy_url)"
-  print_export HTTP_PROXY "$url"
-  print_export HTTPS_PROXY "$url"
-  print_export NO_PROXY localhost,127.0.0.1,::1
-  print_export NODE_EXTRA_CA_CERTS "$1"
-}
+def save(path, value):
+    temp = path.with_name(path.name + '.' + uuid.uuid4().hex)
+    try:
+        temp.write_text(json.dumps(value, sort_keys=True) + '\n')
+        temp.chmod(0o600)
+        temp.replace(path)
+    finally:
+        temp.unlink(missing_ok=True)
 
-print_bundle_exports() {
-  print_export CURL_CA_BUNDLE "$1"
-  print_export SSL_CERT_FILE "$1"
-  print_export REQUESTS_CA_BUNDLE "$1"
-}
 
-print_client_env() {
-  # Generated, shell-quoted metadata only. Phantoms win on any collision;
-  # dynamic proxy/CA exports are emitted afterward and take precedence too.
-  cat "$SHARED_ENV" "$PHANTOMS"
-}
+@contextlib.contextmanager
+def locked():
+    STATE.mkdir(parents=True, exist_ok=True, mode=0o700)
+    STATE.chmod(0o700)
+    with (STATE / 'lock').open('a') as lock:
+        os.chmod(lock.name, 0o600)
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        GENERATIONS.mkdir(exist_ok=True, mode=0o700)
+        yield
 
-cmd_env() {
-  need_state
-  if ! openssl x509 -in "$CA_CERT" -checkend 0 >/dev/null 2>&1; then
-    die "CA expired; run \`./install dotfiles\`"
-  fi
-  cmd_start
-  print_client_env
-  print_proxy_exports "$CA_CERT"
-  print_bundle_exports "$CA_BUNDLE"
-}
 
-# Guest-oriented exports for `sb ssh`. Both paths refer to files on the
-# guest. The bundle must combine guest-native roots with the proxy CA, not
-# the host's macOS roots. Does not start the proxy: the caller does that.
-cmd_guest_env() {
-  need_state
-  local ca_path="${1:-}" bundle_path="${2:-}"
-  [ -n "$ca_path" ] && [ -n "$bundle_path" ] ||
-    die "guest-env requires the guest CA and combined bundle paths"
-  print_client_env
-  print_proxy_exports "$ca_path"
-  print_bundle_exports "$bundle_path"
-}
+def records():
+    for directory in sorted(GENERATIONS.iterdir()):
+        file = directory / 'running.json'
+        if directory.is_dir() and file.is_file():
+            yield directory, json.loads(file.read_text())
 
-cmd_port() {
-  echo "$PORT"
-}
 
-cmd_ca() {
-  need_state
-  echo "$CA_CERT"
-}
+def host_environment():
+    env = dict(os.environ)
+    # The shared host service must not inherit a client's repo cwd or proxy.
+    env['PWD'] = str(Path.home().resolve())
+    env['PATH'] = os.pathsep.join(str(Path.home() / entry) if not Path(entry).is_absolute() else entry
+                                  for entry in env.get('PATH', os.defpath).split(os.pathsep))
+    env['OP_ACCOUNT'] = env.get('OP_ACCOUNT') or 'my.1password.eu'
+    for name in list(env):
+        if name.lower() in ('http_proxy', 'https_proxy', 'all_proxy', 'no_proxy'):
+            del env[name]
+        elif name in ('NODE_EXTRA_CA_CERTS', 'CURL_CA_BUNDLE', 'SSL_CERT_FILE', 'REQUESTS_CA_BUNDLE'):
+            if env[name].startswith(str(STATE) + '/'):
+                del env[name]
+    return env
 
-cmd_help() {
-  cat <<'EOF'
-Run nono's credential-injecting proxy as a standalone server, for use
-by processes that are not inside a nono sandbox.
 
-Usage:
+def parse_jsonc(data):
+    # Preserve strings while removing comments and trailing commas, as nono
+    # does. Only inheritance metadata is inspected; raw bytes are snapshotted.
+    text = re.sub(r'("(?:\\.|[^"\\])*")|//[^\n]*|/\*[\s\S]*?\*/',
+                  lambda match: match[1] or '', data.decode())
+    text = re.sub(r'("(?:\\.|[^"\\])*")|,(\s*[}\]])',
+                  lambda match: match[1] or match[2], text)
+    return json.loads(text)
 
-  nono-proxy start|stop|status|env|guest-env|port|ca|help
 
-  eval "$(nono-proxy env)"    # starts it if needed, then exports the vars
-  nono-proxy guest-env <guest-ca-path> <guest-bundle-path>
-  nono-proxy stop
+def inherited_inputs(profile, config, executable, env):
+    files, targets, aliases = {}, {}, {}
+    catalog = json.loads(command([executable, 'profile', 'list', '--json'], env=env, cwd=Path.home()))
+    builtins = {entry['name']: entry.get('extends', []) for entry in catalog if entry['source'] == 'built-in'}
 
-CA, password, phantom exports, and shared nonsecret profile metadata
-are created by `./install dotfiles`.
-The process itself is started from this script so 1Password CLI can
-talk to the unlocked 1Password app.
-EOF
-}
+    def remember(path):
+        path = path.absolute()
+        canonical = path.resolve(strict=True)
+        data = canonical.read_bytes()
+        files[str(path)] = data
+        files[str(canonical)] = data
+        targets[str(path)] = str(canonical)
+        return canonical, parse_jsonc(data)
 
-case "${1:-help}" in
-  start) cmd_start ;;
-  stop) cmd_stop ;;
-  status) cmd_status ;;
-  env) cmd_env ;;
-  guest-env) cmd_guest_env "${2:-}" "${3:-}" ;;
-  port) cmd_port ;;
-  ca) cmd_ca ;;
-  help | --help | -h) cmd_help ;;
-  *) die "unknown command: $1 (try \`nono-proxy help\`)" ;;
-esac
+    # Re-evaluate provider selection on every launch, but fingerprint only
+    # selected manifests/profiles. Ignore malformed unrelated packs as nono does.
+    packs = []
+    for manifest in sorted((config / 'packages').glob('*/*/package.json')):
+        try:
+            data = json.loads(manifest.read_bytes())
+        except (OSError, ValueError):
+            continue
+        if not isinstance(data, dict) or not isinstance(data.get('artifacts'), list):
+            continue
+        key = str(manifest.parent.relative_to(config / 'packages'))
+        for artifact in data['artifacts']:
+            if isinstance(artifact, dict) and artifact.get('type') == 'profile' and isinstance(artifact.get('install_as'), str):
+                path = manifest.parent / 'profiles' / (artifact['install_as'] + '.json')
+                if path.is_file():
+                    packs.append((key, artifact['install_as'], artifact.get('aliases', []), path, manifest))
+
+    seen = set()
+
+    def walk(path, sibling_context=True, depth=0):
+        canonical, data = remember(path)
+        identity = (canonical, sibling_context)
+        if identity in seen:
+            return
+        seen.add(identity)
+        bases = data.get('extends') or []
+        if isinstance(bases, str):
+            bases = [bases]
+        for name in bases:
+            resolve(name, canonical if sibling_context else None, depth + 1)
+
+    def resolve(name, source, depth):
+        if depth > 10:
+            raise Error('profile inheritance exceeds nono depth limit')
+        sibling = source.parent / (name + '.json') if source else None
+        if sibling and sibling.is_file() and sibling.resolve() != source:
+            walk(sibling, depth=depth)
+            return
+        for suffix in ('.jsonc', '.json'):
+            candidate = config / 'profiles' / (name + suffix)
+            if candidate.is_file():
+                walk(candidate, depth=depth)
+                # Pin a global user lookup to its canonical snapshot, including
+                # its transitive external siblings. A self-reference must still
+                # fall through to the native resolver rather than overwrite self.
+                if sibling and not sibling.exists():
+                    aliases[str(sibling)] = str(candidate.resolve())
+                return
+        ref = name.split('@', 1)[0]
+        for key, install_as, names, path, manifest in packs:
+            if ref == key or name == install_as or name in names:
+                remember(manifest)
+                # Pack lookup clears sibling context. Let nono load/verify the
+                # installed pack itself; hash all raw inputs before/after start.
+                walk(path, sibling_context=False, depth=depth)
+                return
+        if name in builtins:
+            for base in builtins[name]:
+                resolve(base, None, depth + 1)
+            return
+        raise Error('cannot account for an inherited profile; refusing to reuse a proxy')
+
+    # Follow selected dependencies, including canonical symlink siblings, rather
+    # than assuming every input lives below the user profile directory.
+    walk(profile)
+    return files, targets, aliases
+
+
+def resolve_inputs():
+    env = host_environment()
+    for name in ASSETS:
+        if not (STATE / name).is_file():
+            raise Error('state missing; run `./install dotfiles`')
+    try:
+        command(['openssl', 'x509', '-in', str(STATE / 'ca.crt'), '-checkend', '0', '-noout'], env=env, cwd=Path.home())
+    except Error:
+        raise Error('proxy CA missing, invalid, or expired; run `./install dotfiles`') from None
+    executable = shutil.which('nono', path=env['PATH'])
+    if not executable:
+        raise Error('nono is not installed')
+    config_home = Path(env.get('XDG_CONFIG_HOME') or Path.home() / '.config')
+    try:
+        config_home = config_home.resolve(strict=True) if config_home.is_absolute() else Path.home() / '.config'
+    except OSError:
+        config_home = Path.home() / '.config'
+    config = config_home / 'nono'
+    # nono prefers .jsonc over .json. Keep named inheritance in nono itself:
+    # `profile show --json` omits custom_credentials and credential_capture!
+    candidates = [config / 'profiles' / ('pi' + suffix) for suffix in ('.jsonc', '.json')]
+    profile = next((path for path in candidates if path.is_file()), None)
+    if profile is None:
+        raise Error('installed pi profile missing; run `./install dotfiles`')
+    assets = {name: (STATE / name).read_bytes() for name in ASSETS}
+    resolved = command([executable, 'profile', 'show', str(profile), '--json'], env=env, cwd=Path.home())
+    files, targets, aliases = inherited_inputs(profile, config, executable, env)
+    # Hash authored inputs as well as resolved inherited settings, including
+    # user parents/overrides. Built-in policy changes are covered by the binary.
+    inputs = {'format': FORMAT, 'profile': str(profile), 'cwd': str(Path.home().resolve()),
+              'targets': targets, 'aliases': aliases,
+              'binary': hashlib.sha256(Path(executable).read_bytes()).hexdigest(),
+              'resolved': json.loads(resolved),
+              'files': {name: hashlib.sha256(data).hexdigest() for name, data in files.items()},
+              'assets': {name: hashlib.sha256(data).hexdigest() for name, data in assets.items()}}
+    # Include explicit nono options and profile-referenced environment values,
+    # but do not persist their values (which might be credentials).
+    references = set(re.findall(rb'\$\{?([A-Za-z_][A-Za-z0-9_]*)', b'\n'.join(files.values())))
+    names = {name.decode() for name in references}
+    names.update(name.decode() for name in re.findall(rb'env://([A-Za-z_][A-Za-z0-9_]*)', b'\n'.join(files.values())))
+    names.update(name for name in env if name.startswith('NONO_'))
+    names.difference_update(('NONO_PROXY_GENERATION', 'NONO_PROXY_EXPORTS', 'NONO_PROXY_CONFIG', 'NONO_PROXY_START_TIMEOUT_SECS',
+                             'NONO_PROXY_PASS', 'NONO_PROFILE', 'NONO_PROXY_CA_CERT', 'NONO_PROXY_CA_KEY'))
+    names.update(('OP_ACCOUNT', 'PATH', 'HOME', 'XDG_CONFIG_HOME'))
+    environment = {name: env.get(name) for name in names}
+    inputs['environment'] = environment
+    fingerprint = hashlib.sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest()
+    return fingerprint, executable, profile, assets, files, targets, aliases, inputs['resolved']
+
+
+def terminate(record):
+    if not alive(record):
+        return
+    os.kill(record['pid'], signal.SIGTERM)
+    for _ in range(50):
+        if not alive(record):
+            return
+        time.sleep(0.1)
+    # Do not send SIGKILL to a PID which could have been recycled.
+    if alive(record):
+        os.kill(record['pid'], signal.SIGKILL)
+
+
+def reap_starting():
+    # The startup gate cannot exec nono until starting.json is durable. The
+    # global lock means any unpublished generation here lost its launcher.
+    for directory in GENERATIONS.iterdir():
+        if directory.is_dir() and not (directory / 'running.json').exists():
+            starting = directory / 'starting.json'
+            if starting.is_file():
+                terminate(json.loads(starting.read_text()))
+            shutil.rmtree(directory)
+
+
+def clean_lease_dirs(record, all_clients=False):
+    retained = []
+    for resource in record.get('lease_dirs', []):
+        if not all_clients and identity(resource['pid']) == resource['birth']:
+            retained.append(resource)
+            continue
+        path = Path(resource['path'])
+        if path.parent.resolve() != Path('/tmp').resolve() or not path.name.startswith('nono-lease-') or path.is_symlink():
+            raise Error('invalid lease scratch directory in proxy state')
+        if path.exists():
+            if path.stat().st_uid != os.getuid():
+                raise Error('lease scratch directory has a different owner')
+            shutil.rmtree(path)
+    record['lease_dirs'] = retained
+
+
+def lease_dir(directory, record, owner):
+    birth = identity(owner)
+    if not birth or record['leases'].get(str(owner)) != birth:
+        raise Error('scratch directory requires a live lease on this generation')
+    for resource in record.get('lease_dirs', []):
+        if resource['pid'] == owner and resource['birth'] == birth:
+            return resource['path']
+    # Keep Unix socket paths below macOS's 104-byte limit, even with a long HOME.
+    path = tempfile.mkdtemp(prefix='nono-lease-', dir='/tmp')
+    record.setdefault('lease_dirs', []).append({'pid': owner, 'birth': birth, 'path': path})
+    save(directory / 'running.json', record)
+    return path
+
+
+def collect(keep=None):
+    for directory, record in records():
+        clean_lease_dirs(record)
+        record['leases'] = {pid: birth for pid, birth in record['leases'].items()
+                            if identity(int(pid)) == birth}
+        if directory.name != keep and not record['leases'] and not record['manual']:
+            terminate(record)
+            shutil.rmtree(directory)
+        else:
+            save(directory / 'running.json', record)
+
+
+def start(inputs):
+    fingerprint, executable, profile, assets, sources, targets, aliases, resolved = inputs
+    identifier = fingerprint[:16] + '-' + uuid.uuid4().hex[:12]
+    directory = GENERATIONS / identifier
+    directory.mkdir(mode=0o700)
+    process = None
+    try:
+        # Mirror canonical source locations, including symlink targets outside
+        # the user profile directory. nono derives context from canonical paths.
+        def mirror(path):
+            return directory / 'authored' / os.path.abspath(path).lstrip('/')
+
+        for source, data in sources.items():
+            target = mirror(targets.get(source, source))
+            target.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+            target.write_bytes(data)
+        for source, destination in {**targets, **aliases}.items():
+            target, link = mirror(destination), mirror(source)
+            if link != target and not link.exists():
+                link.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+                link.symlink_to(target)
+        (directory / 'profiles').symlink_to(mirror(profile.parent), target_is_directory=True)
+        snapshot = directory / 'profiles' / profile.name
+        check = json.loads(command([executable, 'profile', 'show', str(snapshot), '--json'],
+                                   env=host_environment(), cwd=Path.home()))
+        if check != resolved:
+            raise Error('snapshotted profile resolves differently; refusing to start the proxy')
+        for name, data in assets.items():
+            (directory / name).write_bytes(data)
+        command(['openssl', 'x509', '-in', str(directory / 'ca.crt'), '-checkend', '0', '-noout'],
+                env=host_environment(), cwd=Path.home())
+        env = host_environment()
+        env['NONO_PROXY_PASS'] = assets['pass'].decode().strip()
+        if not env['NONO_PROXY_PASS']:
+            raise Error('proxy password is empty; run `./install dotfiles`')
+        with (directory / 'log').open('wb') as log:
+            process = subprocess.Popen([
+                '/bin/sh', '-c', 'read -r ready || exit; exec "$@"', 'nono-startup-gate',
+                executable, 'proxy', '--profile', str(snapshot),
+                '--listen', '127.0.0.1', '--port', '0',
+                '--proxy-ca-cert', str(directory / 'ca.crt'),
+                '--proxy-ca-key', str(directory / 'ca.key'),
+            ], env=env, cwd=Path.home(), stdin=subprocess.PIPE, stdout=log, stderr=log, start_new_session=True)
+        birth = identity(process.pid)
+        if not birth:
+            raise Error('proxy exited during startup')
+        save(directory / 'starting.json', {'pid': process.pid, 'birth': birth})
+        process.stdin.write(b'go\n')
+        process.stdin.close()
+        timeout = float(os.environ.get('NONO_PROXY_START_TIMEOUT_SECS', '180'))
+        if not 0 < timeout <= 600:
+            raise Error('NONO_PROXY_START_TIMEOUT_SECS must be between 0 and 600')
+        deadline = time.monotonic() + timeout
+        record = {'pid': process.pid, 'birth': birth, 'fingerprint': fingerprint,
+                  'leases': {}, 'manual': False}
+        while time.monotonic() < deadline:
+            if process.poll() is not None:
+                raise Error('proxy exited during startup (output suppressed)')
+            log = (directory / 'log').read_text(errors='replace')
+            match = re.search(r'nono proxy listening on 127\.0\.0\.1:(\d+)', log)
+            if match:
+                record['port'] = int(match[1])
+                if listening(record):
+                    return directory, record
+            time.sleep(0.1)
+        raise Error('proxy startup timed out; check host credential-provider authentication')
+    except BaseException:
+        if process is not None and process.poll() is None:
+            process.terminate()
+            try:
+                process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                process.wait()
+        shutil.rmtree(directory)
+        raise
+
+
+def ensure(owner=None):
+    birth = identity(owner) if owner is not None else None
+    if owner is not None and not birth:
+        raise Error('lease owner must be a live process owned by this user')
+    for _ in range(3):
+        inputs = resolve_inputs()
+        found = next(((directory, record) for directory, record in records()
+                      if record['fingerprint'] == inputs[0] and listening(record)), None)
+        created = found is None
+        directory, record = found or start(inputs)
+        # Never label an old policy as current if installation changed during
+        # credential-provider unlock/startup. Retry without disrupting clients.
+        try:
+            changed = resolve_inputs()[0] != inputs[0]
+        except BaseException:
+            if created:
+                terminate(record)
+                shutil.rmtree(directory)
+            raise
+        if changed:
+            if created:
+                terminate(record)
+                shutil.rmtree(directory)
+            continue
+        if owner is not None:
+            if identity(owner) != birth:
+                if created:
+                    terminate(record)
+                    shutil.rmtree(directory)
+                raise Error('lease owner exited during startup')
+            record['leases'][str(owner)] = birth
+        else:
+            record['manual'] = True
+        save(directory / 'running.json', record)
+        (directory / 'starting.json').unlink(missing_ok=True)
+        collect(keep=directory.name)
+        return directory, record
+    raise Error('configuration kept changing during startup; retry after installation finishes')
+
+
+def select(identifier):
+    if not re.fullmatch(r'[a-f0-9]{16}-[a-f0-9]{12}', identifier):
+        raise Error('invalid proxy generation')
+    directory = GENERATIONS / identifier
+    if not (directory / 'running.json').is_file():
+        raise Error('proxy generation no longer exists; relaunch the client')
+    record = json.loads((directory / 'running.json').read_text())
+    if not listening(record):
+        raise Error('proxy generation is not running; relaunch the client')
+    return directory, record
+
+
+def export_names(text):
+    tokens = shlex.split(text)
+    if len(tokens) % 2 or any(tokens[i] != 'export' for i in range(0, len(tokens), 2)):
+        raise Error('invalid generated environment exports; run `./install dotfiles`')
+    names = {token.split('=', 1)[0] for token in tokens[1::2]}
+    if any(not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', name) for name in names):
+        raise Error('invalid generated environment variable name')
+    return names
+
+
+def exports(directory, record, ca=None, bundle=None, port=None):
+    password = (directory / 'pass').read_text().strip()
+    from urllib.parse import quote
+    url = f'http://x:{quote(password, safe="")}@127.0.0.1:{port or record["port"]}'
+    values = {
+        'HTTP_PROXY': url, 'HTTPS_PROXY': url,
+        'NO_PROXY': 'localhost,127.0.0.1,::1',
+        'NODE_EXTRA_CA_CERTS': ca or str(directory / 'ca.crt'),
+        'CURL_CA_BUNDLE': bundle or str(directory / 'bundle.crt'),
+        'SSL_CERT_FILE': bundle or str(directory / 'bundle.crt'),
+        'REQUESTS_CA_BUNDLE': bundle or str(directory / 'bundle.crt'),
+    }
+    text = (directory / 'shared.env').read_text() + (directory / 'phantoms.env').read_text()
+    current = export_names(text)
+    previous = {name for name in os.environ.get('NONO_PROXY_EXPORTS', '').split()
+                if re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', name)}
+    values['NONO_PROXY_EXPORTS'] = ' '.join(sorted(current))
+    # Lowercase proxy variables otherwise take precedence in some HTTP clients.
+    prefix = 'unset http_proxy https_proxy all_proxy ALL_PROXY no_proxy\n'
+    if previous - current:
+        prefix += 'unset ' + ' '.join(sorted(previous - current)) + '\n'
+    return prefix + text + ''.join(f'export {name}={shlex.quote(value)}\n' for name, value in values.items())
+
+
+def legacy(stop=False):
+    file = STATE / 'pid'
+    if not file.is_file():
+        return
+    try:
+        pid = int(file.read_text().strip())
+        birth = identity(pid)
+        args = command(['/bin/ps', '-p', str(pid), '-o', 'args=']).decode()
+    except (ValueError, Error):
+        return
+    # Old state lacks a birth time. Only recognize the exact legacy service;
+    # never trust an arbitrary PID file or kill it automatically during gc.
+    if birth and 'nono proxy ' in args and '--port 18099' in args:
+        if stop:
+            terminate({'pid': pid, 'birth': birth})
+            file.unlink(missing_ok=True)
+        else:
+            print(f'legacy proxy running (pid {pid}, port 18099; retained until explicit stop)')
+        return True
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--generation', help='pin ca/port/env/guest-env/stop to an acquired generation')
+    parser.add_argument('--guest-port', type=int, help='guest loopback port selected for this SSH connection')
+    parser.add_argument('command', choices=['acquire', 'lease-dir', 'start', 'stop', 'status', 'env', 'guest-env', 'port', 'ca', 'gc', 'help'])
+    parser.add_argument('args', nargs='*')
+    args = parser.parse_args()
+    if args.command == 'help':
+        parser.print_help()
+        print('\nWrappers: acquire PID, then use --generation ID for every lookup.\n'
+              'Manual start/env pins until stop. gc reaps unleased generations; stop interrupts clients.\n'
+              'Run ./install dotfiles to provision/update proxy state. Logs contain proxy credentials.')
+        return
+    if args.guest_port is not None and not 1 <= args.guest_port <= 65535:
+        raise Error('guest port must be between 1 and 65535')
+    if args.command == 'guest-env' and (len(args.args) != 2 or not all(args.args)):
+        raise Error('guest-env requires guest CA and combined bundle paths')
+    if args.command in ('acquire', 'lease-dir') and (len(args.args) != 1 or not args.args[0].isdigit()):
+        raise Error(f'{args.command} requires the client process PID')
+    if args.command == 'lease-dir' and not args.generation:
+        raise Error('lease-dir requires --generation')
+    if args.command not in ('guest-env', 'acquire', 'lease-dir') and args.args:
+        raise Error('unexpected arguments')
+    with locked():
+        reap_starting()
+        if args.command == 'stop':
+            targets = [select(args.generation)] if args.generation else list(records())
+            for directory, record in targets:
+                terminate(record)
+                clean_lease_dirs(record, all_clients=True)
+                shutil.rmtree(directory)
+            if not args.generation:
+                legacy(stop=True)
+        elif args.command == 'gc':
+            collect()
+        elif args.command == 'status':
+            running = False
+            for directory, record in records():
+                leases = sum(identity(int(pid)) == birth for pid, birth in record['leases'].items())
+                healthy = listening(record)
+                running = running or healthy
+                print(f'{directory.name}: {"running" if healthy else "stopped"} '
+                      f'(port {record["port"]}, leases {leases}, manual {record["manual"]})')
+            if not legacy() and not running:
+                print('not running')
+                sys.exit(1)
+        else:
+            if args.command == 'acquire':
+                if args.generation:
+                    raise Error('acquire always selects current configuration')
+                directory, record = ensure(int(args.args[0]))
+                print(directory.name)
+                return
+            directory, record = select(args.generation) if args.generation else ensure()
+            if args.command == 'lease-dir':
+                print(lease_dir(directory, record, int(args.args[0])))
+            elif args.command == 'env':
+                print(exports(directory, record), end='')
+            elif args.command == 'guest-env':
+                print(exports(directory, record, *args.args, port=args.guest_port), end='')
+            elif args.command == 'port':
+                print(record['port'])
+            elif args.command == 'ca':
+                print(directory / 'ca.crt')
+
+
+if __name__ == '__main__':
+    os.umask(0o077)
+    signal.signal(signal.SIGTERM, lambda *_: sys.exit(143))
+    try:
+        main()
+    except (Error, OSError, ValueError) as error:
+        # JSON parser errors must not print private source text or credentials.
+        message = 'invalid JSON in proxy configuration/state' if isinstance(error, json.JSONDecodeError) else str(error)
+        print(f'nono-proxy: {message}', file=sys.stderr)
+        sys.exit(1)
+    except KeyboardInterrupt:
+        sys.exit(130)

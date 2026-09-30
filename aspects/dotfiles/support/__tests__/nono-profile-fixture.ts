@@ -2,6 +2,7 @@ import {readFileSync} from 'node:fs';
 
 import {compile, fill} from '../../../../fig/template.ts';
 import type {AtlassianMetadata} from '../atlassian-metadata.ts';
+import type {ProxyConfig} from '../nono-proxy-config.ts';
 
 export const fixtureMetadata = {
   site: 'example.atlassian.net',
@@ -17,10 +18,12 @@ export const profileTemplate: string = readFileSync(
 
 export function renderFixtureProfile(
   metadata: AtlassianMetadata | null = fixtureMetadata,
+  nonoProxyConfig: ProxyConfig = {credentials: {}, capture: {}},
 ): string {
   return fill(compile(profileTemplate), {
     variables: {
       figManaged: 'Managed by Fig (test fixture)',
+      nonoProxyConfig,
       atlassianSite: metadata?.site ?? '',
       atlassianEmail: metadata?.email ?? '',
     },

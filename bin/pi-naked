@@ -6,10 +6,10 @@
 #
 #   bin/pi-naked [pi-args...]
 #
-# On Darwin this starts `nono-proxy` if needed, exports its proxy/CA/phantom
-# variables, then execs `pi`. The agent is unsandboxed, so it can reach
-# 1Password and the rest of the filesystem; API keys still live only in
-# 1Password and are injected on matching requests.
+# On Darwin this leases a current proxy generation, exports its matching
+# proxy/CA/phantom variables, then execs `pi`. The lease follows this PID
+# through exec; other sessions keep their own generation during updates.
+# The agent is unsandboxed; credential capture/injection stays host-side.
 #
 # Inside a Linux VM, `sb ssh` already exported those variables, so this
 # falls through to `pi`.
@@ -18,7 +18,9 @@
 
 set -e
 
-if command -v nono-proxy >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
-  eval "$(nono-proxy env)"
+if [ "$(uname -s)" = Darwin ]; then
+  generation="$(nono-proxy acquire "$$")" || exit $?
+  proxy_env="$(nono-proxy --generation "$generation" env)" || exit $?
+  eval "$proxy_env"
 fi
 exec pi "$@"

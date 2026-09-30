@@ -21,6 +21,7 @@ import {
   stripJsoncLineComments,
 } from '../nono-proxy.ts';
 
+import {generationFixture} from './nono-generation-fixture.ts';
 import {renderFixtureProfile} from './nono-profile-fixture.ts';
 
 const proxy = fileURLToPath(
@@ -128,12 +129,19 @@ test('shared exports round-trip quotes, newlines and shell metacharacters withou
   );
 });
 
-test('guest-env requires both guest paths and exports safely quoted CA and phantom values', (t) => {
-  const {home} = fixture(t);
-  const env = {PATH: process.env.PATH, HOME: home};
+test('guest-env requires both guest paths and exports safely quoted CA and phantom values', async (t) => {
+  const {env, acquire, run} = await generationFixture(t);
+  const generation = await acquire();
+  const port = (await run(['--generation', generation, 'port'])).stdout.trim();
   const ca = "/home/fixture/it's a CA; `echo bad`/ca.crt";
   const bundle = '/home/fixture/roots and proxy/bundle.crt';
-  const result = spawnSync('/bin/bash', [proxy, 'guest-env', ca, bundle], {
+  const result = spawnSync(proxy, [
+    '--generation',
+    generation,
+    'guest-env',
+    ca,
+    bundle,
+  ], {
     env,
     encoding: 'utf8',
   });
@@ -150,11 +158,11 @@ test('guest-env requires both guest paths and exports safely quoted CA and phant
     bundle,
     bundle,
     'proxied',
-    'http://x:fixture@127.0.0.1:18099',
+    `http://x:fixture@127.0.0.1:${port}`,
     '',
   ]);
   for (const args of [[], [ca]]) {
-    const missing = spawnSync('/bin/bash', [proxy, 'guest-env', ...args], {
+    const missing = spawnSync(proxy, ['guest-env', ...args], {
       env,
       encoding: 'utf8',
     });
@@ -164,24 +172,19 @@ test('guest-env requires both guest paths and exports safely quoted CA and phant
   }
 });
 
-test('host and guest exports share metadata and replace inherited credential values', (t) => {
-  const {home, state} = fixture(t);
-  const bin = join(home, 'bin');
-  mkdirSync(bin);
-  // Avoid real certificate checks, sockets or proxy startup in this unit test.
-  for (const name of ['nc', 'openssl']) {
-    writeFileSync(join(bin, name), '#!/bin/sh\nexit 0\n', {mode: 0o755});
-  }
+test('host and guest exports share metadata and replace inherited credential values', async (t) => {
+  const fixture = await generationFixture(t);
+  const {state} = fixture;
+  const generation = await fixture.acquire();
   const env = {
-    PATH: `${bin}:${process.env.PATH}`,
-    HOME: home,
+    ...fixture.env,
     TEST_API_KEY: 'obsolete-fixture-value',
     SERVICE_SITE: 'obsolete-fixture-site',
   };
   for (
     const args of [['env'], ['guest-env', '/guest/ca.crt', '/guest/bundle.crt']]
   ) {
-    const result = spawnSync('/bin/bash', [proxy, ...args], {
+    const result = spawnSync(proxy, ['--generation', generation, ...args], {
       env,
       encoding: 'utf8',
     });
@@ -200,7 +203,7 @@ test('host and guest exports share metadata and replace inherited credential val
     ]);
   }
   rmSync(join(state, 'shared.env'));
-  const missing = spawnSync('/bin/bash', [proxy, 'env'], {
+  const missing = spawnSync(proxy, ['env'], {
     env,
     encoding: 'utf8',
   });

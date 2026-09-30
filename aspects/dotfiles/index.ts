@@ -20,6 +20,7 @@ import {
   variables,
 } from 'fig';
 import {readAtlassianMetadata} from './support/atlassian-metadata.ts';
+import {readProxyConfig} from './support/nono-proxy-config.ts';
 import {proxyEnvExports} from './support/nono-proxy.ts';
 
 const {is, isDecrypted, not, when} = helpers;
@@ -244,6 +245,7 @@ task(
   when('wincent', not('vm')),
   async () => {
     const destination = path.home.join('.config/nono/profiles/pi.jsonc');
+    const nonoProxyConfig = await readProxyConfig();
     const result = await readAtlassianMetadata({
       enabled: !options.check,
     });
@@ -262,6 +264,7 @@ task(
       src: resource.template('.config/nono/profiles/pi.jsonc.erb'),
       variables: {
         ...Context.currentVariables,
+        nonoProxyConfig,
         atlassianSite: result.metadata?.site ?? '',
         atlassianEmail: result.metadata?.email ?? '',
       },
