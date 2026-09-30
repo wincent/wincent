@@ -17,7 +17,11 @@ import type {
 const PROVIDER_ID = 'openrouter-zdr';
 const UPSTREAM_ID = 'deepseek/deepseek-v4.1-flash';
 
-const deepseekV41Flash: Omit<ProviderModelConfig, 'cost' | 'id'> = {
+// Pi 0.99 adds image and classifier variants. Narrow to chat before Omit;
+// reasoning also exists in the pre-0.99 model type, unlike the new type tag.
+type ChatModelConfig = Extract<ProviderModelConfig, {reasoning: boolean}>;
+
+const deepseekV41Flash: Omit<ChatModelConfig, 'cost' | 'id'> = {
   name: 'DeepSeek V4.1 Flash',
   reasoning: true,
   thinkingLevelMap: {
