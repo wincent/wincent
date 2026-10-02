@@ -39,7 +39,7 @@ SSH_OPTS=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLeve
 # --- Helpers (available to .sandboxrc) ---
 
 # Run a command on the VM. Uses key-based auth, which `install_ssh_key` (in
-# `provision()`) sets up on the first `sb create`/`sb reset`. Keeping the
+# `bootstrap_vm()`) sets up on the first `sb create`/`sb reset`. Keeping the
 # foreground process clean (no `sshpass` wrapper) matters for tooling that
 # inspects the kitty window's foreground process to discover the ssh
 # destination — e.g. shannon's `nvim-open` click-to-open handler walks the
@@ -146,7 +146,7 @@ wait_for_ssh() {
     done
 }
 
-provision() {
+bootstrap_vm() {
     local ip="$1"
 
     install_ssh_key "$ip"
@@ -157,6 +157,10 @@ provision() {
     host_email="$(git config user.email)"
     vm_hostname="$(sb_ssh "$ip" hostname)"
     sb_ssh "$ip" "git config --file ~/.config/git/host/$vm_hostname user.name $(printf '%q' "$host_name") && git config --file ~/.config/git/host/$vm_hostname user.email $(printf '%q' "$host_email")"
+}
+
+provision() {
+    local ip="$1"
 
     if type sb_provision &>/dev/null; then
         echo "Running custom provisioning..."
@@ -179,7 +183,7 @@ install_ssh_key() {
     quoted="$(printf '%q' "$pubkey")"
     # Bootstrap: this is the operation that *installs* the key, so we use
     # password auth here. After this succeeds, every subsequent `sb_ssh` call
-    # — here in `provision`, in `init_repo`, `configure_claude`,
+    # — here in `bootstrap_vm`, in `provision`, `init_repo`, `configure_claude`,
     # `setup_git_remote`, runtime `sb ssh`, etc. — uses key-based auth.
     sb_ssh_password "$ip" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && \
                            touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && \
@@ -435,7 +439,7 @@ cmd_create() {
 
     wait_for_ssh "$ip"
 
-    provision "$ip"
+    bootstrap_vm "$ip"
     init_repo "$ip"
     configure_claude "$ip"
 
@@ -444,6 +448,10 @@ cmd_create() {
     # branches.
     echo "Injecting code..."
     cmd_inject --force
+
+    # Injection can clean/replace the dotfiles checkout behind guest config
+    # symlinks. Apply custom configuration only after that destructive step.
+    provision "$ip"
 
     echo ""
     echo "VM '$VM_NAME' is ready."
@@ -852,7 +860,8 @@ Configuration (built-in defaults, then \$SB_BASE_CONFIG, then project config):
   SB_VM_MEMORY     Memory in MB (default: 8192)
   SB_VM_IMAGE      Base OCI image
   sb_provision()   Custom provisioning function; receives VM IP as \$1.
-                   Runs once during create/reset, not on connect. A project
+                   Runs once after initial code injection during create/reset,
+                   not on connect. A project
                    definition replaces the base hook; otherwise it inherits it.
 
 Environment:
