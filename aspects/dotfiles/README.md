@@ -1,5 +1,13 @@
 Creates symlinks from the `$HOME` directory to the dotfiles in this repo.
 
+## Sandbox configuration
+
+`sb` loads its built-in defaults, then an optional host-side Bash file named by `SB_BASE_CONFIG`, then the selected project configuration. Project selection is unchanged: a project-local `.sandboxrc` takes precedence over the first matching `sandboxrc` under `SB_CONFIG_PATH`. Derived values such as the guest repository path are calculated after both files are loaded.
+
+Export `SB_BASE_CONFIG` from your machine-specific shell configuration to share defaults across projects without putting private setup in this repository or the base VM image. Unset or empty means no base configuration; an explicitly configured missing, unreadable, or invalid file stops the command. Configuration files run on the host and are trusted shell code. They can use `sb_ssh` and `sb_scp`; keep provisioning side effects inside `sb_provision`, because configuration is sourced for every command.
+
+Project values override base values. Arrays replace earlier arrays unless explicitly appended with `+=`. A project-defined `sb_provision()` replaces the base function rather than chaining it; otherwise the base function is inherited. A project can use `unset -f sb_provision` to disable an inherited hook. The final hook receives the VM IP and runs once during create/reset, after SSH key and Git identity setup, not on connection. Existing VMs are not updated automatically.
+
 ## Private proxy routes
 
 The Pi nono profile can include private credential routes without putting service names, hosts, or authentication commands in this repository. Export `NONO_PROXY_CONFIG` from your private shell configuration, pointing to a JSON file with two optional maps:

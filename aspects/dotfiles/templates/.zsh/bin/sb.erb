@@ -83,6 +83,17 @@ find_sandboxrc() {
     fi
 }
 
+# Base settings and hooks are defaults: the selected project config can
+# override them. Source outside a conditional command so errexit still applies.
+if [ -n "${SB_BASE_CONFIG:-}" ]; then
+    if [ ! -f "$SB_BASE_CONFIG" ] || [ ! -r "$SB_BASE_CONFIG" ]; then
+        echo "sb: SB_BASE_CONFIG must name a readable file: $SB_BASE_CONFIG" >&2
+        exit 1
+    fi
+    # shellcheck disable=SC1090
+    source "$SB_BASE_CONFIG"
+fi
+
 sandboxrc="$(find_sandboxrc)"
 if [ -n "$sandboxrc" ]; then
     # shellcheck disable=SC1091
@@ -148,7 +159,7 @@ provision() {
     sb_ssh "$ip" "git config --file ~/.config/git/host/$vm_hostname user.name $(printf '%q' "$host_name") && git config --file ~/.config/git/host/$vm_hostname user.email $(printf '%q' "$host_email")"
 
     if type sb_provision &>/dev/null; then
-        echo "Running project-specific provisioning..."
+        echo "Running custom provisioning..."
         sb_provision "$ip"
     fi
 }
@@ -826,7 +837,11 @@ Commands:
   pull         Pull latest base image from registry
   help         Show this help
 
-Configuration (.sandboxrc in project root, or sandboxrc under \$SB_CONFIG_PATH):
+Configuration (built-in defaults, then \$SB_BASE_CONFIG, then project config):
+  Project config is .sandboxrc in the project root, or the first sandboxrc
+  found under \$SB_CONFIG_PATH. Later values and functions replace earlier
+  ones; hooks are not chained. Derived paths use the final configuration.
+
   SB_BRANCHES      Branches to sync (default: main)
   SB_WORKTREES     Branches to check out as worktrees (default: none)
   SB_PORTS         Port forwards as host:vm pairs (default: none)
@@ -836,9 +851,13 @@ Configuration (.sandboxrc in project root, or sandboxrc under \$SB_CONFIG_PATH):
   SB_VM_CPU        CPU cores (default: 4)
   SB_VM_MEMORY     Memory in MB (default: 8192)
   SB_VM_IMAGE      Base OCI image
-  sb_provision()   Custom provisioning function; receives VM IP as \$1
+  sb_provision()   Custom provisioning function; receives VM IP as \$1.
+                   Runs once during create/reset, not on connect. A project
+                   definition replaces the base hook; otherwise it inherits it.
 
 Environment:
+  SB_BASE_CONFIG   Optional host-side Bash config sourced before project config.
+                   Unset/empty skips it; a missing or unreadable file is an error.
   SB_CONFIG_PATH   Colon-separated directories searched for sandboxrc
                    mirroring the project path relative to \$HOME (e.g.
                    for ~/foo/bar, \$dir/foo/bar/sandboxrc). Used when
