@@ -186,5 +186,11 @@ for (const name of Object.keys(local.credentials)) {
     // Lift `deny_credentials` on "~/.gnupg" so the read/socket grants above
     // can take effect. Does not grant access by itself.
     "bypass_protection": ["~/.gnupg"]
+  },
+
+  "open_urls": {
+    // So `/login openai-codex` works.
+    "allow_origins": ["https://auth.openai.com"],
+    "allow_localhost": false
   }
 }
