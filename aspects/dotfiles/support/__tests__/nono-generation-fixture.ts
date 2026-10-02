@@ -4,14 +4,30 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {promisify} from 'node:util';
 
-export const proxyScript =
+export const proxyScript: string =
   new URL('../../files/.zsh/bin/nono-proxy', import.meta.url).pathname;
 const exec = promisify(execFile);
 
 /** Real OS processes, locks, and sockets; fake nono/openssl, no credentials. */
 export async function generationFixture(
   t: {after: (fn: () => Promise<void>) => void},
-) {
+): Promise<{
+  home: string;
+  state: string;
+  profiles: string;
+  bin: string;
+  env: {HOME: string; PATH: string};
+  run: (
+    args: string[],
+    extra?: NodeJS.ProcessEnv,
+    cwd?: string,
+  ) => Promise<{stdout: string; stderr: string; status: number}>;
+  acquire: (
+    owner?: number,
+    extra?: NodeJS.ProcessEnv,
+    cwd?: string,
+  ) => Promise<string>;
+}> {
   const home = mkdtempSync(join(tmpdir(), 'nono generations-'));
   const state = join(home, '.local/state/nono-proxy');
   const profiles = join(home, '.config/nono/profiles');
