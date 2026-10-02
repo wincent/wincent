@@ -13,6 +13,8 @@ bin/npm update --dry-run
 bin/npm update
 ```
 
+Pi uses a separate reviewed manifest and lockfile, rather than a global npm install. See [Pi runtime provisioning and updates](aspects/node/support/pi/README.md) for the seven-day cooldown, installation, and VM workflow.
+
 ## Updating non-npm dependencies
 
 As described in [wincent#157](https://github.com/wincent/wincent/issues/157) I used to manage many of the dependencies — things like Neovim plugins — in this repo using Git submodules, but now that I am experimenting with [Jujutsu](https://jj-vcs.github.io/), which [doesn't support submodules yet](https://github.com/jj-vcs/jj/issues/494) (and [quite possibly won't for a long, long time, if ever](https://github.com/jj-vcs/jj/issues/494#issuecomment-3683285530)), I have switched to creating source snapshots using [`bin/deps`](./bin/deps) and committing them to the repo.

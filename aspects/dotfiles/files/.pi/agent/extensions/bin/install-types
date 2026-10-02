@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Populate `node_modules/` (next to this script's parent directory) with type
-# stubs from the globally-installed pi. These allow the TypeScript LSP server
+# stubs from the installed Pi. These allow the TypeScript LSP server
 # to provide type assistance in Neovim, while minimizing the supply-chain risk
 # that would come with an actual `npm install` in this repo.
 #
@@ -12,13 +12,11 @@ set -e
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 DEST="$ROOT/node_modules"
 
-# Locate the globally-installed pi.
-GLOBAL_NM=$(npm root -g 2>/dev/null || true)
-PI_ROOT="$GLOBAL_NM/@earendil-works/pi-coding-agent"
-if [ -z "$GLOBAL_NM" ] || [ ! -f "$PI_ROOT/package.json" ]; then
+PI_ROOT="$HOME/n/pi/node_modules/@earendil-works/pi-coding-agent"
+if [ ! -f "$PI_ROOT/package.json" ]; then
   echo "install-types: could not locate @earendil-works/pi-coding-agent." >&2
   echo "  Looked under: $PI_ROOT" >&2
-  echo "  Install pi globally first, then rerun this script." >&2
+  echo "  Provision Pi with the dotfiles Node aspect first, then rerun this script." >&2
   exit 1
 fi
 
@@ -59,13 +57,28 @@ copy_pkg() {
   printf '  %s  (%s files, %s)\n' "$dst" "$count" "$size"
 }
 
-copy_pkg "$PI_ROOT"                                            "$DEST/@earendil-works/pi-coding-agent"
-copy_pkg "$PI_ROOT/node_modules/@earendil-works/pi-ai"         "$DEST/@earendil-works/pi-ai"
-copy_pkg "$PI_ROOT/node_modules/@earendil-works/pi-tui"        "$DEST/@earendil-works/pi-tui"
-copy_pkg "$PI_ROOT/node_modules/@earendil-works/pi-agent-core" "$DEST/@earendil-works/pi-agent-core"
-copy_pkg "$PI_ROOT/node_modules/typebox"                       "$DEST/typebox"
-copy_pkg "$PI_ROOT/node_modules/@types/node"                   "$DEST/@types/node"
-copy_pkg "$PI_ROOT/node_modules/undici-types"                  "$DEST/undici-types"
+resolve_pkg() {
+  # Follow Node's search paths to handle both nested and hoisted dependencies.
+  # Don't resolve <name>/package.json: some packages don't export that subpath.
+  node - "$1" "${2:-$PI_ROOT}" <<'NODE'
+const {existsSync} = require('node:fs');
+const {createRequire} = require('node:module');
+const {join} = require('node:path');
+const [name, parent] = process.argv.slice(2);
+const resolver = createRequire(join(parent, 'package.json'));
+const root = resolver.resolve.paths(name)
+  .map((base) => join(base, name))
+  .find((directory) => existsSync(join(directory, 'package.json')));
+if (!root) throw new Error(`Could not locate ${name} from ${parent}`);
+console.log(root);
+NODE
+}
+
+copy_pkg "$PI_ROOT" "$DEST/@earendil-works/pi-coding-agent"
+for package in @earendil-works/pi-ai @earendil-works/pi-tui @earendil-works/pi-agent-core typebox @types/node; do
+  copy_pkg "$(resolve_pkg "$package")" "$DEST/$package"
+done
+copy_pkg "$(resolve_pkg undici-types "$(resolve_pkg @types/node)")" "$DEST/undici-types"
 
 echo
 echo "Done.  Type-check with: bin/typecheck"

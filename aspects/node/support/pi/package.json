@@ -1,0 +1,7 @@
+{
+  "name": "wincent-pi-runtime",
+  "private": true,
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "1.0.0"
+  }
+}

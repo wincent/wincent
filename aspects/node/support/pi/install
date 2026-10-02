@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SOURCE="$(cd "${BASH_SOURCE%/*}" && pwd)"
+RUNTIME="$HOME/n/pi"
+export PATH="$HOME/n/bin:$PATH"
+
+VERSION="$(node -p 'require(process.argv[1]).dependencies["@earendil-works/pi-coding-agent"]' "$SOURCE/package.json")"
+INSTALLED="$("$RUNTIME/node_modules/.bin/pi" --version 2>/dev/null || true)"
+
+if [ "$INSTALLED" = "$VERSION" ]; then
+  echo "Pi $VERSION is already installed"
+else
+  mkdir -p "$HOME/n"
+  STAGING="$(mktemp -d "$HOME/n/.pi-install.XXXXXX")"
+  cleanup() {
+    # Restore the old runtime if activation failed or was interrupted.
+    if [ -d "$STAGING/previous" ] && [ ! -e "$RUNTIME" ]; then
+      mv "$STAGING/previous" "$RUNTIME" || return 1
+    fi
+    rm -rf "$STAGING"
+  }
+  trap cleanup EXIT
+  trap 'exit 1' HUP INT TERM
+
+  cp "$SOURCE/package.json" "$SOURCE/package-lock.json" "$STAGING/"
+  (
+    cd "$STAGING"
+    npm ci --ignore-scripts --omit=dev --include=optional --min-release-age=7
+  )
+  if [ "$("$STAGING/node_modules/.bin/pi" --version)" != "$VERSION" ]; then
+    echo "Pi installation did not report the expected version ($VERSION)" >&2
+    exit 1
+  fi
+
+  # Keep a failed npm ci from destroying a working installation. This is a
+  # temporary backup during replacement, not a retained release history.
+  if [ -d "$RUNTIME" ]; then
+    mv "$RUNTIME" "$STAGING/previous"
+  fi
+  mv "$STAGING" "$RUNTIME"
+  rm -rf "$RUNTIME/previous"
+  echo "Installed Pi $VERSION"
+fi
+
+# Keep existing callers (including bin/pi and bin/pi-naked) unchanged. Leave
+# any old global package in place; only replace its command link.
+mkdir -p "$HOME/n/bin"
+ln -sfn ../pi/node_modules/.bin/pi "$HOME/n/bin/pi"

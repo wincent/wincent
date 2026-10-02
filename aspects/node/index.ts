@@ -30,6 +30,10 @@ task(`install Node.js v${NODE_VERSION}`, async () => {
   });
 });
 
+task('install Pi', async () => {
+  await command(path.aspect.join('support/pi/install'), []);
+});
+
 task('install global packages', async () => {
   const env = {
     ...process.env,
@@ -38,7 +42,6 @@ task('install global packages', async () => {
   };
 
   const packages: Array<string | [string, string]> = [
-    '@earendil-works/pi-coding-agent',
     ['typescript', 'rc'],
     'typescript-language-server',
     'neovim',

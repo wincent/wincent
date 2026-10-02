@@ -7,4 +7,4 @@ REPO_ROOT="${BASH_SOURCE%/*}/.."
 cd "$REPO_ROOT/fig"
 
 ../bin/node --test
-../bin/node --test ../aspects/dotfiles/support/__tests__/*-test.ts
+../bin/node --test ../aspects/{dotfiles,node}/support/__tests__/*-test.ts
