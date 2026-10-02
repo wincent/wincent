@@ -460,7 +460,16 @@ cmd_create() {
 
 cmd_ssh() {
     local ip
-    ip="$(vm_ip)"
+    ip="$(vm_ip)" || return 1
+    if declare -F sb_before_connect >/dev/null; then
+        # Isolate hook variables/traps and preserve stdin for the final session.
+        # Do not put this call in a conditional: that disables Bash errexit.
+        (
+            set -eE
+            trap 'echo "sb: before-connect hook failed; refusing to connect" >&2' ERR
+            sb_before_connect "$ip"
+        ) </dev/null
+    fi
     local port_args=()
     for port in "${SB_PORTS[@]+"${SB_PORTS[@]}"}"; do
         local host_port="${port%%:*}"
@@ -476,7 +485,7 @@ cmd_ssh() {
     local proxy_args=()
     GUEST_ENV_SCRIPT=""
     SB_NONO_PROXY_PORT=""
-    if setup_nono_proxy_for_vm "$ip"; then
+    if setup_nono_proxy_for_vm "$ip" </dev/null; then
         proxy_args+=(-o ExitOnForwardFailure=yes -R "127.0.0.1:$SB_GUEST_PROXY_PORT:127.0.0.1:$SB_NONO_PROXY_PORT")
     else
         echo "sb: refusing to start a session without its credential proxy" >&2
@@ -484,7 +493,7 @@ cmd_ssh() {
     fi
     setup_optional_ssh_forwards "$ip" \
         "${port_args[@]+"${port_args[@]}"}" \
-        "${socket_args[@]+"${socket_args[@]}"}" || return 1
+        "${socket_args[@]+"${socket_args[@]}"}" </dev/null || return 1
     local cmd_args=()
     if [ $# -gt 0 ]; then
         if [ -n "$GUEST_ENV_SCRIPT" ]; then
@@ -863,6 +872,11 @@ Configuration (built-in defaults, then \$SB_BASE_CONFIG, then project config):
                    Runs once after initial code injection during create/reset,
                    not on connect. A project
                    definition replaces the base hook; otherwise it inherits it.
+  sb_before_connect()
+                   Optional host-side hook; receives VM IP as \$1 before every
+                   ssh shell or command. Runs in a subshell with stdin at EOF;
+                   failure aborts connection. Override it or unset -f to opt out.
+                   It is independent of sb_provision and does not run for scp.
 
 Environment:
   SB_BASE_CONFIG   Optional host-side Bash config sourced before project config.
