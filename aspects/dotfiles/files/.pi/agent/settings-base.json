@@ -16,5 +16,6 @@
   "terminal": {
     "hyperlinks": true
   },
-  "theme": "dark"
+  "theme": "dark",
+  "tuiMode": "regular"
 }
