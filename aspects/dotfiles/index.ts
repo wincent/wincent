@@ -197,7 +197,6 @@ task('make directories', async () => {
   });
   await file({path: '~/.docker', state: 'directory'});
   await file({mode: '0700', path: '~/.gnupg', state: 'directory'});
-  await file({path: '~/.irssi', state: 'directory'});
   await file({path: '~/.mail', state: 'directory'});
 });
 
