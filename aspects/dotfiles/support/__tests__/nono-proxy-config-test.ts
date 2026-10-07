@@ -112,11 +112,13 @@ test('empty private config does not alter the profile and duplicate routes fail'
   const plain = JSON.parse(stripJsoncLineComments(renderFixtureProfile(null)));
   assert.equal(plain.credential_capture, undefined);
   assert.ok(!plain.network.credentials.includes('fixture'));
-  assert.throws(() =>
-    renderFixtureProfile(null, {
-      credentials: {
-        anthropic_api_key: {upstream: 'https://service.example.com'},
-      },
-      capture: {},
-    }), /conflicts with built-in route/);
+  for (const name of ['anthropic_api_key', 'mistral_ocr']) {
+    assert.throws(() =>
+      renderFixtureProfile(null, {
+        credentials: {
+          [name]: {upstream: 'https://service.example.com'},
+        },
+        capture: {},
+      }), /conflicts with built-in route/);
+  }
 });

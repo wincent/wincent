@@ -265,6 +265,40 @@ test('the Atlassian route allows all operations but binds credentials to the exa
   assert.deepEqual(route.endpoint_policy, {default: {decision: 'allow'}});
 });
 
+test('the Mistral OCR route restricts operations and exports only a phantom credential', () => {
+  for (const text of [renderFixtureProfile(), renderFixtureProfile(null)]) {
+    const source = JSON.parse(stripJsoncLineComments(text));
+    assert.equal(
+      source.network.credentials.filter((name: string) =>
+        name === 'mistral_ocr'
+      )
+        .length,
+      1,
+    );
+    assert.deepEqual(source.network.custom_credentials.mistral_ocr, {
+      upstream: 'https://api.mistral.ai',
+      credential_key: 'op://CLI/mistral-api-key/credential',
+      inject_header: 'Authorization',
+      credential_format: 'Bearer {}',
+      env_var: 'MISTRAL_API_KEY',
+      endpoint_policy: {
+        default: {decision: 'deny'},
+        allow: [{method: 'POST', path: '/v1/ocr'}],
+      },
+    });
+    // Host and guest launchers consume the same generated phantom exports.
+    const exports = proxyEnvExports(text);
+    assert.equal(
+      exports.phantoms.split('\n').filter((line) =>
+        line === 'export MISTRAL_API_KEY=proxied'
+      ).length,
+      1,
+    );
+    assert.doesNotMatch(exports.shared, /MISTRAL/);
+    assert.doesNotMatch(exports.phantoms, /op:\/\//);
+  }
+});
+
 test('guest bundle script combines native roots and proxy CA atomically and without accumulation', (t) => {
   const {home} = fixture(t);
   const script = sb.match(/<<'CA_BUNDLE'\n([\s\S]*?)\nCA_BUNDLE\n/)?.[1];

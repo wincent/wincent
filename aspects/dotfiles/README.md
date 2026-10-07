@@ -12,6 +12,14 @@ For connection-time setup, define `sb_before_connect()`. It receives the VM IP b
 
 Connect hooks use the same base/project replacement rules, independently of `sb_provision`: overriding provisioning does not disable an inherited connect hook. Use `unset -f sb_before_connect` to opt out, or define a replacement. No hook runs for `sb scp` or direct SSH connections. Keep hooks repeatable and use atomic file replacement if overlapping connections may update the same guest files.
 
+## Mistral OCR proxy route
+
+The Pi profile includes the built-in `mistral_ocr` route for the OCR extension in `wincent-agent-plugins`. It injects a Bearer credential only for `POST https://api.mistral.ai/v1/ocr`; an explicit default-deny endpoint policy rejects other Mistral operations. This policy is deliberately stricter than legacy credential `endpoint_rules`, which can permit unmatched requests without credential injection. Review the combined policy before adding other Mistral routes on the same host.
+
+Before activating the updated profile, provision `op://CLI/mistral-api-key/credential` in a trusted host environment. The key stays in the host-side proxy; host/VM client exports contain only `MISTRAL_API_KEY=proxied`. If you previously copied the extension's example `credentials.mistral_ocr` entry into `NONO_PROXY_CONFIG`, remove that duplicate because built-in route names are reserved. These dotfiles replace the extension guide's private-route setup step.
+
+Run `./install dotfiles` from a trusted host shell, validate with `nono profile validate pi`, and start a new proxy-enabled Pi session. Existing sessions keep their previous proxy generation; `/reload` alone does not update its policy. The route is now part of the default profile, so provision the referenced key on each host that uses it. The extension still requires approval for each paid upload and sends the entire PDF even when processing selected pages. The proxy protects the key and endpoint policy, not the extension's per-document approval or spending limits against an agent with shell access.
+
 ## Private proxy routes
 
 The Pi nono profile can include private credential routes without putting service names, hosts, or authentication commands in this repository. Export `NONO_PROXY_CONFIG` from your private shell configuration, pointing to a JSON file with two optional maps:

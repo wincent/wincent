@@ -3,7 +3,7 @@
 // Validate the installed profile with `nono profile validate pi`.
 <%-
 const local = variables.nonoProxyConfig ?? {credentials: {}, capture: {}};
-const reserved = ['anthropic_api_key', 'atlassian', 'kagi_search', 'openrouter_api_key', 'xai_api_key'];
+const reserved = ['anthropic_api_key', 'atlassian', 'kagi_search', 'mistral_ocr', 'openrouter_api_key', 'xai_api_key'];
 for (const name of Object.keys(local.credentials)) {
   if (reserved.includes(name)) {
     throw new Error(`Local proxy credential conflicts with built-in route: ${name}`);
@@ -37,7 +37,7 @@ for (const name of Object.keys(local.credentials)) {
   },
 
   "network": {
-    "credentials": [<%= Object.keys(local.credentials).map(name => JSON.stringify(name) + ', ').join('') %>"anthropic_api_key", <%= variables.atlassianSite ? '"atlassian", ' : '' %>"kagi_search", "openrouter_api_key", "xai_api_key"],
+    "credentials": [<%= Object.keys(local.credentials).map(name => JSON.stringify(name) + ', ').join('') %>"anthropic_api_key", <%= variables.atlassianSite ? '"atlassian", ' : '' %>"kagi_search", "mistral_ocr", "openrouter_api_key", "xai_api_key"],
     "custom_credentials": {
       <%- for (const [name, config] of Object.entries(local.credentials)) { -%>
       <%= JSON.stringify(name) %>: <%= JSON.stringify(config) %>,
@@ -73,6 +73,19 @@ for (const name of Object.keys(local.credentials)) {
         "credential_format": "Bot {}",
         "env_var": "KAGI_API_TOKEN",
         "endpoint_rules": [{"method": "POST", "path": "/api/v1/search"}]
+      },
+      "mistral_ocr": {
+        "upstream": "https://api.mistral.ai",
+        "credential_key": "op://CLI/mistral-api-key/credential",
+        "inject_header": "Authorization",
+        "credential_format": "Bearer {}",
+        "env_var": "MISTRAL_API_KEY",
+        // Explicit policy rejects other operations, rather than allowing
+        // credentialless passthrough as legacy endpoint_rules can do.
+        "endpoint_policy": {
+          "default": {"decision": "deny"},
+          "allow": [{"method": "POST", "path": "/v1/ocr"}]
+        }
       },
       "openrouter_api_key": {
         "upstream": "https://openrouter.ai",
