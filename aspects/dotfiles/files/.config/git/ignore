@@ -3,6 +3,7 @@
 *~
 .DS_Store
 .agent-notes
+.agent-worktrees
 **/.claude/settings.local.json
 \#*\#
 
