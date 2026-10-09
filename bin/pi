@@ -6,20 +6,14 @@
 #
 #   bin/pi [pi-args...]
 #
-# When the host sandbox is available, this runs:
-#
-#   nono run --profile pi --allow-cwd -- pi [pi-args...]
+# When the host sandbox is available, nono starts Pi once. Subagents invoke
+# the Pi executable directly, inheriting the sandbox and credential proxy.
 #
 # Otherwise, launch Pi directly. In Linux VMs, `sb ssh` already points the
 # session at host `nono-proxy`.
 #
 # A PATH shim may replace this later. Until then, invoke it by path so it
 # does not shadow the real `pi` binary.
-
-# Point the subagent extension back at this wrapper (absolute path, since the
-# wrapper is not on PATH) so children are sandboxed the same way.
-PI_SUBAGENT_LAUNCHER="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
-export PI_SUBAGENT_LAUNCHER
 
 if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
   # nono resolves socket grants before launching Pi, so the root must already
@@ -39,6 +33,10 @@ if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
   fi
   chmod 700 "$socket_root" || exit 1
 
-  exec nono run --profile pi --allow-cwd -- pi "$@"
+  if ! pi_binary="$(type -P pi)" || [[ "$pi_binary" != /* ]]; then
+    echo 'pi: expected an absolute Pi executable on PATH' >&2
+    exit 1
+  fi
+  exec nono run --profile pi --allow-cwd -- "$pi_binary" "$@"
 fi
 exec pi "$@"

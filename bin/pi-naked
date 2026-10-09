@@ -24,9 +24,4 @@ if [ "$(uname -s)" = Darwin ]; then
   eval "$proxy_env"
 fi
 
-# Point the subagent extension back at this wrapper (absolute path, since the
-# wrapper is not on PATH) so each child leases its own proxy generation.
-PI_SUBAGENT_LAUNCHER="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
-export PI_SUBAGENT_LAUNCHER
-
 exec pi "$@"

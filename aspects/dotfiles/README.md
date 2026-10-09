@@ -12,6 +12,12 @@ For connection-time setup, define `sb_before_connect()`. It receives the VM IP b
 
 Connect hooks use the same base/project replacement rules, independently of `sb_provision`: overriding provisioning does not disable an inherited connect hook. Use `unset -f sb_before_connect` to opt out, or define a replacement. No hook runs for `sb scp` or direct SSH connections. Keep hooks repeatable and use atomic file replacement if overlapping connections may update the same guest files.
 
+## Subagent runtime inheritance
+
+`bin/pi` resolves an absolute Pi executable before entering nono. With the current headless subagent extension, children invoke the controller's installed Pi runtime directly and inherit its environment and OS sandbox. They do not execute these wrappers again, reconstruct a nested nono policy, or acquire independent proxy leases. No tmux socket or child-wrapper execution grant is needed; existing runtime, task/worktree, and task-socket permissions still apply.
+
+This applies to both `bin/pi` and `bin/pi-naked`: children share the controller's proxy environment and lifetime. A child cannot independently retain or revoke that shared proxy access. Controller shutdown cancels its children, including background tasks; detached process groups are for cancellation, not independent session lifetimes. Linux VM children similarly inherit the SSH-provided proxy environment, whose forwarding lasts only for that SSH connection. Start a fresh controller with the updated extension and wrappers; old tmux-based controllers do not inherit this state. Environment inheritance does not delegate extension approvals.
+
 ## Subagent sockets in nono
 
 Before starting nono, `bin/pi` creates `$TMPDIR/pi-sockets`, checks that it is an owned directory rather than a symlink, and sets its mode to `0700`. This runs on every sandboxed launch because the temporary directory can be cleared. If `TMPDIR` is unset or empty, the launcher exports `/tmp` as the fallback. Invalid paths or setup failures abort launch. Direct Pi launches, including the existing Linux VM path, are unchanged.

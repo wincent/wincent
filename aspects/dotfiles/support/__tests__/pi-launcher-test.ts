@@ -12,7 +12,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import {tmpdir} from 'node:os';
-import {dirname, join} from 'node:path';
+import {dirname, join, relative} from 'node:path';
 import {test} from 'node:test';
 import {fileURLToPath} from 'node:url';
 
@@ -24,7 +24,7 @@ const launcher = fileURLToPath(new URL('../../../../bin/pi', import.meta.url));
 function fixture(t: {after: (fn: () => void) => void}) {
   const dir = mkdtempSync(join(tmpdir(), 'pi-launch-'));
   t.after(() => rmSync(dir, {recursive: true, force: true}));
-  const bin = join(dir, 'bin');
+  const bin = join(dir, "bin with spaces and 'quote");
   const temp = join(dir, 'temp space');
   const root = join(temp, 'pi-sockets');
   mkdirSync(bin);
@@ -36,9 +36,9 @@ function fixture(t: {after: (fn: () => void) => void}) {
   script(
     'nono',
     '[ -d "$TMPDIR/pi-sockets" ] || exit 93\n' +
-      'printf "%s\\0" nono "$PI_SUBAGENT_LAUNCHER" "$TMPDIR" "$(umask)" "$@"\n',
+      'printf "%s\\0" nono "$TMPDIR" "$(umask)" "$@"\n',
   );
-  script('pi', 'printf "%s\\0" pi "$PI_SUBAGENT_LAUNCHER" "$@"\n');
+  script('pi', 'printf "%s\\0" pi "$@"\n');
   const env = {
     ...process.env,
     PATH: `${bin}:/usr/bin:/bin`,
@@ -57,14 +57,13 @@ function fixture(t: {after: (fn: () => void) => void}) {
 }
 
 test('Pi launcher creates a private socket root before nono without altering arguments or umask', (t) => {
-  const {root, temp, run} = fixture(t);
+  const {bin, root, temp, run} = fixture(t);
   const args = ['--model', 'model with spaces', 'a; $(not-executed)'];
   const result = run({}, args);
   assert.equal(result.status, 0, result.stderr);
   assert.equal(statSync(root).mode & 0o777, 0o700);
   assert.deepEqual(result.stdout.split('\0'), [
     'nono',
-    launcher,
     temp + '/',
     '0022',
     'run',
@@ -72,7 +71,7 @@ test('Pi launcher creates a private socket root before nono without altering arg
     'pi',
     '--allow-cwd',
     '--',
-    'pi',
+    join(bin, 'pi'),
     ...args,
     '',
   ]);
@@ -153,13 +152,22 @@ test('Pi launcher leaves non-Darwin launches alone', (t) => {
   const {root, run} = fixture(t);
   const result = run({FIXTURE_OS: 'Linux'}, ['hello world']);
   assert.equal(result.status, 0, result.stderr);
-  assert.deepEqual(result.stdout.split('\0'), [
-    'pi',
-    launcher,
-    'hello world',
-    '',
-  ]);
+  assert.deepEqual(result.stdout.split('\0'), ['pi', 'hello world', '']);
   assert.equal(existsSync(root), false);
+});
+
+test('Pi launcher rejects missing and relative runtime paths without starting nono', (t) => {
+  const {bin, run} = fixture(t);
+  rmSync(join(bin, 'pi'));
+  let result = run();
+  assert.notEqual(result.status, 0);
+  assert.equal(result.stdout, '');
+  assert.match(result.stderr, /absolute Pi executable/);
+  writeFileSync(join(bin, 'pi'), '#!/bin/sh\nexit 99\n', {mode: 0o755});
+  result = run({PATH: `${relative(process.cwd(), bin)}:/usr/bin:/bin`});
+  assert.notEqual(result.status, 0);
+  assert.equal(result.stdout, '');
+  assert.match(result.stderr, /absolute Pi executable/);
 });
 
 // Opt in on a trusted macOS host. No credentials or remote services are used.
