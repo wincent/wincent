@@ -126,7 +126,11 @@ for (const name of Object.keys(local.credentials)) {
       // Keep sandboxed agent state separate (don't commingle with non-sandboxed
       // state in  "~/.local/state" or "~/.cache").
       "XDG_CACHE_HOME": "$TMPDIR/nono-pi/cache",
-      "XDG_STATE_HOME": "$TMPDIR/nono-pi/state"
+      "XDG_STATE_HOME": "$TMPDIR/nono-pi/state",
+
+      // Socket path limits are tighter than filesystem path limits. bin/pi
+      // creates this private root before nono resolves the matching grant.
+      "PI_SUBAGENT_SOCKET_ROOT": "$TMPDIR/pi-sockets"
     }
   },
 
@@ -170,6 +174,10 @@ for (const name of Object.keys(local.credentials)) {
       "$DATADOG_ROOT/wincent/.pi",
       "$DATADOG_ROOT/wincent/.config/git"
     ],
+
+    // Each subagent binds a socket inside a private per-task directory.
+    // Permit local IPC only in this subtree, not throughout $TMPDIR.
+    "unix_socket_subtree_bind": ["$TMPDIR/pi-sockets"],
 
     "unix_socket": [
       // Needed for `clip` and `notify` to reach clipper.

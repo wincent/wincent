@@ -6,12 +6,12 @@
 #
 #   bin/pi [pi-args...]
 #
-# On Darwin this is:
+# When the host sandbox is available, this runs:
 #
 #   nono run --profile pi --allow-cwd -- pi [pi-args...]
 #
-# Inside a Linux VM there is no Seatbelt sandbox; `sb ssh` already pointed
-# the session at host `nono-proxy`, so this falls through to `pi`.
+# Otherwise, launch Pi directly. In Linux VMs, `sb ssh` already points the
+# session at host `nono-proxy`.
 #
 # A PATH shim may replace this later. Until then, invoke it by path so it
 # does not shadow the real `pi` binary.
@@ -22,6 +22,23 @@ PI_SUBAGENT_LAUNCHER="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
 export PI_SUBAGENT_LAUNCHER
 
 if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
+  # nono resolves socket grants before launching Pi, so the root must already
+  # exist. Keep this in sync with the profile's PI_SUBAGENT_SOCKET_ROOT.
+  # Export the fallback too, so the profile resolves the same location.
+  TMPDIR="${TMPDIR:-/tmp}"
+  if [[ "$TMPDIR" != /* ]] || [ ! -d "$TMPDIR" ]; then
+    echo 'pi: TMPDIR must be an existing absolute directory' >&2
+    exit 1
+  fi
+  export TMPDIR
+  socket_root="${TMPDIR%/}/pi-sockets"
+  (umask 077; mkdir -p "$socket_root") || exit 1
+  if [ -L "$socket_root" ] || [ ! -d "$socket_root" ] || [ ! -O "$socket_root" ]; then
+    echo 'pi: subagent socket root must be an owned directory, not a symlink' >&2
+    exit 1
+  fi
+  chmod 700 "$socket_root" || exit 1
+
   exec nono run --profile pi --allow-cwd -- pi "$@"
 fi
 exec pi "$@"

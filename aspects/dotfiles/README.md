@@ -12,6 +12,14 @@ For connection-time setup, define `sb_before_connect()`. It receives the VM IP b
 
 Connect hooks use the same base/project replacement rules, independently of `sb_provision`: overriding provisioning does not disable an inherited connect hook. Use `unset -f sb_before_connect` to opt out, or define a replacement. No hook runs for `sb scp` or direct SSH connections. Keep hooks repeatable and use atomic file replacement if overlapping connections may update the same guest files.
 
+## Subagent sockets in nono
+
+Before starting nono, `bin/pi` creates `$TMPDIR/pi-sockets`, checks that it is an owned directory rather than a symlink, and sets its mode to `0700`. This runs on every sandboxed launch because the temporary directory can be cleared. If `TMPDIR` is unset or empty, the launcher exports `/tmp` as the fallback. Invalid paths or setup failures abort launch. Direct Pi launches, including the existing Linux VM path, are unchanged.
+
+The Pi profile exports `PI_SUBAGENT_SOCKET_ROOT=$TMPDIR/pi-sockets` and grants `filesystem.unix_socket_subtree_bind` only for that subtree. The subagent extension must allocate a short, private per-task directory beneath this root and pass the complete socket path to its child via `PI_SUBAGENT_SOCKET_PATH`. `PI_SUBAGENT_BUS_DIR` continues to identify the existing task artifact directory; logs and reports stay under `XDG_STATE_HOME`. The extension owns per-task socket cleanup, not deletion of the shared root. This separates short-lived IPC from retained artifacts and avoids macOS Unix-socket path-length limits without granting socket access throughout the temporary directory.
+
+Run `./install dotfiles`, validate with `nono profile validate pi`, and start a new session using `bin/pi` to activate the policy. This requires the corresponding socket-location support in the subagent extension; the policy alone does not fix extensions that still bind sockets beside their task logs.
+
 ## Mistral OCR proxy route
 
 The Pi profile includes the built-in `mistral_ocr` route for the OCR extension in `wincent-agent-plugins`. It injects a Bearer credential only for `POST https://api.mistral.ai/v1/ocr`; an explicit default-deny endpoint policy rejects other Mistral operations. This policy is deliberately stricter than legacy credential `endpoint_rules`, which can permit unmatched requests without credential injection. Review the combined policy before adding other Mistral routes on the same host.
