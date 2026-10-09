@@ -33,10 +33,6 @@ if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
   fi
   chmod 700 "$socket_root" || exit 1
 
-  if ! pi_binary="$(type -P pi)" || [[ "$pi_binary" != /* ]]; then
-    echo 'pi: expected an absolute Pi executable on PATH' >&2
-    exit 1
-  fi
-  exec nono run --profile pi --allow-cwd -- "$pi_binary" "$@"
+  exec nono run --profile pi --allow-cwd -- pi "$@"
 fi
 exec pi "$@"

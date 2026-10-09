@@ -12,7 +12,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import {tmpdir} from 'node:os';
-import {dirname, join, relative} from 'node:path';
+import {dirname, join} from 'node:path';
 import {test} from 'node:test';
 import {fileURLToPath} from 'node:url';
 
@@ -53,11 +53,11 @@ function fixture(t: {after: (fn: () => void) => void}) {
       launcher,
       ...args,
     ], {env: {...env, ...overrides}, encoding: 'utf8'});
-  return {bin, temp, root, run, script};
+  return {temp, root, run, script};
 }
 
 test('Pi launcher creates a private socket root before nono without altering arguments or umask', (t) => {
-  const {bin, root, temp, run} = fixture(t);
+  const {root, temp, run} = fixture(t);
   const args = ['--model', 'model with spaces', 'a; $(not-executed)'];
   const result = run({}, args);
   assert.equal(result.status, 0, result.stderr);
@@ -71,7 +71,7 @@ test('Pi launcher creates a private socket root before nono without altering arg
     'pi',
     '--allow-cwd',
     '--',
-    join(bin, 'pi'),
+    'pi',
     ...args,
     '',
   ]);
@@ -154,20 +154,6 @@ test('Pi launcher leaves non-Darwin launches alone', (t) => {
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(result.stdout.split('\0'), ['pi', 'hello world', '']);
   assert.equal(existsSync(root), false);
-});
-
-test('Pi launcher rejects missing and relative runtime paths without starting nono', (t) => {
-  const {bin, run} = fixture(t);
-  rmSync(join(bin, 'pi'));
-  let result = run();
-  assert.notEqual(result.status, 0);
-  assert.equal(result.stdout, '');
-  assert.match(result.stderr, /absolute Pi executable/);
-  writeFileSync(join(bin, 'pi'), '#!/bin/sh\nexit 99\n', {mode: 0o755});
-  result = run({PATH: `${relative(process.cwd(), bin)}:/usr/bin:/bin`});
-  assert.notEqual(result.status, 0);
-  assert.equal(result.stdout, '');
-  assert.match(result.stderr, /absolute Pi executable/);
 });
 
 // Opt in on a trusted macOS host. No credentials or remote services are used.
