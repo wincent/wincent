@@ -137,15 +137,55 @@ for (const name of Object.keys(local.credentials)) {
   "filesystem": {
     // Read+write.
     "allow": [
-      // Sessions, models, extension state, etc
-      // (TODO: use nono's oauth_capture phantom rewriting).
-      "~/.pi",
+      // Runtime history only, never the parent agent directory. Installed Pi
+      // configuration is copied out of the checkout by ./install dotfiles.
+      "~/.pi/agent/sessions",
 
       "~/.config/jj/repos"
     ],
 
+    // macOS nono 0.79+ supports exact future paths, including lock directories.
+    // Pi locks settings/trust even on reads. Do not pre-create these locks or
+    // grant their parent directory; their children need no access.
+    "allow_file": [
+      // Explicit remaining secret/state exceptions. TODO: OAuth capture.
+      "~/.pi/agent/auth.json",
+      "~/.pi/agent/auth.json.lock",
+      "~/.pi/agent/models-store.json",
+      "~/.pi/agent/models-store.json.lock",
+      "~/.pi/agent/settings.json.lock",
+      "~/.pi/agent/trust.json.lock"
+    ],
+
+    // Exact reads also permit listing the directories without exposing every
+    // arbitrary file under them. Missing optional files remain read-only.
+    "read_file": [
+      "~/.pi",
+      "~/.pi/agent",
+      "~/.pi/agent/AGENTS.md",
+      "~/.pi/agent/AGENTS.override.md",
+      "~/.pi/agent/AGENTS.MD",
+      "~/.pi/agent/CLAUDE.md",
+      "~/.pi/agent/CLAUDE.MD",
+      "~/.pi/agent/SYSTEM.md",
+      "~/.pi/agent/APPEND_SYSTEM.md",
+      "~/.pi/agent/settings.json",
+      "~/.pi/agent/models.json",
+      "~/.pi/agent/trust.json",
+      "~/.pi/agent/keybindings.json",
+      "~/.pi/agent/mcp.json"
+    ],
+
     // Read-only.
     "read": [
+      "~/.pi/agent/extensions",
+      "~/.pi/agent/skills",
+      "~/.pi/agent/prompts",
+      "~/.pi/agent/themes",
+      "~/.pi/agent/agents",
+      "~/.pi/agent/tools",
+      "~/.pi/agent/bin",
+
       // Node (via `n`) and the locked Pi runtime (via dotfiles provisioning).
       "~/n",
 

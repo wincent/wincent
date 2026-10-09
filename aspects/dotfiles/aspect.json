@@ -1,5 +1,5 @@
 {
-  "description": "Creates symlinks in $HOME to the dotfiles in this repo",
+  "description": "Installs dotfiles in $HOME (symlinks, copies and templates)",
   "variables": {
     "files": [
       ".XCompose",
@@ -35,7 +35,6 @@
       ".inputrc",
       ".lbdbrc",
       ".npmrc.tpl",
-      ".pi",
       ".rdebugrc",
       ".rgrc",
       ".rspec",
@@ -53,7 +52,6 @@
       ".docker/config.json.erb",
       ".fehbg",
       ".gnupg/gpg-agent.conf.erb",
-      ".pi/agent/settings.json.erb",
       ".zsh/bin/asdf-wrapper.erb",
       ".zsh/bin/asdf.erb",
       ".zsh/bin/sb.erb",

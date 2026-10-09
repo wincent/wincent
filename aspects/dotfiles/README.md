@@ -1,4 +1,4 @@
-Creates symlinks from the `$HOME` directory to the dotfiles in this repo.
+Installs dotfiles in `$HOME`, mostly as symlinks. Pi configuration and the nono profile are deliberately installed as copies/templates instead.
 
 ## Sandbox configuration
 

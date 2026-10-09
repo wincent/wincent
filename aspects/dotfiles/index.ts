@@ -223,6 +223,49 @@ task('create symlinks', async () => {
   }
 });
 
+task('make Pi directories', async () => {
+  for (
+    const directory of [
+      '.pi',
+      '.pi/agent',
+      '.pi/agent/extensions',
+      '.pi/agent/sessions',
+    ]
+  ) {
+    await file({
+      mode: '0700',
+      path: path.home.join(directory),
+      state: 'directory',
+    });
+  }
+});
+
+task('copy Pi instructions and extensions', async () => {
+  for (
+    const name of [
+      'AGENTS.md',
+      'extensions/notify.ts',
+      'extensions/openrouter-zdr.ts',
+      'extensions/web-search.ts',
+    ]
+  ) {
+    await file({
+      mode: '0600',
+      path: path.home.join('.pi/agent', name),
+      src: resource.file('.pi/agent', name),
+      state: 'file',
+    });
+  }
+});
+
+task('install Pi settings', async () => {
+  await template({
+    mode: '0600',
+    path: '~/.pi/agent/settings.json',
+    src: resource.template('.pi/agent/settings.json.erb'),
+  });
+});
+
 task('clone wincent-agent-plugins', async () => {
   await file({
     path: '~/.local/share/agents',

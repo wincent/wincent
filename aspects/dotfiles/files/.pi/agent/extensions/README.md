@@ -1,8 +1,8 @@
 # Pi extensions (dotfiles)
 
-A small set of [Pi](https://github.com/earendil-works/pi/tree/main/packages/coding-agent) extensions that are too dotfiles-specific to live in [`wincent-agent-plugins`](https://github.com/wincent/wincent-agent-plugins). Pi auto-discovers `*.ts` files in `~/.pi/agent/extensions/`; the dotfiles aspect symlinks `~/.pi` at this directory's grandparent, so these extensions get picked up automatically on every machine where the dotfiles are installed.
+A small set of [Pi](https://github.com/earendil-works/pi/tree/main/packages/coding-agent) extensions that are too dotfiles-specific to live in [`wincent-agent-plugins`](https://github.com/wincent/wincent-agent-plugins). Pi auto-discovers `*.ts` files in `~/.pi/agent/extensions/`, where the dotfiles aspect installs copies of these extensions.
 
-The general-purpose extensions (`edit-answer`, `jj-guard`, `model-info`, `slack-mcp`, `total-cost`, etc.) live in `wincent-agent-plugins` and are loaded from there via the `extensions` array in [`../settings.json`](../settings.json).
+The general-purpose extensions (`edit-answer`, `jj-guard`, `model-info`, `slack-mcp`, `total-cost`, etc.) live in `wincent-agent-plugins` and are loaded from there via the `extensions` array in [`../settings-base.json`](../settings-base.json) and the host-specific settings merged into installed `~/.pi/agent/settings.json`.
 
 ## Extensions
 
