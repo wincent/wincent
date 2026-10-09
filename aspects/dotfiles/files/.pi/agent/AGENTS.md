@@ -49,4 +49,4 @@ The canonical tool for this layout is `git wt` (run `git wt help` for the author
 
 Worktrees are siblings, so to move to another worktree just `cd ../<name>`. There is **no** `git wt switch`; do not invent one or build an interactive picker.
 
-The `subagent` extension's `worker` worktrees are a separate, automatic mechanism: the harness provisions them with plain `git worktree` under a `<repo>-subagent-worktrees/` directory and prunes them afterward. They are unrelated to `git wt`; do not manage them with `git wt`.
+The `subagent` extension's `worker` worktrees are a separate, automatic mechanism: the harness provisions them with plain `git worktree` under a `<repo>/.agent-worktrees/` directory and prunes them afterward. They are unrelated to `git wt`; do not manage them with `git wt`.
