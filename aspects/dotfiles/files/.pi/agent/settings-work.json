@@ -16,17 +16,16 @@
     "xai/grok-4.7"
   ],
   "extensions": [
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
+    "~/.local/share/agents/wincent-agent-plugins/pi/extensions",
     "~/dd/wincent/.pi/agent/extensions",
     "-builtin:mcp"
   ],
   "prompts": [
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts",
+    "~/.local/share/agents/wincent-agent-plugins/pi/prompts",
     "~/dd/wincent/.pi/agent/prompts"
   ],
   "skills": [
-    "~/.claude/skills",
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills",
+    "~/.local/share/agents/wincent-agent-plugins/pi/skills",
     "~/dd/wincent/.pi/agent/skills"
   ]
 }

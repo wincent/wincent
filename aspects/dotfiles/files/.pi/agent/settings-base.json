@@ -1,17 +1,16 @@
 {
   "defaultThinkingLevel": "high",
   "extensions": [
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/extensions",
+    "~/.local/share/agents/wincent-agent-plugins/pi/extensions",
     "-builtin:mcp"
   ],
   "hideThinkingBlock": true,
   "lastChangelogVersion": "1.0.0",
   "prompts": [
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/prompts"
+    "~/.local/share/agents/wincent-agent-plugins/pi/prompts"
   ],
   "skills": [
-    "~/.claude/skills",
-    "~/.claude/plugins/marketplaces/wincent-agent-plugins/pi/skills"
+    "~/.local/share/agents/wincent-agent-plugins/pi/skills"
   ],
   "terminal": {
     "hyperlinks": true

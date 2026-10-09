@@ -223,6 +223,37 @@ task('create symlinks', async () => {
   }
 });
 
+task('clone wincent-agent-plugins', async () => {
+  await file({
+    path: '~/.local/share/agents',
+    recurse: true,
+    skip: '~',
+    state: 'directory',
+  });
+
+  // Do initial clone but leave subsequent updates to the user.
+  await command(
+    'git',
+    ['clone', 'https://github.com/wincent/wincent-agent-plugins.git'],
+    {
+      chdir: '~/.local/share/agents',
+      creates: '~/.local/share/agents/wincent-agent-plugins',
+      raw: true,
+    },
+  );
+});
+
+task('link Claude marketplace to wincent-agent-plugins', async () => {
+  await file({path: '~/.claude/plugins', state: 'directory'});
+  await file({path: '~/.claude/plugins/marketplaces', state: 'directory'});
+  await file({
+    force: true,
+    path: '~/.claude/plugins/marketplaces/wincent-agent-plugins',
+    src: path.home.join('.local/share/agents/wincent-agent-plugins'),
+    state: 'link',
+  });
+});
+
 task('fill templates', async () => {
   const templates = variable.paths('templates');
 
