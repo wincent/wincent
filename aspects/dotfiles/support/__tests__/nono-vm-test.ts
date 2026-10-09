@@ -160,7 +160,10 @@ cmd_ssh
   const result = await exec('/bin/bash', ['-c', script], {env});
   assert.match(result.stdout, /ExitOnForwardFailure=yes/);
   assert.match(result.stdout, /127\.0\.0\.1:4567:127\.0\.0\.1:12345/);
-  assert.match(result.stdout, /export FIXTURE_API_KEY=proxied; exec/);
+  assert.match(
+    result.stdout,
+    /export FIXTURE_API_KEY=proxied; export SB_SANDBOX=1\nexec/,
+  );
   await assert.rejects(
     exec('/bin/bash', [
       '-c',
