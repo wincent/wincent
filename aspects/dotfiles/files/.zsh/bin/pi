@@ -4,7 +4,7 @@
 #
 # Usage:
 #
-#   bin/pi [pi-args...]
+#   pi [pi-args...]
 #
 # When the host sandbox is available, nono starts Pi once. Subagents invoke
 # the Pi executable directly, inheriting the sandbox and credential proxy.
@@ -12,8 +12,13 @@
 # Otherwise, launch Pi directly. In Linux VMs, `sb ssh` already points the
 # session at host `nono-proxy`.
 #
-# A PATH shim may replace this later. Until then, invoke it by path so it
-# does not shadow the real `pi` binary.
+# Invoke the managed runtime explicitly, not this wrapper on PATH.
+
+pi_binary="${PI_REAL_BIN:-$HOME/n/bin/pi}"
+if [[ "$pi_binary" != /* ]] || [ ! -f "$pi_binary" ] || [ ! -x "$pi_binary" ]; then
+  echo 'pi: PI_REAL_BIN must name an absolute executable file (default: $HOME/n/bin/pi)' >&2
+  exit 1
+fi
 
 if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
   # nono resolves socket grants before launching Pi, so the root must already
@@ -33,6 +38,6 @@ if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
   fi
   chmod 700 "$socket_root" || exit 1
 
-  exec nono run --profile pi --allow-cwd -- pi "$@"
+  exec nono run --profile pi --allow-cwd -- "$pi_binary" "$@"
 fi
-exec pi "$@"
+exec "$pi_binary" "$@"

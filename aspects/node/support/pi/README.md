@@ -1,6 +1,6 @@
 # Pi runtime
 
-The Node aspect installs this locked dependency tree into `~/n/pi` and links `~/n/bin/pi` to its executable. The existing `bin/pi` and `bin/pi-naked` wrappers, Pi configuration, and sessions are unchanged. The runtime stays outside the dotfiles checkout, under the existing read-only `~/n` sandbox grant.
+The Node aspect installs this locked dependency tree into `~/n/pi` and links `~/n/bin/pi` to its executable. The `pi` and `pi-naked` wrappers in `~/.zsh/bin` use this executable by default, independently of `PATH`; `PI_REAL_BIN` can override it. The runtime stays outside the dotfiles checkout, under the existing read-only `~/n` sandbox grant.
 
 Provisioning skips npm when the installed Pi reports the pinned version. We assume installations use this flow: there is no fingerprint or dependency-drift detection. Otherwise, the helper runs `npm ci --ignore-scripts --omit=dev --include=optional --min-release-age=7` in a temporary sibling directory, checks `pi --version`, and replaces the runtime. Failed installation leaves the old runtime intact; there is no retained release history or automatic global uninstall.
 

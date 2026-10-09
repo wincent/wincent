@@ -44,7 +44,7 @@ else
   echo "Installed Pi $VERSION"
 fi
 
-# Keep existing callers (including bin/pi and bin/pi-naked) unchanged. Leave
-# any old global package in place; only replace its command link.
+# Keep a stable runtime path for the pi and pi-naked wrappers. Leave any old
+# global package in place; only replace its command link.
 mkdir -p "$HOME/n/bin"
 ln -sfn ../pi/node_modules/.bin/pi "$HOME/n/bin/pi"

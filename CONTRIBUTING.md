@@ -144,7 +144,7 @@ sb status # Check whether sandbox is running and its IP.
 sb ssh # Connect to the VM.
 ```
 
-`sb ssh` starts host `nono-proxy` if needed, remote-forwards it onto the guest loopback, copies the proxy CA, and exports phantom API credentials in the session. It rebuilds a private CA bundle from Ubuntu's native roots plus the proxy CA on each connection, so curl and Python trust both intercepted and passthrough destinations. Node receives the proxy CA through `NODE_EXTRA_CA_CERTS`; curl/Python receive the combined bundle through `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, and `REQUESTS_CA_BUNDLE`. No global guest trust-store changes or host root-bundle copies are needed. The guest never receives real upstream API keys. `bin/pi` inside the VM falls through to unsandboxed `pi` (there is no Seatbelt on Linux) and talks to Grok (and other routed providers) through that proxy.
+`sb ssh` starts host `nono-proxy` if needed, remote-forwards it onto the guest loopback, copies the proxy CA, and exports phantom API credentials in the session. It rebuilds a private CA bundle from Ubuntu's native roots plus the proxy CA on each connection, so curl and Python trust both intercepted and passthrough destinations. Node receives the proxy CA through `NODE_EXTRA_CA_CERTS`; curl/Python receive the combined bundle through `CURL_CA_BUNDLE`, `SSL_CERT_FILE`, and `REQUESTS_CA_BUNDLE`. No global guest trust-store changes or host root-bundle copies are needed. The guest never receives real upstream API keys. The `pi` wrapper inside the VM launches the managed runtime directly (there is no Seatbelt on Linux) and talks to Grok (and other routed providers) through that proxy.
 
 ### Testing credential proxy plumbing
 

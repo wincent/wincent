@@ -176,6 +176,9 @@ if [ -d /opt/homebrew ]; then
   export HOMEBREW_UPDATE_TO_TAG=1
 fi
 
+# Bypass the pi/pi-naked wrappers on PATH to invoke the managed runtime.
+export PI_REAL_BIN="${PI_REAL_BIN:-$HOME/n/bin/pi}"
+
 # Pi releases multiple times per week, but given that we use min-release-age=7,
 # we're pretty much never on the latest release, and it is bothersome to be
 # pestered by endless prompts to update at the start of every session. We just

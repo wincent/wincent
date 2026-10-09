@@ -128,7 +128,7 @@ for (const name of Object.keys(local.credentials)) {
       "XDG_CACHE_HOME": "$TMPDIR/nono-pi/cache",
       "XDG_STATE_HOME": "$TMPDIR/nono-pi/state",
 
-      // Socket path limits are tighter than filesystem path limits. bin/pi
+      // Socket path limits are tighter than filesystem path limits. The pi wrapper
       // creates this private root before nono resolves the matching grant.
       "PI_SUBAGENT_SOCKET_ROOT": "$TMPDIR/pi-sockets"
     }

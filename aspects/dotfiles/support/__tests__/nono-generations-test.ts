@@ -502,7 +502,9 @@ test('a killed launcher releases its lock and the next command cleans up its unp
 
 test('pi-naked fails closed on acquire/export errors and preserves lease PID through exec', async (t) => {
   const {bin, env} = await generationFixture(t);
-  const wrapper = new URL('../../../../bin/pi-naked', import.meta.url).pathname;
+  const wrapper =
+    new URL('../../files/.zsh/bin/pi-naked', import.meta.url).pathname;
+  const runtimeEnv = {...env, PI_REAL_BIN: join(bin, 'pi')};
   writeFileSync(join(bin, 'uname'), '#!/bin/sh\necho Darwin\n', {mode: 0o755});
   writeFileSync(
     join(bin, 'pi'),
@@ -518,7 +520,10 @@ echo fixture
 `,
       {mode: 0o755},
     );
-    const result = spawnSync('/bin/bash', [wrapper], {env, encoding: 'utf8'});
+    const result = spawnSync('/bin/bash', [wrapper], {
+      env: runtimeEnv,
+      encoding: 'utf8',
+    });
     assert.equal(result.status, 42);
     assert.equal(result.stdout, '');
   }
@@ -527,7 +532,10 @@ echo fixture
     '#!/bin/sh\nif [ "$1" = acquire ]; then echo "$2"; else echo "export LEASE_OWNER=$2"; fi\n',
     {mode: 0o755},
   );
-  const result = spawnSync('/bin/bash', [wrapper], {env, encoding: 'utf8'});
+  const result = spawnSync('/bin/bash', [wrapper], {
+    env: runtimeEnv,
+    encoding: 'utf8',
+  });
   assert.equal(result.status, 0, result.stderr);
   const [, pid, lease] = result.stdout.split(':');
   assert.equal(pid, lease);

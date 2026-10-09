@@ -4,19 +4,25 @@
 #
 # Usage:
 #
-#   bin/pi-naked [pi-args...]
+#   pi-naked [pi-args...]
 #
 # On Darwin this leases a current proxy generation, exports its matching
-# proxy/CA/phantom variables, then execs `pi`. The lease follows this PID
+# proxy/CA/phantom variables, then execs the runtime. The lease follows this PID
 # through exec; other sessions keep their own generation during updates.
 # The agent is unsandboxed; credential capture/injection stays host-side.
 #
 # Inside a Linux VM, `sb ssh` already exported those variables, so this
-# falls through to `pi`.
+# falls through to the runtime.
 #
-# A PATH shim may replace this later. Until then, invoke it by path.
+# Invoke the managed runtime explicitly, not the pi wrapper on PATH.
 
 set -e
+
+pi_binary="${PI_REAL_BIN:-$HOME/n/bin/pi}"
+if [[ "$pi_binary" != /* ]] || [ ! -f "$pi_binary" ] || [ ! -x "$pi_binary" ]; then
+  echo 'pi-naked: PI_REAL_BIN must name an absolute executable file (default: $HOME/n/bin/pi)' >&2
+  exit 1
+fi
 
 if [ "$(uname -s)" = Darwin ]; then
   generation="$(nono-proxy acquire "$$")" || exit $?
@@ -24,4 +30,4 @@ if [ "$(uname -s)" = Darwin ]; then
   eval "$proxy_env"
 fi
 
-exec pi "$@"
+exec "$pi_binary" "$@"
