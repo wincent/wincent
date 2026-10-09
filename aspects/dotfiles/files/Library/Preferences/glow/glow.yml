@@ -6,5 +6,3 @@ local: true
 mouse: false
 # use pager to display markdown
 pager: true
-# word-wrap at width
-width: 80
