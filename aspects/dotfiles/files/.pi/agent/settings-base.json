@@ -5,7 +5,7 @@
     "-builtin:mcp"
   ],
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "1.0.0",
+  "lastChangelogVersion": "1.0.4",
   "prompts": [
     "~/.local/share/agents/wincent-agent-plugins/pi/prompts"
   ],
