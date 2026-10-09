@@ -491,6 +491,8 @@ cmd_ssh() {
         echo "sb: refusing to start a session without its credential proxy" >&2
         return 1
     fi
+    # Launcher hint for tools in the guest; do not export it on the host.
+    GUEST_ENV_SCRIPT+=$'export SB_SANDBOX=1\n'
     setup_optional_ssh_forwards "$ip" \
         "${port_args[@]+"${port_args[@]}"}" \
         "${socket_args[@]+"${socket_args[@]}"}" </dev/null || return 1
@@ -838,7 +840,7 @@ Commands:
   create       Create and provision a sandbox VM [--use-registry]
   ssh [cmd]    SSH into the VM; with args, runs command non-interactively.
                Starts host nono-proxy, forwards it over ssh -R, and exports
-               phantom API credentials in the guest.
+               phantom API credentials and SB_SANDBOX=1 in the guest.
   scp          Copy files to/from VM (use vm: prefix for VM paths)
   start        Start a stopped VM
   stop         Stop the VM (preserves state)

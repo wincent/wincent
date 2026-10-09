@@ -122,6 +122,10 @@ for (
     );
     assert.ok(result.calls.includes(`cwd:${project}\n`));
     assert.doesNotMatch(result.calls, /INVALID_HOOK_SETTING/);
+    assert.match(
+      result.calls,
+      /export FIXTURE_API_KEY=proxied; export SB_SANDBOX=1\n/,
+    );
   });
 }
 
