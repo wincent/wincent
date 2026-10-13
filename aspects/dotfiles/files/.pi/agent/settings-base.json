@@ -1,5 +1,6 @@
 {
   "defaultThinkingLevel": "high",
+  "defaultTools": ["+codemode"],
   "extensions": [
     "~/.local/share/agents/wincent-agent-plugins/pi/extensions",
     "-builtin:mcp"
