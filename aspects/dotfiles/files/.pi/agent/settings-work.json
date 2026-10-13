@@ -6,6 +6,7 @@
     "anthropic/claude-opus-5-5",
     "anthropic/claude-sonnet-5-5",
     "datadog-anthropic/*",
+    "datadog-google/*",
     "datadog-openai/*",
     "openai-codex/gpt-6-luna",
     "openai-codex/gpt-6.1-sol",
