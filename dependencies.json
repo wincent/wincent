@@ -262,7 +262,7 @@
   "github/rust-lang/rust.vim": {
     "prefix": "aspects/nvim/files/.config/nvim/pack/bundle/opt/rust.vim",
     "url": "https://github.com/rust-lang/rust.vim.git",
-    "branch": "master",
+    "branch": "main",
     "previous": "889b9a7515db477f4cb6808bef1769e53493c578",
     "current": "889b9a7515db477f4cb6808bef1769e53493c578"
   },
