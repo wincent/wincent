@@ -42,6 +42,20 @@ test('Pi profile keeps config read-only with exact runtime and lock exceptions',
   assert.ok(profile.filesystem.read.includes('~/.pi/agent/extensions'));
 });
 
+test('Pi profile grants read-only access to an optional external Git hooks directory', () => {
+  const hooks = '$NONO_GIT_HOOKS_PATH';
+  assert.ok(profile.filesystem.read.includes(hooks));
+  for (const field of ['allow', 'allow_file']) {
+    for (const path of profile.filesystem[field]) {
+      assert.ok(
+        path !== hooks && !hooks.startsWith(path + '/') &&
+          !path.startsWith(hooks + '/'),
+        `${field} must not grant write access to ${hooks}: ${path}`,
+      );
+    }
+  }
+});
+
 // Opt in on a trusted macOS host. The fixture MUST NOT live under /tmp or
 // TMPDIR: default writable temp grants would hide a broken Pi policy.
 test(

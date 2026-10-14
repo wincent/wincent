@@ -211,7 +211,11 @@ for (const name of Object.keys(local.credentials)) {
 
       // Only on work machine; on personal machine harmlessly ignored.
       "$DATADOG_ROOT/wincent/.pi",
-      "$DATADOG_ROOT/wincent/.config/git"
+      "$DATADOG_ROOT/wincent/.config/git",
+
+      // Optional external Git hooks directory, set in private host config.
+      // Readable/executable, never writable; ignored when unset.
+      "$NONO_GIT_HOOKS_PATH"
     ],
 
     // Each subagent binds a socket inside a private per-task directory.
