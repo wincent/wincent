@@ -1,3 +1,12 @@
+# Put durable documentation in the right place
+
+Unless the user explicitly instructs you, do not document implementation decisions and implementation details in tracked documentation files. As an agent, you have already access to the implementation source code itself; the source _is_ the implementation details. Likewise, decisions and the rationale behind each change and the history of the implementation is encoded in the commit graph (ie. both in the contents of the diff, and in commit messages).
+
+Exceptions to this rule:
+
+- In untracked ephemeral artifacts, such as PLAN.md files or hand-off documents, it is often appropriate to provide concise explanations of implementation rationales, decisions, and details. Do this freely in service of clearly and unambiguously describing requirements and highlighting the relevant contextual information so that another agent can carry out the specified work.
+- There are some specific types of tracked documentation whose explicit purpose _is_ to record rationales, decisions, and implementation details. For example, API references may _occasionally_ need to include an explanation of some particular aspect of the implementation when a description of the programming interface alone is not sufficient to understand fully how to use an API appropriately. Likewise, a core purpose of an ADR (Architecture Decision Record) is to concisely explain the rationale for and content of a decision; for the purposes of exposition, it may need to redundantly explain the historical context, including the prior state(s) of a system.
+
 # Markdown formatting
 
 **NEVER** hard-wrap Markdown in ".md" files. That is, a paragraph or a list item should be a single long line rather than many 80-character lines broken with newlines.
