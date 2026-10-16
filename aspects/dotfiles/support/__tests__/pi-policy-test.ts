@@ -19,7 +19,10 @@ const piPaths = (paths: string[]) =>
   paths.filter((path) => path.startsWith('~/.pi'));
 
 test('Pi profile keeps config read-only with exact runtime and lock exceptions', () => {
-  assert.deepEqual(piPaths(profile.filesystem.allow), ['~/.pi/agent/sessions']);
+  assert.deepEqual(piPaths(profile.filesystem.allow), [
+    '~/.pi/agent/sessions',
+    '~/.pi/agent/subagent-sessions',
+  ]);
   assert.deepEqual(profile.filesystem.allow_file, [
     '~/.pi/agent/auth.json',
     '~/.pi/agent/auth.json.lock',
