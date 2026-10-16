@@ -230,6 +230,7 @@ task('make Pi directories', async () => {
       '.pi/agent',
       '.pi/agent/extensions',
       '.pi/agent/sessions',
+      '.pi/agent/subagent-sessions',
     ]
   ) {
     await file({
