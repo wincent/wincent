@@ -232,30 +232,34 @@ canManageWindow = function(window)
   return window:isStandard()
 end
 
--- https://www.benq.com/en-us/monitor/professional/pd2700u/spec.html
-local benQPD2700U = '1920x1080' -- real resolution = '3840x2160'
-
+-- Home display.
 -- https://www.benq.com/en-us/monitor/professional/pd2730s/spec.html
 local benQPD2730S = '2560x1440' -- real resolution = '5120x2880'
 
+-- Work display.
 -- https://www.dell.com/en-us/shop/dell-ultrasharp-27-4k-usb-c-hub-monitor-u2723qe/apd/210-bdpf/monitors-monitor-accessories#techspecs_section
+-- In "Displays" settings, use as 2560x1440 (2nd of 5 possible settings, ranging
+-- from "Larger Text" to "More Space"); this warns "Using a scaled resolution
+-- may affect performance", but is the setting where apparent window size on the
+-- external monitor most closely matches physical size on the built-in display.
 local dellU2723QE = '1920x1080' -- real resolution = '3840x2160'
 
+-- Work laptop.
 -- https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-m3-max-14-core-cpu-30-core-gpu-14-late-2023-specs.html
+-- In "Displays" settings, use "Default" resolution, which is 1512x982 (4th of 5
+-- possible settings, ranging from "Larger Text" to "More Space").
 local macBookPro14_2023 = '1512x982' -- real resolution = '3024x1964'
 
--- https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-core-i7-2.8-15-dual-graphics-mid-2015-retina-display-specs.html
-local macBookPro15_2015 = '1440x900' -- real resolution = '2880x1800'
-
+-- Personal laptop.
 -- https://everymac.com/systems/apple/macbook_pro/specs/macbook-pro-m3-max-16-core-cpu-40-core-gpu-16-late-2023-specs.html
 local macBookPro15_2023 = '1728x1117' -- real resolution = '3456x2234'
 
 externalDisplay = function()
-  return hs.screen.find(benQPD2700U) or hs.screen.find(benQPD2730S) or hs.screen.find(dellU2723QE)
+  return hs.screen.find(benQPD2730S) or hs.screen.find(dellU2723QE)
 end
 
 internalDisplay = function()
-  return hs.screen.find(macBookPro14_2023) or hs.screen.find(macBookPro15_2015) or hs.screen.find(macBookPro15_2023)
+  return hs.screen.find(macBookPro14_2023) or hs.screen.find(macBookPro15_2023)
 end
 
 activateLayout = function(forceScreenCount)
