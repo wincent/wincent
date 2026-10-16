@@ -229,6 +229,7 @@ task('make Pi directories', async () => {
       '.pi',
       '.pi/agent',
       '.pi/agent/extensions',
+      '.pi/agent/prompts',
       '.pi/agent/sessions',
       '.pi/agent/subagent-sessions',
     ]
@@ -241,13 +242,14 @@ task('make Pi directories', async () => {
   }
 });
 
-task('copy Pi instructions and extensions', async () => {
+task('copy Pi instructions, extensions, and prompts', async () => {
   for (
     const name of [
       'AGENTS.md',
       'extensions/notify.ts',
       'extensions/openrouter-zdr.ts',
       'extensions/web-search.ts',
+      'prompts/pi-update.md',
     ]
   ) {
     await file({

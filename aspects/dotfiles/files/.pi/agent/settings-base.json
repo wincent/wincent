@@ -8,7 +8,8 @@
   "hideThinkingBlock": true,
   "lastChangelogVersion": "1.1.0",
   "prompts": [
-    "~/.local/share/agents/wincent-agent-plugins/pi/prompts"
+    "~/.local/share/agents/wincent-agent-plugins/pi/prompts",
+    "~/.pi/agent/prompts"
   ],
   "skills": [
     "~/.local/share/agents/wincent-agent-plugins/pi/skills"

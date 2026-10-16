@@ -23,6 +23,7 @@
   ],
   "prompts": [
     "~/.local/share/agents/wincent-agent-plugins/pi/prompts",
+    "~/.pi/agent/prompts",
     "~/dd/wincent/.pi/agent/prompts"
   ],
   "skills": [
