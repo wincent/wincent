@@ -75,7 +75,7 @@ NODE
 }
 
 copy_pkg "$PI_ROOT" "$DEST/@earendil-works/pi-coding-agent"
-for package in @earendil-works/pi-ai @earendil-works/pi-tui @earendil-works/pi-agent-core typebox @types/node; do
+for package in @earendil-works/pi-ai @earendil-works/pi-tui @earendil-works/pi-agent-core @earendil-works/pi-mcp typebox @types/node; do
   copy_pkg "$(resolve_pkg "$package")" "$DEST/$package"
 done
 copy_pkg "$(resolve_pkg undici-types "$(resolve_pkg @types/node)")" "$DEST/undici-types"

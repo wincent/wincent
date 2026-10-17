@@ -1,21 +1,95 @@
 /**
  * Web Search Extension
  *
- * Registers a `web_search` tool that uses the Kagi Search API
- * (https://help.kagi.com/kagi/api/search.html) at a cost of $12 per 1,000
- * queries (ie. 1.2 cents per query).
- *
- * Requires `KAGI_API_TOKEN` in the environment.
+ * Uses Kagi when KAGI_API_TOKEN is configured, otherwise anonymous Parallel
+ * Search MCP. PI_WEB_SEARCH_PROVIDER can select kagi, parallel, or disabled.
  */
 
-import type {
-  ExtensionAPI,
-  ExtensionContext,
+import {
+  type ExtensionAPI,
+  type ExtensionContext,
+  getPackageDir,
 } from '@earendil-works/pi-coding-agent';
+import {readFileSync} from 'node:fs';
+import {findPackageJSON} from 'node:module';
+import {dirname, join, resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
 import {type Static, Type} from 'typebox';
 import {Check, Errors} from 'typebox/value';
 
 const KAGI_SEARCH_URL = 'https://kagi.com/api/v1/search';
+const PARALLEL_SEARCH_URL = 'https://search.parallel.ai/mcp';
+const SEARCH_USER_AGENT =
+  'wincent-web-search/1.0 (https://github.com/wincent/wincent)';
+
+async function searchParallel(
+  query: string,
+  context: ExtensionContext,
+  signal?: AbortSignal,
+) {
+  signal?.throwIfAborted();
+
+  // Use the MCP client shipped with the managed Pi runtime. Unlike pi-ai and
+  // typebox, pi-mcp is not aliased by Pi's extension loader. Resolve from Pi,
+  // not this directory's type-only node_modules tree (or the project's cwd).
+  const packagePath = findPackageJSON(
+    '@earendil-works/pi-mcp',
+    pathToFileURL(join(getPackageDir(), 'package.json')),
+  );
+  if (!packagePath) {
+    throw new Error('The managed Pi runtime is missing pi-mcp.');
+  }
+  const {main} = JSON.parse(readFileSync(packagePath, 'utf8')) as {
+    main: string;
+  };
+  const {McpClient, StreamableHttpTransport} = await import(
+    pathToFileURL(resolve(dirname(packagePath), main)).href
+  ) as typeof import('@earendil-works/pi-mcp');
+
+  const timeout = AbortSignal.timeout(30_000);
+  const requestSignal = signal ? AbortSignal.any([signal, timeout]) : timeout;
+  const client = new McpClient({name: 'wincent-web-search', version: '1.0'});
+  const transport = new StreamableHttpTransport({
+    url: PARALLEL_SEARCH_URL,
+    headers: {'User-Agent': SEARCH_USER_AGENT},
+    openGetStream: false,
+    fetch: (input, init) =>
+      fetch(input, {
+        ...init,
+        signal: init?.signal
+          ? AbortSignal.any([init.signal, requestSignal])
+          : requestSignal,
+      }),
+  });
+
+  try {
+    await client.connect(transport);
+    const result = await client.callTool('web_search', {
+      objective: query,
+      search_queries: [query],
+      session_id: context.sessionManager.getSessionId(),
+    }, {signal: requestSignal});
+    const content = result.content.flatMap((block) =>
+      block.type === 'text' ? [{type: 'text' as const, text: block.text}] : []
+    );
+    if (result.isError) {
+      throw new Error(
+        `Parallel search error: ${
+          content.map((block) => block.text).join('\n')
+        }`,
+      );
+    }
+    if (!content.length) {
+      throw new Error('Parallel search returned no text content.');
+    }
+    return {content, details: {provider: 'parallel', query}};
+  } catch (error) {
+    requestSignal.throwIfAborted();
+    throw error;
+  } finally {
+    await client.close();
+  }
+}
 
 /**
  * Kagi may send an explicit `null` (rather than omitting the key) for fields it
@@ -308,6 +382,19 @@ export default function webSearchExtension(pi: ExtensionAPI) {
 
     async execute(_toolCallId, params, signal, _onUpdate, context) {
       const kagiToken = process.env.KAGI_API_TOKEN;
+      const provider = process.env.PI_WEB_SEARCH_PROVIDER ??
+        (kagiToken ? 'kagi' : 'parallel');
+      if (provider === 'disabled') {
+        throw new Error('web_search is disabled by PI_WEB_SEARCH_PROVIDER.');
+      }
+      if (provider === 'parallel') {
+        return await searchParallel(params.query, context, signal);
+      }
+      if (provider !== 'kagi') {
+        throw new Error(
+          'PI_WEB_SEARCH_PROVIDER must be kagi, parallel, or disabled.',
+        );
+      }
       if (!kagiToken) {
         throw new Error(
           'web_search requires `KAGI_API_TOKEN` to be set in the environment.',

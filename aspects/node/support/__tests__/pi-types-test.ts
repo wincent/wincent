@@ -65,6 +65,7 @@ exit 1
       '@earendil-works/pi-ai',
       '@earendil-works/pi-tui',
       '@earendil-works/pi-agent-core',
+      '@earendil-works/pi-mcp',
       'typebox',
       '@types/node',
     ];
