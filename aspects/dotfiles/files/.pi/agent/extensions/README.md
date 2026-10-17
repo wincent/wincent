@@ -16,11 +16,15 @@ Registers an `openrouter-zdr` provider that exposes [DeepSeek V4.1 Flash](https:
 
 ### `web-search.ts`
 
-Registers a `web_search` tool backed by the [Kagi Search API](https://help.kagi.com/kagi/api/search.html) at a cost of $12 per 1,000 queries (ie. 1.2 cents per query). Requires `KAGI_API_TOKEN` in the environment, and throws if unset.
+Registers a `web_search` tool for current information. When `KAGI_API_TOKEN` is set, it uses the [Kagi Search API](https://help.kagi.com/kagi/api/search.html) at a cost of $12 per 1,000 queries (ie. 1.2 cents per query). Without that token, it uses [Parallel Search MCP](https://docs.parallel.ai/integrations/mcp/search-mcp) in Fast mode, with no account or API key required.
+
+Run `./install dotfiles` and start a new Pi session (or `/reload` the extensions) to pick up the tool. Parallel searches send the query to `https://search.parallel.ai/mcp` over Streamable HTTP, using the MCP client from the managed Pi runtime. Returned excerpts include source URLs for the agent to cite. Anonymous Parallel access is intended for exploration and light use and has rate limits; service errors are reported to the agent without switching providers. Parallel requests time out after 30 seconds and respect cancellation.
+
+Set `PI_WEB_SEARCH_PROVIDER=parallel` to choose Parallel even with a Kagi token, `PI_WEB_SEARCH_PROVIDER=kagi` to require Kagi (and its token), or `PI_WEB_SEARCH_PROVIDER=disabled` to prevent searches. Leaving it unset keeps the automatic token-based selection above. Pi's normal tool selection and permission hooks still apply. The built-in MCP extension stays disabled; this tool connects only when called.
 
 ## Type-checking
 
-A `tsconfig.json` sits alongside the extensions so that `tsc` can resolve the platform packages (`@earendil-works/pi-*`, `typebox`, `@types/node`). The matching `.d.ts` stubs live under `node_modules/`, populated on demand by [`bin/install-types`](bin/install-types) (which copies them out of the dotfiles-managed Pi under `~/n/pi`). Extensions use the running Pi's platform dependencies[^jiti]; the script handles both nested and hoisted package layouts.
+A `tsconfig.json` sits alongside the extensions so that `tsc` can resolve the platform packages (`@earendil-works/pi-*`, including `pi-mcp`, `typebox`, `@types/node`). The matching `.d.ts` stubs live under `node_modules/`, populated on demand by [`bin/install-types`](bin/install-types) (which copies them out of the dotfiles-managed Pi under `~/n/pi`). Extensions use the running Pi's platform dependencies[^jiti]; the script handles both nested and hoisted package layouts.
 
 [^jiti]: Pi's loader (see `dist/core/extensions/loader.js` in the Pi installation) loads extensions with jiti, passing a map that rewrites platform package specifiers to absolute paths before Node's module resolution kicks in. Those imports use Pi's runtime dependencies rather than the local type-only `node_modules` directory.
 
