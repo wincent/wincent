@@ -1,9 +1,9 @@
 {
-  "defaultModel": "deepseek/deepseek-v4.1-flash",
+  "defaultModel": "deepseek/deepseek-v4.1-flash-1017",
   "defaultProvider": "openrouter-zdr-deepinfra",
   "enabledModels": [
-    "openrouter-zdr-fireworks/deepseek/deepseek-v4.1-flash",
-    "openrouter-zdr-deepinfra/deepseek/deepseek-v4.1-flash",
+    "openrouter-zdr-fireworks/deepseek/deepseek-v4.1-flash-1017",
+    "openrouter-zdr-deepinfra/deepseek/deepseek-v4.1-flash-1017",
     "xai/grok-4.7"
   ]
 }
