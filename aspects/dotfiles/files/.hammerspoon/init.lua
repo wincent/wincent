@@ -234,6 +234,10 @@ end
 
 -- Home display.
 -- https://www.benq.com/en-us/monitor/professional/pd2730s/spec.html
+-- In "Displays" settings, use "Default" resolution, which is 2560x1440 (3rd of
+-- 5 possible settings, ranging from "Large Text" to "More Space"). This makes
+-- apparent window size on the external monitor most closely match the physical
+-- size on the built-in display.
 local benQPD2730S = '2560x1440' -- real resolution = '5120x2880'
 
 -- Work display.
