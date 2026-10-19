@@ -65,14 +65,23 @@ function fixture(t: {after: (fn: () => void) => void}) {
     overrides: NodeJS.ProcessEnv = {},
     args: string[] = [],
     launcher = 'pi',
-  ) =>
-    spawnSync('/bin/bash', [
+  ) => {
+    const result = spawnSync('/bin/bash', [
       '-c',
       'umask 022; exec "$@"',
       'fixture',
       launcher,
       ...args,
-    ], {env: {...env, ...overrides}, encoding: 'utf8', timeout: 5_000});
+    ], {
+      env: {...env, ...overrides},
+      encoding: 'utf8',
+      // Allow for slow macOS process startup while other test files run.
+      timeout: 30_000,
+    });
+    assert.ifError(result.error);
+    assert.equal(result.signal, null, result.stderr);
+    return result;
+  };
   return {bin, runtime, temp, root, run, script};
 }
 
