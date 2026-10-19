@@ -23,13 +23,29 @@ function live() {
 const expect = {
   equal(actual: any, expected: any, message?: string | Error | undefined) {
     if (live()) {
-      assert.strictEqual(actual, expected, message);
+      // Help TypeScript distribute our union type (string | Error | undefined)
+      // across two possible overloads.
+      if (typeof message === 'string') {
+        // Maps onto: ok(value: unknown, message: string, ...args: unknown[])
+        assert.strictEqual(actual, expected, message);
+      } else {
+        // Maps onto: ok(value: unknown, message?: Error | AssertMessageFunction)
+        assert.strictEqual(actual, expected, message);
+      }
     }
   },
 
   ok(value: any, message?: string | Error | undefined) {
     if (live()) {
-      assert.ok(value, message);
+      // Help TypeScript distribute our union type (string | Error | undefined)
+      // across two possible overloads.
+      if (typeof message === 'string') {
+        // Maps onto: ok(value: unknown, message: string, ...args: unknown[])
+        assert.ok(value, message);
+      } else {
+        // Maps onto: ok(value: unknown, message?: Error | AssertMessageFunction)
+        assert.ok(value, message);
+      }
     }
   },
 };
