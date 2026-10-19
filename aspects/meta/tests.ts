@@ -21,7 +21,7 @@ function live() {
 }
 
 const expect = {
-  equal(actual: any, expected: any, message?: string | Error | undefined) {
+  equal(actual: unknown, expected: unknown, message?: string | Error) {
     if (live()) {
       // Help TypeScript distribute our union type (string | Error | undefined)
       // across two possible overloads.
@@ -35,7 +35,7 @@ const expect = {
     }
   },
 
-  ok(value: any, message?: string | Error | undefined) {
+  ok(value: unknown, message?: string | Error) {
     if (live()) {
       // Help TypeScript distribute our union type (string | Error | undefined)
       // across two possible overloads.
