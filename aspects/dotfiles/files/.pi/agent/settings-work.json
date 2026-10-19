@@ -12,8 +12,8 @@
     "openai-codex/gpt-6.1-sol",
     "openai-codex/gpt-5.6-terra",
     "openai-codex/gpt-6-astra",
-    "openrouter-zdr-fireworks/deepseek/deepseek-v4.1-flash",
-    "openrouter-zdr-deepinfra/deepseek/deepseek-v4.1-flash",
+    "openrouter-zdr-fireworks/deepseek/deepseek-v4.1-flash-1017",
+    "openrouter-zdr-deepinfra/deepseek/deepseek-v4.1-flash-1017",
     "xai/grok-4.7"
   ],
   "extensions": [
