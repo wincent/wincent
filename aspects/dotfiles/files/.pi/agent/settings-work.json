@@ -19,6 +19,7 @@
   "extensions": [
     "~/.local/share/agents/wincent-agent-plugins/pi/extensions",
     "~/dd/wincent/.pi/agent/extensions",
+    "!extensions/**/.*/**",
     "-builtin:mcp"
   ],
   "prompts": [
