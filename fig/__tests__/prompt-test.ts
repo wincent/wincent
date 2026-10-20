@@ -31,6 +31,19 @@ function mockReadline(t: TestContext, create: () => FakeInterface) {
   });
   delete process.env.NON_INTERACTIVE;
 
+  const write = process.stdout.write;
+  t.mock.method(
+    process.stdout,
+    'write',
+    (...args: Parameters<typeof write>) => {
+      // Avoid interleaving prompt newlines with Node's test-runner protocol.
+      if (args.length === 1 && args[0] === '\n') {
+        return true;
+      }
+      return Reflect.apply(write, process.stdout, args);
+    },
+  );
+
   t.mock.method(
     readline,
     'createInterface',
