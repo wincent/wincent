@@ -3,6 +3,8 @@
 	"name": "Unikitty Dark",
 	"foreground": "#bcbabe",
 	"background": "#2e2a31",
+	"cursorColor": "#bcbabe",
+	"selectionBackground": "#bcbabe",
 	"black": "#2e2a31",
 	"blue": "#796af5",
 	"brightBlack": "#838085",

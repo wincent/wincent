@@ -3,6 +3,8 @@
 	"name": "Seafoam Pastel",
 	"foreground": "#cacaca",
 	"background": "#243434",
+	"cursorColor": "#cacaca",
+	"selectionBackground": "#cacaca",
 	"black": "#243434",
 	"blue": "#4d7b82",
 	"brightBlack": "#9f9f9f",

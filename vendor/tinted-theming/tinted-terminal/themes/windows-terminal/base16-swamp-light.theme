@@ -3,6 +3,8 @@
 	"name": "Swamp Light",
 	"foreground": "#64513e",
 	"background": "#f1e3d1",
+	"cursorColor": "#64513e",
+	"selectionBackground": "#64513e",
 	"black": "#f1e3d1",
 	"blue": "#bf7979",
 	"brightBlack": "#b5a492",

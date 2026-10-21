@@ -1,0 +1,22 @@
+system: "base16"
+name: "Oslo"
+slug: "oslo"
+author: "xscriptor (https://github.com/xscriptor)"
+variant: "dark"
+palette:
+  base00: "#3f4451" # background
+  base01: "#474c59" # derived: lighter background (ANSI 0 equals background)
+  base02: "#4c515e" # derived: selection background
+  base03: "#6c727f" # derived: comments (ANSI 8 too close to background)
+  base04: "#7a808e" # derived: dark foreground
+  base05: "#abb2bf" # default foreground
+  base06: "#bcc1cc" # derived: light foreground
+  base07: "#ffffff" # ANSI 15 (bright white)
+  base08: "#e05561" # ANSI 1 (red)
+  base09: "#d8725a" # derived: orange (red + yellow)
+  base0A: "#d18f52" # ANSI 3 (yellow)
+  base0B: "#8cc265" # ANSI 2 (green)
+  base0C: "#42b3c2" # ANSI 6 (cyan)
+  base0D: "#4aa5f0" # ANSI 4 (blue)
+  base0E: "#c162de" # ANSI 5 (magenta)
+  base0F: "#a26257" # derived: brown (darkened orange)

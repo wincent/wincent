@@ -3,6 +3,8 @@
 	"name": "Under The Sea",
 	"foreground": "#3d5053",
 	"background": "#001015",
+	"cursorColor": "#3d5053",
+	"selectionBackground": "#3d5053",
 	"black": "#001015",
 	"blue": "#449985",
 	"brightBlack": "#394751",

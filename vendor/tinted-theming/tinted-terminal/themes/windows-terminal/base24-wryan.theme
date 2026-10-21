@@ -3,6 +3,8 @@
 	"name": "Wryan",
 	"foreground": "#768488",
 	"background": "#101010",
+	"cursorColor": "#768488",
+	"selectionBackground": "#768488",
 	"black": "#101010",
 	"blue": "#395573",
 	"brightBlack": "#505456",

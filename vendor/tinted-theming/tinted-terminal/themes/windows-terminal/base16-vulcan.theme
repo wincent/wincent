@@ -3,6 +3,8 @@
 	"name": "vulcan",
 	"foreground": "#5b778c",
 	"background": "#041523",
+	"cursorColor": "#5b778c",
+	"selectionBackground": "#5b778c",
 	"black": "#041523",
 	"blue": "#977d7c",
 	"brightBlack": "#7a5759",

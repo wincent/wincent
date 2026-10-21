@@ -3,6 +3,8 @@
 	"name": "Purplepeter",
 	"foreground": "#c38e69",
 	"background": "#2a1a4a",
+	"cursorColor": "#c38e69",
+	"selectionBackground": "#c38e69",
 	"black": "#2a1a4a",
 	"blue": "#66d9ef",
 	"brightBlack": "#4b3639",

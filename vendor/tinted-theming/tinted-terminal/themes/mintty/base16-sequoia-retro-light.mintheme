@@ -1,0 +1,27 @@
+# Sequoia Retro Light theme for Mintty
+# Scheme Author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #edeef2
+Red         = #5f7982
+Green       = #4a704e
+Yellow      = #bf5238
+Blue        = #456a82
+Magenta     = #bf5238
+Cyan        = #8a6539
+White       = #282930
+BoldBlack   = #565760
+BoldRed     = #5f7982
+BoldGreen   = #4a704e
+BoldYellow  = #bf5238
+BoldBlue    = #456a82
+BoldMagenta = #bf5238
+BoldCyan    = #8a6539
+BoldWhite   = #0f1014
+
+# Background & foreground colors
+BackgroundColour = #edeef2
+ForegroundColour = #282930
+CursorColour     = #282930

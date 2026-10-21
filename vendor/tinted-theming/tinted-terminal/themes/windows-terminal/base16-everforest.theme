@@ -3,6 +3,8 @@
 	"name": "Everforest",
 	"foreground": "#d3c6aa",
 	"background": "#2d353b",
+	"cursorColor": "#d3c6aa",
+	"selectionBackground": "#d3c6aa",
 	"black": "#2d353b",
 	"blue": "#7fbbb3",
 	"brightBlack": "#859289",

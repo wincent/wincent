@@ -3,6 +3,8 @@
 	"name": "Purple Rain",
 	"foreground": "#d3d4d4",
 	"background": "#20084a",
+	"cursorColor": "#d3d4d4",
+	"selectionBackground": "#d3d4d4",
 	"black": "#20084a",
 	"blue": "#00a1f9",
 	"brightBlack": "#7f7f7f",

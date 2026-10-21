@@ -3,6 +3,8 @@
 	"name": "Pastelón de Amarillos Dark",
 	"foreground": "#ffe0a3",
 	"background": "#180d18",
+	"cursorColor": "#ffe0a3",
+	"selectionBackground": "#ffe0a3",
 	"black": "#180d18",
 	"blue": "#4c84bd",
 	"brightBlack": "#a0747c",

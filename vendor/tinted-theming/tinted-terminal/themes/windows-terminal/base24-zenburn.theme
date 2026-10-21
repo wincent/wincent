@@ -3,6 +3,8 @@
 	"name": "Zenburn",
 	"foreground": "#c1c9b9",
 	"background": "#3f3f3f",
+	"cursorColor": "#c1c9b9",
+	"selectionBackground": "#c1c9b9",
 	"black": "#3f3f3f",
 	"blue": "#506070",
 	"brightBlack": "#8ba393",

@@ -1,0 +1,30 @@
+# Tinted Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Github Dark by Tinted Theming (https://github.com/tinted-theming)
+
+name: Tinted8 Github Dark
+accent: "#4493f8"
+cursor: "#f0f6fc"
+background: "#0d1117"
+foreground: "#f0f6fc"
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#2f3742"
+    red: "#ff7b72"
+    yellow: "#d29922"
+    green: "#3fb950"
+    cyan: "#39c5cf"
+    blue: "#58a6ff"
+    magenta: "#be8fff"
+    white: "#f0f6fc"
+
+  bright:
+    black: "#656c76"
+    red: "#ffa198"
+    yellow: "#e3b341"
+    green: "#56d364"
+    cyan: "#56d4dd"
+    blue: "#79c0ff"
+    magenta: "#d2a8ff"
+    white: "#ffffff"

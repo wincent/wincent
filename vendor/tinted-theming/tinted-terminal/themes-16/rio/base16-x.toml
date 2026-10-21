@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: X by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#f7f1ff' # base05
+selection-foreground = '#222123' # base02
+
+cursor         = '#f7f1ff' # base05
+tabs           = '#161616' # base01
+tabs-active    = '#222123' # base02
+
+background     = '#050505' # base00
+foreground     = '#f7f1ff' # base05
+black          = '#050505' # base00
+red            = '#fc618d' # base08
+yellow         = '#fce566' # base0A
+green          = '#7bd88f' # base0B
+cyan           = '#5ad4e6' # base0C
+blue           = '#fd9353' # base0D
+magenta        = '#948ae3' # base0E
+white          = '#f7f1ff' # base05
+
+dim-foreground   = '#f7f1ff' # base05
+dim-black        = '#161616' # base01
+dim-red          = '#fc618d' # base08
+dim-yellow       = '#fce566' # base0A
+dim-green        = '#7bd88f' # base0B
+dim-cyan         = '#5ad4e6' # base0C
+dim-blue         = '#fd9353' # base0D
+dim-magenta      = '#948ae3' # base0E
+dim-white        = '#8a878e' # base04
+
+light-foreground = '#f7f1ff' # base05
+light-black      = '#6b686e' # base03
+light-red        = '#fc618d' # base08
+light-yellow     = '#fce566' # base0A
+light-green      = '#7bd88f' # base0B
+light-cyan       = '#5ad4e6' # base0C
+light-blue       = '#fd9353' # base0D
+light-magenta    = '#948ae3' # base0E
+light-white      = '#f7f1ff' # base07

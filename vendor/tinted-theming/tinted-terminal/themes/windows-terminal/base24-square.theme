@@ -3,6 +3,8 @@
 	"name": "Square",
 	"foreground": "#bababa",
 	"background": "#1a1a1a",
+	"cursorColor": "#bababa",
+	"selectionBackground": "#bababa",
 	"black": "#1a1a1a",
 	"blue": "#a9cdeb",
 	"brightBlack": "#4b4b4b",

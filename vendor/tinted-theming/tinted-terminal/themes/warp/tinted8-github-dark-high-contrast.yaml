@@ -1,0 +1,30 @@
+# Tinted Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Github Dark High Contrast by Tinted Theming (https://github.com/tinted-theming)
+
+name: Tinted8 Github Dark High Contrast
+accent: "#74b9ff"
+cursor: "#ffffff"
+background: "#010409"
+foreground: "#ffffff"
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#2f3742"
+    red: "#ff9492"
+    yellow: "#f0b72f"
+    green: "#28d751"
+    cyan: "#39c5cf"
+    blue: "#71b7ff"
+    magenta: "#cb9eff"
+    white: "#f0f6fc"
+
+  bright:
+    black: "#656c76"
+    red: "#ffb1af"
+    yellow: "#f7c843"
+    green: "#4ae168"
+    cyan: "#56d4dd"
+    blue: "#91cbff"
+    magenta: "#dbb7ff"
+    white: "#ffffff"

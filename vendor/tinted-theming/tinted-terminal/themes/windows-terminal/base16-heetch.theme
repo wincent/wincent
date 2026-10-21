@@ -3,6 +3,8 @@
 	"name": "Heetch Dark",
 	"foreground": "#bdb6c5",
 	"background": "#190134",
+	"cursorColor": "#bdb6c5",
+	"selectionBackground": "#bdb6c5",
 	"black": "#190134",
 	"blue": "#bd0152",
 	"brightBlack": "#7b6d8b",

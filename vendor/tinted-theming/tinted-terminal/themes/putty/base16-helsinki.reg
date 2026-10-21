@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Helsinki
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: xscriptor (https://github.com/xscriptor)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-helsinki]
+
+; Default Foreground
+; base05 #544d40
+"Colour0"="84,77,64"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #544d40
+"Colour1"="84,77,64"
+
+; Default Background
+; base00 #f8fafe
+"Colour2"="248,250,254"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #f8fafe
+"Colour3"="248,250,254"
+
+; Cursor Text -- equals to default background
+; base00 #f8fafe
+"Colour4"="248,250,254"
+
+; Cursor Colour -- equals to default foreground
+; base05 #544d40
+"Colour5"="84,77,64"
+
+; ANSI Black
+; 30m
+; base00 #f8fafe
+"Colour6"="248,250,254"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #b0a999
+"Colour7"="176,169,153"
+
+; ANSI Red
+; 31m
+; base08 #1faa9e
+"Colour8"="31,170,158"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #1faa9e
+"Colour9"="31,170,158"
+
+; ANSI Green
+; 32m
+; base0B #733d9a
+"Colour10"="115,61,154"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #733d9a
+"Colour11"="115,61,154"
+
+; ANSI Yellow
+; 33m
+; base0A #2e70ad
+"Colour12"="46,112,173"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #2e70ad
+"Colour13"="46,112,173"
+
+; ANSI Blue
+; 34m
+; base0D #b55a0f
+"Colour14"="181,90,15"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #b55a0f
+"Colour15"="181,90,15"
+
+; ANSI Magenta
+; 35m
+; base0E #3e9d21
+"Colour16"="62,157,33"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #3e9d21
+"Colour17"="62,157,33"
+
+; ANSI Cyan
+; 36m
+; base0C #bd4c3d
+"Colour18"="189,76,61"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #bd4c3d
+"Colour19"="189,76,61"
+
+; ANSI White
+; 37m
+; base05 #544d40
+"Colour20"="84,77,64"
+
+; ANSI White Bright
+; 1;37m
+; base07 000000
+"Colour21"="0,0,0"

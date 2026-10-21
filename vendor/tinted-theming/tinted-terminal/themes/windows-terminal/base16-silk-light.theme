@@ -3,6 +3,8 @@
 	"name": "Silk Light",
 	"foreground": "#385156",
 	"background": "#e9f1ef",
+	"cursorColor": "#385156",
+	"selectionBackground": "#385156",
 	"black": "#e9f1ef",
 	"blue": "#39aac9",
 	"brightBlack": "#5c787b",

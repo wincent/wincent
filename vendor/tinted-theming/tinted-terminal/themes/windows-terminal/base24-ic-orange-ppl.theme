@@ -3,6 +3,8 @@
 	"name": "IC-Orange-PPL",
 	"foreground": "#d9a971",
 	"background": "#262626",
+	"cursorColor": "#d9a971",
+	"selectionBackground": "#d9a971",
 	"black": "#262626",
 	"blue": "#bd6c00",
 	"brightBlack": "#8f6c41",

@@ -3,6 +3,8 @@
 	"name": "Harmonic16 Light",
 	"foreground": "#405c79",
 	"background": "#f7f9fb",
+	"cursorColor": "#405c79",
+	"selectionBackground": "#405c79",
 	"black": "#f7f9fb",
 	"blue": "#8b56bf",
 	"brightBlack": "#aabcce",

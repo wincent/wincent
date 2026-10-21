@@ -3,6 +3,8 @@
 	"name": "Equilibrium Light",
 	"foreground": "#43474e",
 	"background": "#f5f0e7",
+	"cursorColor": "#43474e",
+	"selectionBackground": "#43474e",
 	"black": "#f5f0e7",
 	"blue": "#0073b5",
 	"brightBlack": "#73777f",

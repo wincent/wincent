@@ -1,0 +1,58 @@
+# base16 Serendipity Midnight 256 - alacritty color config
+# Micheal Andreuzza (https://michaelandreuzza.com/)
+
+# Default colors
+[colors.primary]
+background = '0x151726'
+foreground = '0xdee0ef'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x151726'
+cursor = '0xdee0ef'
+
+# Normal colors
+[colors.normal]
+black = '0x151726'
+red = '0xee8679'
+green = '0x5ba2d0'
+yellow = '0xa78bfa'
+blue = '0x94b8ff'
+magenta = '0xa78bfa'
+cyan = '0xf8d2c9'
+white = '0xdee0ef'
+
+# Bright colors
+[colors.bright]
+black = '0x6b6d7c'
+red = '0xee8679'
+green = '0x5ba2d0'
+yellow = '0xa78bfa'
+blue = '0x94b8ff'
+magenta = '0xa78bfa'
+cyan = '0xf8d2c9'
+white = '0x151726'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xee8679"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x5ba2d0"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1c1e2d"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x1c1e2d"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8d8f9e"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xdee0ef"

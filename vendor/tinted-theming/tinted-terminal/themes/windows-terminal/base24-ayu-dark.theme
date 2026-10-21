@@ -3,6 +3,8 @@
 	"name": "Ayu Dark",
 	"foreground": "#e6e1cf",
 	"background": "#0b0e14",
+	"cursorColor": "#e6e1cf",
+	"selectionBackground": "#e6e1cf",
 	"black": "#0b0e14",
 	"blue": "#59c2ff",
 	"brightBlack": "#3e4b59",

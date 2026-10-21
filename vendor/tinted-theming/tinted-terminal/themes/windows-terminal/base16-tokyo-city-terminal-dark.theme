@@ -3,6 +3,8 @@
 	"name": "Tokyo City Terminal Dark",
 	"foreground": "#d8e2ec",
 	"background": "#171d23",
+	"cursorColor": "#d8e2ec",
+	"selectionBackground": "#d8e2ec",
 	"black": "#171d23",
 	"blue": "#539afc",
 	"brightBlack": "#526270",

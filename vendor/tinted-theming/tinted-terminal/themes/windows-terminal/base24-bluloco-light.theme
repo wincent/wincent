@@ -3,6 +3,8 @@
 	"name": "Bluloco Light",
 	"foreground": "#38383a",
 	"background": "#f7f7f7",
+	"cursorColor": "#38383a",
+	"selectionBackground": "#38383a",
 	"black": "#f7f7f7",
 	"blue": "#1d44dd",
 	"brightBlack": "#a6a7ae",

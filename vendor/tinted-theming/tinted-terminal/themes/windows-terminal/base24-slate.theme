@@ -3,6 +3,8 @@
 	"name": "Slate",
 	"foreground": "#42d3e8",
 	"background": "#212121",
+	"cursorColor": "#42d3e8",
+	"selectionBackground": "#42d3e8",
 	"black": "#212121",
 	"blue": "#254a49",
 	"brightBlack": "#c0f1f8",

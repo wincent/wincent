@@ -3,6 +3,8 @@
 	"name": "Terracotta",
 	"foreground": "#473731",
 	"background": "#efeae8",
+	"cursorColor": "#473731",
+	"selectionBackground": "#473731",
 	"black": "#efeae8",
 	"blue": "#625574",
 	"brightBlack": "#c0aca4",

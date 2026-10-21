@@ -1,0 +1,27 @@
+# Paris theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a0a30
+Red         = #fc618d
+Green       = #7bd88f
+Yellow      = #fce566
+Blue        = #a3f3ff
+Magenta     = #c4bdff
+Cyan        = #a3f3ff
+White       = #f7f1ff
+BoldBlack   = #c4bdff
+BoldRed     = #fc618d
+BoldGreen   = #7bd88f
+BoldYellow  = #fce566
+BoldBlue    = #a3f3ff
+BoldMagenta = #c4bdff
+BoldCyan    = #a3f3ff
+BoldWhite   = #f7f1ff
+
+# Background & foreground colors
+BackgroundColour = #1a0a30
+ForegroundColour = #f7f1ff
+CursorColour     = #f7f1ff

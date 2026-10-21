@@ -3,6 +3,8 @@
 	"name": "Red Planet",
 	"foreground": "#a4998c",
 	"background": "#222222",
+	"cursorColor": "#a4998c",
+	"selectionBackground": "#a4998c",
 	"black": "#222222",
 	"blue": "#69809e",
 	"brightBlack": "#7b7773",

@@ -3,6 +3,8 @@
 	"name": "Forest Blue",
 	"foreground": "#b8b1a9",
 	"background": "#051519",
+	"cursorColor": "#b8b1a9",
+	"selectionBackground": "#b8b1a9",
 	"black": "#051519",
 	"blue": "#8ed0ce",
 	"brightBlack": "#666361",

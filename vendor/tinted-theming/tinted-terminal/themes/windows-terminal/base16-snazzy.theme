@@ -3,6 +3,8 @@
 	"name": "Snazzy",
 	"foreground": "#e2e4e5",
 	"background": "#282a36",
+	"cursorColor": "#e2e4e5",
+	"selectionBackground": "#e2e4e5",
 	"black": "#282a36",
 	"blue": "#57c7ff",
 	"brightBlack": "#78787e",

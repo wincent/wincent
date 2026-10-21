@@ -3,6 +3,8 @@
 	"name": "Atelier Seaside Light",
 	"foreground": "#5e6e5e",
 	"background": "#f4fbf4",
+	"cursorColor": "#5e6e5e",
+	"selectionBackground": "#5e6e5e",
 	"black": "#f4fbf4",
 	"blue": "#3d62f5",
 	"brightBlack": "#809980",

@@ -17,29 +17,29 @@ endif
 
 " GUI colors
 let s:gui00        = 'ffffff'
-let s:gui01        = 'e7ecf0'
-let s:gui02        = 'acb6c0'
-let s:gui03        = '88929d'
-let s:gui04        = '66707b'
-let s:gui05        = '343b43'
-let s:gui06        = '20252c'
-let s:gui07        = '0e1116'
-let s:gui08        = '702c00'
-let s:gui09        = '023b95'
-let s:gui0A        = '956400'
-let s:gui0B        = '032563'
-let s:gui0C        = '024c1a'
-let s:gui0D        = '622cbc'
-let s:gui0E        = 'a0111f'
-let s:gui0F        = '6e011a'
-let s:gui10        = '0e1116'
+let s:gui01        = 'f6f8fa'
+let s:gui02        = 'd1d9e0'
+let s:gui03        = '818b98'
+let s:gui04        = '59636e'
+let s:gui05        = '454c54'
+let s:gui06        = '25292e'
+let s:gui07        = '010409'
+let s:gui08        = 'a0111f'
+let s:gui09        = '702c00'
+let s:gui0A        = '603700'
+let s:gui0B        = '024c1a'
+let s:gui0C        = '1b7c83'
+let s:gui0D        = '0349b4'
+let s:gui0E        = '622cbc'
+let s:gui0F        = '86061d'
+let s:gui10        = '010409'
 let s:gui11        = '000000'
-let s:gui12        = 'ee5a5d'
-let s:gui13        = 'b58407'
-let s:gui14        = '26a148'
-let s:gui15        = '49bcb7'
-let s:gui16        = '368cf9'
-let s:gui17        = 'a371f7'
+let s:gui12        = '86061d'
+let s:gui13        = '4e2c00'
+let s:gui14        = '055d20'
+let s:gui15        = '3192aa'
+let s:gui16        = '1168e3'
+let s:gui17        = '844ae7'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -96,21 +96,21 @@ call s:create_color_globals()
 " Integrated Terminal colors
 let s:colors = [
   \ '#ffffff',
-  \ '#702c00',
-  \ '#032563',
-  \ '#956400',
-  \ '#622cbc',
   \ '#a0111f',
   \ '#024c1a',
-  \ '#343b43',
-  \ '#88929d',
-  \ '#ee5a5d',
-  \ '#26a148',
-  \ '#b58407',
-  \ '#368cf9',
-  \ '#a371f7',
-  \ '#49bcb7',
-  \ '#0e1116'
+  \ '#603700',
+  \ '#0349b4',
+  \ '#622cbc',
+  \ '#1b7c83',
+  \ '#454c54',
+  \ '#818b98',
+  \ '#86061d',
+  \ '#055d20',
+  \ '#4e2c00',
+  \ '#1168e3',
+  \ '#844ae7',
+  \ '#3192aa',
+  \ '#010409'
 \]
 
 if has('nvim')

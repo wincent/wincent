@@ -28,7 +28,7 @@
 ---```lua
 ---default = "none"
 ---```
----@field debugEngineAPITracing? "none" | "error" | "all"
+---@field debugEngineAPITracing? "none"|"error"|"all"
 ---%generateOptionsSchema.logging.diagnosticsLog.debugRuntimeEventTracing.markdownDescription%
 ---@field debugRuntimeEventTracing? boolean
 ---%generateOptionsSchema.logging.diagnosticsLog.dispatcherMessages.markdownDescription%
@@ -36,7 +36,7 @@
 ---```lua
 ---default = "none"
 ---```
----@field dispatcherMessages? "none" | "error" | "important" | "normal"
+---@field dispatcherMessages? "none"|"error"|"important"|"normal"
 ---%generateOptionsSchema.logging.diagnosticsLog.expressionEvaluationTracing.markdownDescription%
 ---@field expressionEvaluationTracing? boolean
 ---%generateOptionsSchema.logging.diagnosticsLog.protocolMessages.markdownDescription%
@@ -118,7 +118,7 @@
 ---```lua
 ---default = "loadAllButExcluded"
 ---```
----@field mode? "loadAllButExcluded" | "loadOnlyIncluded"
+---@field mode? "loadAllButExcluded"|"loadOnlyIncluded"
 
 ---@class _.lspconfig.settings.omnisharp.Csharp.Debug.SymbolOptions
 ---%generateOptionsSchema.symbolOptions.cachePath.description%
@@ -145,7 +145,7 @@
 ---```lua
 ---default = "internalConsole"
 ---```
----@field console? "internalConsole" | "integratedTerminal" | "externalTerminal"
+---@field console? "internalConsole"|"integratedTerminal"|"externalTerminal"
 ---%generateOptionsSchema.enableStepFiltering.markdownDescription%
 ---
 ---```lua
@@ -273,13 +273,13 @@
 ---```lua
 ---default = "openFiles"
 ---```
----@field analyzerDiagnosticsScope? "openFiles" | "fullSolution" | "none"
+---@field analyzerDiagnosticsScope? "openFiles"|"fullSolution"|"none"
 ---%configuration.dotnet.backgroundAnalysis.compilerDiagnosticsScope%
 ---
 ---```lua
 ---default = "openFiles"
 ---```
----@field compilerDiagnosticsScope? "openFiles" | "fullSolution" | "none"
+---@field compilerDiagnosticsScope? "openFiles"|"fullSolution"|"none"
 
 ---@class _.lspconfig.settings.omnisharp.Dotnet.CodeLens
 ---%configuration.dotnet.codeLens.enableReferencesCodeLens%
@@ -320,6 +320,14 @@
 ---default = "true"
 ---```
 ---@field triggerCompletionInArgumentLists? boolean
+
+---@class _.lspconfig.settings.omnisharp.Dotnet.CopilotDotnetPlugin
+---%configuration.dotnet.copilotDotnetPlugin.enableAutoInstall%
+---
+---```lua
+---default = true
+---```
+---@field enableAutoInstall? boolean
 
 ---@class _.lspconfig.settings.omnisharp.Dotnet.Diagnostics
 ---%configuration.dotnet.diagnostics.reportInformationAsHint%
@@ -456,7 +464,7 @@
 ---```lua
 ---default = "Balanced"
 ---```
----@field sourceGeneratorExecution? "Balanced" | "Automatic"
+---@field sourceGeneratorExecution? "Balanced"|"Automatic"
 ---%configuration.dotnet.server.startTimeout%
 ---
 ---```lua
@@ -486,19 +494,23 @@
 ---```
 ---@field searchReferenceAssemblies? boolean
 
+---@class _.lspconfig.settings.omnisharp.Dotnet.Testing
+---%configuration.dotnet.testing.useSemanticTestDiscovery%
+---@field useSemanticTestDiscovery? boolean
+
 ---@class _.lspconfig.settings.omnisharp.Dotnet.TypeMembers
 ---%configuration.dotnet.typeMembers.memberInsertionLocation%
 ---
 ---```lua
 ---default = "withOtherMembersOfTheSameKind"
 ---```
----@field memberInsertionLocation? "withOtherMembersOfTheSameKind" | "atTheEnd"
+---@field memberInsertionLocation? "withOtherMembersOfTheSameKind"|"atTheEnd"
 ---%configuration.dotnet.typeMembers.propertyGenerationBehavior%
 ---
 ---```lua
 ---default = "preferThrowingProperties"
 ---```
----@field propertyGenerationBehavior? "preferThrowingProperties" | "preferAutoProperties"
+---@field propertyGenerationBehavior? "preferThrowingProperties"|"preferAutoProperties"
 
 ---%generateOptionsSchema.expressionEvaluationOptions.description%
 ---
@@ -598,7 +610,7 @@
 ---```lua
 ---default = "loadAllButExcluded"
 ---```
----@field mode "loadAllButExcluded" | "loadOnlyIncluded"
+---@field mode "loadAllButExcluded"|"loadOnlyIncluded"
 
 ---%generateOptionsSchema.symbolOptions.description%
 ---
@@ -703,13 +715,13 @@
 ---```
 ---@field symbolOptions? _.lspconfig.settings.omnisharp.Dotnet.UnitTestDebuggingOptions.SymbolOptions
 ---%generateOptionsSchema.targetArchitecture.markdownDescription%
----@field targetArchitecture? "x86_64" | "arm64"
+---@field targetArchitecture? "x86_64"|"arm64"
 ---%generateOptionsSchema.type.markdownDescription%
 ---
 ---```lua
 ---default = "coreclr"
 ---```
----@field type? "coreclr" | "clr"
+---@field type? "coreclr"|"clr"
 
 ---@class _.lspconfig.settings.omnisharp.Dotnet.UnitTests
 ---%configuration.dotnet.unitTests.runSettingsPath%
@@ -720,6 +732,7 @@
 ---@field backgroundAnalysis? _.lspconfig.settings.omnisharp.Dotnet.BackgroundAnalysis
 ---@field codeLens? _.lspconfig.settings.omnisharp.Dotnet.CodeLens
 ---@field completion? _.lspconfig.settings.omnisharp.Dotnet.Completion
+---@field copilotDotnetPlugin? _.lspconfig.settings.omnisharp.Dotnet.CopilotDotnetPlugin
 ---%configuration.dotnet.defaultSolution.description%
 ---@field defaultSolution? string
 ---@field diagnostics? _.lspconfig.settings.omnisharp.Dotnet.Diagnostics
@@ -740,6 +753,7 @@
 ---@field quickInfo? _.lspconfig.settings.omnisharp.Dotnet.QuickInfo
 ---@field server? _.lspconfig.settings.omnisharp.Dotnet.Server
 ---@field symbolSearch? _.lspconfig.settings.omnisharp.Dotnet.SymbolSearch
+---@field testing? _.lspconfig.settings.omnisharp.Dotnet.Testing
 ---@field typeMembers? _.lspconfig.settings.omnisharp.Dotnet.TypeMembers
 ---%configuration.dotnet.unitTestDebuggingOptions%
 ---
@@ -781,7 +795,7 @@
 ---```lua
 ---default = "information"
 ---```
----@field loggingLevel? "trace" | "debug" | "information" | "warning" | "error" | "critical"
+---@field loggingLevel? "trace"|"debug"|"information"|"warning"|"error"|"critical"
 ---%configuration.omnisharp.maxFindSymbolsItems%
 ---
 ---```lua
@@ -851,7 +865,7 @@
 ---```lua
 ---default = "alignWithFirst"
 ---```
----@field attributeIndentStyle? "alignWithFirst" | "indentByOne" | "indentByTwo"
+---@field attributeIndentStyle? "alignWithFirst"|"indentByOne"|"indentByTwo"
 ---%configuration.razor.razor.format.codeBlockBraceOnNextLine%
 ---@field codeBlockBraceOnNextLine? boolean
 ---%configuration.omnisharp.razor.format.enable%
@@ -860,6 +874,12 @@
 ---default = true
 ---```
 ---@field enable? boolean
+---%configuration.razor.razor.format.ignoreIndentationInScriptOrStyleBlocksWithComplexRazor%
+---
+---```lua
+---default = true
+---```
+---@field ignoreIndentationInScriptOrStyleBlocksWithComplexRazor? boolean
 
 ---@class _.lspconfig.settings.omnisharp.Razor.Plugin
 ---%configuration.omnisharp.razor.plugin.path%

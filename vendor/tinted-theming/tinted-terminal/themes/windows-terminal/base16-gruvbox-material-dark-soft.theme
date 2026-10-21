@@ -3,6 +3,8 @@
 	"name": "Gruvbox Material Dark, Soft",
 	"foreground": "#ddc7a1",
 	"background": "#32302f",
+	"cursorColor": "#ddc7a1",
+	"selectionBackground": "#ddc7a1",
 	"black": "#32302f",
 	"blue": "#7daea3",
 	"brightBlack": "#7c6f64",

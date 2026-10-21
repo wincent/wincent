@@ -3,6 +3,8 @@
 	"name": "Pico",
 	"foreground": "#5f574f",
 	"background": "#000000",
+	"cursorColor": "#5f574f",
+	"selectionBackground": "#5f574f",
 	"black": "#000000",
 	"blue": "#83769c",
 	"brightBlack": "#008751",

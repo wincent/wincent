@@ -3,6 +3,8 @@
 	"name": "Sakura",
 	"foreground": "#564448",
 	"background": "#feedf3",
+	"cursorColor": "#564448",
+	"selectionBackground": "#564448",
 	"black": "#feedf3",
 	"blue": "#006e93",
 	"brightBlack": "#755f64",

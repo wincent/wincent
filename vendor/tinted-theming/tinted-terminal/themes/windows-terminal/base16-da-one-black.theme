@@ -3,6 +3,8 @@
 	"name": "Da One Black",
 	"foreground": "#ffffff",
 	"background": "#000000",
+	"cursorColor": "#ffffff",
+	"selectionBackground": "#ffffff",
 	"black": "#000000",
 	"blue": "#6bb8ff",
 	"brightBlack": "#888888",

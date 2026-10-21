@@ -3,6 +3,8 @@
 	"name": "ShadeSmear Dark",
 	"foreground": "#dbdbdb",
 	"background": "#232323",
+	"cursorColor": "#dbdbdb",
+	"selectionBackground": "#dbdbdb",
 	"black": "#232323",
 	"blue": "#376388",
 	"brightBlack": "#c0c0c0",

@@ -1,0 +1,27 @@
+# Oslo theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #3f4451
+Red         = #e05561
+Green       = #8cc265
+Yellow      = #d18f52
+Blue        = #4aa5f0
+Magenta     = #c162de
+Cyan        = #42b3c2
+White       = #abb2bf
+BoldBlack   = #6c727f
+BoldRed     = #ff616e
+BoldGreen   = #a5e075
+BoldYellow  = #f0a45d
+BoldBlue    = #4dc4ff
+BoldMagenta = #de73ff
+BoldCyan    = #4cd1e0
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #3f4451
+ForegroundColour = #abb2bf
+CursorColour     = #abb2bf

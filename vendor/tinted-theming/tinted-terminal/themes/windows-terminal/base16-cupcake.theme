@@ -3,6 +3,8 @@
 	"name": "Cupcake",
 	"foreground": "#8b8198",
 	"background": "#fbf1f2",
+	"cursorColor": "#8b8198",
+	"selectionBackground": "#8b8198",
 	"black": "#fbf1f2",
 	"blue": "#7297b9",
 	"brightBlack": "#bfb9c6",

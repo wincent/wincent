@@ -3,6 +3,8 @@
 	"name": "Precious Dark Eleven",
 	"foreground": "#b8b7b6",
 	"background": "#1c1e20",
+	"cursorColor": "#b8b7b6",
+	"selectionBackground": "#b8b7b6",
 	"black": "#1c1e20",
 	"blue": "#68b0ee",
 	"brightBlack": "#858585",

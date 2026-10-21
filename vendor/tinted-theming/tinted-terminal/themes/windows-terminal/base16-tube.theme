@@ -3,6 +3,8 @@
 	"name": "London Tube",
 	"foreground": "#d9d8d8",
 	"background": "#231f20",
+	"cursorColor": "#d9d8d8",
+	"selectionBackground": "#d9d8d8",
 	"black": "#231f20",
 	"blue": "#009ddc",
 	"brightBlack": "#737171",

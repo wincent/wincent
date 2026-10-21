@@ -3,6 +3,8 @@
 	"name": "DanQing Light",
 	"foreground": "#5a605d",
 	"background": "#fcfefd",
+	"cursorColor": "#5a605d",
+	"selectionBackground": "#5a605d",
 	"black": "#fcfefd",
 	"blue": "#b0a4e3",
 	"brightBlack": "#cad8d2",

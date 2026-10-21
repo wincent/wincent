@@ -1,0 +1,71 @@
+diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
+--- st-0.9.3/config.def.h	2025-08-09 15:00:58.350298234 +0200
++++ st-0.9.3-mod/config.def.h	2025-09-01 00:13:44.845756640 +0200
+@@ -94,34 +94,36 @@
+ unsigned int tabspaces = 8;
+
+ /* Terminal colors (16 first used in escape sequence) */
++/*
++ * Scheme name: Serendipity Midnight
++ * Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
++ * Template author: Tinted Theming (https://github.com/tinted-theming)
++ */
+ static const char *colorname[] = {
+ 	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
++	[0] = "#151726",   /* black  */
++	[1] = "#ee8679",   /* red    */
++	[2] = "#5ba2d0",   /* green  */
++	[3] = "#a78bfa",   /* yellow */
++	[4] = "#94b8ff",   /* blue   */
++	[5] = "#a78bfa",   /* magenta*/
++	[6] = "#f8d2c9",   /* cyan   */
++	[7] = "#dee0ef",   /* white  */
+
+ 	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
++	[8] = "#6b6d7c",   /* black  */
++	[9] = "#ee8679",   /* red    */
++	[10] = "#5ba2d0",  /* green  */
++	[11] = "#a78bfa",  /* yellow */
++	[12] = "#94b8ff",  /* blue   */
++	[13] = "#a78bfa",  /* magenta*/
++	[14] = "#f8d2c9",  /* cyan   */
++	[15] = "#151726",  /* white  */
+
+ 	[255] = 0,
+
+-	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
+-	"gray90", /* default foreground colour */
+-	"black", /* default background colour */
++	[256] = "#dee0ef",  /* foreground */
++	[257] = "#151726",  /* background */
+ };
+
+
+@@ -129,8 +131,8 @@
+  * Default colors (colorname index)
+  * foreground, background, cursor, reverse cursor
+  */
+-unsigned int defaultfg = 258;
+-unsigned int defaultbg = 259;
++unsigned int defaultfg = 256;
++unsigned int defaultbg = 257;
+ unsigned int defaultcs = 256;
+ static unsigned int defaultrcs = 257;

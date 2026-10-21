@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Sequoia Moonlight Light by Micheal Andreuzza (https://michaelandreuzza.com/)
+
+[colors]
+selection-background = '#282930' # base05
+selection-foreground = '#e2e3e8' # base02
+
+cursor         = '#282930' # base05
+tabs           = '#e2e3e8' # base01
+tabs-active    = '#e2e3e8' # base02
+
+background     = '#edeef2' # base00
+foreground     = '#282930' # base05
+black          = '#edeef2' # base00
+red            = '#c94da8' # base08
+yellow         = '#6a6a78' # base0A
+green          = '#4a85d4' # base0B
+cyan           = '#d9884a' # base0C
+blue           = '#9a5fd9' # base0D
+magenta        = '#6a6a78' # base0E
+white          = '#282930' # base05
+
+dim-foreground   = '#282930' # base05
+dim-black        = '#e2e3e8' # base01
+dim-red          = '#c94da8' # base08
+dim-yellow       = '#6a6a78' # base0A
+dim-green        = '#4a85d4' # base0B
+dim-cyan         = '#d9884a' # base0C
+dim-blue         = '#9a5fd9' # base0D
+dim-magenta      = '#6a6a78' # base0E
+dim-white        = '#42434e' # base04
+
+light-foreground = '#282930' # base05
+light-black      = '#565760' # base03
+light-red        = '#c94da8' # base08
+light-yellow     = '#6a6a78' # base0A
+light-green      = '#4a85d4' # base0B
+light-cyan       = '#d9884a' # base0C
+light-blue       = '#9a5fd9' # base0D
+light-magenta    = '#6a6a78' # base0E
+light-white      = '#0f1014' # base07

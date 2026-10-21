@@ -3,6 +3,8 @@
 	"name": "Edge Light",
 	"foreground": "#474752",
 	"background": "#fafafa",
+	"cursorColor": "#474752",
+	"selectionBackground": "#474752",
 	"black": "#fafafa",
 	"blue": "#6587bf",
 	"brightBlack": "#9197a1",

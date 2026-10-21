@@ -3,6 +3,8 @@
 	"name": "Woodland",
 	"foreground": "#cabcb1",
 	"background": "#231e18",
+	"cursorColor": "#cabcb1",
+	"selectionBackground": "#cabcb1",
 	"black": "#231e18",
 	"blue": "#88a4d3",
 	"brightBlack": "#9d8b70",

@@ -3,6 +3,8 @@
 	"name": "Decaf",
 	"foreground": "#cccccc",
 	"background": "#2d2d2d",
+	"cursorColor": "#cccccc",
+	"selectionBackground": "#cccccc",
 	"black": "#2d2d2d",
 	"blue": "#90bee1",
 	"brightBlack": "#777777",

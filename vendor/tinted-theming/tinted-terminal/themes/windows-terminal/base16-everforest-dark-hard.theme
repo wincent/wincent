@@ -3,6 +3,8 @@
 	"name": "Everforest Dark Hard",
 	"foreground": "#d3c6aa",
 	"background": "#272e33",
+	"cursorColor": "#d3c6aa",
+	"selectionBackground": "#d3c6aa",
 	"black": "#272e33",
 	"blue": "#7fbbb3",
 	"brightBlack": "#859289",

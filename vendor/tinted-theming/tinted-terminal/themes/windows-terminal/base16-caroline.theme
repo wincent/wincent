@@ -3,6 +3,8 @@
 	"name": "caroline",
 	"foreground": "#a87569",
 	"background": "#1c1213",
+	"cursorColor": "#a87569",
+	"selectionBackground": "#a87569",
 	"black": "#1c1213",
 	"blue": "#684c59",
 	"brightBlack": "#6d4745",

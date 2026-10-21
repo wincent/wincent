@@ -3,6 +3,8 @@
 	"name": "Atelier Forest",
 	"foreground": "#a8a19f",
 	"background": "#1b1918",
+	"cursorColor": "#a8a19f",
+	"selectionBackground": "#a8a19f",
 	"black": "#1b1918",
 	"blue": "#407ee7",
 	"brightBlack": "#766e6b",

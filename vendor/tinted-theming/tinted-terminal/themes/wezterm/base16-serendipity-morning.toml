@@ -1,0 +1,43 @@
+# base16 Serendipity Morning
+# Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f6f7fb"
+foreground = "#3f4363"
+
+cursor_bg = "#3f4363"
+cursor_border = "#3f4363"
+cursor_fg = "#f6f7fb"
+
+selection_bg = "#3f4363"
+selection_fg = "#eaebee"
+
+ansi = [
+  "#f6f7fb",
+  "#c25a4d",
+  "#2f7aab",
+  "#785fd0",
+  "#6288d8",
+  "#785fd0",
+  "#e58678",
+  "#3f4363"
+]
+brights = [
+  "#6d7296",
+  "#c25a4d",
+  "#2f7aab",
+  "#785fd0",
+  "#6288d8",
+  "#785fd0",
+  "#e58678",
+  "#f6f7fb"
+]
+
+[colors.indexed]
+16 = "#c25a4d"
+17 = "#2f7aab"
+18 = "#eaebee"
+19 = "#eaebee"
+20 = "#505575"
+21 = "#3f4363"

@@ -1,0 +1,10 @@
+# Scheme name: Madrid
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-madrid
+ColorForeground=#1a1a1a
+ColorBackground=#fafafa
+ColorCursor=#1a1a1a
+ColorBoldIsBright=FALSE
+ColorPalette=#fafafa;#990026;#007a28;#8a6408;#007a9e;#4d2699;#007a9e;#1a1a1a;#4d4d4d;#990026;#007a28;#8a6408;#007a9e;#4d2699;#007a9e;#1a1a1a

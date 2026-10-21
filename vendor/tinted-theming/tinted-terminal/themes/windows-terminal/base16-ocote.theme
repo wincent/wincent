@@ -3,6 +3,8 @@
 	"name": "Ocote",
 	"foreground": "#e7dcc6",
 	"background": "#14100c",
+	"cursorColor": "#e7dcc6",
+	"selectionBackground": "#e7dcc6",
 	"black": "#14100c",
 	"blue": "#82a6e0",
 	"brightBlack": "#6b6253",

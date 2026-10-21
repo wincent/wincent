@@ -3,6 +3,8 @@
 	"name": "selenized-white",
 	"foreground": "#474747",
 	"background": "#ffffff",
+	"cursorColor": "#474747",
+	"selectionBackground": "#474747",
 	"black": "#ffffff",
 	"blue": "#0054cf",
 	"brightBlack": "#878787",

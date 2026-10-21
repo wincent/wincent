@@ -3,6 +3,8 @@
 	"name": "Eighties",
 	"foreground": "#d3d0c8",
 	"background": "#2d2d2d",
+	"cursorColor": "#d3d0c8",
+	"selectionBackground": "#d3d0c8",
 	"black": "#2d2d2d",
 	"blue": "#6699cc",
 	"brightBlack": "#747369",

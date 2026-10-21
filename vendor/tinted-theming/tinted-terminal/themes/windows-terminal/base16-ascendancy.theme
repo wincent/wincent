@@ -3,6 +3,8 @@
 	"name": "Ascendancy",
 	"foreground": "#d5c7a1",
 	"background": "#282828",
+	"cursorColor": "#d5c7a1",
+	"selectionBackground": "#d5c7a1",
 	"black": "#282828",
 	"blue": "#458588",
 	"brightBlack": "#928374",

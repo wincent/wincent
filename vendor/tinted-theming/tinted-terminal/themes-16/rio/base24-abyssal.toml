@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Abyssal by Joss Wright (https://www.weirddatascience.net)
+
+[colors]
+selection-background = '#e0e4e7' # base05
+selection-foreground = '#343d46' # base02
+
+cursor         = '#e0e4e7' # base05
+tabs           = '#1b2b34' # base01
+tabs-active    = '#343d46' # base02
+
+background     = '#000000' # base00
+foreground     = '#e0e4e7' # base05
+black          = '#000000' # base00
+red            = '#ff7518' # base08
+yellow         = '#ffcc00' # base0A
+green          = '#39aa62' # base0B
+cyan           = '#40e0d0' # base0C
+blue           = '#01a0e4' # base0D
+magenta        = '#ab5ccb' # base0E
+white          = '#e0e4e7' # base05
+
+dim-foreground   = '#e0e4e7' # base05
+dim-black        = '#1b2b34' # base01
+dim-red          = '#ff7518' # base08
+dim-yellow       = '#ffcc00' # base0A
+dim-green        = '#39aa62' # base0B
+dim-cyan         = '#40e0d0' # base0C
+dim-blue         = '#01a0e4' # base0D
+dim-magenta      = '#ab5ccb' # base0E
+dim-white        = '#65737e' # base04
+
+light-foreground = '#e0e4e7' # base05
+light-black      = '#4f5b66' # base03
+light-red        = '#feac57' # base12
+light-yellow     = '#ffee50' # base13
+light-green      = '#4ce070' # base14
+light-cyan       = '#20b2aa' # base15
+light-blue       = '#4b97c8' # base16
+light-magenta    = '#ba8efa' # base17
+light-white      = '#f7f7ff' # base07

@@ -3,6 +3,8 @@
 	"name": "SAGA",
 	"foreground": "#dce2f7",
 	"background": "#05080a",
+	"cursorColor": "#dce2f7",
+	"selectionBackground": "#dce2f7",
 	"black": "#05080a",
 	"blue": "#c9fff7",
 	"brightBlack": "#141f27",

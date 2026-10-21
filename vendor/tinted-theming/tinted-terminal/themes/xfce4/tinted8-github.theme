@@ -1,0 +1,11 @@
+# Scheme name: Github Light
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=tinted8-github
+ColorForeground=#1f2328
+ColorBackground=#ffffff
+ColorCursor=#1f2328
+ColorBoldIsBright=FALSE
+ColorPalette=#1f2328;#cf222e;#116329;#4d2d00;#0969da;#8250df;#1b7c83;#59636e;#393f46;#a40e26;#1a7f37;#633c01;#218bff;#a475f9;#3192aa;#818b98
+

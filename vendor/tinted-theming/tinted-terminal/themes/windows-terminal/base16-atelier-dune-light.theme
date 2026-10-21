@@ -3,6 +3,8 @@
 	"name": "Atelier Dune Light",
 	"foreground": "#6e6b5e",
 	"background": "#fefbec",
+	"cursorColor": "#6e6b5e",
+	"selectionBackground": "#6e6b5e",
 	"black": "#fefbec",
 	"blue": "#6684e1",
 	"brightBlack": "#999580",

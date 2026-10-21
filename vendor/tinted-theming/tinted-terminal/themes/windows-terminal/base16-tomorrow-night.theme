@@ -3,6 +3,8 @@
 	"name": "Tomorrow Night",
 	"foreground": "#c5c8c6",
 	"background": "#1d1f21",
+	"cursorColor": "#c5c8c6",
+	"selectionBackground": "#c5c8c6",
 	"black": "#1d1f21",
 	"blue": "#81a2be",
 	"brightBlack": "#969896",

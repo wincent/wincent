@@ -3,6 +3,8 @@
 	"name": "Ubuntu",
 	"foreground": "#b3b7b0",
 	"background": "#300a24",
+	"cursorColor": "#b3b7b0",
+	"selectionBackground": "#b3b7b0",
 	"black": "#300a24",
 	"blue": "#3465a4",
 	"brightBlack": "#747772",

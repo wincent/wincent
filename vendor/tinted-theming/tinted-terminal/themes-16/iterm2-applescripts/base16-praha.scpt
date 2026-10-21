@@ -1,0 +1,31 @@
+(*
+    base16 Praha
+    Scheme author: xscriptor (https://github.com/xscriptor)
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+*)
+tell application "iTerm2"
+    tell current session of current window
+        set background color to {6682, 6682, 6682}
+        set foreground color to {65535, 65535, 65535}
+
+        -- Set ANSI Colors
+        set ANSI black color to {6682, 6682, 6682}
+        set ANSI red color to {65535, 21845, 21845}
+        set ANSI green color to {47288, 59110, 41120}
+        set ANSI yellow color to {65535, 58596, 41891}
+        set ANSI blue color to {48573, 37779, 63993}
+        set ANSI magenta color to {65535, 39578, 41634}
+        set ANSI cyan color to {35723, 59881, 65021}
+        set ANSI white color to {65535, 65535, 65535}
+
+        -- Set Bright ANSI Colors
+        set ANSI bright black color to {25186, 29298, 42148}
+        set ANSI bright red color to {65535, 21845, 21845}
+        set ANSI bright green color to {47288, 59110, 41120}
+        set ANSI bright yellow color to {65535, 58596, 41891}
+        set ANSI bright blue color to {48573, 37779, 63993}
+        set ANSI bright magenta color to {65535, 39578, 41634}
+        set ANSI bright cyan color to {35723, 59881, 65021}
+        set ANSI bright white color to {65535, 65535, 65535}
+    end tell
+end tell

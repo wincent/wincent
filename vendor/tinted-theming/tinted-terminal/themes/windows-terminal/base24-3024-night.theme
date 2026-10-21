@@ -3,6 +3,8 @@
 	"name": "3024 Night",
 	"foreground": "#928f8e",
 	"background": "#090300",
+	"cursorColor": "#928f8e",
+	"selectionBackground": "#928f8e",
 	"black": "#090300",
 	"blue": "#01a0e4",
 	"brightBlack": "#6e6a68",

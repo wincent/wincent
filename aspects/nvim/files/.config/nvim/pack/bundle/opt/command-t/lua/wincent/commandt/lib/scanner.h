@@ -13,12 +13,25 @@
 #define scanner_new_copy commandt_scanner_new_copy
 #define scanner_new_str commandt_scanner_new_str
 #define scanner_new commandt_scanner_new
-#define scanner_dump commandt_scanner_dump
 #define scanner_free commandt_scanner_free
 #define scanner_new_exec commandt_scanner_new_exec
 #define scanner_new_exec_async commandt_scanner_new_exec_async
 #define scanner_stop commandt_scanner_stop
+#define scanner_wait commandt_scanner_wait
 #define scanner_done commandt_scanner_done
+
+/**
+ * Snapshot the published candidate count. The acquire pairs with the producer's
+ * release stores: candidates below this count are initialized and immutable.
+ * Keep the scanner alive while using the snapshot and its candidates.
+ * Also valid for eager scanners. Does not wait for production to finish.
+ */
+static inline unsigned scanner_count_snapshot(const scanner_t *scanner) {
+    return __atomic_load_n(&scanner->count, __ATOMIC_ACQUIRE);
+}
+
+// Exported wrapper for FFI callers; C callers use the inline helper above.
+unsigned commandt_scanner_count_snapshot(const scanner_t *scanner);
 
 /**
  * Create a new `scanner_t` struct initialized with `candidates`.
@@ -29,8 +42,8 @@
 scanner_t *scanner_new_copy(const char **candidates, unsigned count);
 
 /**
- * Create a new `scanner_t` struct that will be populated by `execl()`-ing the
- * NUL-terminated `command` string.
+ * Blocking wrapper around `scanner_new_exec_async()` followed by
+ * `scanner_wait()`. All candidates are present on return.
  *
  * The `drop` parameter indicates how many characters of prefix, if any, should
  * be omitted from the strings returned by the scanner; commonly, this will be
@@ -40,10 +53,11 @@ scanner_t *scanner_new_copy(const char **candidates, unsigned count);
 scanner_t *scanner_new_exec(const char *command, unsigned drop, unsigned max_files);
 
 /**
- * Like `scanner_new_exec()`, but returns immediately and produces candidates on
- * a background thread, appending them to the slab and publishing `count` as it
- * goes. The caller polls `scanner_done()` and must call `scanner_stop()` (which
- * `scanner_free()` also does) to join the producer and reap the child.
+ * Run the NUL-terminated shell `command` and produce candidates on a background
+ * thread, appending them to the slab and publishing `count` as it goes. The
+ * caller polls `scanner_done()` and calls `scanner_stop()` to clean up, or uses
+ * `scanner_wait()` to block until production finishes. `scanner_free()` also
+ * calls `scanner_stop()`.
  */
 scanner_t *scanner_new_exec_async(
     const char *command, unsigned drop, unsigned max_files
@@ -54,6 +68,17 @@ scanner_t *scanner_new_exec_async(
  * and close the pipe. A no-op for non-async scanners, and idempotent.
  */
 void scanner_stop(scanner_t *scanner);
+
+/**
+ * Block until production finishes, then perform the same cleanup as
+ * `scanner_stop()`. Unlike stop, does not cancel an in-progress scan. Once
+ * stdout closes, any command processes still running are terminated; this
+ * waits for scanner completion, not for all of the command's remaining work.
+ * Idempotent and a no-op for non-async scanners. Like stop/free, must be called
+ * on the owning thread, without concurrent lifecycle operations. Intended for
+ * benchmarks, not Neovim's main loop.
+ */
+void scanner_wait(scanner_t *scanner);
 
 /**
  * Whether an async scanner has finished producing candidates. Always true for
@@ -84,15 +109,6 @@ scanner_t *scanner_new(
     char *buffer,
     size_t buffer_size
 );
-
-/**
- * For debugging, a human-readable string representation of the scanner.
- *
- * Caller should call `str_free()` on the returned string.
- *
- * @internal
- */
-str_t *scanner_dump(scanner_t *scanner);
 
 /**
  * Frees a previously created `scanner_t` structure.

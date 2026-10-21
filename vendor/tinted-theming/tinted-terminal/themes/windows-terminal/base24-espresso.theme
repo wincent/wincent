@@ -3,6 +3,8 @@
 	"name": "Espresso",
 	"foreground": "#c7c7c5",
 	"background": "#262626",
+	"cursorColor": "#c7c7c5",
+	"selectionBackground": "#c7c7c5",
 	"black": "#262626",
 	"blue": "#6c99bb",
 	"brightBlack": "#797979",

@@ -3,6 +3,8 @@
 	"name": "Neovim Light",
 	"foreground": "#14161b",
 	"background": "#e0e2ea",
+	"cursorColor": "#14161b",
+	"selectionBackground": "#14161b",
 	"black": "#e0e2ea",
 	"blue": "#004c73",
 	"brightBlack": "#4f5258",

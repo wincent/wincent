@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: London by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#333333' # base05
+selection-foreground = '#e7e7e7' # base02
+
+cursor         = '#333333' # base05
+tabs           = '#f1f1f1' # base01
+tabs-active    = '#e7e7e7' # base02
+
+background     = '#ffffff' # base00
+foreground     = '#333333' # base05
+black          = '#ffffff' # base00
+red            = '#333333' # base08
+yellow         = '#555555' # base0A
+green          = '#444444' # base0B
+cyan           = '#888888' # base0C
+blue           = '#666666' # base0D
+magenta        = '#777777' # base0E
+white          = '#333333' # base05
+
+dim-foreground   = '#333333' # base05
+dim-black        = '#f1f1f1' # base01
+dim-red          = '#333333' # base08
+dim-yellow       = '#555555' # base0A
+dim-green        = '#444444' # base0B
+dim-cyan         = '#888888' # base0C
+dim-blue         = '#666666' # base0D
+dim-magenta      = '#777777' # base0E
+dim-white        = '#7a7a7a' # base04
+
+light-foreground = '#333333' # base05
+light-black      = '#333333' # base03
+light-red        = '#444444' # base12
+light-yellow     = '#666666' # base13
+light-green      = '#555555' # base14
+light-cyan       = '#999999' # base15
+light-blue       = '#777777' # base16
+light-magenta    = '#888888' # base17
+light-white      = '#aaaaaa' # base07

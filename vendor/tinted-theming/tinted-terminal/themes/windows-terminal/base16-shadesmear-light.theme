@@ -3,6 +3,8 @@
 	"name": "ShadeSmear Light",
 	"foreground": "#232323",
 	"background": "#dbdbdb",
+	"cursorColor": "#232323",
+	"selectionBackground": "#232323",
 	"black": "#dbdbdb",
 	"blue": "#376388",
 	"brightBlack": "#4e4e4e",

@@ -3,6 +3,8 @@
 	"name": "Eldritch",
 	"foreground": "#ebfafa",
 	"background": "#212337",
+	"cursorColor": "#ebfafa",
+	"selectionBackground": "#ebfafa",
 	"black": "#212337",
 	"blue": "#39ddfd",
 	"brightBlack": "#7081d0",

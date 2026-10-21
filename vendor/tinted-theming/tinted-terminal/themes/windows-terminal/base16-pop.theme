@@ -3,6 +3,8 @@
 	"name": "Pop",
 	"foreground": "#d0d0d0",
 	"background": "#000000",
+	"cursorColor": "#d0d0d0",
+	"selectionBackground": "#d0d0d0",
 	"black": "#000000",
 	"blue": "#0e5a94",
 	"brightBlack": "#505050",

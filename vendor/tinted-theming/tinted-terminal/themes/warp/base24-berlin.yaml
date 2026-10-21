@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Berlin by xscriptor (https://github.com/xscriptor)
+
+name: Base24 Berlin
+accent: "#888888" # base0D
+cursor: "#cccccc" # base05
+background: "#000000" # base00
+foreground: "#cccccc" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#000000" # base00
+    red: "#999999" # base08
+    yellow: "#dddddd" # base0A
+    green: "#bbbbbb" # base0B
+    cyan: "#cccccc" # base0C
+    blue: "#888888" # base0D
+    magenta: "#aaaaaa" # base0E
+    white: "#cccccc" # base05
+
+  bright:
+    black: "#333333" # base03
+    red: "#bbbbbb" # base12
+    yellow: "#ffffff" # base13
+    green: "#dddddd" # base14
+    cyan: "#eeeeee" # base15
+    blue: "#aaaaaa" # base16
+    magenta: "#cccccc" # base17
+    white: "#ffffff" # base07

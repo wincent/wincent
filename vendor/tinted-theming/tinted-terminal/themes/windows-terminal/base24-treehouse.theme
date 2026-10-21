@@ -3,6 +3,8 @@
 	"name": "Treehouse",
 	"foreground": "#695d47",
 	"background": "#191919",
+	"cursorColor": "#695d47",
+	"selectionBackground": "#695d47",
 	"black": "#191919",
 	"blue": "#578499",
 	"brightBlack": "#4f4330",

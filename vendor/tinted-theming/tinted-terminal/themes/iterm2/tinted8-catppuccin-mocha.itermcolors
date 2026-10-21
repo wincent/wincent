@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-     
-    Scheme author: 
+    tinted8 Catppuccin Mocha
+    Scheme author: https://github.com/catppuccin/catppuccin
     Template author: Tinted Theming (https://github.com/tinted-theming)
-    semanticClass: theme..
+    semanticClass: theme.tinted8.catppuccin-mocha
 -->
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">

@@ -3,6 +3,8 @@
 	"name": "Da One Ocean",
 	"foreground": "#ffffff",
 	"background": "#171726",
+	"cursorColor": "#ffffff",
+	"selectionBackground": "#ffffff",
 	"black": "#171726",
 	"blue": "#6bb8ff",
 	"brightBlack": "#878d96",

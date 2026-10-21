@@ -3,6 +3,8 @@
 	"name": "Mezcal",
 	"foreground": "#e0d8c8",
 	"background": "#13110e",
+	"cursorColor": "#e0d8c8",
+	"selectionBackground": "#e0d8c8",
 	"black": "#13110e",
 	"blue": "#8aa6c0",
 	"brightBlack": "#6e6450",

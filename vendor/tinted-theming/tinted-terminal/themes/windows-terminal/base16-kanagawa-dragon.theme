@@ -3,6 +3,8 @@
 	"name": "Kanagawa Dragon",
 	"foreground": "#c5c9c5",
 	"background": "#181616",
+	"cursorColor": "#c5c9c5",
+	"selectionBackground": "#c5c9c5",
 	"black": "#181616",
 	"blue": "#8ba4b0",
 	"brightBlack": "#625e5a",

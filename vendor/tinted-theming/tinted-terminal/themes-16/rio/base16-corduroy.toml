@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Corduroy by taysatte (https://github.com/taysatte)
+
+[colors]
+selection-background = '#cdc8d0' # base05
+selection-foreground = '#2e2533' # base02
+
+cursor         = '#cdc8d0' # base05
+tabs           = '#261e2a' # base01
+tabs-active    = '#2e2533' # base02
+
+background     = '#1d1920' # base00
+foreground     = '#cdc8d0' # base05
+black          = '#1d1920' # base00
+red            = '#e06278' # base08
+yellow         = '#edb392' # base0A
+green          = '#4b8686' # base0B
+cyan           = '#e99d90' # base0C
+blue           = '#d27f91' # base0D
+magenta        = '#c285b2' # base0E
+white          = '#cdc8d0' # base05
+
+dim-foreground   = '#cdc8d0' # base05
+dim-black        = '#261e2a' # base01
+dim-red          = '#e06278' # base08
+dim-yellow       = '#edb392' # base0A
+dim-green        = '#4b8686' # base0B
+dim-cyan         = '#e99d90' # base0C
+dim-blue         = '#d27f91' # base0D
+dim-magenta      = '#c285b2' # base0E
+dim-white        = '#887b8c' # base04
+
+light-foreground = '#cdc8d0' # base05
+light-black      = '#6f6373' # base03
+light-red        = '#e06278' # base08
+light-yellow     = '#edb392' # base0A
+light-green      = '#4b8686' # base0B
+light-cyan       = '#e99d90' # base0C
+light-blue       = '#d27f91' # base0D
+light-magenta    = '#c285b2' # base0E
+light-white      = '#504757' # base07

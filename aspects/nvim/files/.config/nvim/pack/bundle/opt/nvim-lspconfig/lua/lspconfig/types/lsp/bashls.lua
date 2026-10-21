@@ -1,6 +1,12 @@
 ---@meta
 
 ---@class _.lspconfig.settings.bashls.BashIde.Shfmt
+---Additional Shfmt arguments. Note that common arguments can be configured via the other settings.
+---
+---```lua
+---default = {}
+---```
+---@field additionalArguments? string[]
 ---Allow boolean operators (like && and ||) to start a line.
 ---@field binaryNextLine? boolean
 ---Indent patterns in case statements.
@@ -16,7 +22,7 @@
 ---```lua
 ---default = "auto"
 ---```
----@field languageDialect? "auto" | "bash" | "posix" | "mksh" | "bats"
+---@field languageDialect? "auto"|"bash"|"posix"|"mksh"|"bats"
 ---Controls the executable used for Shfmt formatting. An empty string will disable formatting.
 ---
 ---```lua
@@ -29,6 +35,12 @@
 ---@field spaceRedirects? boolean
 
 ---@class _.lspconfig.settings.bashls.BashIde
+---Glob patterns excluded from background file discovery. Open files and sourced files can still be analyzed on demand.
+---
+---```lua
+---default = { "**/node_modules/**", "**/.git/**" }
+---```
+---@field backgroundAnalysisIgnore? string[]
 ---Maximum number of files to analyze in the background. Set to 0 to disable background analysis.
 ---
 ---```lua
@@ -56,7 +68,7 @@
 ---```lua
 ---default = "info"
 ---```
----@field logLevel? "debug" | "info" | "warning" | "error"
+---@field logLevel? "debug"|"info"|"warning"|"error"
 ---Additional ShellCheck arguments. Note that we already add the following arguments: --shell, --format, and --external-sources (if shellcheckExternalSources is true).
 ---
 ---```lua

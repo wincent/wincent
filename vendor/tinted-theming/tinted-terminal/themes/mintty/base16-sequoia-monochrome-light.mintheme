@@ -1,0 +1,27 @@
+# Sequoia Monochrome Light theme for Mintty
+# Scheme Author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #edeef2
+Red         = #525666
+Green       = #2e3038
+Yellow      = #50535e
+Blue        = #5f6370
+Magenta     = #50535e
+Cyan        = #454752
+White       = #282930
+BoldBlack   = #9da2ad
+BoldRed     = #525666
+BoldGreen   = #2e3038
+BoldYellow  = #50535e
+BoldBlue    = #5f6370
+BoldMagenta = #50535e
+BoldCyan    = #454752
+BoldWhite   = #0f1014
+
+# Background & foreground colors
+BackgroundColour = #edeef2
+ForegroundColour = #282930
+CursorColour     = #282930

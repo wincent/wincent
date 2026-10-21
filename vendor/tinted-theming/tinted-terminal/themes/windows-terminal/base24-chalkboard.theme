@@ -3,6 +3,8 @@
 	"name": "Chalkboard",
 	"foreground": "#afafaf",
 	"background": "#29262f",
+	"cursorColor": "#afafaf",
+	"selectionBackground": "#afafaf",
 	"black": "#29262f",
 	"blue": "#7372c3",
 	"brightBlack": "#5b5b5b",

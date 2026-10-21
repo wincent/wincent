@@ -2,40 +2,40 @@
 # Color scheme: Github Light High Contrast by Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#343b43' # base05
-selection-foreground = '#acb6c0' # base02
+selection-background = '#454c54' # base05
+selection-foreground = '#d1d9e0' # base02
 
-cursor         = '#343b43' # base05
-tabs           = '#e7ecf0' # base01
-tabs-active    = '#acb6c0' # base02
+cursor         = '#454c54' # base05
+tabs           = '#f6f8fa' # base01
+tabs-active    = '#d1d9e0' # base02
 
 background     = '#ffffff' # base00
-foreground     = '#343b43' # base05
+foreground     = '#454c54' # base05
 black          = '#ffffff' # base00
-red            = '#702c00' # base08
-yellow         = '#956400' # base0A
-green          = '#032563' # base0B
-cyan           = '#024c1a' # base0C
-blue           = '#622cbc' # base0D
-magenta        = '#a0111f' # base0E
-white          = '#343b43' # base05
+red            = '#a0111f' # base08
+yellow         = '#603700' # base0A
+green          = '#024c1a' # base0B
+cyan           = '#1b7c83' # base0C
+blue           = '#0349b4' # base0D
+magenta        = '#622cbc' # base0E
+white          = '#454c54' # base05
 
-dim-foreground   = '#343b43' # base05
-dim-black        = '#e7ecf0' # base01
-dim-red          = '#702c00' # base08
-dim-yellow       = '#956400' # base0A
-dim-green        = '#032563' # base0B
-dim-cyan         = '#024c1a' # base0C
-dim-blue         = '#622cbc' # base0D
-dim-magenta      = '#a0111f' # base0E
-dim-white        = '#66707b' # base04
+dim-foreground   = '#454c54' # base05
+dim-black        = '#f6f8fa' # base01
+dim-red          = '#a0111f' # base08
+dim-yellow       = '#603700' # base0A
+dim-green        = '#024c1a' # base0B
+dim-cyan         = '#1b7c83' # base0C
+dim-blue         = '#0349b4' # base0D
+dim-magenta      = '#622cbc' # base0E
+dim-white        = '#59636e' # base04
 
-light-foreground = '#343b43' # base05
-light-black      = '#88929d' # base03
-light-red        = '#ee5a5d' # base12
-light-yellow     = '#b58407' # base13
-light-green      = '#26a148' # base14
-light-cyan       = '#49bcb7' # base15
-light-blue       = '#368cf9' # base16
-light-magenta    = '#a371f7' # base17
-light-white      = '#0e1116' # base07
+light-foreground = '#454c54' # base05
+light-black      = '#818b98' # base03
+light-red        = '#86061d' # base12
+light-yellow     = '#4e2c00' # base13
+light-green      = '#055d20' # base14
+light-cyan       = '#3192aa' # base15
+light-blue       = '#1168e3' # base16
+light-magenta    = '#844ae7' # base17
+light-white      = '#010409' # base07

@@ -3,6 +3,8 @@
 	"name": "tarot",
 	"foreground": "#aa556f",
 	"background": "#0e091d",
+	"cursorColor": "#aa556f",
+	"selectionBackground": "#aa556f",
 	"black": "#0e091d",
 	"blue": "#6e6080",
 	"brightBlack": "#74316b",

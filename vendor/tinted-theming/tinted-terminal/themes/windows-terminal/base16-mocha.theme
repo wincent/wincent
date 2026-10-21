@@ -3,6 +3,8 @@
 	"name": "Mocha",
 	"foreground": "#d0c8c6",
 	"background": "#3b3228",
+	"cursorColor": "#d0c8c6",
+	"selectionBackground": "#d0c8c6",
 	"black": "#3b3228",
 	"blue": "#8ab3b5",
 	"brightBlack": "#7e705a",

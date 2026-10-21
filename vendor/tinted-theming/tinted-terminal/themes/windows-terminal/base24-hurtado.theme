@@ -3,6 +3,8 @@
 	"name": "Hurtado",
 	"foreground": "#a1a1a1",
 	"background": "#000000",
+	"cursorColor": "#a1a1a1",
+	"selectionBackground": "#a1a1a1",
 	"black": "#000000",
 	"blue": "#486387",
 	"brightBlack": "#4e4e4e",

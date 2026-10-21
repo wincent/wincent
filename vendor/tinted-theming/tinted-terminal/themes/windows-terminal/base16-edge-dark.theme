@@ -3,6 +3,8 @@
 	"name": "Edge Dark",
 	"foreground": "#afb2b5",
 	"background": "#262729",
+	"cursorColor": "#afb2b5",
+	"selectionBackground": "#afb2b5",
 	"black": "#262729",
 	"blue": "#73b3e7",
 	"brightBlack": "#4a4c4f",

@@ -3,6 +3,8 @@
 	"name": "Hardcore",
 	"foreground": "#a9a9a9",
 	"background": "#111111",
+	"cursorColor": "#a9a9a9",
+	"selectionBackground": "#a9a9a9",
 	"black": "#111111",
 	"blue": "#00aaff",
 	"brightBlack": "#636363",

@@ -3,6 +3,8 @@
 	"name": "Molokai",
 	"foreground": "#a1a1a1",
 	"background": "#121212",
+	"cursorColor": "#a1a1a1",
+	"selectionBackground": "#a1a1a1",
 	"black": "#121212",
 	"blue": "#0f7fcf",
 	"brightBlack": "#6e6e6e",

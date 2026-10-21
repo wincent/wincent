@@ -3,6 +3,8 @@
 	"name": "Embers",
 	"foreground": "#a39a90",
 	"background": "#16130f",
+	"cursorColor": "#a39a90",
+	"selectionBackground": "#a39a90",
 	"black": "#16130f",
 	"blue": "#6d5782",
 	"brightBlack": "#5a5047",

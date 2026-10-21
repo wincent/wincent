@@ -3,6 +3,8 @@
 	"name": "PaperColor Light",
 	"foreground": "#444444",
 	"background": "#eeeeee",
+	"cursorColor": "#444444",
+	"selectionBackground": "#444444",
 	"black": "#eeeeee",
 	"blue": "#0087af",
 	"brightBlack": "#878787",

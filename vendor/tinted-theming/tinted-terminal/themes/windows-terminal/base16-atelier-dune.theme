@@ -3,6 +3,8 @@
 	"name": "Atelier Dune",
 	"foreground": "#a6a28c",
 	"background": "#20201d",
+	"cursorColor": "#a6a28c",
+	"selectionBackground": "#a6a28c",
 	"black": "#20201d",
 	"blue": "#6684e1",
 	"brightBlack": "#7d7a68",

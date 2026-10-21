@@ -3,6 +3,8 @@
 	"name": "One Black",
 	"foreground": "#abb2bf",
 	"background": "#000000",
+	"cursorColor": "#abb2bf",
+	"selectionBackground": "#abb2bf",
 	"black": "#000000",
 	"blue": "#4aa5f0",
 	"brightBlack": "#545862",

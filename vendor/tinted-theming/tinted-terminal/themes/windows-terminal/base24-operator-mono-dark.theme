@@ -3,6 +3,8 @@
 	"name": "Operator Mono Dark",
 	"foreground": "#c0c4c0",
 	"background": "#191919",
+	"cursorColor": "#c0c4c0",
+	"selectionBackground": "#c0c4c0",
 	"black": "#191919",
 	"blue": "#4387cf",
 	"brightBlack": "#a6a8a6",

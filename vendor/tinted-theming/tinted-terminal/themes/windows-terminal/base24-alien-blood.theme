@@ -3,6 +3,8 @@
 	"name": "Alien Blood",
 	"foreground": "#5a6f5c",
 	"background": "#0f160f",
+	"cursorColor": "#5a6f5c",
+	"selectionBackground": "#5a6f5c",
 	"black": "#0f160f",
 	"blue": "#2f697f",
 	"brightBlack": "#46542a",

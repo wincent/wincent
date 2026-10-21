@@ -3,6 +3,8 @@
 	"name": "Material",
 	"foreground": "#c3c3c3",
 	"background": "#eaeaea",
+	"cursorColor": "#c3c3c3",
+	"selectionBackground": "#c3c3c3",
 	"black": "#eaeaea",
 	"blue": "#134eb2",
 	"brightBlack": "#6d6d6d",

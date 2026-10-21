@@ -3,6 +3,8 @@
 	"name": "iA Light",
 	"foreground": "#181818",
 	"background": "#f6f6f6",
+	"cursorColor": "#181818",
+	"selectionBackground": "#181818",
 	"black": "#f6f6f6",
 	"blue": "#48bac2",
 	"brightBlack": "#898989",

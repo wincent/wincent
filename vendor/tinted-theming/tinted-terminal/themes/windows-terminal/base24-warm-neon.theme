@@ -3,6 +3,8 @@
 	"name": "Warm Neon",
 	"foreground": "#dcc9ba",
 	"background": "#3f3f3f",
+	"cursorColor": "#dcc9ba",
+	"selectionBackground": "#dcc9ba",
 	"black": "#3f3f3f",
 	"blue": "#4260c5",
 	"brightBlack": "#f2ebe6",

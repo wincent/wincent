@@ -3,6 +3,8 @@
 	"name": "Espresso Libre",
 	"foreground": "#b3b7b0",
 	"background": "#2a211c",
+	"cursorColor": "#b3b7b0",
+	"selectionBackground": "#b3b7b0",
 	"black": "#2a211c",
 	"blue": "#0066ff",
 	"brightBlack": "#737772",

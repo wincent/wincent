@@ -3,6 +3,8 @@
 	"name": "Sleepy Hollow",
 	"foreground": "#968684",
 	"background": "#121213",
+	"cursorColor": "#968684",
+	"selectionBackground": "#968684",
 	"black": "#121213",
 	"blue": "#5e62b4",
 	"brightBlack": "#665e6c",

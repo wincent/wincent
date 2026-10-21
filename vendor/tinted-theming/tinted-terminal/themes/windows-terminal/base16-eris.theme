@@ -3,6 +3,8 @@
 	"name": "eris",
 	"foreground": "#606bac",
 	"background": "#0a0920",
+	"cursorColor": "#606bac",
+	"selectionBackground": "#606bac",
 	"black": "#0a0920",
 	"blue": "#258fc4",
 	"brightBlack": "#333773",

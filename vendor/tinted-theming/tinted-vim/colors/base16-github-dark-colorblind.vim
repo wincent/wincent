@@ -17,29 +17,29 @@ endif
 
 " GUI colors
 let s:gui00        = '0d1117'
-let s:gui01        = '161b22'
-let s:gui02        = '484f58'
-let s:gui03        = '6e7681'
-let s:gui04        = '8b949e'
-let s:gui05        = 'c9d1d9'
+let s:gui01        = '151b23'
+let s:gui02        = '2f3742'
+let s:gui03        = '656c76'
+let s:gui04        = '9198a1'
+let s:gui05        = 'd1d7e0'
 let s:gui06        = 'f0f6fc'
 let s:gui07        = 'ffffff'
-let s:gui08        = 'fdac54'
-let s:gui09        = '79c0ff'
-let s:gui0A        = 'bb8009'
-let s:gui0B        = 'a5d6ff'
-let s:gui0C        = 'a5d6ff'
-let s:gui0D        = 'd2a8ff'
-let s:gui0E        = 'ec8e2c'
-let s:gui0F        = 'fdac54'
+let s:gui08        = 'f0883e'
+let s:gui09        = 'ffa657'
+let s:gui0A        = 'd29922'
+let s:gui0B        = '58a6ff'
+let s:gui0C        = '39c5cf'
+let s:gui0D        = '58a6ff'
+let s:gui0E        = 'be8fff'
+let s:gui0F        = 'ffa657'
 let s:gui10        = '0d1117'
 let s:gui11        = '0d1117'
-let s:gui12        = 'fdac54'
-let s:gui13        = 'bb8009'
-let s:gui14        = 'a5d6ff'
-let s:gui15        = 'a5d6ff'
-let s:gui16        = 'd2a8ff'
-let s:gui17        = 'ec8e2c'
+let s:gui12        = 'f0883e'
+let s:gui13        = 'd29922'
+let s:gui14        = '58a6ff'
+let s:gui15        = '39c5cf'
+let s:gui16        = '58a6ff'
+let s:gui17        = 'be8fff'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -96,20 +96,20 @@ call s:create_color_globals()
 " Integrated Terminal colors
 let s:colors = [
   \ '#0d1117',
-  \ '#fdac54',
-  \ '#a5d6ff',
-  \ '#bb8009',
-  \ '#d2a8ff',
-  \ '#ec8e2c',
-  \ '#a5d6ff',
-  \ '#c9d1d9',
-  \ '#6e7681',
-  \ '#fdac54',
-  \ '#a5d6ff',
-  \ '#bb8009',
-  \ '#d2a8ff',
-  \ '#ec8e2c',
-  \ '#a5d6ff',
+  \ '#f0883e',
+  \ '#58a6ff',
+  \ '#d29922',
+  \ '#58a6ff',
+  \ '#be8fff',
+  \ '#39c5cf',
+  \ '#d1d7e0',
+  \ '#656c76',
+  \ '#f0883e',
+  \ '#58a6ff',
+  \ '#d29922',
+  \ '#58a6ff',
+  \ '#be8fff',
+  \ '#39c5cf',
   \ '#ffffff'
 \]
 

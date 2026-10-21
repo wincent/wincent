@@ -3,6 +3,8 @@
 	"name": "standardized-light",
 	"foreground": "#444444",
 	"background": "#ffffff",
+	"cursorColor": "#444444",
+	"selectionBackground": "#444444",
 	"black": "#ffffff",
 	"blue": "#3173c5",
 	"brightBlack": "#767676",

@@ -3,6 +3,8 @@
 	"name": "Tinta",
 	"foreground": "#d8d6d0",
 	"background": "#101012",
+	"cursorColor": "#d8d6d0",
+	"selectionBackground": "#d8d6d0",
 	"black": "#101012",
 	"blue": "#8a9ab0",
 	"brightBlack": "#62626a",

@@ -3,6 +3,8 @@
 	"name": "PhD",
 	"foreground": "#b8bbc2",
 	"background": "#061229",
+	"cursorColor": "#b8bbc2",
+	"selectionBackground": "#b8bbc2",
 	"black": "#061229",
 	"blue": "#5299bf",
 	"brightBlack": "#717885",

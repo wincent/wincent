@@ -3,6 +3,8 @@
 	"name": "Colors",
 	"foreground": "#bbbbbb",
 	"background": "#111111",
+	"cursorColor": "#bbbbbb",
+	"selectionBackground": "#bbbbbb",
 	"black": "#111111",
 	"blue": "#0074d9",
 	"brightBlack": "#777777",

@@ -3,6 +3,8 @@
 	"name": "Kimber",
 	"foreground": "#dedee7",
 	"background": "#222222",
+	"cursorColor": "#dedee7",
+	"selectionBackground": "#dedee7",
 	"black": "#222222",
 	"blue": "#537c9c",
 	"brightBlack": "#644646",

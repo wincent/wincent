@@ -1,0 +1,27 @@
+# Github Light theme for Mintty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming)
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1f2328
+Red         = #cf222e
+Green       = #116329
+Yellow      = #4d2d00
+Blue        = #0969da
+Magenta     = #8250df
+Cyan        = #1b7c83
+White       = #59636e
+BoldBlack   = #393f46
+BoldRed     = #a40e26
+BoldGreen   = #1a7f37
+BoldYellow  = #633c01
+BoldBlue    = #218bff
+BoldMagenta = #a475f9
+BoldCyan    = #3192aa
+BoldWhite   = #818b98
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #1f2328
+CursorColour     = #1f2328

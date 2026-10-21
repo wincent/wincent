@@ -3,6 +3,8 @@
 	"name": "standardized-dark",
 	"foreground": "#c0c0c0",
 	"background": "#222222",
+	"cursorColor": "#c0c0c0",
+	"selectionBackground": "#c0c0c0",
 	"black": "#222222",
 	"blue": "#00a3f2",
 	"brightBlack": "#898989",

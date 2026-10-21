@@ -3,6 +3,8 @@
 	"name": "Dimmed Monokai",
 	"foreground": "#acafac",
 	"background": "#1e1e1e",
+	"cursorColor": "#acafac",
+	"selectionBackground": "#acafac",
 	"black": "#1e1e1e",
 	"blue": "#4e76a1",
 	"brightBlack": "#949593",

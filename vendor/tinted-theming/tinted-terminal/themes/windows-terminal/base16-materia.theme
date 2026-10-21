@@ -3,6 +3,8 @@
 	"name": "Materia",
 	"foreground": "#cdd3de",
 	"background": "#263238",
+	"cursorColor": "#cdd3de",
+	"selectionBackground": "#cdd3de",
 	"black": "#263238",
 	"blue": "#89ddff",
 	"brightBlack": "#707880",

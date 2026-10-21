@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Paris by xscriptor (https://github.com/xscriptor)
+
+name: Base24 Paris
+accent: "#a3f3ff" # base0D
+cursor: "#f7f1ff" # base05
+background: "#1a0a30" # base00
+foreground: "#f7f1ff" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1a0a30" # base00
+    red: "#fc618d" # base08
+    yellow: "#fce566" # base0A
+    green: "#7bd88f" # base0B
+    cyan: "#a3f3ff" # base0C
+    blue: "#a3f3ff" # base0D
+    magenta: "#c4bdff" # base0E
+    white: "#f7f1ff" # base05
+
+  bright:
+    black: "#c4bdff" # base03
+    red: "#fc618d" # base12
+    yellow: "#fce566" # base13
+    green: "#7bd88f" # base14
+    cyan: "#a3f3ff" # base15
+    blue: "#a3f3ff" # base16
+    magenta: "#c4bdff" # base17
+    white: "#f7f1ff" # base07

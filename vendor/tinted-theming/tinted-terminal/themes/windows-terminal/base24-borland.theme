@@ -3,6 +3,8 @@
 	"name": "Borland",
 	"foreground": "#d1d1d1",
 	"background": "#0000a4",
+	"cursorColor": "#d1d1d1",
+	"selectionBackground": "#d1d1d1",
 	"black": "#0000a4",
 	"blue": "#96cafd",
 	"brightBlack": "#989898",

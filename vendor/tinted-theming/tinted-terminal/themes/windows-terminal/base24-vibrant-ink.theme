@@ -3,6 +3,8 @@
 	"name": "Vibrant Ink",
 	"foreground": "#cdcdcd",
 	"background": "#000000",
+	"cursorColor": "#cdcdcd",
+	"selectionBackground": "#cdcdcd",
 	"black": "#000000",
 	"blue": "#44b3cc",
 	"brightBlack": "#7d7d7d",

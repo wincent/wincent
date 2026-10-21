@@ -3,6 +3,8 @@
 	"name": "Twilight",
 	"foreground": "#c8c8a7",
 	"background": "#141414",
+	"cursorColor": "#c8c8a7",
+	"selectionBackground": "#c8c8a7",
 	"black": "#141414",
 	"blue": "#444649",
 	"brightBlack": "#5c5c51",

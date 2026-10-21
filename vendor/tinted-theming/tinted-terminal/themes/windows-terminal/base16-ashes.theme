@@ -3,6 +3,8 @@
 	"name": "Ashes",
 	"foreground": "#c7ccd1",
 	"background": "#1c2023",
+	"cursorColor": "#c7ccd1",
+	"selectionBackground": "#c7ccd1",
 	"black": "#1c2023",
 	"blue": "#ae95c7",
 	"brightBlack": "#747c84",

@@ -3,6 +3,8 @@
 	"name": "One Light",
 	"foreground": "#383a42",
 	"background": "#e7e7e9",
+	"cursorColor": "#383a42",
+	"selectionBackground": "#383a42",
 	"black": "#e7e7e9",
 	"blue": "#4078f2",
 	"brightBlack": "#a0a1a7",

@@ -3,6 +3,8 @@
 	"name": "Terracotta Dark",
 	"foreground": "#b8a59d",
 	"background": "#241d1a",
+	"cursorColor": "#b8a59d",
+	"selectionBackground": "#b8a59d",
 	"black": "#241d1a",
 	"blue": "#b0a4c3",
 	"brightBlack": "#594740",

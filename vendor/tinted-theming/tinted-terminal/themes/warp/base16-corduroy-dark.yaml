@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Corduroy Dark by taysatte (https://github.com/taysatte)
+
+name: Base16 Corduroy Dark
+accent: "#dc92a3" # base0D
+cursor: "#ddd8df" # base05
+background: "#141016" # base00
+foreground: "#ddd8df" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#141016" # base00
+    red: "#e8758a" # base08
+    yellow: "#f0bd9c" # base0A
+    green: "#55a0a0" # base0B
+    cyan: "#f0a89b" # base0C
+    blue: "#dc92a3" # base0D
+    magenta: "#cf98c4" # base0E
+    white: "#ddd8df" # base05
+
+  bright:
+    black: "#7d7082" # base03
+    red: "#e8758a" # base08
+    yellow: "#f0bd9c" # base0A
+    green: "#55a0a0" # base0B
+    cyan: "#f0a89b" # base0C
+    blue: "#dc92a3" # base0D
+    magenta: "#cf98c4" # base0E
+    white: "#5a5160" # base07

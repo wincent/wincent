@@ -3,6 +3,8 @@
 	"name": "Primer Dark",
 	"foreground": "#b1bac4",
 	"background": "#010409",
+	"cursorColor": "#b1bac4",
+	"selectionBackground": "#b1bac4",
 	"black": "#010409",
 	"blue": "#58a6ff",
 	"brightBlack": "#484f58",

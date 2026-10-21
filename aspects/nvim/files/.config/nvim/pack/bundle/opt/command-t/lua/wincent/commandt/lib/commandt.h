@@ -12,6 +12,10 @@
 
 #include "str.h" /* for str_t */
 
+// Sentinel values for haystack_t.first_dot.
+#define UNSET_FIRST_DOT (-2)
+#define NO_FORBIDDEN_DOT (-1)
+
 /**
  * @internal
  *
@@ -20,14 +24,38 @@
 typedef struct {
     str_t *candidate;
     uint32_t bitmask;
+
+    /**
+     * Cached score and match state:
+     *
+     * - UNSET_SCORE: not yet checked for this query, or an old zero invalidated
+     *   by pre-score pruning. Must not be skipped as a known non-match.
+     * - 0.0f: a proven non-match. Can be skipped when the query is repeated or
+     *   extended, but must be reconsidered when the query is replaced.
+     * - -1.0f: a hidden candidate excluded for the empty query. Kept nonzero so
+     *   a later non-empty query can reconsider it.
+     * - Other positive values: an exact score, a work-cap fallback score, or a
+     *   partial score from threshold pruning. Alphabetical queries store 1.0f
+     *   for every match, so the heap selects by its alphabetical tiebreaker.
+     *
+     * Only zero allows narrowing to skip a candidate. Nonzero does not prove a
+     * complete match: threshold pruning may stop before one is established.
+     *
+     * Pre-score pruning can leave an earlier value unchanged. If the query was
+     * replaced, an old zero must become UNSET_SCORE before taking that shortcut;
+     * otherwise a later extension could incorrectly skip this candidate.
+     *
+     * Before heap insertion, scoring replaces the cached value for the current
+     * query. Neither UNSET_SCORE nor a stale value may enter the heap.
+     */
     float score;
 
     /**
      * Index of the leftmost "forbidden" dot (a "." beginning a hidden path
-     * component: at index 0 or immediately after a "/"), or -1 if there is none;
-     * the sentinel -2 means "not yet computed". This is a property of the
-     * candidate alone, so it is computed lazily once and cached for reuse across
-     * searches (including repeated empty-query passes during streaming).
+     * component: at index 0 or immediately after a "/"), or NO_FORBIDDEN_DOT if
+     * there is none. UNSET_FIRST_DOT means it has not been scanned yet.
+     * This is a property of the candidate alone, so it is computed lazily and
+     * reused across queries, including empty queries during streaming.
      */
     ssize_t first_dot;
 } haystack_t;
@@ -53,6 +81,8 @@ typedef struct {
     /**
      * Number of candidates currently stored in the scanner. For async scanners
      * this grows over time and is published/read with release/acquire ordering.
+     * Readers that can overlap production must use scanner_count_snapshot()
+     * (or commandt_scanner_count_snapshot() through FFI), not a plain load.
      */
     unsigned count;
 
@@ -171,11 +201,11 @@ typedef struct {
     unsigned threads;
 
     /**
-     * Note that the matcher doesn't take ownership of the `needle` (ie. it
-     * doesn't make a copy of it) because it only needs it to stick around long
-     * enough to calculate scores with it. These fields are merely here as a
-     * convenience for temporarily threading state through to `commandt_score()`
-     * and friends.
+     * The matcher owns a normalized copy of the caller's needle. These fields
+     * provide the current query to `commandt_score()` and the workers. At the
+     * end of a run, `last_needle` takes ownership of the copy for incremental
+     * narrowing; `needle` aliases it until the next run. The retained copy is
+     * freed when invalidated, replaced, or when the matcher is freed.
      */
     const char *needle;
     size_t needle_length;

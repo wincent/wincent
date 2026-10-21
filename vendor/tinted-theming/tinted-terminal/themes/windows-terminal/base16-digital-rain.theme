@@ -3,6 +3,8 @@
 	"name": "Digital Rain",
 	"foreground": "#00ff00",
 	"background": "#000000",
+	"cursorColor": "#00ff00",
+	"selectionBackground": "#00ff00",
 	"black": "#000000",
 	"blue": "#5482af",
 	"brightBlack": "#7c8d7c",

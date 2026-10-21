@@ -3,6 +3,8 @@
 	"name": "Crayon Pony Fish",
 	"foreground": "#5d484e",
 	"background": "#140607",
+	"cursorColor": "#5d484e",
+	"selectionBackground": "#5d484e",
 	"black": "#140607",
 	"blue": "#8b87af",
 	"brightBlack": "#473438",

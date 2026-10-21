@@ -1,0 +1,30 @@
+system: "base24"
+name: "Berlin"
+slug: "berlin"
+author: "xscriptor (https://github.com/xscriptor)"
+variant: "dark"
+palette:
+  base00: "#000000" # background
+  base01: "#0e0e0e" # derived: lighter background (ANSI 0 equals background)
+  base02: "#181818" # derived: selection background
+  base03: "#333333" # ANSI 8 (bright black)
+  base04: "#707070" # derived: dark foreground
+  base05: "#cccccc" # default foreground
+  base06: "#d6d6d6" # derived: light foreground
+  base07: "#ffffff" # ANSI 15 (bright white)
+  base08: "#999999" # ANSI 1 (red)
+  base09: "#bbbbbb" # derived: orange (red + yellow)
+  base0A: "#dddddd" # ANSI 3 (yellow)
+  base0B: "#bbbbbb" # ANSI 2 (green)
+  base0C: "#cccccc" # ANSI 6 (cyan)
+  base0D: "#888888" # ANSI 4 (blue)
+  base0E: "#aaaaaa" # ANSI 5 (magenta)
+  base0F: "#7a7a7a" # derived: brown (darkened orange)
+  base10: "#000000" # derived: darker background
+  base11: "#000000" # derived: darkest background
+  base12: "#bbbbbb" # ANSI 9 (bright red)
+  base13: "#ffffff" # ANSI 11 (bright yellow)
+  base14: "#dddddd" # ANSI 10 (bright green)
+  base15: "#eeeeee" # ANSI 14 (bright cyan)
+  base16: "#aaaaaa" # ANSI 12 (bright blue)
+  base17: "#cccccc" # ANSI 13 (bright magenta)

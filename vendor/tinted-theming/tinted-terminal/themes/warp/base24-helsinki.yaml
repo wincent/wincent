@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Helsinki by xscriptor (https://github.com/xscriptor)
+
+name: Base24 Helsinki
+accent: "#b55a0f" # base0D
+cursor: "#544d40" # base05
+background: "#f8fafe" # base00
+foreground: "#544d40" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#f8fafe" # base00
+    red: "#1faa9e" # base08
+    yellow: "#2e70ad" # base0A
+    green: "#733d9a" # base0B
+    cyan: "#bd4c3d" # base0C
+    blue: "#b55a0f" # base0D
+    magenta: "#3e9d21" # base0E
+    white: "#544d40" # base05
+
+  bright:
+    black: "#b0a999" # base03
+    red: "#009e91" # base12
+    yellow: "#0f5ba2" # base13
+    green: "#5a1f8a" # base14
+    cyan: "#b32e1f" # base15
+    blue: "#b23b00" # base16
+    magenta: "#218c00" # base17
+    white: "#000000" # base07

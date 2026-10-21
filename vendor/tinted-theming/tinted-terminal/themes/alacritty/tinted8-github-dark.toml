@@ -1,0 +1,36 @@
+# Github Dark theme for Alacritty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming)
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Default colors
+[colors.primary]
+background = '0x0d1117'
+foreground = '0xf0f6fc'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0d1117'
+cursor = '0xf0f6fc'
+
+# Normal colors
+[colors.normal]
+black = '0x2f3742'
+red = '0xff7b72'
+green = '0x3fb950'
+yellow = '0xd29922'
+blue = '0x58a6ff'
+magenta = '0xbe8fff'
+cyan = '0x39c5cf'
+white = '0xf0f6fc'
+
+# Bright colors
+[colors.bright]
+black = '0x656c76'
+red = '0xffa198'
+green = '0x56d364'
+yellow = '0xe3b341'
+blue = '0x79c0ff'
+magenta = '0xd2a8ff'
+cyan = '0x56d4dd'
+white = '0xffffff'

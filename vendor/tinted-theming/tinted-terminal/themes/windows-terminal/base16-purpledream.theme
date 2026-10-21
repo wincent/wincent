@@ -3,6 +3,8 @@
 	"name": "Purpledream",
 	"foreground": "#ddd0dd",
 	"background": "#100510",
+	"cursorColor": "#ddd0dd",
+	"selectionBackground": "#ddd0dd",
 	"black": "#100510",
 	"blue": "#00a0f0",
 	"brightBlack": "#605060",

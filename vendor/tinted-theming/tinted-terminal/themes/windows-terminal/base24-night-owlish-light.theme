@@ -3,6 +3,8 @@
 	"name": "Night Owlish Light",
 	"foreground": "#585b5b",
 	"background": "#ffffff",
+	"cursorColor": "#585b5b",
+	"selectionBackground": "#585b5b",
 	"black": "#ffffff",
 	"blue": "#4876d6",
 	"brightBlack": "#b1b4b4",

@@ -3,6 +3,8 @@
 	"name": "Spacemacs",
 	"foreground": "#a3a3a3",
 	"background": "#1f2022",
+	"cursorColor": "#a3a3a3",
+	"selectionBackground": "#a3a3a3",
 	"black": "#1f2022",
 	"blue": "#4f97d7",
 	"brightBlack": "#585858",

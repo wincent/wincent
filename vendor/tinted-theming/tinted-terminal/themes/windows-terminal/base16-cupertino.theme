@@ -3,6 +3,8 @@
 	"name": "Cupertino",
 	"foreground": "#404040",
 	"background": "#ffffff",
+	"cursorColor": "#404040",
+	"selectionBackground": "#404040",
 	"black": "#ffffff",
 	"blue": "#0000ff",
 	"brightBlack": "#808080",

@@ -3,6 +3,8 @@
 	"name": "Windows NT Light",
 	"foreground": "#808080",
 	"background": "#ffffff",
+	"cursorColor": "#808080",
+	"selectionBackground": "#808080",
 	"black": "#ffffff",
 	"blue": "#000080",
 	"brightBlack": "#c0c0c0",

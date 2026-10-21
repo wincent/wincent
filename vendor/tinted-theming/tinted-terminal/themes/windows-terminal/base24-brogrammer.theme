@@ -3,6 +3,8 @@
 	"name": "Brogrammer",
 	"foreground": "#c1c8d7",
 	"background": "#131313",
+	"cursorColor": "#c1c8d7",
+	"selectionBackground": "#c1c8d7",
 	"black": "#131313",
 	"blue": "#2a84d2",
 	"brightBlack": "#343d50",

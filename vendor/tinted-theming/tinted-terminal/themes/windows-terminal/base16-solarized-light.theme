@@ -3,6 +3,8 @@
 	"name": "Solarized Light",
 	"foreground": "#586e75",
 	"background": "#fdf6e3",
+	"cursorColor": "#586e75",
+	"selectionBackground": "#586e75",
 	"black": "#fdf6e3",
 	"blue": "#268bd2",
 	"brightBlack": "#839496",

@@ -9,7 +9,7 @@ foreground: "#cecdc3" # base05
 details: darker
 
 terminal_colors:
-  bright:
+  normal:
     black: "#100f0f" # base00
     red: "#d14d41" # base08
     yellow: "#d0a215" # base0A
@@ -19,7 +19,7 @@ terminal_colors:
     magenta: "#8b7ec8" # base0E
     white: "#cecdc3" # base05
 
-  normal:
+  bright:
     black: "#575653" # base03
     red: "#d14d41" # base08
     yellow: "#d0a215" # base0A

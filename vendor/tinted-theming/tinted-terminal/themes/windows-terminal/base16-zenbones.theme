@@ -3,6 +3,8 @@
 	"name": "Zenbones",
 	"foreground": "#b279a7",
 	"background": "#191919",
+	"cursorColor": "#b279a7",
+	"selectionBackground": "#b279a7",
 	"black": "#191919",
 	"blue": "#cf86c1",
 	"brightBlack": "#b77e64",

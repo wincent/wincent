@@ -1,0 +1,25 @@
+// Add custom color schemes to the "schemes" array
+{
+    "name": "Github Dark Dimmed",
+    "foreground": "#d1d7e0",
+    "background": "#212830",
+    "cursorColor": "#d1d7e0",
+    "selectionBackground": "#656c76",
+    "black": "#2f3742",
+    "blue": "#539bf5",
+    "brightBlack": "#656c76",
+    "brightBlue": "#6cb6ff",
+    "brightCyan": "#56d4dd",
+    "brightGreen": "#6bc46d",
+    "brightPurple": "#dcbdfb",
+    "brightRed": "#ff938a",
+    "brightWhite": "#cdd9e5",
+    "brightYellow": "#daaa3f",
+    "cyan": "#39c5cf",
+    "green": "#57ab5a",
+    "purple": "#b083f0",
+    "red": "#f47067",
+    "white": "#f0f6fc",
+    "yellow": "#c69026"
+},
+

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Apprentice by Romain Lafourcade (https://github.com/romainl)
+
+name: Base24 Apprentice
+accent: "#5f87af" # base0D
+cursor: "#bcbcbc" # base05
+background: "#262626" # base00
+foreground: "#bcbcbc" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#262626" # base00
+    red: "#af5f5f" # base08
+    yellow: "#87875f" # base0A
+    green: "#5f875f" # base0B
+    cyan: "#5f8787" # base0C
+    blue: "#5f87af" # base0D
+    magenta: "#5f5f87" # base0E
+    white: "#bcbcbc" # base05
+
+  bright:
+    black: "#444444" # base03
+    red: "#ff8700" # base12
+    yellow: "#ffffaf" # base13
+    green: "#87af87" # base14
+    cyan: "#5fafaf" # base15
+    blue: "#87afd7" # base16
+    magenta: "#8787af" # base17
+    white: "#ffffff" # base07

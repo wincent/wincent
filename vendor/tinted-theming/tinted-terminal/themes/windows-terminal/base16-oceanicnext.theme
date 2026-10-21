@@ -3,6 +3,8 @@
 	"name": "OceanicNext",
 	"foreground": "#c0c5ce",
 	"background": "#1b2b34",
+	"cursorColor": "#c0c5ce",
+	"selectionBackground": "#c0c5ce",
 	"black": "#1b2b34",
 	"blue": "#6699cc",
 	"brightBlack": "#65737e",

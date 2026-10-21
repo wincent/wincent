@@ -3,6 +3,8 @@
 	"name": "Dark Plus",
 	"foreground": "#c5c5c5",
 	"background": "#0e0e0e",
+	"cursorColor": "#c5c5c5",
+	"selectionBackground": "#c5c5c5",
 	"black": "#0e0e0e",
 	"blue": "#2472c8",
 	"brightBlack": "#858585",

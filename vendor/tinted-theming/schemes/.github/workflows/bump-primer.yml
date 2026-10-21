@@ -1,0 +1,132 @@
+name: Bump primer/primitives
+
+# Manually bumps the @primer/primitives version the GitHub-scheme generator
+# sources from, regenerates the schemes, and opens (or updates) a PR with the
+# result. Rollbacks are allowed — any published version is accepted.
+#
+# Schemes for themes that no longer exist in the chosen version are NOT deleted
+# (that would break downstream consumers); the generator marks them deprecated
+# in place instead.
+"on":
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Which @primer/primitives version to use"
+        type: choice
+        options:
+          - latest-stable
+          - specific-version
+        default: latest-stable
+      version:
+        description: "Exact version for 'specific-version' (e.g. 11.10.0). Ignored for latest-stable. Rollbacks allowed."
+        type: string
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# One in-flight run per target version; a newer run for the same version wins.
+concurrency:
+  group: bump-primer-${{ inputs.source }}-${{ inputs.version }}
+  cancel-in-progress: true
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          # Bot PAT so the push triggers the PR's other workflows (e.g. Test).
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Resolve & validate target version
+        id: resolve
+        run: |
+          set -euo pipefail
+          if [ "${{ inputs.source }}" = "latest-stable" ]; then
+            # The `latest` dist-tag excludes prereleases.
+            version="$(npm view @primer/primitives version)"
+            echo "Resolved latest stable: $version"
+          else
+            version="$(printf '%s' "${{ inputs.version }}" | tr -d '[:space:]')"
+            version="${version#v}"
+            if [ -z "$version" ]; then
+              echo "::error::source=specific-version requires a 'version' input."
+              exit 1
+            fi
+            if ! npm view "@primer/primitives@$version" version >/dev/null 2>&1; then
+              echo "::error::@primer/primitives@$version is not a published release."
+              exit 1
+            fi
+            # Reject ranges/tags — require an exact published version.
+            resolved="$(npm view "@primer/primitives@$version" version)"
+            if [ "$resolved" != "$version" ]; then
+              echo "::error::'$version' is not an exact version (resolved to '$resolved'). Pass an exact release."
+              exit 1
+            fi
+            echo "Validated specific version: $version"
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "branch=chore/bump-primer-$version" >> "$GITHUB_OUTPUT"
+
+      - name: Bump dependency & regenerate schemes
+        id: generate
+        run: |
+          set -euo pipefail
+          npm pkg set "devDependencies.@primer/primitives=${{ steps.resolve.outputs.version }}"
+          npm install
+          npm run generate:github
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes after regeneration; nothing to open a PR for."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit, push & open/update PR
+        if: steps.generate.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          VERSION: ${{ steps.resolve.outputs.version }}
+          BRANCH: ${{ steps.resolve.outputs.branch }}
+          BASE: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Deterministic, version-keyed branch — the same revision always maps
+          # to the same branch/PR, so re-runs update rather than duplicate.
+          git checkout -B "$BRANCH"
+
+          # Stage deliberately by pathspec: the bumped manifest and the generated
+          # scheme files (all generator output is named github*). Globs are quoted
+          # so git does the matching (and would catch deletions too).
+          git add package.json package-lock.json \
+            'base16/github*.yaml' 'base24/github*.yaml' 'tinted8/github*.yaml'
+          git commit -m "chore: bump @primer/primitives to $VERSION"
+          git push --force origin "$BRANCH"
+
+          title="chore: bump @primer/primitives to $VERSION"
+          # $'...' keeps backticks/parens literal and expands \n to real newlines.
+          body=$'Bumps `@primer/primitives` to v'"$VERSION"
+          body+=$' and regenerates the GitHub schemes (base16, base24, tinted8).\n\n'
+          body+=$'Opened by the `Bump primer/primitives` workflow. GitHub themes absent'
+          body+=$' from this version are marked deprecated in place rather than deleted,'
+          body+=$' to avoid breaking downstream consumers.'
+
+          existing="$(gh pr list --head "$BRANCH" --base "$BASE" --state open --json url --jq '.[0].url // ""')"
+          if [ -n "$existing" ]; then
+            gh pr edit "$existing" --title "$title" --body "$body"
+            echo "Updated existing PR: $existing"
+          else
+            gh pr create --base "$BASE" --head "$BRANCH" --title "$title" --body "$body"
+          fi

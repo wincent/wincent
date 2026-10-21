@@ -3,6 +3,8 @@
 	"name": "Fruit Soda",
 	"foreground": "#515151",
 	"background": "#f1ecf1",
+	"cursorColor": "#515151",
+	"selectionBackground": "#515151",
 	"black": "#f1ecf1",
 	"blue": "#2931df",
 	"brightBlack": "#b5b4b6",

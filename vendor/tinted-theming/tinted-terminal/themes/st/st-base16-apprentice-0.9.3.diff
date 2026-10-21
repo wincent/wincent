@@ -7,7 +7,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
  /* Terminal colors (16 first used in escape sequence) */
 +/*
 + * Scheme name: Apprentice
-+ * Scheme author: romainl
++ * Scheme author: Romain Lafourcade (https://github.com/romainl)
 + * Template author: Tinted Theming (https://github.com/tinted-theming)
 + */
  static const char *colorname[] = {
@@ -21,13 +21,13 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"cyan3",
 -	"gray90",
 +	[0] = "#262626",   /* black  */
-+	[1] = "#444444",   /* red    */
-+	[2] = "#ffffaf",   /* green  */
-+	[3] = "#87af87",   /* yellow */
-+	[4] = "#8787af",   /* blue   */
-+	[5] = "#5fafaf",   /* magenta*/
-+	[6] = "#87afd7",   /* cyan   */
-+	[7] = "#5f5f87",   /* white  */
++	[1] = "#af5f5f",   /* red    */
++	[2] = "#5f875f",   /* green  */
++	[3] = "#87875f",   /* yellow */
++	[4] = "#5f87af",   /* blue   */
++	[5] = "#5f5f87",   /* magenta*/
++	[6] = "#5f8787",   /* cyan   */
++	[7] = "#bcbcbc",   /* white  */
 
  	/* 8 bright colors */
 -	"gray50",
@@ -38,14 +38,14 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta",
 -	"cyan",
 -	"white",
-+	[8] = "#87875f",   /* black  */
-+	[9] = "#444444",   /* red    */
-+	[10] = "#ffffaf",  /* green  */
-+	[11] = "#87af87",  /* yellow */
-+	[12] = "#8787af",  /* blue   */
-+	[13] = "#5fafaf",  /* magenta*/
-+	[14] = "#87afd7",  /* cyan   */
-+	[15] = "#6c6c6c",  /* white  */
++	[8] = "#444444",   /* black  */
++	[9] = "#af5f5f",   /* red    */
++	[10] = "#5f875f",  /* green  */
++	[11] = "#87875f",  /* yellow */
++	[12] = "#5f87af",  /* blue   */
++	[13] = "#5f5f87",  /* magenta*/
++	[14] = "#5f8787",  /* cyan   */
++	[15] = "#ffffff",  /* white  */
 
  	[255] = 0,
 
@@ -54,7 +54,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"#555555",
 -	"gray90", /* default foreground colour */
 -	"black", /* default background colour */
-+	[256] = "#5f5f87",  /* foreground */
++	[256] = "#bcbcbc",  /* foreground */
 +	[257] = "#262626",  /* background */
  };
 

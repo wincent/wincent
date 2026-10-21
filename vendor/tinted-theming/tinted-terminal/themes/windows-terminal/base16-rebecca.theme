@@ -3,6 +3,8 @@
 	"name": "Rebecca",
 	"foreground": "#f1eff8",
 	"background": "#292a44",
+	"cursorColor": "#f1eff8",
+	"selectionBackground": "#f1eff8",
 	"black": "#292a44",
 	"blue": "#2de0a7",
 	"brightBlack": "#666699",

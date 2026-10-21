@@ -1,0 +1,27 @@
+# Github Light Colorblind theme for Mintty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming)
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1f2328
+Red         = #bc4c00
+Green       = #0550ae
+Yellow      = #4d2d00
+Blue        = #0969da
+Magenta     = #8250df
+Cyan        = #1b7c83
+White       = #59636e
+BoldBlack   = #393f46
+BoldRed     = #953800
+BoldGreen   = #0969da
+BoldYellow  = #633c01
+BoldBlue    = #218bff
+BoldMagenta = #a475f9
+BoldCyan    = #3192aa
+BoldWhite   = #818b98
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #1f2328
+CursorColour     = #1f2328

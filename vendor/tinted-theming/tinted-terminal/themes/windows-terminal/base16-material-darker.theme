@@ -3,6 +3,8 @@
 	"name": "Material Darker",
 	"foreground": "#eeffff",
 	"background": "#212121",
+	"cursorColor": "#eeffff",
+	"selectionBackground": "#eeffff",
 	"black": "#212121",
 	"blue": "#82aaff",
 	"brightBlack": "#4a4a4a",

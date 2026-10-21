@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Berlin by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#cccccc' # base05
+selection-foreground = '#181818' # base02
+
+cursor         = '#cccccc' # base05
+tabs           = '#0e0e0e' # base01
+tabs-active    = '#181818' # base02
+
+background     = '#000000' # base00
+foreground     = '#cccccc' # base05
+black          = '#000000' # base00
+red            = '#999999' # base08
+yellow         = '#dddddd' # base0A
+green          = '#bbbbbb' # base0B
+cyan           = '#cccccc' # base0C
+blue           = '#888888' # base0D
+magenta        = '#aaaaaa' # base0E
+white          = '#cccccc' # base05
+
+dim-foreground   = '#cccccc' # base05
+dim-black        = '#0e0e0e' # base01
+dim-red          = '#999999' # base08
+dim-yellow       = '#dddddd' # base0A
+dim-green        = '#bbbbbb' # base0B
+dim-cyan         = '#cccccc' # base0C
+dim-blue         = '#888888' # base0D
+dim-magenta      = '#aaaaaa' # base0E
+dim-white        = '#707070' # base04
+
+light-foreground = '#cccccc' # base05
+light-black      = '#333333' # base03
+light-red        = '#bbbbbb' # base12
+light-yellow     = '#ffffff' # base13
+light-green      = '#dddddd' # base14
+light-cyan       = '#eeeeee' # base15
+light-blue       = '#aaaaaa' # base16
+light-magenta    = '#cccccc' # base17
+light-white      = '#ffffff' # base07

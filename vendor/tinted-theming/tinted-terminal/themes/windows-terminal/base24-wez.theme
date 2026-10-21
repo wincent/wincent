@@ -3,6 +3,8 @@
 	"name": "Wez",
 	"foreground": "#aeaeae",
 	"background": "#000000",
+	"cursorColor": "#aeaeae",
+	"selectionBackground": "#aeaeae",
 	"black": "#000000",
 	"blue": "#5455cb",
 	"brightBlack": "#727272",

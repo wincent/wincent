@@ -3,6 +3,8 @@
 	"name": "Pasque",
 	"foreground": "#dedcdf",
 	"background": "#271c3a",
+	"cursorColor": "#dedcdf",
+	"selectionBackground": "#dedcdf",
 	"black": "#271c3a",
 	"blue": "#8e7dc6",
 	"brightBlack": "#5d5766",

@@ -3,6 +3,8 @@
 	"name": "Chicago Night",
 	"foreground": "#a7b8af",
 	"background": "#1e2a24",
+	"cursorColor": "#a7b8af",
+	"selectionBackground": "#a7b8af",
 	"black": "#1e2a24",
 	"blue": "#522398",
 	"brightBlack": "#5f7368",

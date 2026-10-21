@@ -1,0 +1,25 @@
+// Add custom color schemes to the "schemes" array
+{
+    "name": "Github Light",
+    "foreground": "#1f2328",
+    "background": "#ffffff",
+    "cursorColor": "#1f2328",
+    "selectionBackground": "#3d454c",
+    "black": "#1f2328",
+    "blue": "#0969da",
+    "brightBlack": "#393f46",
+    "brightBlue": "#218bff",
+    "brightCyan": "#3192aa",
+    "brightGreen": "#1a7f37",
+    "brightPurple": "#a475f9",
+    "brightRed": "#a40e26",
+    "brightWhite": "#818b98",
+    "brightYellow": "#633c01",
+    "cyan": "#1b7c83",
+    "green": "#116329",
+    "purple": "#8250df",
+    "red": "#cf222e",
+    "white": "#59636e",
+    "yellow": "#4d2d00"
+},
+

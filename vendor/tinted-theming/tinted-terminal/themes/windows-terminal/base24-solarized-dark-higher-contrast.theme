@@ -3,6 +3,8 @@
 	"name": "Solarized Dark Higher Contrast",
 	"foreground": "#aec2ba",
 	"background": "#001e26",
+	"cursorColor": "#aec2ba",
+	"selectionBackground": "#aec2ba",
 	"black": "#001e26",
 	"blue": "#2075c7",
 	"brightBlack": "#3a8298",

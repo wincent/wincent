@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Tokio by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#f7f1ff' # base05
+selection-foreground = '#363638' # base02
+
+cursor         = '#f7f1ff' # base05
+tabs           = '#2b2b2d' # base01
+tabs-active    = '#363638' # base02
+
+background     = '#1c1c1d' # base00
+foreground     = '#f7f1ff' # base05
+black          = '#1c1c1d' # base00
+red            = '#fc618d' # base08
+yellow         = '#fce566' # base0A
+green          = '#7bd88f' # base0B
+cyan           = '#5ad4e6' # base0C
+blue           = '#fd9353' # base0D
+magenta        = '#948ae3' # base0E
+white          = '#f7f1ff' # base05
+
+dim-foreground   = '#f7f1ff' # base05
+dim-black        = '#2b2b2d' # base01
+dim-red          = '#fc618d' # base08
+dim-yellow       = '#fce566' # base0A
+dim-green        = '#7bd88f' # base0B
+dim-cyan         = '#5ad4e6' # base0C
+dim-blue         = '#fd9353' # base0D
+dim-magenta      = '#948ae3' # base0E
+dim-white        = '#949199' # base04
+
+light-foreground = '#f7f1ff' # base05
+light-black      = '#78757c' # base03
+light-red        = '#fc618d' # base12
+light-yellow     = '#fce566' # base13
+light-green      = '#7bd88f' # base14
+light-cyan       = '#5ad4e6' # base15
+light-blue       = '#fd9353' # base16
+light-magenta    = '#948ae3' # base17
+light-white      = '#f7f1ff' # base07

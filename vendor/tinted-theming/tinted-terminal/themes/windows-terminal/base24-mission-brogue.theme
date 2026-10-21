@@ -3,6 +3,8 @@
 	"name": "Mission Brogue",
 	"foreground": "#93a5b4",
 	"background": "#283139",
+	"cursorColor": "#93a5b4",
+	"selectionBackground": "#93a5b4",
 	"black": "#283139",
 	"blue": "#a2c5fd",
 	"brightBlack": "#60778a",

@@ -3,6 +3,8 @@
 	"name": "Blueish",
 	"foreground": "#c8e1f8",
 	"background": "#182430",
+	"cursorColor": "#c8e1f8",
+	"selectionBackground": "#c8e1f8",
 	"black": "#182430",
 	"blue": "#82aaff",
 	"brightBlack": "#616d78",

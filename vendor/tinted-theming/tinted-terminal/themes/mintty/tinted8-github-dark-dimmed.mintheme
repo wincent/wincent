@@ -1,0 +1,27 @@
+# Github Dark Dimmed theme for Mintty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming)
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2f3742
+Red         = #f47067
+Green       = #57ab5a
+Yellow      = #c69026
+Blue        = #539bf5
+Magenta     = #b083f0
+Cyan        = #39c5cf
+White       = #f0f6fc
+BoldBlack   = #656c76
+BoldRed     = #ff938a
+BoldGreen   = #6bc46d
+BoldYellow  = #daaa3f
+BoldBlue    = #6cb6ff
+BoldMagenta = #dcbdfb
+BoldCyan    = #56d4dd
+BoldWhite   = #cdd9e5
+
+# Background & foreground colors
+BackgroundColour = #212830
+ForegroundColour = #d1d7e0
+CursorColour     = #d1d7e0

@@ -1,41 +1,41 @@
 # Rio Terminal base16 color theme (https://github.com/tinted-theming)
-# Color scheme: Apprentice by romainl
+# Color scheme: Apprentice by Romain Lafourcade (https://github.com/romainl)
 
 [colors]
-selection-background = '#5f5f87' # base05
-selection-foreground = '#5f875f' # base02
+selection-background = '#bcbcbc' # base05
+selection-foreground = '#3a3a3a' # base02
 
-cursor         = '#5f5f87' # base05
-tabs           = '#af5f5f' # base01
-tabs-active    = '#5f875f' # base02
+cursor         = '#bcbcbc' # base05
+tabs           = '#303030' # base01
+tabs-active    = '#3a3a3a' # base02
 
 background     = '#262626' # base00
-foreground     = '#5f5f87' # base05
+foreground     = '#bcbcbc' # base05
 black          = '#262626' # base00
-red            = '#444444' # base08
-yellow         = '#87af87' # base0A
-green          = '#ffffaf' # base0B
-cyan           = '#87afd7' # base0C
-blue           = '#8787af' # base0D
-magenta        = '#5fafaf' # base0E
-white          = '#5f5f87' # base05
+red            = '#af5f5f' # base08
+yellow         = '#87875f' # base0A
+green          = '#5f875f' # base0B
+cyan           = '#5f8787' # base0C
+blue           = '#5f87af' # base0D
+magenta        = '#5f5f87' # base0E
+white          = '#bcbcbc' # base05
 
-dim-foreground   = '#5f5f87' # base05
-dim-black        = '#af5f5f' # base01
-dim-red          = '#444444' # base08
-dim-yellow       = '#87af87' # base0A
-dim-green        = '#ffffaf' # base0B
-dim-cyan         = '#87afd7' # base0C
-dim-blue         = '#8787af' # base0D
-dim-magenta      = '#5fafaf' # base0E
-dim-white        = '#5f87af' # base04
+dim-foreground   = '#bcbcbc' # base05
+dim-black        = '#303030' # base01
+dim-red          = '#af5f5f' # base08
+dim-yellow       = '#87875f' # base0A
+dim-green        = '#5f875f' # base0B
+dim-cyan         = '#5f8787' # base0C
+dim-blue         = '#5f87af' # base0D
+dim-magenta      = '#5f5f87' # base0E
+dim-white        = '#6c6c6c' # base04
 
-light-foreground = '#5f5f87' # base05
-light-black      = '#87875f' # base03
-light-red        = '#444444' # base08
-light-yellow     = '#87af87' # base0A
-light-green      = '#ffffaf' # base0B
-light-cyan       = '#87afd7' # base0C
-light-blue       = '#8787af' # base0D
-light-magenta    = '#5fafaf' # base0E
-light-white      = '#6c6c6c' # base07
+light-foreground = '#bcbcbc' # base05
+light-black      = '#444444' # base03
+light-red        = '#af5f5f' # base08
+light-yellow     = '#87875f' # base0A
+light-green      = '#5f875f' # base0B
+light-cyan       = '#5f8787' # base0C
+light-blue       = '#5f87af' # base0D
+light-magenta    = '#5f5f87' # base0E
+light-white      = '#ffffff' # base07

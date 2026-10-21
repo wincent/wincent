@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Sequoia Moonlight Light by Micheal Andreuzza (https://michaelandreuzza.com/)
+
+name: Base16 Sequoia Moonlight Light
+accent: "#9a5fd9" # base0D
+cursor: "#282930" # base05
+background: "#edeef2" # base00
+foreground: "#282930" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#edeef2" # base00
+    red: "#c94da8" # base08
+    yellow: "#6a6a78" # base0A
+    green: "#4a85d4" # base0B
+    cyan: "#d9884a" # base0C
+    blue: "#9a5fd9" # base0D
+    magenta: "#6a6a78" # base0E
+    white: "#282930" # base05
+
+  bright:
+    black: "#565760" # base03
+    red: "#c94da8" # base08
+    yellow: "#6a6a78" # base0A
+    green: "#4a85d4" # base0B
+    cyan: "#d9884a" # base0C
+    blue: "#9a5fd9" # base0D
+    magenta: "#6a6a78" # base0E
+    white: "#0f1014" # base07

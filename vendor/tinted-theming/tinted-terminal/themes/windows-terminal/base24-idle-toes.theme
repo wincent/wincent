@@ -3,6 +3,8 @@
 	"name": "Idle Toes",
 	"foreground": "#c7c7c5",
 	"background": "#323232",
+	"cursorColor": "#c7c7c5",
+	"selectionBackground": "#c7c7c5",
 	"black": "#323232",
 	"blue": "#4098ff",
 	"brightBlack": "#797979",

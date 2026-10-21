@@ -3,6 +3,8 @@
 	"name": "Atelier Heath Light",
 	"foreground": "#695d69",
 	"background": "#f7f3f7",
+	"cursorColor": "#695d69",
+	"selectionBackground": "#695d69",
 	"black": "#f7f3f7",
 	"blue": "#516aec",
 	"brightBlack": "#9e8f9e",

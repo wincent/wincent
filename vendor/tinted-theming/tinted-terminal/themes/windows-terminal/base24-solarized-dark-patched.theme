@@ -3,6 +3,8 @@
 	"name": "Solarized Dark Patched",
 	"foreground": "#c0c0b0",
 	"background": "#001e26",
+	"cursorColor": "#c0c0b0",
+	"selectionBackground": "#c0c0b0",
 	"black": "#001e26",
 	"blue": "#2075c7",
 	"brightBlack": "#6e7c7b",

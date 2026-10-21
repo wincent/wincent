@@ -3,6 +3,8 @@
 	"name": "Porple",
 	"foreground": "#d8d8d8",
 	"background": "#292c36",
+	"cursorColor": "#d8d8d8",
+	"selectionBackground": "#d8d8d8",
 	"black": "#292c36",
 	"blue": "#8485ce",
 	"brightBlack": "#65568a",

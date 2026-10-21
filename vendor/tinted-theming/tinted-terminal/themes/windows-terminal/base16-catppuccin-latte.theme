@@ -3,6 +3,8 @@
 	"name": "Catppuccin Latte",
 	"foreground": "#4c4f69",
 	"background": "#eff1f5",
+	"cursorColor": "#4c4f69",
+	"selectionBackground": "#4c4f69",
 	"black": "#eff1f5",
 	"blue": "#1e66f5",
 	"brightBlack": "#bcc0cc",

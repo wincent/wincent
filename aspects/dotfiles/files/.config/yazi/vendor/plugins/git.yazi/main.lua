@@ -90,8 +90,8 @@ local function root(cwd)
 
 	repeat
 		local next = cwd:join(".git")
-		local cha = fs.cha(next)
-		if cha and (cha.is_dir or is_worktree(next)) then
+		local stat = fs.cha(next)
+		if stat and (stat.is_dir or is_worktree(next)) then
 			return tostring(cwd)
 		end
 		cwd = cwd.parent

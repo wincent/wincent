@@ -3,6 +3,8 @@
 	"name": "Windows 10 Light",
 	"foreground": "#767676",
 	"background": "#f2f2f2",
+	"cursorColor": "#767676",
+	"selectionBackground": "#767676",
 	"black": "#f2f2f2",
 	"blue": "#0037da",
 	"brightBlack": "#cccccc",

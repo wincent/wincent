@@ -3,6 +3,8 @@
 	"name": "Atelier Sulphurpool",
 	"foreground": "#979db4",
 	"background": "#202746",
+	"cursorColor": "#979db4",
+	"selectionBackground": "#979db4",
 	"black": "#202746",
 	"blue": "#3d8fd1",
 	"brightBlack": "#6b7394",

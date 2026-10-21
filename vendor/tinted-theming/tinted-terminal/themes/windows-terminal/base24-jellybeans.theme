@@ -3,6 +3,8 @@
 	"name": "Jellybeans",
 	"foreground": "#d5d5d5",
 	"background": "#121212",
+	"cursorColor": "#d5d5d5",
+	"selectionBackground": "#d5d5d5",
 	"black": "#121212",
 	"blue": "#97bedc",
 	"brightBlack": "#c5c5c5",

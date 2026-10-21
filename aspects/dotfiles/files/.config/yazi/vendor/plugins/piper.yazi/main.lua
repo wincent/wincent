@@ -62,9 +62,13 @@ function M.format(job, lines)
 	for i = 1, #lines do
 		lines[i] = lines[i]:gsub("[\r\n]+$", "")
 
+		Stat = Stat or Cha -- TODO: remove
+		local stat = Stat { mode = tonumber(lines[i]:sub(-1) == "/" and "40700" or "100644", 8) }
 		local icon = th.icon:match(File {
 			url = Url(lines[i]),
-			cha = Cha { mode = tonumber(lines[i]:sub(-1) == "/" and "40700" or "100644", 8) },
+			cha = stat, -- TODO: remove
+			stat = stat,
+			lstat = stat,
 		})
 
 		if icon then

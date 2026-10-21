@@ -3,6 +3,8 @@
 	"name": "Arroz con Dulce Dark",
 	"foreground": "#f2dfc0",
 	"background": "#21140f",
+	"cursorColor": "#f2dfc0",
+	"selectionBackground": "#f2dfc0",
 	"black": "#21140f",
 	"blue": "#b99ac8",
 	"brightBlack": "#a98568",

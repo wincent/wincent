@@ -3,6 +3,8 @@
 	"name": "Flexoki Dark",
 	"foreground": "#cecdc3",
 	"background": "#100f0f",
+	"cursorColor": "#cecdc3",
+	"selectionBackground": "#cecdc3",
 	"black": "#100f0f",
 	"blue": "#4385be",
 	"brightBlack": "#575653",

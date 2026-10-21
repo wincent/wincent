@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Lahabana
+; Scheme system: base16
+; Scheme description: 
+; Scheme author: xscriptor (https://github.com/xscriptor)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-lahabana]
+
+; Default Foreground
+; base05 #f7f1ff
+"Colour0"="247,241,255"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #f7f1ff
+"Colour1"="247,241,255"
+
+; Default Background
+; base00 #19191a
+"Colour2"="25,25,26"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #19191a
+"Colour3"="25,25,26"
+
+; Cursor Text -- equals to default background
+; base00 #19191a
+"Colour4"="25,25,26"
+
+; Cursor Colour -- equals to default foreground
+; base05 #f7f1ff
+"Colour5"="247,241,255"
+
+; ANSI Black
+; 30m
+; base00 #19191a
+"Colour6"="25,25,26"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #76747a
+"Colour7"="118,116,122"
+
+; ANSI Red
+; 31m
+; base08 #fc618d
+"Colour8"="252,97,141"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #fc618d
+"Colour9"="252,97,141"
+
+; ANSI Green
+; 32m
+; base0B #7bd88f
+"Colour10"="123,216,143"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #7bd88f
+"Colour11"="123,216,143"
+
+; ANSI Yellow
+; 33m
+; base0A #e5ff9d
+"Colour12"="229,255,157"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #e5ff9d
+"Colour13"="229,255,157"
+
+; ANSI Blue
+; 34m
+; base0D #fd9353
+"Colour14"="253,147,83"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #fd9353
+"Colour15"="253,147,83"
+
+; ANSI Magenta
+; 35m
+; base0E #948ae3
+"Colour16"="148,138,227"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #948ae3
+"Colour17"="148,138,227"
+
+; ANSI Cyan
+; 36m
+; base0C #5ad4e6
+"Colour18"="90,212,230"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #5ad4e6
+"Colour19"="90,212,230"
+
+; ANSI White
+; 37m
+; base05 #f7f1ff
+"Colour20"="247,241,255"
+
+; ANSI White Bright
+; 1;37m
+; base07 f7f1ff
+"Colour21"="247,241,255"

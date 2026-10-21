@@ -3,6 +3,8 @@
 	"name": "Brewer",
 	"foreground": "#b7b8b9",
 	"background": "#0c0d0e",
+	"cursorColor": "#b7b8b9",
+	"selectionBackground": "#b7b8b9",
 	"black": "#0c0d0e",
 	"blue": "#3182bd",
 	"brightBlack": "#737475",

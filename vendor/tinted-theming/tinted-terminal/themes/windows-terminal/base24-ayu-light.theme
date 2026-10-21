@@ -3,6 +3,8 @@
 	"name": "Ayu Light",
 	"foreground": "#5c6166",
 	"background": "#f8f9fa",
+	"cursorColor": "#5c6166",
+	"selectionBackground": "#5c6166",
 	"black": "#f8f9fa",
 	"blue": "#399ee6",
 	"brightBlack": "#a0a6ac",

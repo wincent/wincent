@@ -3,6 +3,8 @@
 	"name": "Penumbra Light",
 	"foreground": "#636363",
 	"background": "#fffdfb",
+	"cursorColor": "#636363",
+	"selectionBackground": "#636363",
 	"black": "#fffdfb",
 	"blue": "#5794d0",
 	"brightBlack": "#bebebe",

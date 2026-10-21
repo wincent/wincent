@@ -3,6 +3,8 @@
 	"name": "Shaman",
 	"foreground": "#3d5053",
 	"background": "#001014",
+	"cursorColor": "#3d5053",
+	"selectionBackground": "#3d5053",
 	"black": "#001014",
 	"blue": "#449985",
 	"brightBlack": "#394751",

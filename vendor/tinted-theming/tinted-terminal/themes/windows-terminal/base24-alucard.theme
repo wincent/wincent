@@ -3,6 +3,8 @@
 	"name": "Alucard",
 	"foreground": "#1f1f1f",
 	"background": "#fffbeb",
+	"cursorColor": "#1f1f1f",
+	"selectionBackground": "#1f1f1f",
 	"black": "#fffbeb",
 	"blue": "#644ac9",
 	"brightBlack": "#6c664b",

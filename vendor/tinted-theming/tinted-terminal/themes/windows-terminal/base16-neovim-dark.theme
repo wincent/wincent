@@ -3,6 +3,8 @@
 	"name": "Neovim Dark",
 	"foreground": "#e0e2ea",
 	"background": "#14161b",
+	"cursorColor": "#e0e2ea",
+	"selectionBackground": "#e0e2ea",
 	"black": "#14161b",
 	"blue": "#a6dbff",
 	"brightBlack": "#9b9ea4",

@@ -3,6 +3,8 @@
 	"name": "Adventure Time",
 	"foreground": "#cdc3bf",
 	"background": "#1e1c44",
+	"cursorColor": "#cdc3bf",
+	"selectionBackground": "#cdc3bf",
 	"black": "#1e1c44",
 	"blue": "#0f49c6",
 	"brightBlack": "#7893bf",

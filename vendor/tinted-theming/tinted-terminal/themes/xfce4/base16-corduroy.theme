@@ -1,0 +1,10 @@
+# Scheme name: Corduroy
+# Scheme author: taysatte (https://github.com/taysatte)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-corduroy
+ColorForeground=#cdc8d0
+ColorBackground=#1d1920
+ColorCursor=#cdc8d0
+ColorBoldIsBright=FALSE
+ColorPalette=#1d1920;#e06278;#4b8686;#edb392;#d27f91;#c285b2;#e99d90;#cdc8d0;#6f6373;#e06278;#4b8686;#edb392;#d27f91;#c285b2;#e99d90;#504757

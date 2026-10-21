@@ -3,6 +3,8 @@
 	"name": "Nord",
 	"foreground": "#e5e9f0",
 	"background": "#2e3440",
+	"cursorColor": "#e5e9f0",
+	"selectionBackground": "#e5e9f0",
 	"black": "#2e3440",
 	"blue": "#81a1c1",
 	"brightBlack": "#4c566a",

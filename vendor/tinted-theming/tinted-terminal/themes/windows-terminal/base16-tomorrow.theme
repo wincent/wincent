@@ -3,6 +3,8 @@
 	"name": "Tomorrow",
 	"foreground": "#373b41",
 	"background": "#ffffff",
+	"cursorColor": "#373b41",
+	"selectionBackground": "#373b41",
 	"black": "#ffffff",
 	"blue": "#4271ae",
 	"brightBlack": "#b4b7b4",

@@ -3,6 +3,8 @@
 	"name": "CLRS",
 	"foreground": "#9a9b9a",
 	"background": "#ffffff",
+	"cursorColor": "#9a9b9a",
+	"selectionBackground": "#9a9b9a",
 	"black": "#ffffff",
 	"blue": "#125ccf",
 	"brightBlack": "#6b6d6a",

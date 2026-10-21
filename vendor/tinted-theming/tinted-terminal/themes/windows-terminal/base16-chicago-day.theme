@@ -3,6 +3,8 @@
 	"name": "Chicago Day",
 	"foreground": "#364c40",
 	"background": "#e8f0ea",
+	"cursorColor": "#364c40",
+	"selectionBackground": "#364c40",
 	"black": "#e8f0ea",
 	"blue": "#522398",
 	"brightBlack": "#8a9a91",

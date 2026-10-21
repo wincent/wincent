@@ -3,6 +3,8 @@
 	"name": "Challenger Deep",
 	"foreground": "#929bb6",
 	"background": "#1e1c31",
+	"cursorColor": "#929bb6",
+	"selectionBackground": "#929bb6",
 	"black": "#1e1c31",
 	"blue": "#65b2ff",
 	"brightBlack": "#6a6c8a",

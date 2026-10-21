@@ -3,6 +3,8 @@
 	"name": "Unikitty Reversible",
 	"foreground": "#c3c2c4",
 	"background": "#2e2a31",
+	"cursorColor": "#c3c2c4",
+	"selectionBackground": "#c3c2c4",
 	"black": "#2e2a31",
 	"blue": "#7864fa",
 	"brightBlack": "#878589",

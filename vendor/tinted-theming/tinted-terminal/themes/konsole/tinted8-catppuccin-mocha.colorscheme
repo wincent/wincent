@@ -2,10 +2,10 @@
 Color=30,30,46
 
 [BackgroundFaint]
-Color=,,
+Color=24,24,37
 
 [BackgroundIntense]
-Color=,,
+Color=53,53,84
 
 [Color0]
 Color=30,30,46
@@ -83,10 +83,10 @@ Color=255,255,255
 Color=205,214,244
 
 [ForegroundFaint]
-Color=,,
+Color=151,171,237
 
 [ForegroundIntense]
-Color=,,
+Color=255,255,255
 
 [General]
 Description=Catppuccin Mocha

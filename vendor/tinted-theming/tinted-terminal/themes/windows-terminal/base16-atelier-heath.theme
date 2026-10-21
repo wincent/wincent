@@ -3,6 +3,8 @@
 	"name": "Atelier Heath",
 	"foreground": "#ab9bab",
 	"background": "#1b181b",
+	"cursorColor": "#ab9bab",
+	"selectionBackground": "#ab9bab",
 	"black": "#1b181b",
 	"blue": "#516aec",
 	"brightBlack": "#776977",

@@ -3,6 +3,8 @@
 	"name": "Space Gray Eighties",
 	"foreground": "#c7c6c2",
 	"background": "#212121",
+	"cursorColor": "#c7c6c2",
+	"selectionBackground": "#c7c6c2",
 	"black": "#212121",
 	"blue": "#5485c0",
 	"brightBlack": "#7b7a79",

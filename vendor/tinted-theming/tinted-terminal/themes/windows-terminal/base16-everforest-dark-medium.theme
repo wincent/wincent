@@ -3,6 +3,8 @@
 	"name": "Everforest Dark Medium",
 	"foreground": "#859289",
 	"background": "#2d353b",
+	"cursorColor": "#859289",
+	"selectionBackground": "#859289",
 	"black": "#2d353b",
 	"blue": "#7fbbb3",
 	"brightBlack": "#475258",

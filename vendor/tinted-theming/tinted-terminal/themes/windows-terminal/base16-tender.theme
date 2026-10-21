@@ -3,6 +3,8 @@
 	"name": "tender",
 	"foreground": "#eeeeee",
 	"background": "#282828",
+	"cursorColor": "#eeeeee",
+	"selectionBackground": "#eeeeee",
 	"black": "#282828",
 	"blue": "#b3deef",
 	"brightBlack": "#4c4c4c",

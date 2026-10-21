@@ -1,5 +1,12 @@
 ---@meta
 
+---Nix installables that will be used for root translation unit.
+---@class _.lspconfig.settings.nixd.defs.Target
+---Accept args as "nix eval"
+---@field args? string[]
+---"nix eval"
+---@field installable? string
+
 ---The evaluation section, provide auto completion for dynamic bindings.
 ---@class _.lspconfig.settings.nixd.Nixd.Eval
 ---Extra depth for evaluation
@@ -8,7 +15,7 @@
 ---default = 0
 ---```
 ---@field depth? integer
----@field target? any
+---@field target? _.lspconfig.settings.nixd.defs.Target
 ---The number of workers for evaluation task. defaults to std::thread::hardware_concurrency
 ---@field workers? integer
 
@@ -20,7 +27,7 @@
 ---default = "false"
 ---```
 ---@field enable? boolean
----@field target? any
+---@field target? _.lspconfig.settings.nixd.defs.Target
 
 ---@class _.lspconfig.settings.nixd.Nixd
 ---The evaluation section, provide auto completion for dynamic bindings.

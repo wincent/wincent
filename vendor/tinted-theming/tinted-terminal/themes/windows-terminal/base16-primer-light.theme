@@ -3,6 +3,8 @@
 	"name": "Primer Light",
 	"foreground": "#2f363d",
 	"background": "#fafbfc",
+	"cursorColor": "#2f363d",
+	"selectionBackground": "#2f363d",
 	"black": "#fafbfc",
 	"blue": "#0366d6",
 	"brightBlack": "#959da5",

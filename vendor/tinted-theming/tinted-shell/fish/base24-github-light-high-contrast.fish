@@ -5,28 +5,28 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 
 set -l color00 "ff/ff/ff" # Base 00 - Black
-set -l color01 "70/2c/00" # Base 08 - Red
-set -l color02 "03/25/63" # Base 0B - Green
-set -l color03 "95/64/00" # Base 0A - Yellow
-set -l color04 "62/2c/bc" # Base 0D - Blue
-set -l color05 "a0/11/1f" # Base 0E - Magenta
-set -l color06 "02/4c/1a" # Base 0C - Cyan
-set -l color07 "34/3b/43" # Base 05 - White
-set -l color08 "88/92/9d" # Base 03 - Bright Black
-set -l color09 "ee/5a/5d" # Base 12 - Bright Red
-set -l color10 "26/a1/48" # Base 14 - Bright Green
-set -l color11 "b5/84/07" # Base 13 - Bright Yellow
-set -l color12 "36/8c/f9" # Base 16 - Bright Blue
-set -l color13 "a3/71/f7" # Base 17 - Bright Magenta
-set -l color14 "49/bc/b7" # Base 15 - Bright Cyan
-set -l color15 "0e/11/16" # Base 07 - Bright White
-set -l color16 "02/3b/95" # Base 09
-set -l color17 "6e/01/1a" # Base 0F
-set -l color18 "e7/ec/f0" # Base 01
-set -l color19 "ac/b6/c0" # Base 02
-set -l color20 "66/70/7b" # Base 04
-set -l color21 "20/25/2c" # Base 06
-set -l color_foreground "34/3b/43" # Base 05
+set -l color01 "a0/11/1f" # Base 08 - Red
+set -l color02 "02/4c/1a" # Base 0B - Green
+set -l color03 "60/37/00" # Base 0A - Yellow
+set -l color04 "03/49/b4" # Base 0D - Blue
+set -l color05 "62/2c/bc" # Base 0E - Magenta
+set -l color06 "1b/7c/83" # Base 0C - Cyan
+set -l color07 "45/4c/54" # Base 05 - White
+set -l color08 "81/8b/98" # Base 03 - Bright Black
+set -l color09 "86/06/1d" # Base 12 - Bright Red
+set -l color10 "05/5d/20" # Base 14 - Bright Green
+set -l color11 "4e/2c/00" # Base 13 - Bright Yellow
+set -l color12 "11/68/e3" # Base 16 - Bright Blue
+set -l color13 "84/4a/e7" # Base 17 - Bright Magenta
+set -l color14 "31/92/aa" # Base 15 - Bright Cyan
+set -l color15 "01/04/09" # Base 07 - Bright White
+set -l color16 "70/2c/00" # Base 09
+set -l color17 "86/06/1d" # Base 0F
+set -l color18 "f6/f8/fa" # Base 01
+set -l color19 "d1/d9/e0" # Base 02
+set -l color20 "59/63/6e" # Base 04
+set -l color21 "25/29/2e" # Base 06
+set -l color_foreground "45/4c/54" # Base 05
 set -l color_background "ff/ff/ff" # Base 00
 
 if test -z "$TTY"
@@ -85,12 +85,12 @@ put_template 21 $color21
 
 # foreground / background / cursor color
 if test -n "$ITERM_SESSION_ID"
-  put_template_custom Pg 343b43 # foreground
+  put_template_custom Pg 454c54 # foreground
   put_template_custom Ph ffffff # background
-  put_template_custom Pi 343b43 # bold color
-  put_template_custom Pj acb6c0 # selection color
-  put_template_custom Pk 343b43 # selected text color
-  put_template_custom Pl 343b43 # cursor
+  put_template_custom Pi 454c54 # bold color
+  put_template_custom Pj d1d9e0 # selection color
+  put_template_custom Pk 454c54 # selected text color
+  put_template_custom Pl 454c54 # cursor
   put_template_custom Pm ffffff # cursor text
 else
   put_template_var 10 $color_foreground
@@ -113,11 +113,11 @@ set -U fish_color_error brred
 set -U fish_color_param brcyan
 set -U fish_color_valid_path --underline
 set -U fish_color_option brcyan --italics
-set -U fish_color_comment 88929d
-set -U fish_color_selection 20252c --background=acb6c0
+set -U fish_color_comment 818b98
+set -U fish_color_selection 25292e --background=d1d9e0
 set -U fish_color_operator magenta
-set -U fish_color_escape 023b95
-set -U fish_color_autosuggestion 88929d
+set -U fish_color_escape 702c00
+set -U fish_color_autosuggestion 818b98
 set -U fish_color_cwd green
 set -U fish_color_cwd_root red
 set -U fish_color_user brgreen
@@ -125,17 +125,17 @@ set -U fish_color_host normal
 set -U fish_color_host_remote normal
 set -U fish_color_status red
 set -U fish_color_cancel -r
-set -U fish_color_search_match yellow --background=acb6c0
+set -U fish_color_search_match yellow --background=d1d9e0
 set -U fish_color_history_current --underline=curly
-set -U fish_pager_color_progress e7ecf0 --background=66707b
+set -U fish_pager_color_progress f6f8fa --background=59636e
 set -U fish_pager_color_background --background=ffffff
 set -U fish_pager_color_prefix --bold --italics
 set -U fish_pager_color_completion normal
-set -U fish_pager_color_description 023b95
-set -U fish_pager_color_selected_background --background=acb6c0
-set -U fish_pager_color_selected_prefix --bold --italics --background=acb6c0
+set -U fish_pager_color_description 702c00
+set -U fish_pager_color_selected_background --background=d1d9e0
+set -U fish_pager_color_selected_prefix --bold --italics --background=d1d9e0
 set -U fish_pager_color_selected_completion normal
-set -U fish_pager_color_description 023b95
+set -U fish_pager_color_description 702c00
 
 # clean up
 set -e color00
@@ -175,19 +175,19 @@ set -Ux BASE24_THEME github-light-high-contrast
 # Optionally export variables
 if test -n "$TINTED_SHELL_ENABLE_BASE24_VARS"; or test -n "$BASE24_SHELL_ENABLE_VARS"
   set -gx BASE24_COLOR_00_HEX "ffffff"
-  set -gx BASE24_COLOR_01_HEX "e7ecf0"
-  set -gx BASE24_COLOR_02_HEX "acb6c0"
-  set -gx BASE24_COLOR_03_HEX "88929d"
-  set -gx BASE24_COLOR_04_HEX "66707b"
-  set -gx BASE24_COLOR_05_HEX "343b43"
-  set -gx BASE24_COLOR_06_HEX "20252c"
-  set -gx BASE24_COLOR_07_HEX "0e1116"
-  set -gx BASE24_COLOR_08_HEX "702c00"
-  set -gx BASE24_COLOR_09_HEX "023b95"
-  set -gx BASE24_COLOR_0A_HEX "956400"
-  set -gx BASE24_COLOR_0B_HEX "032563"
-  set -gx BASE24_COLOR_0C_HEX "024c1a"
-  set -gx BASE24_COLOR_0D_HEX "622cbc"
-  set -gx BASE24_COLOR_0E_HEX "a0111f"
-  set -gx BASE24_COLOR_0F_HEX "6e011a"
+  set -gx BASE24_COLOR_01_HEX "f6f8fa"
+  set -gx BASE24_COLOR_02_HEX "d1d9e0"
+  set -gx BASE24_COLOR_03_HEX "818b98"
+  set -gx BASE24_COLOR_04_HEX "59636e"
+  set -gx BASE24_COLOR_05_HEX "454c54"
+  set -gx BASE24_COLOR_06_HEX "25292e"
+  set -gx BASE24_COLOR_07_HEX "010409"
+  set -gx BASE24_COLOR_08_HEX "a0111f"
+  set -gx BASE24_COLOR_09_HEX "702c00"
+  set -gx BASE24_COLOR_0A_HEX "603700"
+  set -gx BASE24_COLOR_0B_HEX "024c1a"
+  set -gx BASE24_COLOR_0C_HEX "1b7c83"
+  set -gx BASE24_COLOR_0D_HEX "0349b4"
+  set -gx BASE24_COLOR_0E_HEX "622cbc"
+  set -gx BASE24_COLOR_0F_HEX "86061d"
 end

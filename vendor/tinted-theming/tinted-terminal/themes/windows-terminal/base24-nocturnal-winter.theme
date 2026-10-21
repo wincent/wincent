@@ -3,6 +3,8 @@
 	"name": "Nocturnal Winter",
 	"foreground": "#dcdcdc",
 	"background": "#0d0d17",
+	"cursorColor": "#dcdcdc",
+	"selectionBackground": "#dcdcdc",
 	"black": "#0d0d17",
 	"blue": "#3081df",
 	"brightBlack": "#9e9e9e",

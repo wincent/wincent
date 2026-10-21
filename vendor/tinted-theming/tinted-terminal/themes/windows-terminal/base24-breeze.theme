@@ -3,6 +3,8 @@
 	"name": "Breeze",
 	"foreground": "#d3d7d8",
 	"background": "#31363b",
+	"cursorColor": "#d3d7d8",
+	"selectionBackground": "#d3d7d8",
 	"black": "#31363b",
 	"blue": "#1d99f3",
 	"brightBlack": "#9ba5a6",

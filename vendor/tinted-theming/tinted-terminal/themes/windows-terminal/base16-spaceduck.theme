@@ -3,6 +3,8 @@
 	"name": "Spaceduck",
 	"foreground": "#ecf0c1",
 	"background": "#16172d",
+	"cursorColor": "#ecf0c1",
+	"selectionBackground": "#ecf0c1",
 	"black": "#16172d",
 	"blue": "#7a5ccc",
 	"brightBlack": "#686f9a",

@@ -3,6 +3,8 @@
 	"name": "Ocean",
 	"foreground": "#c0c5ce",
 	"background": "#2b303b",
+	"cursorColor": "#c0c5ce",
+	"selectionBackground": "#c0c5ce",
 	"black": "#2b303b",
 	"blue": "#8fa1b3",
 	"brightBlack": "#65737e",

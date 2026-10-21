@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Miami by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#f7f1ff' # base05
+selection-foreground = '#1e1d1f' # base02
+
+cursor         = '#f7f1ff' # base05
+tabs           = '#111112' # base01
+tabs-active    = '#1e1d1f' # base02
+
+background     = '#000000' # base00
+foreground     = '#f7f1ff' # base05
+black          = '#000000' # base00
+red            = '#ff4c8b' # base08
+yellow         = '#ffd84c' # base0A
+green          = '#7fffd4' # base0B
+cyan           = '#47cfff' # base0C
+blue           = '#00ffa8' # base0D
+magenta        = '#d36cff' # base0E
+white          = '#f7f1ff' # base05
+
+dim-foreground   = '#f7f1ff' # base05
+dim-black        = '#111112' # base01
+dim-red          = '#ff4c8b' # base08
+dim-yellow       = '#ffd84c' # base0A
+dim-green        = '#7fffd4' # base0B
+dim-cyan         = '#47cfff' # base0C
+dim-blue         = '#00ffa8' # base0D
+dim-magenta      = '#d36cff' # base0E
+dim-white        = '#88858c' # base04
+
+light-foreground = '#f7f1ff' # base05
+light-black      = '#69676c' # base03
+light-red        = '#ff4c8b' # base12
+light-yellow     = '#ffd84c' # base13
+light-green      = '#7fffd4' # base14
+light-cyan       = '#47cfff' # base15
+light-blue       = '#00ffa8' # base16
+light-magenta    = '#d36cff' # base17
+light-white      = '#f7f1ff' # base07

@@ -8,9 +8,9 @@
 -- Determinism without relying on timing:
 --   - Tier 1 waits for `commandt_scanner_done()` before asserting, so results
 --     are compared only against the complete candidate set.
---   - Tier 2 drives production through a FIFO and polls `scanner.count` until it
---     reaches a known value before asserting, so the producer can never race
---     ahead of what the test has fed it.
+--   - Tier 2 drives production through a FIFO and acquire-loads the published
+--     count until it reaches a known value before asserting, so the producer
+--     can never race ahead of what the test has fed it.
 
 local ffi = require('ffi')
 
@@ -82,6 +82,13 @@ describe('scanner_new_exec_async', function()
     return retain(matcher_new(scanner, options or {}))
   end
 
+  it('snapshots empty and populated eager scanners', function()
+    for _, paths in ipairs({ {}, { 'alpha', 'beta' } }) do
+      local scanner = retain(scanner_new_copy(paths))
+      expect(c.commandt_scanner_count_snapshot(scanner)).to_be(#paths)
+    end
+  end)
+
   it('produces the same results as a synchronous scanner', function()
     local paths = { 'foo/bar', 'foo/baz', 'bing', 'foo/qux' }
     local async = async_matcher(nul_command(paths))
@@ -93,7 +100,7 @@ describe('scanner_new_exec_async', function()
 
   it('handles a command that produces no output', function()
     local matcher, scanner = async_matcher('true')
-    expect(tonumber(scanner.count)).to_be(0)
+    expect(c.commandt_scanner_count_snapshot(scanner)).to_be(0)
     expect(match_all(matcher, '')).to_equal({})
     expect(match_all(matcher, 'x')).to_equal({})
   end)
@@ -104,7 +111,7 @@ describe('scanner_new_exec_async', function()
       paths[i] = 'file' .. i
     end
     local _, scanner = async_matcher(nul_command(paths), 0, 5)
-    expect(tonumber(scanner.count)).to_be(5)
+    expect(c.commandt_scanner_count_snapshot(scanner)).to_be(5)
   end)
 
   it('drops the requested prefix', function()
@@ -118,6 +125,7 @@ describe('scanner_new_exec_async', function()
     c.commandt_scanner_stop(scanner)
     c.commandt_scanner_stop(scanner) -- Idempotent.
     expect(not not c.commandt_scanner_done(scanner)).to_be(true)
+    expect(c.commandt_scanner_count_snapshot(scanner)).to_be(2)
     -- Matching reads the slab, not the pipe, so it still works after stop.
     -- ("apple" outscores "banana" for "a": its match is at the start.)
     expect(match_all(matcher, 'a')).to_equal({ 'apple', 'banana' })
@@ -134,7 +142,7 @@ describe('scanner_new_exec_async', function()
     os.execute('sleep 0.2') -- Let it stream.
 
     -- Stop first, so even if an assertion below fails the firehose is gone.
-    local produced = tonumber(scanner.count)
+    local produced = c.commandt_scanner_count_snapshot(scanner)
     local start = now()
     c.commandt_scanner_stop(scanner)
     local elapsed = now() - start
@@ -142,6 +150,76 @@ describe('scanner_new_exec_async', function()
     expect(produced > 0).to_be(true)
     expect(elapsed < 1).to_be(true)
     expect(not not c.commandt_scanner_done(scanner)).to_be(true)
+  end)
+
+  context('when waiting for completion', function()
+    it('drains delayed and split tokens before returning, and tolerates repeated cleanup', function()
+      local scanner = retain(scanner_new_exec_async("printf './al'; sleep 0.02; printf 'pha\\0./beta\\0'", 2, 0))
+      c.commandt_scanner_wait(scanner)
+      expect(not not c.commandt_scanner_done(scanner)).to_be(true)
+      expect(tonumber(scanner.count)).to_be(2)
+
+      c.commandt_scanner_wait(scanner)
+      c.commandt_scanner_stop(scanner)
+      c.commandt_scanner_wait(scanner)
+      local matcher = retain(matcher_new(scanner, {}))
+      expect(match_all(matcher, '')).to_equal({ 'alpha', 'beta' })
+    end)
+
+    it('handles an empty command result', function()
+      local scanner = retain(scanner_new_exec_async('true', 0, 0))
+      c.commandt_scanner_wait(scanner)
+      expect(not not c.commandt_scanner_done(scanner)).to_be(true)
+      expect(tonumber(scanner.count)).to_be(0)
+    end)
+
+    it('finishes at max_files even if the command would otherwise run forever', function()
+      local scanner = retain(scanner_new_exec_async("while :; do printf './alpha\\0'; done", 2, 3))
+      c.commandt_scanner_wait(scanner)
+      expect(not not c.commandt_scanner_done(scanner)).to_be(true)
+      expect(tonumber(scanner.count)).to_be(3)
+      local matcher = retain(matcher_new(scanner, {}))
+      expect(match_all(matcher, '')).to_equal({ 'alpha', 'alpha', 'alpha' })
+    end)
+
+    it('cleans up the command after stdout closes, without waiting for its remaining work', function()
+      local scanner = retain(scanner_new_exec_async("printf 'alpha\\0'; exec 1>&-; sleep 5", 0, 0))
+      local start = now()
+      c.commandt_scanner_wait(scanner)
+      local elapsed = now() - start
+      expect(elapsed < 2).to_be(true)
+      expect(not not c.commandt_scanner_done(scanner)).to_be(true)
+      local matcher = retain(matcher_new(scanner, {}))
+      expect(match_all(matcher, '')).to_equal({ 'alpha' })
+    end)
+
+    it('is a no-op for eager scanners', function()
+      for _, paths in ipairs({ {}, { 'alpha' } }) do
+        local scanner = retain(scanner_new_copy(paths))
+        c.commandt_scanner_wait(scanner)
+        c.commandt_scanner_wait(scanner)
+        local matcher = retain(matcher_new(scanner, {}))
+        expect(match_all(matcher, '')).to_equal(paths)
+      end
+    end)
+
+    it('lets the benchmark adapter return a complete async scan', function()
+      local exec = require('wincent.commandt.private.scanners.exec')
+      local scanner = retain(exec.scanner("sleep 0.02; printf './alpha\\0./beta\\0'", 2, 1))
+      expect(not not c.commandt_scanner_done(scanner)).to_be(true)
+      expect(tonumber(scanner.count)).to_be(1)
+      local matcher = retain(matcher_new(scanner, {}))
+      expect(match_all(matcher, '')).to_equal({ 'alpha' })
+    end)
+
+    it('keeps the blocking constructor available as a compatibility wrapper', function()
+      local scanner_new_exec = require('wincent.commandt.private.lib.scanner_new_exec')
+      local scanner = retain(scanner_new_exec("printf './alpha\\0./beta\\0'", 2, 1))
+      expect(not not c.commandt_scanner_done(scanner)).to_be(true)
+      expect(tonumber(scanner.count)).to_be(1)
+      local matcher = retain(matcher_new(scanner, {}))
+      expect(match_all(matcher, '')).to_equal({ 'alpha' })
+    end)
   end)
 
   context('while streaming (candidate count growing between runs)', function()
@@ -159,6 +237,8 @@ describe('scanner_new_exec_async', function()
       local writer = assert(io.open(fifo, 'r+'))
       local matcher = retain(matcher_new(scanner, {}))
 
+      expect(c.commandt_scanner_count_snapshot(scanner)).to_be(0)
+
       local produced = {}
       local function feed(tokens)
         for _, token in ipairs(tokens) do
@@ -169,7 +249,7 @@ describe('scanner_new_exec_async', function()
         writer:flush()
         local target = #produced
         wait_until(function()
-          return tonumber(scanner.count) >= target
+          return c.commandt_scanner_count_snapshot(scanner) >= target
         end, 'count did not reach ' .. target)
       end
 
@@ -181,11 +261,11 @@ describe('scanner_new_exec_async', function()
       end
 
       feed({ 'alpha', 'beta', 'gamma' })
-      expect(tonumber(scanner.count)).to_be(3)
+      expect(c.commandt_scanner_count_snapshot(scanner)).to_be(3)
       expect_matches_synchronous({ '', 'a', 'e', 'x' })
 
       feed({ 'delta', 'alef', 'echo' })
-      expect(tonumber(scanner.count)).to_be(6)
+      expect(c.commandt_scanner_count_snapshot(scanner)).to_be(6)
       expect_matches_synchronous({ '', 'a', 'e', 'l', 'x' })
 
       writer:close() -- EOF: `cat` exits and the producer finishes.
@@ -193,6 +273,141 @@ describe('scanner_new_exec_async', function()
       expect_matches_synchronous({ '', 'a', 'e', 'l', 'd', 'x' })
 
       os.remove(fifo)
+    end)
+  end)
+
+  context('when streaming crosses the 1,000-candidate worker threshold', function()
+    local fifo
+    local writer
+    local scanner
+
+    after(function()
+      -- Clean up even if a comparison fails while the producer is waiting for
+      -- more input. Closing the writer alone is not a substitute for stop().
+      if writer then
+        writer:close()
+        writer = nil
+      end
+      if scanner then
+        c.commandt_scanner_stop(scanner)
+        scanner = nil
+      end
+      if fifo then
+        os.remove(fifo)
+        fifo = nil
+      end
+    end)
+
+    it('matches fresh snapshots before, at, and after the threshold with one and four threads', function()
+      fifo = os.tmpname()
+      os.remove(fifo)
+      local status = os.execute('mkfifo ' .. fifo)
+      if status ~= 0 and status ~= true then
+        error('mkfifo failed')
+      end
+
+      scanner = retain(scanner_new_exec_async('cat ' .. fifo, 0, 2048))
+      writer = assert(io.open(fifo, 'r+'))
+      local single = retain(matcher_new(scanner, { height = 3, threads = 1 }))
+      local pooled = retain(matcher_new(scanner, { height = 3, threads = 4 }))
+      local paths = {}
+
+      -- This helper only feeds the pipe and waits for publication. All query
+      -- sequences and comparisons are spelled out at each snapshot below.
+      local function feed(tokens)
+        for _, token in ipairs(tokens) do
+          writer:write(token, '\0')
+          paths[#paths + 1] = token
+        end
+        writer:flush()
+        wait_until(function()
+          return c.commandt_scanner_count_snapshot(scanner) == #paths
+        end, 'streaming snapshot did not reach ' .. #paths)
+      end
+
+      expect(match_all(single, 'ab')).to_equal({})
+      expect(match_all(pooled, 'ab')).to_equal({})
+
+      local first_batch = {}
+      for i = 1, 999 do
+        first_batch[i] = string.format('filler-%04d', i)
+      end
+      first_batch[1] = 'z.ab'
+      first_batch[65] = 'y.ab'
+      first_batch[129] = 'x.ab'
+      first_batch[193] = 'w.ab'
+      first_batch[998] = 'a/b'
+      first_batch[999] = 'a_b'
+      feed(first_batch)
+      expect(c.commandt_scanner_count_snapshot(scanner)).to_be(999)
+
+      -- Both matchers still run entirely on the calling thread. Populate cached
+      -- zeros, then replace the query and extend it before activating the pool.
+      expect(match_all(single, '!')).to_equal({})
+      expect(match_all(pooled, '!')).to_equal({})
+      expect(match_all(pooled, 'a')).to_equal(match_all(single, 'a'))
+      local fresh_999 = copy_matcher(paths, { height = 3, threads = 1 })
+      local expected_999 = match_all(fresh_999, 'ab')
+      expect(match_all(single, 'ab')).to_equal(expected_999)
+      expect(match_all(pooled, 'ab')).to_equal(expected_999)
+
+      -- Candidate 1,000 activates the pool and is a new best match. Repeating
+      -- the query must include it despite all the earlier cached state.
+      feed({ 'ab' })
+      expect(c.commandt_scanner_count_snapshot(scanner)).to_be(1000)
+      local fresh_1000 = copy_matcher(paths, { height = 3, threads = 1 })
+      local expected_1000 = match_all(fresh_1000, 'ab')
+      expect(expected_1000[1]).to_be('ab')
+      expect(match_all(single, 'ab')).to_equal(expected_1000)
+      expect(match_all(pooled, 'ab')).to_equal(expected_1000)
+
+      -- The only match for the extended query is a newly published candidate.
+      feed({ 'abc' })
+      expect(c.commandt_scanner_count_snapshot(scanner)).to_be(1001)
+      local fresh_1001 = copy_matcher(paths, { height = 3, threads = 1 })
+      expect(match_all(fresh_1001, 'abc')).to_equal({ 'abc' })
+      expect(match_all(single, 'abc')).to_equal({ 'abc' })
+      expect(match_all(pooled, 'abc')).to_equal({ 'abc' })
+
+      -- A replacement dot query uses alphabetical rather than score ordering.
+      local fresh_dot = copy_matcher(paths, { height = 3, threads = 1 })
+      local expected_dot = match_all(fresh_dot, '.')
+      expect(match_all(single, '.')).to_equal(expected_dot)
+      expect(match_all(pooled, '.')).to_equal(expected_dot)
+
+      -- Cross another stripe boundary and switch smart-case mode. Position
+      -- 1,089 belongs to a background worker, not the calling thread.
+      local last_batch = {}
+      for i = 1002, 1088 do
+        last_batch[#last_batch + 1] = string.format('filler-%04d', i)
+      end
+      last_batch[24] = '.ac' -- Position 1,025, in a background worker's stripe.
+      last_batch[#last_batch + 1] = 'aB'
+      feed(last_batch)
+      expect(c.commandt_scanner_count_snapshot(scanner)).to_be(1089)
+
+      -- The repeated dot query mixes warmed candidates with an unscored tail.
+      -- The new hidden candidate must initialize its mask and win a result slot;
+      -- extending the query must then find its c instead of trusting stale state.
+      expect(match_all(single, '.')).to_equal({ '.ac', 'w.ab', 'x.ab' })
+      expect(match_all(pooled, '.')).to_equal({ '.ac', 'w.ab', 'x.ab' })
+      expect(match_all(single, '.')).to_equal({ '.ac', 'w.ab', 'x.ab' })
+      expect(match_all(pooled, '.')).to_equal({ '.ac', 'w.ab', 'x.ab' })
+      expect(match_all(single, '.c')).to_equal({ '.ac' })
+      expect(match_all(pooled, '.c')).to_equal({ '.ac' })
+
+      local fresh_1089 = copy_matcher(paths, { height = 3, threads = 1 })
+      expect(match_all(fresh_1089, 'aB')).to_equal({ 'aB' })
+      expect(match_all(single, 'aB')).to_equal({ 'aB' })
+      expect(match_all(pooled, 'aB')).to_equal({ 'aB' })
+
+      writer:close()
+      writer = nil
+      wait_until_done(scanner)
+      local completed = copy_matcher(paths, { height = 3, threads = 1 })
+      local expected_completed = match_all(completed, 'ab')
+      expect(match_all(single, 'ab')).to_equal(expected_completed)
+      expect(match_all(pooled, 'ab')).to_equal(expected_completed)
     end)
   end)
 end)

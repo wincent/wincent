@@ -2,40 +2,40 @@
 # Color scheme: Github Light Colorblind by Tinted Theming (https://github.com/tinted-theming)
 
 [colors]
-selection-background = '#424a53' # base05
-selection-foreground = '#afb8c1' # base02
+selection-background = '#454c54' # base05
+selection-foreground = '#d1d9e0' # base02
 
-cursor         = '#424a53' # base05
+cursor         = '#454c54' # base05
 tabs           = '#f6f8fa' # base01
-tabs-active    = '#afb8c1' # base02
+tabs-active    = '#d1d9e0' # base02
 
 background     = '#ffffff' # base00
-foreground     = '#424a53' # base05
+foreground     = '#454c54' # base05
 black          = '#ffffff' # base00
-red            = '#8a4600' # base08
-yellow         = '#bf8700' # base0A
-green          = '#0a3069' # base0B
-cyan           = '#0550ae' # base0C
-blue           = '#8250df' # base0D
-magenta        = '#b35900' # base0E
-white          = '#424a53' # base05
+red            = '#bc4c00' # base08
+yellow         = '#9a6700' # base0A
+green          = '#0550ae' # base0B
+cyan           = '#1b7c83' # base0C
+blue           = '#0969da' # base0D
+magenta        = '#8250df' # base0E
+white          = '#454c54' # base05
 
-dim-foreground   = '#424a53' # base05
+dim-foreground   = '#454c54' # base05
 dim-black        = '#f6f8fa' # base01
-dim-red          = '#8a4600' # base08
-dim-yellow       = '#bf8700' # base0A
-dim-green        = '#0a3069' # base0B
-dim-cyan         = '#0550ae' # base0C
-dim-blue         = '#8250df' # base0D
-dim-magenta      = '#b35900' # base0E
-dim-white        = '#6e7781' # base04
+dim-red          = '#bc4c00' # base08
+dim-yellow       = '#9a6700' # base0A
+dim-green        = '#0550ae' # base0B
+dim-cyan         = '#1b7c83' # base0C
+dim-blue         = '#0969da' # base0D
+dim-magenta      = '#8250df' # base0E
+dim-white        = '#59636e' # base04
 
-light-foreground = '#424a53' # base05
-light-black      = '#8c959f' # base03
-light-red        = '#f79939' # base12
-light-yellow     = '#d4a72c' # base13
-light-green      = '#54aeff' # base14
-light-cyan       = '#49bcb7' # base15
-light-blue       = '#54aeff' # base16
-light-magenta    = '#c297ff' # base17
-light-white      = '#24292f' # base07
+light-foreground = '#454c54' # base05
+light-black      = '#818b98' # base03
+light-red        = '#953800' # base12
+light-yellow     = '#633c01' # base13
+light-green      = '#0969da' # base14
+light-cyan       = '#3192aa' # base15
+light-blue       = '#218bff' # base16
+light-magenta    = '#a475f9' # base17
+light-white      = '#1f2328' # base07

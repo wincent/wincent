@@ -1,0 +1,27 @@
+# Berlin theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #999999
+Green       = #bbbbbb
+Yellow      = #dddddd
+Blue        = #888888
+Magenta     = #aaaaaa
+Cyan        = #cccccc
+White       = #cccccc
+BoldBlack   = #333333
+BoldRed     = #999999
+BoldGreen   = #bbbbbb
+BoldYellow  = #dddddd
+BoldBlue    = #888888
+BoldMagenta = #aaaaaa
+BoldCyan    = #cccccc
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #cccccc
+CursorColour     = #cccccc

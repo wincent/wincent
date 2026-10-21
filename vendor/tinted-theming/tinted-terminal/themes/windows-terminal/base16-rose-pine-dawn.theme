@@ -3,6 +3,8 @@
 	"name": "Rosé Pine Dawn",
 	"foreground": "#575279",
 	"background": "#faf4ed",
+	"cursorColor": "#575279",
+	"selectionBackground": "#575279",
 	"black": "#faf4ed",
 	"blue": "#907aa9",
 	"brightBlack": "#9893a5",

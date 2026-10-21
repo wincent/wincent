@@ -3,6 +3,8 @@
 	"name": "Atlas",
 	"foreground": "#a1a19a",
 	"background": "#002635",
+	"cursorColor": "#a1a19a",
+	"selectionBackground": "#a1a19a",
 	"black": "#002635",
 	"blue": "#14747e",
 	"brightBlack": "#6c8b91",

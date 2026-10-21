@@ -5,23 +5,23 @@
 
 # The 16 color palette
 Black       = #ffffff
-Red         = #702c00
-Green       = #032563
-Yellow      = #956400
-Blue        = #622cbc
-Magenta     = #a0111f
-Cyan        = #024c1a
-White       = #343b43
-BoldBlack   = #88929d
-BoldRed     = #702c00
-BoldGreen   = #032563
-BoldYellow  = #956400
-BoldBlue    = #622cbc
-BoldMagenta = #a0111f
-BoldCyan    = #024c1a
-BoldWhite   = #0e1116
+Red         = #a0111f
+Green       = #024c1a
+Yellow      = #603700
+Blue        = #0349b4
+Magenta     = #622cbc
+Cyan        = #1b7c83
+White       = #454c54
+BoldBlack   = #818b98
+BoldRed     = #a0111f
+BoldGreen   = #024c1a
+BoldYellow  = #603700
+BoldBlue    = #0349b4
+BoldMagenta = #622cbc
+BoldCyan    = #1b7c83
+BoldWhite   = #010409
 
 # Background & foreground colors
 BackgroundColour = #ffffff
-ForegroundColour = #343b43
-CursorColour     = #343b43
+ForegroundColour = #454c54
+CursorColour     = #454c54

@@ -3,6 +3,8 @@
 	"name": "Silk Dark",
 	"foreground": "#c7dbdd",
 	"background": "#0e3c46",
+	"cursorColor": "#c7dbdd",
+	"selectionBackground": "#c7dbdd",
 	"black": "#0e3c46",
 	"blue": "#46bddd",
 	"brightBlack": "#587073",

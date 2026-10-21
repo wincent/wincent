@@ -3,6 +3,8 @@
 	"name": "darkmoss",
 	"foreground": "#c7c7a5",
 	"background": "#171e1f",
+	"cursorColor": "#c7c7a5",
+	"selectionBackground": "#c7c7a5",
 	"black": "#171e1f",
 	"blue": "#498091",
 	"brightBlack": "#555e5f",

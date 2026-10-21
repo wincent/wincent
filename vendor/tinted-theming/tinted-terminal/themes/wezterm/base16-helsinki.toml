@@ -1,0 +1,43 @@
+# base16 Helsinki
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f8fafe"
+foreground = "#544d40"
+
+cursor_bg = "#544d40"
+cursor_border = "#544d40"
+cursor_fg = "#f8fafe"
+
+selection_bg = "#544d40"
+selection_fg = "#e4e5e7"
+
+ansi = [
+  "#f8fafe",
+  "#1faa9e",
+  "#733d9a",
+  "#2e70ad",
+  "#b55a0f",
+  "#3e9d21",
+  "#bd4c3d",
+  "#544d40"
+]
+brights = [
+  "#b0a999",
+  "#1faa9e",
+  "#733d9a",
+  "#2e70ad",
+  "#b55a0f",
+  "#3e9d21",
+  "#bd4c3d",
+  "#000000"
+]
+
+[colors.indexed]
+16 = "#268da6"
+17 = "#1b6374"
+18 = "#edeef1"
+19 = "#e4e5e7"
+20 = "#8d8a82"
+21 = "#3b362d"

@@ -3,6 +3,8 @@
 	"name": "Highway",
 	"foreground": "#c8c5c4",
 	"background": "#212224",
+	"cursorColor": "#c8c5c4",
+	"selectionBackground": "#c8c5c4",
 	"black": "#212224",
 	"blue": "#006ab3",
 	"brightBlack": "#807672",

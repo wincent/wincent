@@ -25,7 +25,7 @@ conemu-base24:
   filename: themes/conemu/{{ scheme-system }}-{{ scheme-slug }}.xml
   supported-systems: [base24]
 conemu-tinted8:
-  filename: themes/conemu/{{ scheme-system }}-{{ scheme-slug }}.toml
+  filename: themes/conemu/{{ scheme-system }}-{{ scheme-slug }}.xml
   supported-systems: [tinted8]
   supports:
     tinted8-builder: ~0.2.0
@@ -41,7 +41,7 @@ foot-base24:
   filename: themes/foot/{{ scheme-system }}-{{ scheme-slug }}.ini
   supported-systems: [base24]
 foot-tinted8:
-  filename: themes/foot/{{ scheme-system }}-{{ scheme-slug }}.toml
+  filename: themes/foot/{{ scheme-system }}-{{ scheme-slug }}.ini
   supported-systems: [tinted8]
   supports:
     tinted8-builder: ~0.2.0
@@ -193,6 +193,13 @@ putty-base24:
   filename: themes/putty/{{ scheme-system }}-{{ scheme-slug }}.reg
   supported-systems: [base24]
 
+putty-tinted8:
+  filename: themes/putty/{{ scheme-system }}-{{ scheme-slug }}.reg
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # QTerminal
 # ----------------------------------------------------------------------
 qterminal-base16:
@@ -202,6 +209,13 @@ qterminal-base16:
 qterminal-base24:
     filename: themes/qterminal/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
     supported-systems: [base24]
+
+qterminal-tinted8:
+    filename: themes/qterminal/{{ scheme-system }}-{{ scheme-slug }}.colorscheme
+    supported-systems: [tinted8]
+    supports:
+      tinted8-builder: ~0.2.0
+      tinted8-styling: ~0.2.0
 
 # Rio
 # ----------------------------------------------------------------------

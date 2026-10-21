@@ -3,6 +3,8 @@
 	"name": "Catppuccin Macchiato",
 	"foreground": "#cad3f5",
 	"background": "#24273a",
+	"cursorColor": "#cad3f5",
+	"selectionBackground": "#cad3f5",
 	"black": "#24273a",
 	"blue": "#8aadf4",
 	"brightBlack": "#494d64",

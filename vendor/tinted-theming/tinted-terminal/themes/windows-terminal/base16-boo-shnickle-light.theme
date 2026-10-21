@@ -3,6 +3,8 @@
 	"name": "boo-shnickle-light",
 	"foreground": "#5b5b49",
 	"background": "#ffffcc",
+	"cursorColor": "#5b5b49",
+	"selectionBackground": "#5b5b49",
 	"black": "#ffffcc",
 	"blue": "#bfbfd9",
 	"brightBlack": "#9c9c7d",

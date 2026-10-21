@@ -3,6 +3,8 @@
 	"name": "Arthur",
 	"foreground": "#a19083",
 	"background": "#1c1c1c",
+	"cursorColor": "#a19083",
+	"selectionBackground": "#a19083",
 	"black": "#1c1c1c",
 	"blue": "#6495ed",
 	"brightBlack": "#6e5d59",

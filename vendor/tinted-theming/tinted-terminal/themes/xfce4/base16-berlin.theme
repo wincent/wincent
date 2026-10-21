@@ -1,0 +1,10 @@
+# Scheme name: Berlin
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-berlin
+ColorForeground=#cccccc
+ColorBackground=#000000
+ColorCursor=#cccccc
+ColorBoldIsBright=FALSE
+ColorPalette=#000000;#999999;#bbbbbb;#dddddd;#888888;#aaaaaa;#cccccc;#cccccc;#333333;#999999;#bbbbbb;#dddddd;#888888;#aaaaaa;#cccccc;#ffffff

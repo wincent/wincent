@@ -3,6 +3,8 @@
 	"name": "Eva Dim",
 	"foreground": "#9fa2a6",
 	"background": "#2a3b4d",
+	"cursorColor": "#9fa2a6",
+	"selectionBackground": "#9fa2a6",
 	"black": "#2a3b4d",
 	"blue": "#1ae1dc",
 	"brightBlack": "#55799c",

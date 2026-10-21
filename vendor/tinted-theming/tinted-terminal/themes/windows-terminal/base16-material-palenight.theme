@@ -3,6 +3,8 @@
 	"name": "Material Palenight",
 	"foreground": "#959dcb",
 	"background": "#292d3e",
+	"cursorColor": "#959dcb",
+	"selectionBackground": "#959dcb",
 	"black": "#292d3e",
 	"blue": "#82aaff",
 	"brightBlack": "#676e95",

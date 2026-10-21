@@ -62,7 +62,7 @@ local INSTALL_TIMEOUT = 60000
 
 --- @async
 --- @param max_jobs integer
---- @param tasks async.TaskFun[]
+--- @param tasks async.TaskFun<[], []>[]
 local function join(max_jobs, tasks)
   if #tasks == 0 then
     return
@@ -468,23 +468,20 @@ local installing = {} ---@type table<string,boolean?>
 ---@param lang string
 ---@param cache_dir string
 ---@param install_dir string
----@param force? boolean
 ---@param generate? boolean
 ---@return boolean success
-local function install_lang(lang, cache_dir, install_dir, force, generate)
-  if not force and vim.list_contains(config.get_installed(), lang) then
-    return true
-  elseif installing[lang] then
+local function install_lang(lang, cache_dir, install_dir, generate)
+  if installing[lang] then
     local success = vim.wait(INSTALL_TIMEOUT, function()
       return not installing[lang]
     end)
     return success
-  else
-    installing[lang] = true
-    local err = try_install_lang(lang, cache_dir, install_dir, generate)
-    installing[lang] = nil
-    return not err
   end
+
+  installing[lang] = true
+  local err = try_install_lang(lang, cache_dir, install_dir, generate)
+  installing[lang] = nil
+  return not err
 end
 
 --- Reload the parser table and user modifications in case of update
@@ -515,24 +512,30 @@ local function install(languages, options)
   end
 
   local install_dir = config.get_install_dir('parser')
+  local installed = options.force and {} or config.get_installed()
 
-  local tasks = {} ---@type async.TaskFun[]
+  local tasks = {} ---@type async.TaskFun<[], []>[]
   local done = 0
   for _, lang in ipairs(languages) do
-    tasks[#tasks + 1] = a.async(--[[@async]] function()
-      a.schedule()
-      local success = install_lang(lang, cache_dir, install_dir, options.force, options.generate)
-      if success then
-        done = done + 1
-      end
-    end)
+    if options.force or not vim.list_contains(installed, lang) then
+      tasks[#tasks + 1] = a.async(--[[@async]] function()
+        a.schedule()
+        if install_lang(lang, cache_dir, install_dir, options.generate) then
+          done = done + 1
+        end
+      end)
+    end
   end
 
-  join(options and options.max_jobs or MAX_JOBS, tasks)
-  if #tasks > 1 then
+  join(options.max_jobs or MAX_JOBS, tasks)
+  if #languages > 1 then
     a.schedule()
-    if options and options.summary then
-      log.info('Installed %d/%d languages', done, #tasks)
+    if options.summary then
+      if #tasks == 0 then
+        log.info('All parsers are already installed')
+      else
+        log.info('Installed %d/%d languages', done, #tasks)
+      end
     end
   end
   return done == #tasks
@@ -619,7 +622,7 @@ M.uninstall = a.async(function(languages, options)
   local query_dir = config.get_install_dir('queries')
   local installed = config.get_installed()
 
-  local tasks = {} ---@type async.TaskFun[]
+  local tasks = {} ---@type async.TaskFun<[], []>[]
   local done = 0
   for _, lang in ipairs(languages) do
     local logger = log.new('uninstall/' .. lang)

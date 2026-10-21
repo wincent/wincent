@@ -1,0 +1,10 @@
+# Scheme name: Sequoia Moonlight Light
+# Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-sequoia-moonlight-light
+ColorForeground=#282930
+ColorBackground=#edeef2
+ColorCursor=#282930
+ColorBoldIsBright=FALSE
+ColorPalette=#edeef2;#c94da8;#4a85d4;#6a6a78;#9a5fd9;#6a6a78;#d9884a;#282930;#565760;#c94da8;#4a85d4;#6a6a78;#9a5fd9;#6a6a78;#d9884a;#0f1014

@@ -3,6 +3,8 @@
 	"name": "Catppuccin Frappe",
 	"foreground": "#c6d0f5",
 	"background": "#303446",
+	"cursorColor": "#c6d0f5",
+	"selectionBackground": "#c6d0f5",
 	"black": "#303446",
 	"blue": "#8caaee",
 	"brightBlack": "#51576d",

@@ -3,6 +3,8 @@
 	"name": "Hacktober",
 	"foreground": "#bfbdb7",
 	"background": "#141414",
+	"cursorColor": "#bfbdb7",
+	"selectionBackground": "#bfbdb7",
 	"black": "#141414",
 	"blue": "#206ec5",
 	"brightBlack": "#5d5b59",

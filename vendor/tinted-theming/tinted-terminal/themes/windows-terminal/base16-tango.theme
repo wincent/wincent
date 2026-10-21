@@ -3,6 +3,8 @@
 	"name": "Tango",
 	"foreground": "#d3d7cf",
 	"background": "#2e3436",
+	"cursorColor": "#d3d7cf",
+	"selectionBackground": "#d3d7cf",
 	"black": "#2e3436",
 	"blue": "#3465a4",
 	"brightBlack": "#555753",

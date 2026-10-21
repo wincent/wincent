@@ -3,6 +3,8 @@
 	"name": "Papel",
 	"foreground": "#3a2e20",
 	"background": "#f5efe2",
+	"cursorColor": "#3a2e20",
+	"selectionBackground": "#3a2e20",
 	"black": "#f5efe2",
 	"blue": "#2c6ca0",
 	"brightBlack": "#9a8c76",

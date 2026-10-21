@@ -1,0 +1,58 @@
+# base16 Corduroy Dark 256 - alacritty color config
+# taysatte (https://github.com/taysatte)
+
+# Default colors
+[colors.primary]
+background = '0x141016'
+foreground = '0xddd8df'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x141016'
+cursor = '0xddd8df'
+
+# Normal colors
+[colors.normal]
+black = '0x141016'
+red = '0xe8758a'
+green = '0x55a0a0'
+yellow = '0xf0bd9c'
+blue = '0xdc92a3'
+magenta = '0xcf98c4'
+cyan = '0xf0a89b'
+white = '0xddd8df'
+
+# Bright colors
+[colors.bright]
+black = '0x7d7082'
+red = '0xe8758a'
+green = '0x55a0a0'
+yellow = '0xf0bd9c'
+blue = '0xdc92a3'
+magenta = '0xcf98c4'
+cyan = '0xf0a89b'
+white = '0x5a5160'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf0a89b"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x9a8d9e"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1b151e"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x221a26"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x9a8d9e"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xddd8df"

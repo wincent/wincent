@@ -3,6 +3,8 @@
 	"name": "pandora",
 	"foreground": "#f15c99",
 	"background": "#131213",
+	"cursorColor": "#f15c99",
+	"selectionBackground": "#f15c99",
 	"black": "#131213",
 	"blue": "#008080",
 	"brightBlack": "#ffbee3",

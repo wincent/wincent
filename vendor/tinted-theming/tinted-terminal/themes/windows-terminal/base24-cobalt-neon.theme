@@ -3,6 +3,8 @@
 	"name": "Cobalt Neon",
 	"foreground": "#cc72a6",
 	"background": "#142838",
+	"cursorColor": "#cc72a6",
+	"selectionBackground": "#cc72a6",
 	"black": "#142838",
 	"blue": "#8ff586",
 	"brightBlack": "#eeca92",

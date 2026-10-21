@@ -3,6 +3,8 @@
 	"name": "Hybrid",
 	"foreground": "#8f9190",
 	"background": "#161718",
+	"cursorColor": "#8f9190",
+	"selectionBackground": "#8f9190",
 	"black": "#161718",
 	"blue": "#6d90b0",
 	"brightBlack": "#434446",

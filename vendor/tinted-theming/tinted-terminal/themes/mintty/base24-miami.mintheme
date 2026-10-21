@@ -1,0 +1,27 @@
+# Miami theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff4c8b
+Green       = #7fffd4
+Yellow      = #ffd84c
+Blue        = #00ffa8
+Magenta     = #d36cff
+Cyan        = #47cfff
+White       = #f7f1ff
+BoldBlack   = #69676c
+BoldRed     = #ff4c8b
+BoldGreen   = #7fffd4
+BoldYellow  = #ffd84c
+BoldBlue    = #00ffa8
+BoldMagenta = #d36cff
+BoldCyan    = #47cfff
+BoldWhite   = #f7f1ff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #f7f1ff
+CursorColour     = #f7f1ff

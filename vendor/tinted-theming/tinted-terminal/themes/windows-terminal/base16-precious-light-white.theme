@@ -3,6 +3,8 @@
 	"name": "Precious Light White",
 	"foreground": "#555555",
 	"background": "#ffffff",
+	"cursorColor": "#555555",
+	"selectionBackground": "#555555",
 	"black": "#ffffff",
 	"blue": "#186daa",
 	"brightBlack": "#848484",

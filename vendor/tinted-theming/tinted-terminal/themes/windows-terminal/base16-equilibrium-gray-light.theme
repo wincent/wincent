@@ -3,6 +3,8 @@
 	"name": "Equilibrium Gray Light",
 	"foreground": "#474747",
 	"background": "#f1f1f1",
+	"cursorColor": "#474747",
+	"selectionBackground": "#474747",
 	"black": "#f1f1f1",
 	"blue": "#0073b5",
 	"brightBlack": "#777777",

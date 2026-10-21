@@ -3,6 +3,8 @@
 	"name": "Penumbra Dark Contrast Plus Plus",
 	"foreground": "#dedede",
 	"background": "#0d0f13",
+	"cursorColor": "#dedede",
+	"selectionBackground": "#dedede",
 	"black": "#0d0f13",
 	"blue": "#6eb2fd",
 	"brightBlack": "#636363",

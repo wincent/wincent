@@ -1,0 +1,27 @@
+# Lahabana theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #19191a
+Red         = #fc618d
+Green       = #7bd88f
+Yellow      = #e5ff9d
+Blue        = #fd9353
+Magenta     = #948ae3
+Cyan        = #5ad4e6
+White       = #f7f1ff
+BoldBlack   = #76747a
+BoldRed     = #fc618d
+BoldGreen   = #7bd88f
+BoldYellow  = #e5ff9d
+BoldBlue    = #fd9353
+BoldMagenta = #948ae3
+BoldCyan    = #5ad4e6
+BoldWhite   = #f7f1ff
+
+# Background & foreground colors
+BackgroundColour = #19191a
+ForegroundColour = #f7f1ff
+CursorColour     = #f7f1ff

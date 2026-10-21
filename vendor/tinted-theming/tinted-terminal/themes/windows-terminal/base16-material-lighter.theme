@@ -3,6 +3,8 @@
 	"name": "Material Lighter",
 	"foreground": "#80cbc4",
 	"background": "#fafafa",
+	"cursorColor": "#80cbc4",
+	"selectionBackground": "#80cbc4",
 	"black": "#fafafa",
 	"blue": "#6182b8",
 	"brightBlack": "#ccd7da",

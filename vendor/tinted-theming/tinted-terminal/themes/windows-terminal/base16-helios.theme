@@ -3,6 +3,8 @@
 	"name": "Helios",
 	"foreground": "#d5d5d5",
 	"background": "#1d2021",
+	"cursorColor": "#d5d5d5",
+	"selectionBackground": "#d5d5d5",
 	"black": "#1d2021",
 	"blue": "#1e8bac",
 	"brightBlack": "#6f7579",

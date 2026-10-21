@@ -3,6 +3,8 @@
 	"name": "Floraverse",
 	"foreground": "#c3af9d",
 	"background": "#0e0c15",
+	"cursorColor": "#c3af9d",
+	"selectionBackground": "#c3af9d",
 	"black": "#0e0c15",
 	"blue": "#1d6da1",
 	"brightBlack": "#634e67",

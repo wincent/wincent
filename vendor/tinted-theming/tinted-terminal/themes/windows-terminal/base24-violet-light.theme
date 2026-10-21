@@ -3,6 +3,8 @@
 	"name": "Violet Light",
 	"foreground": "#afaea9",
 	"background": "#fcf4dc",
+	"cursorColor": "#afaea9",
+	"selectionBackground": "#afaea9",
 	"black": "#fcf4dc",
 	"blue": "#2e8bce",
 	"brightBlack": "#686a6a",

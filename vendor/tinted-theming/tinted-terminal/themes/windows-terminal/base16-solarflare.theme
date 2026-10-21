@@ -3,6 +3,8 @@
 	"name": "Solar Flare",
 	"foreground": "#a6afb8",
 	"background": "#18262f",
+	"cursorColor": "#a6afb8",
+	"selectionBackground": "#a6afb8",
 	"black": "#18262f",
 	"blue": "#33b5e1",
 	"brightBlack": "#667581",

@@ -3,6 +3,8 @@
 	"name": "deep",
 	"foreground": "#bcbcbc",
 	"background": "#080808",
+	"cursorColor": "#bcbcbc",
+	"selectionBackground": "#bcbcbc",
 	"black": "#080808",
 	"blue": "#5665fe",
 	"brightBlack": "#767676",

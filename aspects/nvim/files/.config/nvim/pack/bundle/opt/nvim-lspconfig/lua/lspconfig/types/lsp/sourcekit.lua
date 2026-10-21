@@ -6,7 +6,7 @@
 ---```lua
 ---default = "off"
 ---```
----@field server? "off" | "messages" | "verbose"
+---@field server? "off"|"messages"|"verbose"
 
 ---@class _.lspconfig.settings.sourcekit.SourcekitLsp
 ---Disable the running of SourceKit-LSP.
@@ -24,7 +24,7 @@
 ---```lua
 ---default = "cpptools-inactive"
 ---```
----@field ["support-c-cpp"]? "enable" | "disable" | "cpptools-inactive"
+---@field ["support-c-cpp"]? "enable"|"disable"|"cpptools-inactive"
 ---@field trace? _.lspconfig.settings.sourcekit.SourcekitLsp.Trace
 
 ---@class _.lspconfig.settings.sourcekit.Swift.Debugger
@@ -33,7 +33,7 @@
 ---```lua
 ---default = "auto"
 ---```
----@field debugAdapter? "auto" | "lldb-dap" | "CodeLLDB"
+---@field debugAdapter? "auto"|"lldb-dap"|"CodeLLDB"
 ---Path to lldb debug adapter.
 ---
 ---```lua
@@ -45,7 +45,7 @@
 ---```lua
 ---default = "prompt"
 ---```
----@field setupCodeLLDB? "prompt" | "alwaysUpdateGlobal" | "alwaysUpdateWorkspace" | "never"
+---@field setupCodeLLDB? "prompt"|"alwaysUpdateGlobal"|"alwaysUpdateWorkspace"|"never"
 ---Use the LLDB debug adapter packaged with the Swift toolchain as your debug adapter. Note: this is only available starting with Swift 6. The CodeLLDB extension will be used if your Swift toolchain does not contain lldb-dap.
 ---@field useDebugAdapterFromToolchain? boolean
 
@@ -55,7 +55,7 @@
 ---```lua
 ---default = "off"
 ---```
----@field server? "off" | "messages" | "verbose"
+---@field server? "off"|"messages"|"verbose"
 
 ---@class _.lspconfig.settings.sourcekit.Swift.SourcekitLsp
 ---Turns background indexing `on` or `off`. `auto` will enable background indexing if the Swift version is >= 6.1. This option has no effect in Swift versions prior to 6.0.
@@ -63,7 +63,15 @@
 ---```lua
 ---default = "auto"
 ---```
----@field backgroundIndexing? "on" | "off" | "auto"
+---@field backgroundIndexing? "on"|"off"|"auto"
+---When opening a .sourcekit-lsp/config.json configuration file, whether or not to check if the $schema matches the version of Swift you are using.
+---
+---```lua
+---default = true
+---```
+---@field checkConfigurationSchema? boolean
+---Set the branch to use when setting the `$schema` property of the SourceKit-LSP configuration. For example: "release/6.1" or "main". When this setting is unset, the extension will determine the branch based on the version of the toolchain that is in use.
+---@field configurationBranch? string
 ---Disable SourceKit-LSP. This will turn off features like code completion, error diagnostics and jump-to-definition. Features like swift-testing test discovery will not work correctly.
 ---@field disable? boolean
 ---Controls whether the symbol declaration is included in the results of `Find All References`.
@@ -71,7 +79,7 @@
 ---```lua
 ---default = "default"
 ---```
----@field includeDeclarationInFindAllReferences? "default" | "always" | "never"
+---@field includeDeclarationInFindAllReferences? "default"|"always"|"never"
 ---Arguments to pass to SourceKit-LSP. Keys and values should be provided as individual entries in the list. e.g. `--experimental-feature=show-macro-expansions`
 ---
 ---```lua
@@ -85,7 +93,7 @@
 ---```lua
 ---default = { "swift", "objective-c", "objective-cpp", "c", "cpp" }
 ---```
----@field ["supported-languages"]? string[]
+---@field ["supported-languages"]? ("swift"|"objective-c"|"objective-cpp"|"c"|"cpp")[]
 ---@field trace? _.lspconfig.settings.sourcekit.Swift.SourcekitLsp.Trace
 
 ---@class _.lspconfig.settings.sourcekit.Swift
@@ -102,7 +110,7 @@
 ---```lua
 ---default = "Focus Terminal"
 ---```
----@field actionAfterBuildError? "Focus Problems" | "Focus Terminal" | "Do Nothing"
+---@field actionAfterBuildError? "Focus Problems"|"Focus Terminal"|"Do Nothing"
 ---Additional arguments to pass to the `swift test` or `swift build` commands used when building and running tests from within VS Code.
 ---
 ---```lua
@@ -139,7 +147,7 @@
 ---default = ""
 ---```
 ---@field buildPath? string
----When opening a .sourckit-lsp/config.json configuration file, whether or not to check if the $schema matches the version of Swift you are using.
+---When opening a .sourcekit-lsp/config.json configuration file, whether or not to check if the $schema matches the version of Swift you are using.
 ---
 ---```lua
 ---default = true
@@ -148,20 +156,18 @@
 ---When enabled, the extension will create "swift" build tasks for library products in the package manifest. Note that automatic library products will not be included.
 ---@field createTasksForLibraryProducts? boolean
 ---@field debugger? _.lspconfig.settings.sourcekit.Swift.Debugger
----Output additional diagnostics to the Swift output channel.
----@field diagnostics? boolean
 ---Controls how diagnostics from the various providers are merged into the collection of `swift` errors and warnings shown in the Problems pane.
 ---
 ---```lua
 ---default = "keepSourceKit"
 ---```
----@field diagnosticsCollection? "onlySwiftc" | "onlySourceKit" | "keepSwiftc" | "keepSourceKit" | "keepAll"
+---@field diagnosticsCollection? "onlySwiftc"|"onlySourceKit"|"keepSwiftc"|"keepSourceKit"|"keepAll"
 ---The formatting style used when printing diagnostics in the Problems panel. Corresponds to the `-diagnostic-style` option to pass to `swiftc` when running `swift` tasks.
 ---
 ---```lua
 ---default = "default"
 ---```
----@field diagnosticsStyle? "default" | "llvm" | "swift"
+---@field diagnosticsStyle? "default"|"llvm"|"swift"
 ---Disable automatic running of `swift package resolve` whenever the `Package.swift` or `Package.resolved` files are updated. This will also disable searching for command plugins and the initial test discovery process.
 ---@field disableAutoResolve? boolean
 ---Disable sandboxing when running SwiftPM commands. In most cases you should keep the sandbox enabled and leave this setting set to `false`
@@ -200,20 +206,32 @@
 ---@field ignoreSearchingForPackagesInSubfolders? string[]
 ---Ignore `.swift-version` files and disable automatic toolchain switching based on them. When enabled, the extension will always use the global default toolchain instead of switching based on per-project `.swift-version` files.
 ---@field ignoreSwiftVersionFile? boolean
+---The log level of the extension's log file. This has no effect on the verbosity of messages written to the Swift output channel.
+---
+---```lua
+---default = "debug"
+---```
+---@field logFileLogLevel? "trace"|"debug"|"info"|"warn"|"error"
 ---Set the branch to use when setting the `$schema` property of the SourceKit-LSP configuration. For example: "release/6.1" or "main". When this setting is unset, the extension will determine the branch based on the version of the toolchain that is in use.
 ---@field lspConfigurationBranch? string
+---The maximum number of directories to watch for changes to a `.swift-version` file, starting at a `Package.swift` and walking upwards towards the root of the file system. A value of `1` watches the directory containing the `Package.swift` only.
+---
+---```lua
+---default = 64
+---```
+---@field maxSwiftVersionFileWatchDepth? integer
 ---Controls whether to open a swift project automatically after creating it.
 ---
 ---```lua
 ---default = "prompt"
 ---```
----@field openAfterCreateNewProject? "always" | "alwaysNewWindow" | "whenNoFolderOpen" | "prompt"
+---@field openAfterCreateNewProject? "always"|"alwaysNewWindow"|"whenNoFolderOpen"|"prompt"
 ---The log level of the Swift output channel. This has no effect on the verbosity of messages written to the extension's log file.
 ---
 ---```lua
 ---default = "info"
 ---```
----@field outputChannelLogLevel? "debug" | "info" | "warn" | "error"
+---@field outputChannelLogLevel? "trace"|"debug"|"info"|"warn"|"error"
 ---Additional arguments to pass to swift commands that do package resolution, such as `swift package resolve`, `swift package update`, `swift build` and `swift test`. Keys and values should be provided as individual entries in the list.
 ---
 ---```lua
@@ -231,7 +249,7 @@
 ---```lua
 ---default = {}
 ---```
----@field pluginArguments? any
+---@field pluginArguments? string[]|table
 ---Configures a list of permissions to be used when running a command plugins.
 ---
 ---Permissions objects are defined in the form:
@@ -261,9 +279,9 @@
 ---```lua
 ---default = "off"
 ---```
----@field sanitizer? "off" | "thread" | "address"
+---@field sanitizer? "off"|"thread"|"address"
 ---The default Swift version to use when running Swift scripts.
----@field scriptSwiftLanguageVersion? "6" | "5" | "4.2" | "4" | "Ask Every Run"
+---@field scriptSwiftLanguageVersion? "6"|"5"|"4.2"|"4"|"Ask Every Run"
 ---Search sub-folders of workspace folder for Swift Packages at start up.
 ---@field searchSubfoldersForPackages? boolean
 ---Controls where to show the Swift build progress when running a `swift` build task.
@@ -271,7 +289,7 @@
 ---```lua
 ---default = "swiftStatus"
 ---```
----@field showBuildStatus? "never" | "swiftStatus" | "progress" | "notification"
+---@field showBuildStatus? "never"|"swiftStatus"|"progress"|"notification"
 ---Controls whether or not the create new swift project button appears in the welcome page.
 ---
 ---```lua
@@ -283,7 +301,7 @@
 ---```lua
 ---default = true
 ---```
----@field showTestCodeLenses? boolean|string[]
+---@field showTestCodeLenses? boolean|("run"|"debug"|"coverage")[]
 ---@field ["sourcekit-lsp"]? _.lspconfig.settings.sourcekit.Swift.SourcekitLsp
 ---Additional environment variables to pass to swift operations (`swift build`, `swift resolve`, etc...).
 ---

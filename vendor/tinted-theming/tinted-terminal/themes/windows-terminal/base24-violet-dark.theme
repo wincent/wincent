@@ -3,6 +3,8 @@
 	"name": "Violet Dark",
 	"foreground": "#a7a59f",
 	"background": "#1b1d1f",
+	"cursorColor": "#a7a59f",
+	"selectionBackground": "#a7a59f",
 	"black": "#1b1d1f",
 	"blue": "#2e8bce",
 	"brightBlack": "#656767",

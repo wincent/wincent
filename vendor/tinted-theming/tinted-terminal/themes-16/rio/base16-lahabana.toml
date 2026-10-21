@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Lahabana by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#f7f1ff' # base05
+selection-foreground = '#343335' # base02
+
+cursor         = '#f7f1ff' # base05
+tabs           = '#29282a' # base01
+tabs-active    = '#343335' # base02
+
+background     = '#19191a' # base00
+foreground     = '#f7f1ff' # base05
+black          = '#19191a' # base00
+red            = '#fc618d' # base08
+yellow         = '#e5ff9d' # base0A
+green          = '#7bd88f' # base0B
+cyan           = '#5ad4e6' # base0C
+blue           = '#fd9353' # base0D
+magenta        = '#948ae3' # base0E
+white          = '#f7f1ff' # base05
+
+dim-foreground   = '#f7f1ff' # base05
+dim-black        = '#29282a' # base01
+dim-red          = '#fc618d' # base08
+dim-yellow       = '#e5ff9d' # base0A
+dim-green        = '#7bd88f' # base0B
+dim-cyan         = '#5ad4e6' # base0C
+dim-blue         = '#fd9353' # base0D
+dim-magenta      = '#948ae3' # base0E
+dim-white        = '#939098' # base04
+
+light-foreground = '#f7f1ff' # base05
+light-black      = '#76747a' # base03
+light-red        = '#fc618d' # base08
+light-yellow     = '#e5ff9d' # base0A
+light-green      = '#7bd88f' # base0B
+light-cyan       = '#5ad4e6' # base0C
+light-blue       = '#fd9353' # base0D
+light-magenta    = '#948ae3' # base0E
+light-white      = '#f7f1ff' # base07

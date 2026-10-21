@@ -3,6 +3,8 @@
 	"name": "XCode Dusk",
 	"foreground": "#939599",
 	"background": "#282b35",
+	"cursorColor": "#939599",
+	"selectionBackground": "#939599",
 	"black": "#282b35",
 	"blue": "#790ead",
 	"brightBlack": "#686a71",

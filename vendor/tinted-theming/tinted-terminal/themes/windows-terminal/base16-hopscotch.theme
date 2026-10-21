@@ -3,6 +3,8 @@
 	"name": "Hopscotch",
 	"foreground": "#b9b5b8",
 	"background": "#322931",
+	"cursorColor": "#b9b5b8",
+	"selectionBackground": "#b9b5b8",
 	"black": "#322931",
 	"blue": "#1290bf",
 	"brightBlack": "#797379",

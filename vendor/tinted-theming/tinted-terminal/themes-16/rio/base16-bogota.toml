@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Bogota by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#f7f1ff' # base05
+selection-foreground = '#3a2727' # base02
+
+cursor         = '#f7f1ff' # base05
+tabs           = '#2f1b1b' # base01
+tabs-active    = '#3a2727' # base02
+
+background     = '#200b0a' # base00
+foreground     = '#f7f1ff' # base05
+black          = '#200b0a' # base00
+red            = '#fc618d' # base08
+yellow         = '#ffed89' # base0A
+green          = '#7bd88f' # base0B
+cyan           = '#47e6ff' # base0C
+blue           = '#47e6ff' # base0D
+magenta        = '#ff9999' # base0E
+white          = '#f7f1ff' # base05
+
+dim-foreground   = '#f7f1ff' # base05
+dim-black        = '#2f1b1b' # base01
+dim-red          = '#fc618d' # base08
+dim-yellow       = '#ffed89' # base0A
+dim-green        = '#7bd88f' # base0B
+dim-cyan         = '#47e6ff' # base0C
+dim-blue         = '#47e6ff' # base0D
+dim-magenta      = '#ff9999' # base0E
+dim-white        = '#968a91' # base04
+
+light-foreground = '#f7f1ff' # base05
+light-black      = '#525053' # base03
+light-red        = '#fc618d' # base08
+light-yellow     = '#ffed89' # base0A
+light-green      = '#7bd88f' # base0B
+light-cyan       = '#47e6ff' # base0C
+light-blue       = '#47e6ff' # base0D
+light-magenta    = '#ff9999' # base0E
+light-white      = '#f7f1ff' # base07

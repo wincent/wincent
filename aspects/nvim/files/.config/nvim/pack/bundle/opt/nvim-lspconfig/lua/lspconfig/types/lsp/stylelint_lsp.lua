@@ -13,7 +13,7 @@
 ---```lua
 ---default = "separateLine"
 ---```
----@field location? "separateLine" | "sameLine"
+---@field location? "separateLine"|"sameLine"
 
 ---@class _.lspconfig.settings.stylelint_lsp.Stylelint.CodeAction
 ---Options for the disable lint rule action in the quick fix menu.
@@ -70,7 +70,7 @@
 ---```
 ---@field enable? boolean
 ---Additional exec argv arguments passed to the Node.js runtime.
----@field execArgv? string[]|any
+---@field execArgv? string[]
 ---Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
 ---@field ignoreDisables? boolean
 ---Path to a file containing patterns describing files to ignore. Use to override automatic `.stylelintignore` detection.
@@ -85,13 +85,13 @@
 ---```lua
 ---default = "info"
 ---```
----@field logLevel? "error" | "warn" | "info" | "debug"
+---@field logLevel? "error"|"warn"|"info"|"debug"
 ---The package manager you use to install node modules.
 ---
 ---```lua
 ---default = "npm"
 ---```
----@field packageManager? "npm" | "yarn" | "pnpm"
+---@field packageManager? "npm"|"yarn"|"pnpm"
 ---Report `stylelint-disable` comments without a description.
 ---@field reportDescriptionlessDisables? boolean
 ---Also report errors for `stylelint-disable` comments that used for rules that don't exist within the configuration object.
@@ -104,7 +104,7 @@
 ---```lua
 ---default = "onType"
 ---```
----@field run? "onSave" | "onType"
+---@field run? "onSave"|"onType"
 ---The location of the node binary to run Stylelint under.
 ---@field runtime? string
 ---An array of language ids which snippets are provided by Stylelint.

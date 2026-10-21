@@ -3,6 +3,8 @@
 	"name": "Flatland",
 	"foreground": "#c5c6c4",
 	"background": "#1c1e20",
+	"cursorColor": "#c5c6c4",
+	"selectionBackground": "#c5c6c4",
 	"black": "#1c1e20",
 	"blue": "#4f96be",
 	"brightBlack": "#545552",

@@ -3,6 +3,8 @@
 	"name": "Flat",
 	"foreground": "#8c939a",
 	"background": "#082845",
+	"cursorColor": "#8c939a",
+	"selectionBackground": "#8c939a",
 	"black": "#082845",
 	"blue": "#3167ac",
 	"brightBlack": "#444e5b",

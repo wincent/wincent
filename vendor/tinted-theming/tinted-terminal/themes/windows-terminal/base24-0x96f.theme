@@ -3,6 +3,8 @@
 	"name": "0x96f",
 	"foreground": "#fcfcfc",
 	"background": "#262427",
+	"cursorColor": "#fcfcfc",
+	"selectionBackground": "#fcfcfc",
 	"black": "#262427",
 	"blue": "#49cae4",
 	"brightBlack": "#676567",

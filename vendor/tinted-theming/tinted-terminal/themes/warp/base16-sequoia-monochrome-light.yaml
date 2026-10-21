@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Sequoia Monochrome Light by Micheal Andreuzza (https://michaelandreuzza.com/)
+
+name: Base16 Sequoia Monochrome Light
+accent: "#5f6370" # base0D
+cursor: "#282930" # base05
+background: "#edeef2" # base00
+foreground: "#282930" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#edeef2" # base00
+    red: "#525666" # base08
+    yellow: "#50535e" # base0A
+    green: "#2e3038" # base0B
+    cyan: "#454752" # base0C
+    blue: "#5f6370" # base0D
+    magenta: "#50535e" # base0E
+    white: "#282930" # base05
+
+  bright:
+    black: "#9da2ad" # base03
+    red: "#525666" # base08
+    yellow: "#50535e" # base0A
+    green: "#2e3038" # base0B
+    cyan: "#454752" # base0C
+    blue: "#5f6370" # base0D
+    magenta: "#50535e" # base0E
+    white: "#0f1014" # base07

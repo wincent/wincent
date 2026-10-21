@@ -3,6 +3,8 @@
 	"name": "Vesper",
 	"foreground": "#b7b7b7",
 	"background": "#101010",
+	"cursorColor": "#b7b7b7",
+	"selectionBackground": "#b7b7b7",
 	"black": "#101010",
 	"blue": "#8eaaaa",
 	"brightBlack": "#333333",

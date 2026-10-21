@@ -3,6 +3,8 @@
 	"name": "Monokai Vivid",
 	"foreground": "#dfdfdf",
 	"background": "#121212",
+	"cursorColor": "#dfdfdf",
+	"selectionBackground": "#dfdfdf",
 	"black": "#121212",
 	"blue": "#0442fe",
 	"brightBlack": "#525252",

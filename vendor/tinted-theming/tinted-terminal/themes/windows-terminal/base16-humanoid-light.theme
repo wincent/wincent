@@ -3,6 +3,8 @@
 	"name": "Humanoid light",
 	"foreground": "#232629",
 	"background": "#f8f8f2",
+	"cursorColor": "#232629",
+	"selectionBackground": "#232629",
 	"black": "#f8f8f2",
 	"blue": "#0082c9",
 	"brightBlack": "#c0c0bd",

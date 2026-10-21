@@ -1,0 +1,58 @@
+# base24 London 256 - alacritty color config
+# xscriptor (https://github.com/xscriptor)
+
+# Default colors
+[colors.primary]
+background = '0xffffff'
+foreground = '0x333333'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xffffff'
+cursor = '0x333333'
+
+# Normal colors
+[colors.normal]
+black = '0xffffff'
+red = '0x333333'
+green = '0x444444'
+yellow = '0x555555'
+blue = '0x666666'
+magenta = '0x777777'
+cyan = '0x888888'
+white = '0x333333'
+
+# Bright colors
+[colors.bright]
+black = '0x333333'
+red = '0x444444'
+green = '0x555555'
+yellow = '0x666666'
+blue = '0x777777'
+magenta = '0x888888'
+cyan = '0x999999'
+white = '0xaaaaaa'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x444444"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x303030"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xf1f1f1"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xe7e7e7"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7a7a7a"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x242424"

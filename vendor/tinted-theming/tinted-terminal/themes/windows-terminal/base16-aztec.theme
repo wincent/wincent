@@ -3,6 +3,8 @@
 	"name": "Aztec",
 	"foreground": "#ffda51",
 	"background": "#101600",
+	"cursorColor": "#ffda51",
+	"selectionBackground": "#ffda51",
 	"black": "#101600",
 	"blue": "#5b4a9f",
 	"brightBlack": "#2e2e05",

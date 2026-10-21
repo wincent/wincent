@@ -3,6 +3,8 @@
 	"name": "Banana Blueberry",
 	"foreground": "#c6c9cd",
 	"background": "#191322",
+	"cursorColor": "#c6c9cd",
+	"selectionBackground": "#c6c9cd",
 	"black": "#191322",
 	"blue": "#22e8df",
 	"brightBlack": "#727985",

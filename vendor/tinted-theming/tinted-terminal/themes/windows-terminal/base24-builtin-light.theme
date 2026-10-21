@@ -3,6 +3,8 @@
 	"name": "Builtin Light",
 	"foreground": "#a1a1a1",
 	"background": "#ffffff",
+	"cursorColor": "#a1a1a1",
+	"selectionBackground": "#a1a1a1",
 	"black": "#ffffff",
 	"blue": "#0000bb",
 	"brightBlack": "#6e6e6e",

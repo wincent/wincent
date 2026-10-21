@@ -3,6 +3,8 @@
 	"name": "Stella",
 	"foreground": "#998bad",
 	"background": "#2b213c",
+	"cursorColor": "#998bad",
+	"selectionBackground": "#998bad",
 	"black": "#2b213c",
 	"blue": "#a5aad4",
 	"brightBlack": "#655978",

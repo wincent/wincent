@@ -6,42 +6,42 @@
 
 # Color palette
 palette = 0=#ffffff
-palette = 1=#702c00
-palette = 2=#032563
-palette = 3=#956400
-palette = 4=#622cbc
-palette = 5=#a0111f
-palette = 6=#024c1a
-palette = 7=#343b43
-palette = 8=#88929d
-palette = 9=#702c00
-palette = 10=#032563
-palette = 11=#956400
-palette = 12=#622cbc
-palette = 13=#a0111f
-palette = 14=#024c1a
-palette = 15=#0e1116
-palette = 16=#023b95
-palette = 17=#6e011a
-palette = 18=#e7ecf0
-palette = 19=#acb6c0
-palette = 20=#66707b
-palette = 21=#20252c
+palette = 1=#a0111f
+palette = 2=#024c1a
+palette = 3=#603700
+palette = 4=#0349b4
+palette = 5=#622cbc
+palette = 6=#1b7c83
+palette = 7=#454c54
+palette = 8=#818b98
+palette = 9=#a0111f
+palette = 10=#024c1a
+palette = 11=#603700
+palette = 12=#0349b4
+palette = 13=#622cbc
+palette = 14=#1b7c83
+palette = 15=#010409
+palette = 16=#702c00
+palette = 17=#86061d
+palette = 18=#f6f8fa
+palette = 19=#d1d9e0
+palette = 20=#59636e
+palette = 21=#25292e
 
 # Foreground & background colors
 background = #ffffff
-foreground = #343b43
-cursor-color = #343b43
-selection-background = #343b43
-selection-foreground = #acb6c0
-search-background = #956400
-search-foreground = #e7ecf0
-search-selected-background = #023b95
-search-selected-foreground = #e7ecf0
+foreground = #454c54
+cursor-color = #454c54
+selection-background = #454c54
+selection-foreground = #d1d9e0
+search-background = #603700
+search-foreground = #f6f8fa
+search-selected-background = #702c00
+search-selected-foreground = #f6f8fa
 
 # Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
 #
 # Set the ghost color to the lightest foreground:
-macos-icon-ghost-color = #0e1116
+macos-icon-ghost-color = #010409
 # Replace the official icon's blue background with the designated bright blue color:
-macos-icon-screen-color = #622cbc
+macos-icon-screen-color = #0349b4

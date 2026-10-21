@@ -3,6 +3,8 @@
 	"name": "Laser",
 	"foreground": "#d8d8d8",
 	"background": "#030d18",
+	"cursorColor": "#d8d8d8",
+	"selectionBackground": "#d8d8d8",
 	"black": "#030d18",
 	"blue": "#fed300",
 	"brightBlack": "#a6a6a6",

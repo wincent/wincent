@@ -3,6 +3,8 @@
 	"name": "Hardhacker",
 	"foreground": "#e4dee9",
 	"background": "#211e2a",
+	"cursorColor": "#e4dee9",
+	"selectionBackground": "#e4dee9",
 	"black": "#211e2a",
 	"blue": "#95a6f4",
 	"brightBlack": "#6e6780",

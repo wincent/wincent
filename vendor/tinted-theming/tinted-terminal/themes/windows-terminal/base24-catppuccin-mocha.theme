@@ -3,6 +3,8 @@
 	"name": "Catppuccin Mocha",
 	"foreground": "#cdd6f4",
 	"background": "#1e1e2e",
+	"cursorColor": "#cdd6f4",
+	"selectionBackground": "#cdd6f4",
 	"black": "#1e1e2e",
 	"blue": "#89b4fa",
 	"brightBlack": "#45475a",

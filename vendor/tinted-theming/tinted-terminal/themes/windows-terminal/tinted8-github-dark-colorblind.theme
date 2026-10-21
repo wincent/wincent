@@ -1,0 +1,25 @@
+// Add custom color schemes to the "schemes" array
+{
+    "name": "Github Dark Colorblind",
+    "foreground": "#f0f6fc",
+    "background": "#0d1117",
+    "cursorColor": "#f0f6fc",
+    "selectionBackground": "#656c76",
+    "black": "#2f3742",
+    "blue": "#58a6ff",
+    "brightBlack": "#656c76",
+    "brightBlue": "#79c0ff",
+    "brightCyan": "#56d4dd",
+    "brightGreen": "#79c0ff",
+    "brightPurple": "#d2a8ff",
+    "brightRed": "#ffa657",
+    "brightWhite": "#ffffff",
+    "brightYellow": "#e3b341",
+    "cyan": "#39c5cf",
+    "green": "#58a6ff",
+    "purple": "#be8fff",
+    "red": "#f0883e",
+    "white": "#f0f6fc",
+    "yellow": "#d29922"
+},
+

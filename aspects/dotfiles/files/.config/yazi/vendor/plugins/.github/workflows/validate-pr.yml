@@ -1,0 +1,12 @@
+name: Validate PR
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  check-list:
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: yazi-rs/.github/.github/workflows/validate-pr.yml@main

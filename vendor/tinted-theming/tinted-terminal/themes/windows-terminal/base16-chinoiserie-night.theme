@@ -3,6 +3,8 @@
 	"name": "Chinoiserie Night",
 	"foreground": "#c4cbcf",
 	"background": "#1d1d1d",
+	"cursorColor": "#c4cbcf",
+	"selectionBackground": "#c4cbcf",
 	"black": "#1d1d1d",
 	"blue": "#8fb2c9",
 	"brightBlack": "#918072",

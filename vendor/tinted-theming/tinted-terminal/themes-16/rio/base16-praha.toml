@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Praha by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#ffffff' # base05
+selection-foreground = '#353535' # base02
+
+cursor         = '#ffffff' # base05
+tabs           = '#2a2a2a' # base01
+tabs-active    = '#353535' # base02
+
+background     = '#1a1a1a' # base00
+foreground     = '#ffffff' # base05
+black          = '#1a1a1a' # base00
+red            = '#ff5555' # base08
+yellow         = '#ffe4a3' # base0A
+green          = '#b8e6a0' # base0B
+cyan           = '#8be9fd' # base0C
+blue           = '#bd93f9' # base0D
+magenta        = '#ff9aa2' # base0E
+white          = '#ffffff' # base05
+
+dim-foreground   = '#ffffff' # base05
+dim-black        = '#2a2a2a' # base01
+dim-red          = '#ff5555' # base08
+dim-yellow       = '#ffe4a3' # base0A
+dim-green        = '#b8e6a0' # base0B
+dim-cyan         = '#8be9fd' # base0C
+dim-blue         = '#bd93f9' # base0D
+dim-magenta      = '#ff9aa2' # base0E
+dim-white        = '#989898' # base04
+
+light-foreground = '#ffffff' # base05
+light-black      = '#6272a4' # base03
+light-red        = '#ff5555' # base08
+light-yellow     = '#ffe4a3' # base0A
+light-green      = '#b8e6a0' # base0B
+light-cyan       = '#8be9fd' # base0C
+light-blue       = '#bd93f9' # base0D
+light-magenta    = '#ff9aa2' # base0E
+light-white      = '#ffffff' # base07

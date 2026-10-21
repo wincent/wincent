@@ -1,0 +1,10 @@
+# Scheme name: Paris
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-paris
+ColorForeground=#f7f1ff
+ColorBackground=#1a0a30
+ColorCursor=#f7f1ff
+ColorBoldIsBright=FALSE
+ColorPalette=#1a0a30;#fc618d;#7bd88f;#fce566;#a3f3ff;#c4bdff;#a3f3ff;#f7f1ff;#c4bdff;#fc618d;#7bd88f;#fce566;#a3f3ff;#c4bdff;#a3f3ff;#f7f1ff

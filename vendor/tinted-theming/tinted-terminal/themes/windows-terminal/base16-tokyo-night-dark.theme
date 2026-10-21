@@ -3,6 +3,8 @@
 	"name": "Tokyo Night Dark",
 	"foreground": "#a9b1d6",
 	"background": "#1a1b26",
+	"cursorColor": "#a9b1d6",
+	"selectionBackground": "#a9b1d6",
 	"black": "#1a1b26",
 	"blue": "#2ac3de",
 	"brightBlack": "#444b6a",

@@ -1,4 +1,4 @@
--- Apprentice scheme by romainl
+-- Apprentice scheme by Romain Lafourcade (https://github.com/romainl)
 --
 -- Generated from this template:
 --
@@ -14,31 +14,31 @@
 
 -- Base16 colors.
 local gui00 = "#262626"
-local gui01 = "#AF5F5F"
-local gui02 = "#5F875F"
-local gui03 = "#87875F"
-local gui04 = "#5F87AF"
-local gui05 = "#5F5F87"
-local gui06 = "#5F8787"
-local gui07 = "#6C6C6C"
-local gui08 = "#444444"
+local gui01 = "#303030"
+local gui02 = "#3A3A3A"
+local gui03 = "#444444"
+local gui04 = "#6C6C6C"
+local gui05 = "#BCBCBC"
+local gui06 = "#DFDFDF"
+local gui07 = "#FFFFFF"
+local gui08 = "#AF5F5F"
 local gui09 = "#FF8700"
-local gui0A = "#87AF87"
-local gui0B = "#FFFFAF"
-local gui0C = "#87AFD7"
-local gui0D = "#8787AF"
-local gui0E = "#5FAFAF"
-local gui0F = "#BCBCBC"
+local gui0A = "#87875F"
+local gui0B = "#5F875F"
+local gui0C = "#5F8787"
+local gui0D = "#5F87AF"
+local gui0E = "#5F5F87"
+local gui0F = "#AF5F5F"
 
 -- Base24 colors.
-local gui10 = "#262626"
-local gui11 = "#262626"
-local gui12 = "#444444"
-local gui13 = "#87AF87"
-local gui14 = "#FFFFAF"
-local gui15 = "#87AFD7"
-local gui16 = "#8787AF"
-local gui17 = "#5FAFAF"
+local gui10 = "#1C1C1C"
+local gui11 = "#121212"
+local gui12 = "#FF8700"
+local gui13 = "#FFFFAF"
+local gui14 = "#87AF87"
+local gui15 = "#5FAFAF"
+local gui16 = "#87AFD7"
+local gui17 = "#8787AF"
 
 -- Base16 colors.
 local cterm00 = 0

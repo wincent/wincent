@@ -4,24 +4,24 @@
 # Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
 
 # The 16 color palette
-Black       = #0a0c10
-Red         = #ffb757
-Green       = #addcff
-Yellow      = #e09b13
-Blue        = #dbb7ff
-Magenta     = #ff9492
-Cyan        = #72f088
-White       = #f0f3f6
-BoldBlack   = #9ea7b3
-BoldRed     = #ffb757
-BoldGreen   = #addcff
-BoldYellow  = #e09b13
-BoldBlue    = #dbb7ff
-BoldMagenta = #ff9492
-BoldCyan    = #72f088
+Black       = #0d1117
+Red         = #ff9492
+Green       = #28d751
+Yellow      = #f0b72f
+Blue        = #71b7ff
+Magenta     = #cb9eff
+Cyan        = #39c5cf
+White       = #d1d7e0
+BoldBlack   = #656c76
+BoldRed     = #ff9492
+BoldGreen   = #28d751
+BoldYellow  = #f0b72f
+BoldBlue    = #71b7ff
+BoldMagenta = #cb9eff
+BoldCyan    = #39c5cf
 BoldWhite   = #ffffff
 
 # Background & foreground colors
-BackgroundColour = #0a0c10
-ForegroundColour = #f0f3f6
-CursorColour     = #f0f3f6
+BackgroundColour = #0d1117
+ForegroundColour = #d1d7e0
+CursorColour     = #d1d7e0

@@ -3,6 +3,8 @@
 	"name": "Embers Light",
 	"foreground": "#433b32",
 	"background": "#dbd6d1",
+	"cursorColor": "#433b32",
+	"selectionBackground": "#433b32",
 	"black": "#dbd6d1",
 	"blue": "#6d5782",
 	"brightBlack": "#8a8075",

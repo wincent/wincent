@@ -12,20 +12,10 @@ ya pkg add yazi-rs/plugins:mime-ext
 
 ## Usage
 
-Add this to your `~/.config/yazi/yazi.toml`:
+Add this to your `~/.config/yazi/init.lua`:
 
-```toml
-[[plugin.prepend_fetchers]]
-url   = "local://*"
-run   = "mime-ext.local"
-prio  = "high"
-group = "mime"
-
-[[plugin.prepend_fetchers]]
-url   = "remote://*"
-run   = "mime-ext.remote"
-prio  = "high"
-group = "mime"
+```lua
+require("mime-ext"):setup()
 ```
 
 ## Advanced

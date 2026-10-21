@@ -3,6 +3,8 @@
 	"name": "Deep Oceanic Next",
 	"foreground": "#d4e1e8",
 	"background": "#001c1f",
+	"cursorColor": "#d4e1e8",
+	"selectionBackground": "#d4e1e8",
 	"black": "#001c1f",
 	"blue": "#568ccf",
 	"brightBlack": "#004852",

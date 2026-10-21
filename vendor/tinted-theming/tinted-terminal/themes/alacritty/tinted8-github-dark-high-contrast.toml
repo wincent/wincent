@@ -1,0 +1,36 @@
+# Github Dark High Contrast theme for Alacritty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming)
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Default colors
+[colors.primary]
+background = '0x010409'
+foreground = '0xffffff'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x010409'
+cursor = '0xffffff'
+
+# Normal colors
+[colors.normal]
+black = '0x2f3742'
+red = '0xff9492'
+green = '0x28d751'
+yellow = '0xf0b72f'
+blue = '0x71b7ff'
+magenta = '0xcb9eff'
+cyan = '0x39c5cf'
+white = '0xf0f6fc'
+
+# Bright colors
+[colors.bright]
+black = '0x656c76'
+red = '0xffb1af'
+green = '0x4ae168'
+yellow = '0xf7c843'
+blue = '0x91cbff'
+magenta = '0xdbb7ff'
+cyan = '0x56d4dd'
+white = '0xffffff'

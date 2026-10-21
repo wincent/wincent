@@ -7,11 +7,11 @@
 
 #include <assert.h> /* for assert */
 #include <pthread.h> /* for pthread_create, pthread_join etc */
-#include <stdatomic.h> /* for atomic_bool, atomic_fetch_add(), atomic_load() etc */
+#include <stdatomic.h> /* for atomic_bool, atomic_load_explicit(), atomic_store_explicit() */
 #include <stdbool.h> /* for bool */
 #include <stddef.h> /* for size_t */
 #include <stdlib.h> /* for posix_memalign(), qsort(), NULL */
-#include <string.h> /* for memcpy(), strcpy(), strlen() */
+#include <string.h> /* for memchr(), memcpy(), strcpy(), strlen() */
 
 #ifdef __APPLE__
 #include <dispatch/dispatch.h> /* for dispatch_semaphore_t and friends */
@@ -24,6 +24,7 @@
 #include "compare.h" /* for commandt_cmp_alpha(), commandt_cmp_score() */
 #include "die.h" /* for die() */
 #include "heap.h" /* for HEAP_PEEK(), heap_free(), heap_insert(), heap_new(), heap_replace_top() */
+#include "scanner.h" /* for scanner_count_snapshot() */
 #include "score.h" /* for commandt_score() */
 #include "str.h" /* for str_t */
 #include "xmalloc.h" /* for xmalloc() */
@@ -122,7 +123,6 @@ typedef struct {
     signal_t done;
     pthread_t thread;
     matcher_pool_t *pool;
-    unsigned index;
 } pool_worker_t;
 
 // A persistent pool of background workers, created once per matcher and reused
@@ -138,7 +138,7 @@ struct matcher_pool {
 static uint32_t calculate_bitmask(const char *str, unsigned long length);
 static int cmp_alpha_p(const void *a, const void *b);
 static int cmp_score_p(const void *a, const void *b);
-static void *get_matches(void *worker_args);
+static heap_t *get_matches(const worker_args_t *worker_args);
 static matcher_pool_t *pool_create(unsigned worker_count);
 static void pool_destroy(matcher_pool_t *pool);
 static void *pool_worker_run(void *arg);
@@ -174,7 +174,6 @@ static matcher_pool_t *pool_create(unsigned worker_count) {
     for (unsigned i = 0; i < worker_count; i++) {
         pool_worker_t *worker = &pool->workers[i];
         worker->pool = pool;
-        worker->index = i;
         worker->result = NULL;
         signal_init(&worker->go);
         signal_init(&worker->done);
@@ -208,6 +207,13 @@ static void pool_destroy(matcher_pool_t *pool) {
     free(pool);
 }
 
+static inline void haystack_init(haystack_t *haystack, str_t *candidate) {
+    haystack->candidate = candidate;
+    haystack->bitmask = UNSET_HAYSTACK_BITMASK;
+    haystack->score = UNSET_SCORE;
+    haystack->first_dot = UNSET_FIRST_DOT;
+}
+
 matcher_t *commandt_matcher_new(
     scanner_t *scanner,
     bool always_show_dot_files,
@@ -234,12 +240,9 @@ matcher_t *commandt_matcher_new(
     matcher->haystacks_size = (size_t)capacity * sizeof(haystack_t);
     matcher->haystacks = capacity ? xmap(matcher->haystacks_size) : NULL;
 
-    unsigned count = __atomic_load_n(&scanner->count, __ATOMIC_ACQUIRE);
+    unsigned count = scanner_count_snapshot(scanner);
     for (unsigned i = 0; i < count; i++) {
-        matcher->haystacks[i].candidate = &scanner->candidates[i];
-        matcher->haystacks[i].bitmask = UNSET_HAYSTACK_BITMASK;
-        matcher->haystacks[i].score = UNSET_SCORE;
-        matcher->haystacks[i].first_dot = -2;
+        haystack_init(&matcher->haystacks[i], &scanner->candidates[i]);
     }
     matcher->initialized = count;
 
@@ -279,19 +282,16 @@ void commandt_matcher_free(matcher_t *matcher) {
 
 result_t *commandt_matcher_run(matcher_t *matcher, const char *needle) {
     scanner_t *scanner = matcher->scanner;
-    unsigned candidate_count = __atomic_load_n(&scanner->count, __ATOMIC_ACQUIRE);
+    unsigned candidate_count = scanner_count_snapshot(scanner);
     unsigned limit = matcher->limit;
-    atomic_uint matches_count = 0;
+    unsigned matches_count = 0;
 
     // An async scanner may have streamed in more candidates since the last run
     // (or since `matcher_new()`); initialize their haystacks now. `count` only
     // grows and every entry below `candidate_count` is immutable, so no further
     // synchronization is needed.
     for (unsigned i = matcher->initialized; i < candidate_count; i++) {
-        matcher->haystacks[i].candidate = &scanner->candidates[i];
-        matcher->haystacks[i].bitmask = UNSET_HAYSTACK_BITMASK;
-        matcher->haystacks[i].score = UNSET_SCORE;
-        matcher->haystacks[i].first_dot = -2;
+        haystack_init(&matcher->haystacks[i], &scanner->candidates[i]);
     }
     matcher->initialized = candidate_count;
 
@@ -400,7 +400,8 @@ result_t *commandt_matcher_run(matcher_t *matcher, const char *needle) {
             .candidate_count = candidate_count,
         };
         heap_t *heap = get_matches(&main_args);
-        unsigned offset = atomic_fetch_add(&matches_count, heap->count);
+        unsigned offset = matches_count;
+        matches_count += heap->count;
         memcpy(
             matches + offset, heap->entries, heap->count * sizeof(haystack_t *)
         );
@@ -412,14 +413,15 @@ result_t *commandt_matcher_run(matcher_t *matcher, const char *needle) {
         pool_worker_t *worker = &pool->workers[i];
         signal_wait(&worker->done);
         heap_t *heap = worker->result;
-        unsigned offset = atomic_fetch_add(&matches_count, heap->count);
+        unsigned offset = matches_count;
+        matches_count += heap->count;
         memcpy(
             matches + offset, heap->entries, heap->count * sizeof(haystack_t *)
         );
         heap_free(heap);
     }
 
-    unsigned count = atomic_load(&matches_count);
+    unsigned count = matches_count;
     if (needle_length == 0 || (needle_length == 1 && matcher->needle[0] == '.')) {
         // Alphabetic order if search string is only "" or "."
         qsort(matches, count, sizeof(haystack_t *), cmp_alpha_p);
@@ -484,12 +486,12 @@ static int cmp_score_p(const void *a, const void *b) {
     return commandt_cmp_score(a_haystack, b_haystack);
 }
 
-static void *get_matches(void *worker_args) {
-    unsigned worker_count = ((worker_args_t *)worker_args)->worker_count;
-    unsigned worker_index = ((worker_args_t *)worker_args)->worker_index;
-    matcher_t *matcher = ((worker_args_t *)worker_args)->matcher;
-    bool ignore_case = ((worker_args_t *)worker_args)->ignore_case;
-    unsigned candidate_count = ((worker_args_t *)worker_args)->candidate_count;
+static heap_t *get_matches(const worker_args_t *worker_args) {
+    unsigned worker_count = worker_args->worker_count;
+    unsigned worker_index = worker_args->worker_index;
+    matcher_t *matcher = worker_args->matcher;
+    bool ignore_case = worker_args->ignore_case;
+    unsigned candidate_count = worker_args->candidate_count;
     size_t needle_length = matcher->needle_length;
     bool narrowing = matcher->last_needle != NULL;
 
@@ -526,7 +528,8 @@ static void *get_matches(void *worker_args) {
             // smallest score it holds is the threshold a candidate must reach to
             // displace anything. Passing it to `commandt_score()` lets the
             // scorer abandon a candidate as soon as its best achievable score
-            // provably falls short; a threshold of 0 means "score in full".
+            // provably falls short. A threshold of 0 disables this pruning,
+            // but not the work-cap fallback.
             float threshold = 0.0f;
             if (sort_by_score && heap->count == matcher->limit) {
                 threshold = HEAP_PEEK(heap)->score;
@@ -553,11 +556,34 @@ static void *get_matches(void *worker_args) {
                 }
             }
 
-            haystack->score =
-                commandt_score(haystack, matcher, ignore_case, threshold);
+            // A lone query dot can match any literal dot under the default or
+            // always-show policy; alphabetical ordering discards its numeric
+            // score. Keep using the scorer to initialize caches needed by later
+            // queries, and for never-show's whole-path filtering. The dot-index
+            // cache is not needed when hidden components are always allowed.
+            if (!sort_by_score && needle_length == 1 &&
+                !matcher->never_show_dot_files &&
+                commandt_haystack_bitmask_computed(haystack->bitmask) &&
+                (matcher->always_show_dot_files ||
+                 haystack->first_dot != UNSET_FIRST_DOT)) {
+                const str_t *candidate = haystack->candidate;
+                haystack->score =
+                    memchr(candidate->contents, '.', candidate->length) ? 1.0f
+                                                                        : 0.0f;
+            } else {
+                haystack->score =
+                    commandt_score(haystack, matcher, ignore_case, threshold);
+            }
 
             if (haystack->score == 0.0f) {
                 continue;
+            }
+
+            // Alphabetical queries must select, not just display, results in
+            // alphabetical order. Equal positive scores make the heap use its
+            // alphabetical tiebreaker. Preserve negative exclusion scores.
+            if (!sort_by_score && haystack->score > 0.0f) {
+                haystack->score = 1.0f;
             }
 
             if (heap->count == matcher->limit) {

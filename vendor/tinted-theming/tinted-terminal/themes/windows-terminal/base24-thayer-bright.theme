@@ -3,6 +3,8 @@
 	"name": "Thayer Bright",
 	"foreground": "#adada9",
 	"background": "#1b1d1e",
+	"cursorColor": "#adada9",
+	"selectionBackground": "#adada9",
 	"black": "#1b1d1e",
 	"blue": "#2656d6",
 	"brightBlack": "#6f7170",

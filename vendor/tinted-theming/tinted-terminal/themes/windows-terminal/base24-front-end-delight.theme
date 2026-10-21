@@ -3,6 +3,8 @@
 	"name": "Front End Delight",
 	"foreground": "#98ac9c",
 	"background": "#1b1b1d",
+	"cursorColor": "#98ac9c",
+	"selectionBackground": "#98ac9c",
 	"black": "#1b1b1d",
 	"blue": "#2c70b7",
 	"brightBlack": "#71ac7c",

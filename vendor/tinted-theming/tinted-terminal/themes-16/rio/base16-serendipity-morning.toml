@@ -1,0 +1,41 @@
+# Rio Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Serendipity Morning by Micheal Andreuzza (https://michaelandreuzza.com/)
+
+[colors]
+selection-background = '#3f4363' # base05
+selection-foreground = '#eaebee' # base02
+
+cursor         = '#3f4363' # base05
+tabs           = '#eaebee' # base01
+tabs-active    = '#eaebee' # base02
+
+background     = '#f6f7fb' # base00
+foreground     = '#3f4363' # base05
+black          = '#f6f7fb' # base00
+red            = '#c25a4d' # base08
+yellow         = '#785fd0' # base0A
+green          = '#2f7aab' # base0B
+cyan           = '#e58678' # base0C
+blue           = '#6288d8' # base0D
+magenta        = '#785fd0' # base0E
+white          = '#3f4363' # base05
+
+dim-foreground   = '#3f4363' # base05
+dim-black        = '#eaebee' # base01
+dim-red          = '#c25a4d' # base08
+dim-yellow       = '#785fd0' # base0A
+dim-green        = '#2f7aab' # base0B
+dim-cyan         = '#e58678' # base0C
+dim-blue         = '#6288d8' # base0D
+dim-magenta      = '#785fd0' # base0E
+dim-white        = '#505575' # base04
+
+light-foreground = '#3f4363' # base05
+light-black      = '#6d7296' # base03
+light-red        = '#c25a4d' # base08
+light-yellow     = '#785fd0' # base0A
+light-green      = '#2f7aab' # base0B
+light-cyan       = '#e58678' # base0C
+light-blue       = '#6288d8' # base0D
+light-magenta    = '#785fd0' # base0E
+light-white      = '#f6f7fb' # base07

@@ -21,13 +21,13 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"cyan3",
 -	"gray90",
 +	[0] = "#ffffff",   /* black  */
-+	[1] = "#953800",   /* red    */
-+	[2] = "#0a3069",   /* green  */
-+	[3] = "#bf8700",   /* yellow */
-+	[4] = "#8250df",   /* blue   */
-+	[5] = "#cf222e",   /* magenta*/
-+	[6] = "#116329",   /* cyan   */
-+	[7] = "#424a53",   /* white  */
++	[1] = "#cf222e",   /* red    */
++	[2] = "#116329",   /* green  */
++	[3] = "#9a6700",   /* yellow */
++	[4] = "#0969da",   /* blue   */
++	[5] = "#8250df",   /* magenta*/
++	[6] = "#1b7c83",   /* cyan   */
++	[7] = "#454c54",   /* white  */
 
  	/* 8 bright colors */
 -	"gray50",
@@ -38,13 +38,13 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"magenta",
 -	"cyan",
 -	"white",
-+	[8] = "#8c959f",   /* black  */
-+	[9] = "#953800",   /* red    */
-+	[10] = "#0a3069",  /* green  */
-+	[11] = "#bf8700",  /* yellow */
-+	[12] = "#8250df",  /* blue   */
-+	[13] = "#cf222e",  /* magenta*/
-+	[14] = "#116329",  /* cyan   */
++	[8] = "#818b98",   /* black  */
++	[9] = "#cf222e",   /* red    */
++	[10] = "#116329",  /* green  */
++	[11] = "#9a6700",  /* yellow */
++	[12] = "#0969da",  /* blue   */
++	[13] = "#8250df",  /* magenta*/
++	[14] = "#1b7c83",  /* cyan   */
 +	[15] = "#1f2328",  /* white  */
 
  	[255] = 0,
@@ -54,7 +54,7 @@ diff '--color=auto' -u -N st-0.9.3/config.def.h st-0.9.3-mod/config.def.h
 -	"#555555",
 -	"gray90", /* default foreground colour */
 -	"black", /* default background colour */
-+	[256] = "#424a53",  /* foreground */
++	[256] = "#454c54",  /* foreground */
 +	[257] = "#ffffff",  /* background */
  };
 

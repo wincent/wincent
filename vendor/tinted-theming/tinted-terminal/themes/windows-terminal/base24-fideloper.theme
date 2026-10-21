@@ -3,6 +3,8 @@
 	"name": "Fideloper",
 	"foreground": "#b1b1a3",
 	"background": "#282f32",
+	"cursorColor": "#b1b1a3",
+	"selectionBackground": "#b1b1a3",
 	"black": "#282f32",
 	"blue": "#2e78c1",
 	"brightBlack": "#415050",

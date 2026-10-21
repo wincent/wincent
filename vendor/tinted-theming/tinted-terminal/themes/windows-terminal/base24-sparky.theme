@@ -3,6 +3,8 @@
 	"name": "Sparky",
 	"foreground": "#f4f5f0",
 	"background": "#072b31",
+	"cursorColor": "#f4f5f0",
+	"selectionBackground": "#f4f5f0",
 	"black": "#072b31",
 	"blue": "#4698cb",
 	"brightBlack": "#003b49",

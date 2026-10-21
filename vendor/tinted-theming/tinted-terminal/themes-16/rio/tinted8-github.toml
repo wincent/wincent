@@ -1,0 +1,41 @@
+# Rio Terminal tinted8 color theme (https://github.com/tinted-theming)
+# Color scheme: Github Light by Tinted Theming (https://github.com/tinted-theming)
+
+[colors]
+selection-background = '#3d454c'
+selection-foreground = '#1f2328'
+
+cursor         = '#1f2328'
+tabs           = '#393f46'
+tabs-active    = '#3d454c'
+
+background     = '#ffffff'
+foreground     = '#1f2328'
+black          = '#1f2328'
+red            = '#cf222e'
+yellow         = '#4d2d00'
+green          = '#116329'
+cyan           = '#1b7c83'
+blue           = '#0969da'
+magenta        = '#8250df'
+white          = '#59636e'
+
+dim-foreground   = '#3d454c'
+dim-black        = '#040506'
+dim-red          = '#9f151e'
+dim-yellow       = '#100900'
+dim-green        = '#073013'
+dim-cyan         = '#0f4d52'
+dim-blue         = '#014ca5'
+dim-magenta      = '#5e20d2'
+dim-white        = '#3d454c'
+
+light-foreground = '#818b98'
+light-black      = '#393f46'
+light-red        = '#a40e26'
+light-yellow     = '#633c01'
+light-green      = '#1a7f37'
+light-cyan       = '#3192aa'
+light-blue       = '#218bff'
+light-magenta    = '#a475f9'
+light-white      = '#818b98'

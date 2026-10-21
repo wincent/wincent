@@ -1,0 +1,43 @@
+# base16 Lahabana
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#19191a"
+foreground = "#f7f1ff"
+
+cursor_bg = "#f7f1ff"
+cursor_border = "#f7f1ff"
+cursor_fg = "#19191a"
+
+selection_bg = "#f7f1ff"
+selection_fg = "#343335"
+
+ansi = [
+  "#19191a",
+  "#fc618d",
+  "#7bd88f",
+  "#e5ff9d",
+  "#fd9353",
+  "#948ae3",
+  "#5ad4e6",
+  "#f7f1ff"
+]
+brights = [
+  "#76747a",
+  "#fc618d",
+  "#7bd88f",
+  "#e5ff9d",
+  "#fd9353",
+  "#948ae3",
+  "#5ad4e6",
+  "#f7f1ff"
+]
+
+[colors.indexed]
+16 = "#f0b095"
+17 = "#a57b6a"
+18 = "#29282a"
+19 = "#343335"
+20 = "#939098"
+21 = "#f9f4ff"

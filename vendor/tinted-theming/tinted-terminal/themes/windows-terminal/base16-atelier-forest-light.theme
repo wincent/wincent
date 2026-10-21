@@ -3,6 +3,8 @@
 	"name": "Atelier Forest Light",
 	"foreground": "#68615e",
 	"background": "#f1efee",
+	"cursorColor": "#68615e",
+	"selectionBackground": "#68615e",
 	"black": "#f1efee",
 	"blue": "#407ee7",
 	"brightBlack": "#9c9491",

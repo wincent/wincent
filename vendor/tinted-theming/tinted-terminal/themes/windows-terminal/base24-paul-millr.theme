@@ -3,6 +3,8 @@
 	"name": "Paul Millr",
 	"foreground": "#a5a5a5",
 	"background": "#000000",
+	"cursorColor": "#a5a5a5",
+	"selectionBackground": "#a5a5a5",
 	"black": "#000000",
 	"blue": "#386bd7",
 	"brightBlack": "#7b7b7b",

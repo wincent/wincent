@@ -1,0 +1,43 @@
+# base16 Bogota
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#200b0a"
+foreground = "#f7f1ff"
+
+cursor_bg = "#f7f1ff"
+cursor_border = "#f7f1ff"
+cursor_fg = "#200b0a"
+
+selection_bg = "#f7f1ff"
+selection_fg = "#3a2727"
+
+ansi = [
+  "#200b0a",
+  "#fc618d",
+  "#7bd88f",
+  "#ffed89",
+  "#47e6ff",
+  "#ff9999",
+  "#47e6ff",
+  "#f7f1ff"
+]
+brights = [
+  "#525053",
+  "#fc618d",
+  "#7bd88f",
+  "#ffed89",
+  "#47e6ff",
+  "#ff9999",
+  "#47e6ff",
+  "#f7f1ff"
+]
+
+[colors.indexed]
+16 = "#fea78b"
+17 = "#b0705e"
+18 = "#2f1b1b"
+19 = "#3a2727"
+20 = "#968a91"
+21 = "#f9f4ff"

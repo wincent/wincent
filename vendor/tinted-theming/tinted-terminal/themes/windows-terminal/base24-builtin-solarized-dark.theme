@@ -3,6 +3,8 @@
 	"name": "Builtin Solarized Dark",
 	"foreground": "#b2b8ad",
 	"background": "#002b36",
+	"cursorColor": "#b2b8ad",
+	"selectionBackground": "#b2b8ad",
 	"black": "#002b36",
 	"blue": "#268bd2",
 	"brightBlack": "#3b5a5d",

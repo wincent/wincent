@@ -1,0 +1,10 @@
+# Scheme name: Lahabana
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-lahabana
+ColorForeground=#f7f1ff
+ColorBackground=#19191a
+ColorCursor=#f7f1ff
+ColorBoldIsBright=FALSE
+ColorPalette=#19191a;#fc618d;#7bd88f;#e5ff9d;#fd9353;#948ae3;#5ad4e6;#f7f1ff;#76747a;#fc618d;#7bd88f;#e5ff9d;#fd9353;#948ae3;#5ad4e6;#f7f1ff

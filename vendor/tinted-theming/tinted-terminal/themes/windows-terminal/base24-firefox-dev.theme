@@ -3,6 +3,8 @@
 	"name": "Firefox Dev",
 	"foreground": "#a5acae",
 	"background": "#0e1011",
+	"cursorColor": "#a5acae",
+	"selectionBackground": "#a5acae",
 	"black": "#0e1011",
 	"blue": "#359ddf",
 	"brightBlack": "#374d53",

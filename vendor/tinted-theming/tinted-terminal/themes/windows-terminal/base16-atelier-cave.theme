@@ -3,6 +3,8 @@
 	"name": "Atelier Cave",
 	"foreground": "#8b8792",
 	"background": "#19171c",
+	"cursorColor": "#8b8792",
+	"selectionBackground": "#8b8792",
 	"black": "#19171c",
 	"blue": "#576ddb",
 	"brightBlack": "#655f6d",

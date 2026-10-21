@@ -3,6 +3,8 @@
 	"name": "Kibble",
 	"foreground": "#c0b3c0",
 	"background": "#0e100a",
+	"cursorColor": "#c0b3c0",
+	"selectionBackground": "#c0b3c0",
 	"black": "#0e100a",
 	"blue": "#3449d1",
 	"brightBlack": "#7c777c",

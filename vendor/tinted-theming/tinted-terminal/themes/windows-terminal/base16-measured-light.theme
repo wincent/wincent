@@ -3,6 +3,8 @@
 	"name": "Measured Light",
 	"foreground": "#292929",
 	"background": "#fdf9f5",
+	"cursorColor": "#292929",
+	"selectionBackground": "#292929",
 	"black": "#fdf9f5",
 	"blue": "#0158ad",
 	"brightBlack": "#5a5a5a",

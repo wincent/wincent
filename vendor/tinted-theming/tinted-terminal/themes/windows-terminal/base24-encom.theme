@@ -3,6 +3,8 @@
 	"name": "ENCOM",
 	"foreground": "#a1a1a1",
 	"background": "#000000",
+	"cursorColor": "#a1a1a1",
+	"selectionBackground": "#a1a1a1",
 	"black": "#000000",
 	"blue": "#0081ff",
 	"brightBlack": "#6e6e6e",

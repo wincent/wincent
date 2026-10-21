@@ -1,0 +1,27 @@
+# Abyssal theme for Mintty
+# Scheme Author: Joss Wright (https://www.weirddatascience.net)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #000000
+Red         = #ff7518
+Green       = #39aa62
+Yellow      = #ffcc00
+Blue        = #01a0e4
+Magenta     = #ab5ccb
+Cyan        = #40e0d0
+White       = #e0e4e7
+BoldBlack   = #4f5b66
+BoldRed     = #feac57
+BoldGreen   = #4ce070
+BoldYellow  = #ffee50
+BoldBlue    = #4b97c8
+BoldMagenta = #ba8efa
+BoldCyan    = #20b2aa
+BoldWhite   = #f7f7ff
+
+# Background & foreground colors
+BackgroundColour = #000000
+ForegroundColour = #e0e4e7
+CursorColour     = #e0e4e7

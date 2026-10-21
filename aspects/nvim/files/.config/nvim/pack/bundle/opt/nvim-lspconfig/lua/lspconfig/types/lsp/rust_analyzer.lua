@@ -16,7 +16,7 @@
 ---```lua
 ---default = "todo"
 ---```
----@field expressionFillDefault? "todo" | "default"
+---@field expressionFillDefault? "todo"|"default"
 ---Prefer to use `Self` over the type name when inserting a type (e.g. in "fill match arms" assist).
 ---@field preferSelf? boolean
 ---@field termSearch? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Assist.TermSearch
@@ -34,7 +34,7 @@
 ---```lua
 ---default = "physical"
 ---```
----@field numThreads? number|"physical" | "logical"
+---@field numThreads? number|"physical"|"logical"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Cargo.BuildScripts
 ---Run build scripts (`build.rs`) for more precise code analysis.
@@ -54,7 +54,7 @@
 ---```lua
 ---default = "per_workspace"
 ---```
----@field invocationStrategy? "per_workspace" | "once"
+---@field invocationStrategy? "per_workspace"|"once"
 ---Override the command rust-analyzer uses to run build scripts and
 ---build procedural macros. The command is required to output json
 ---and should therefore include `--message-format=json` or a similar
@@ -176,7 +176,7 @@
 ---
 ---Set to `true` to use a subdirectory of the existing target directory or
 ---set to a path relative to the workspace to use that path.
----@field targetDir? any|boolean|string
+---@field targetDir? boolean|string
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Cfg
 ---Set `cfg(test)` for local crates. Defaults to true.
@@ -213,7 +213,7 @@
 ---`#rust-analyzer.cargo.features#`.
 ---
 ---Set to `"all"` to pass `--all-features` to Cargo.
----@field features? "all"|string[]|any
+---@field features? "all"|string[]
 ---List of `cargo check` (or other command specified in `check.command`) diagnostics to ignore.
 ---
 ---For example for `cargo check`: `dead_code`, `unused_imports`, `unused_variables`,...
@@ -231,7 +231,7 @@
 ---```lua
 ---default = "per_workspace"
 ---```
----@field invocationStrategy? "per_workspace" | "once"
+---@field invocationStrategy? "per_workspace"|"once"
 ---Whether to pass `--no-default-features` to Cargo. Defaults to
 ---`#rust-analyzer.cargo.noDefaultFeatures#`.
 ---@field noDefaultFeatures? boolean
@@ -278,7 +278,7 @@
 ---`["aarch64-apple-darwin", "x86_64-apple-darwin"]`.
 ---
 ---Aliased as `"checkOnSave.targets"`.
----@field targets? any|string|string[]
+---@field targets? string|string[]
 ---Whether `--workspace` should be passed to `cargo check`.
 ---If false, `-p <package>` will be passed instead if applicable. In case it is not, no
 ---check will be performed.
@@ -344,7 +344,7 @@
 ---    type = "methods"
 ---  } }
 ---```
----@field exclude? any[]
+---@field exclude? (string|table)[]
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion.Autoself
 ---Show method calls and field access completions with `self` prefixed to them when
@@ -361,7 +361,7 @@
 ---```lua
 ---default = "fill_arguments"
 ---```
----@field snippets? "fill_arguments" | "add_parentheses" | "none"
+---@field snippets? "fill_arguments"|"add_parentheses"|"none"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion.FullFunctionSignatures
 ---Show full function / method signatures in completion docs.
@@ -438,6 +438,14 @@
 ---```
 ---@field fuel? integer
 
+---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion.Turbofish
+---Complete turbofish (`::<>`) at the call site (if needed).
+---
+---```lua
+---default = true
+---```
+---@field enable? boolean
+
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion
 ---Automatically add `::` when completing the module.
 ---
@@ -482,6 +490,7 @@
 ---@field privateEditable? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion.PrivateEditable
 ---@field snippets? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion.Snippets
 ---@field termSearch? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion.TermSearch
+---@field turbofish? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Completion.Turbofish
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Debug
 ---Whether to rebuild the project modules before debugging the same test again
@@ -491,7 +500,7 @@
 ---```lua
 ---default = "auto"
 ---```
----@field engine? "auto" | "llvm-vs-code-extensions.lldb-dap" | "vadimcn.vscode-lldb" | "ms-vscode.cpptools" | "webfreak.debug"
+---@field engine? "auto"|"llvm-vs-code-extensions.lldb-dap"|"vadimcn.vscode-lldb"|"ms-vscode.cpptools"|"webfreak.debug"
 ---Optional settings passed to the debug engine. Example: `{ "lldb": { "terminal":"external"} }`
 ---
 ---```lua
@@ -591,7 +600,7 @@
 ---```lua
 ---default = "client"
 ---```
----@field watcher? "client" | "server"
+---@field watcher? "client"|"server"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.GotoImplementations
 ---If this is `true`, when "Goto Implementations" and in "Implementations" lens, are triggered on a `struct` or `enum` or `union`, we filter out trait implementations that originate from `derive`s above the type.
@@ -759,7 +768,7 @@
 ---```lua
 ---default = "hexadecimal"
 ---```
----@field alignment? any|"both" | "decimal" | "hexadecimal"
+---@field alignment? "both"|"decimal"|"hexadecimal"
 ---Show memory layout data on hover.
 ---
 ---```lua
@@ -773,15 +782,15 @@
 ---```lua
 ---default = "hexadecimal"
 ---```
----@field offset? any|"both" | "decimal" | "hexadecimal"
+---@field offset? "both"|"decimal"|"hexadecimal"
 ---How to render the padding information in a memory layout hover.
----@field padding? any|"both" | "decimal" | "hexadecimal"
+---@field padding? "both"|"decimal"|"hexadecimal"
 ---How to render the size information in a memory layout hover.
 ---
 ---```lua
 ---default = "both"
 ---```
----@field size? any|"both" | "decimal" | "hexadecimal"
+---@field size? "both"|"decimal"|"hexadecimal"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Hover.Show
 ---How many variants of an enum to display when hovering on. Show none if empty.
@@ -816,7 +825,7 @@
 ---```lua
 ---default = 20
 ---```
----@field maxSubstitutionLength? any|"hide"|integer
+---@field maxSubstitutionLength? "hide"|integer
 ---@field memoryLayout? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Hover.MemoryLayout
 ---@field show? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Hover.Show
 
@@ -829,7 +838,7 @@
 ---```lua
 ---default = "crate"
 ---```
----@field group? "crate" | "module" | "item" | "one" | "preserve"
+---@field group? "crate"|"module"|"item"|"one"|"preserve"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Imports.Group
 ---Group inserted imports by the [following
@@ -863,7 +872,7 @@
 ---```lua
 ---default = "crate"
 ---```
----@field prefix? "plain" | "self" | "crate"
+---@field prefix? "plain"|"self"|"crate"
 ---Prefix external (including std, core) crate imports with `::`.
 ---
 ---E.g. `use ::std::io::Read;`.
@@ -906,7 +915,7 @@
 ---```lua
 ---default = "never"
 ---```
----@field enable? "always" | "never" | "with_block"
+---@field enable? "always"|"never"|"with_block"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.DiscriminantHints
 ---Show enum variant discriminant hints.
@@ -914,7 +923,7 @@
 ---```lua
 ---default = "never"
 ---```
----@field enable? "always" | "never" | "fieldless"
+---@field enable? "always"|"never"|"fieldless"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.ExpressionAdjustmentHints
 ---Disable reborrows in expression adjustments inlay hints.
@@ -932,7 +941,7 @@
 ---```lua
 ---default = "never"
 ---```
----@field enable? "always" | "never" | "reborrow"
+---@field enable? "always"|"never"|"reborrow"
 ---Hide inlay hints for type adjustments outside of `unsafe` blocks.
 ---@field hideOutsideUnsafe? boolean
 ---Show inlay hints as postfix ops (`.*` instead of `*`, etc).
@@ -940,7 +949,7 @@
 ---```lua
 ---default = "prefix"
 ---```
----@field mode? "prefix" | "postfix" | "prefer_prefix" | "prefer_postfix"
+---@field mode? "prefix"|"postfix"|"prefer_prefix"|"prefer_postfix"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.GenericParameterHints.Const
 ---Show const generic parameter name inlay hints.
@@ -985,7 +994,7 @@
 ---```lua
 ---default = "never"
 ---```
----@field enable? "always" | "never" | "skip_trivial"
+---@field enable? "always"|"never"|"skip_trivial"
 ---Prefer using parameter names as the name for elided lifetime hints if possible.
 ---@field useParameterNames? boolean
 
@@ -1015,7 +1024,7 @@
 ---```lua
 ---default = "never"
 ---```
----@field enable? "always" | "never" | "mutable"
+---@field enable? "always"|"never"|"mutable"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.TypeHints
 ---Show inlay type hints for variables.
@@ -1040,7 +1049,7 @@
 ---```lua
 ---default = "inline"
 ---```
----@field location? "inline" | "end_of_line"
+---@field location? "inline"|"end_of_line"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints
 ---@field bindingModeHints? _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.BindingModeHints
@@ -1053,7 +1062,7 @@
 ---```lua
 ---default = "impl_fn"
 ---```
----@field closureStyle? "impl_fn" | "rust_analyzer" | "with_id" | "hide"
+---@field closureStyle? "impl_fn"|"rust_analyzer"|"with_id"|"hide"
 ---@field discriminantHints? _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.DiscriminantHints
 ---@field expressionAdjustmentHints? _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.ExpressionAdjustmentHints
 ---@field genericParameterHints? _.lspconfig.settings.rust_analyzer.RustAnalyzer.InlayHints.GenericParameterHints
@@ -1182,7 +1191,7 @@
 ---```lua
 ---default = "above_name"
 ---```
----@field location? "above_name" | "above_whole_item"
+---@field location? "above_name"|"above_whole_item"
 ---@field references? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Lens.References
 ---@field run? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Lens.Run
 ---@field updateTest? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Lens.UpdateTest
@@ -1257,7 +1266,7 @@
 ---```lua
 ---default = "ask"
 ---```
----@field openAfterCreate? "ask" | "open" | "openNewWindow" | "addToWorkspace"
+---@field openAfterCreate? "ask"|"open"|"openNewWindow"|"addToWorkspace"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.References
 ---Exclude imports from find-all-references.
@@ -1349,7 +1358,7 @@
 ---```
 ---@field extraArgs? string[]
 ---Environment variables passed to the runnable launched using `Test` or `Debug` lens or `rust-analyzer.run` command.
----@field extraEnv? any|table[]|table
+---@field extraEnv? table[]|table
 ---Additional arguments to be passed through Cargo to launched tests, benchmarks, or
 ---doc-tests.
 ---
@@ -1525,7 +1534,7 @@
 ---```lua
 ---default = "full"
 ---```
----@field detail? "full" | "parameters"
+---@field detail? "full"|"parameters"
 ---@field documentation? _.lspconfig.settings.rust_analyzer.RustAnalyzer.SignatureInfo.Documentation
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.StatusBar
@@ -1534,7 +1543,7 @@
 ---```lua
 ---default = "openLogs"
 ---```
----@field clickAction? "stopServer" | "openLogs"
+---@field clickAction? "stopServer"|"openLogs"
 ---When to show the extension status bar.
 ---
 ---`"always"` Always show the status bar.
@@ -1559,7 +1568,7 @@
 ---    } }
 ---}
 ---```
----@field showStatusBar? "always" | "never"|table
+---@field showStatusBar? "always"|"never"|table
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Trace
 ---Enable logging of VS Code extensions itself.
@@ -1569,7 +1578,7 @@
 ---```lua
 ---default = "off"
 ---```
----@field server? "off" | "messages" | "verbose"
+---@field server? "off"|"messages"|"verbose"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Typing
 ---Whether to prefix newlines after comments with the corresponding comment prefix.
@@ -1607,6 +1616,11 @@
 ---```
 ---@field extraIncludes? string[]
 
+---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Workspace.DiscoverConfig
+---@field command? string[]
+---@field filesToWatch? string[]
+---@field progressLabel? string
+
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Workspace.Symbol.Search
 ---Exclude all imports from workspace symbol search.
 ---
@@ -1619,7 +1633,7 @@
 ---```lua
 ---default = "only_types"
 ---```
----@field kind? "only_types" | "all_symbols"
+---@field kind? "only_types"|"all_symbols"
 ---Limits the number of items returned from a workspace symbol search (Defaults to 128).
 ---Some clients like vs-code issue new searches on result filtering and don't require all results to be returned in the initial search.
 ---Other clients requires all results upfront and might require a higher limit.
@@ -1633,7 +1647,7 @@
 ---```lua
 ---default = "workspace"
 ---```
----@field scope? "workspace" | "workspace_and_dependencies"
+---@field scope? "workspace"|"workspace_and_dependencies"
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer.Workspace.Symbol
 ---@field search? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Workspace.Symbol.Search
@@ -1758,7 +1772,7 @@
 ---
 ---Stderr is not parsed as JSONL. It is treated as command log
 ---output and forwarded to rust-analyzer's own logs.
----@field discoverConfig? any|table
+---@field discoverConfig? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Workspace.DiscoverConfig
 ---@field symbol? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Workspace.Symbol
 
 ---@class _.lspconfig.settings.rust_analyzer.RustAnalyzer
@@ -1800,12 +1814,12 @@
 ---```lua
 ---default = {}
 ---```
----@field linkedProjects? any[]
+---@field linkedProjects? (string|table)[]
 ---@field lru? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Lru
 ---@field notifications? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Notifications
 ---The number of worker threads in the main loop. The default `null` means to pick
 ---automatically.
----@field numThreads? any|number|"physical" | "logical"
+---@field numThreads? number|"physical"|"logical"
 ---@field procMacro? _.lspconfig.settings.rust_analyzer.RustAnalyzer.ProcMacro
 ---@field profiling? _.lspconfig.settings.rust_analyzer.RustAnalyzer.Profiling
 ---@field projectCreation? _.lspconfig.settings.rust_analyzer.RustAnalyzer.ProjectCreation

@@ -3,6 +3,8 @@
 	"name": "Oxocarbon Dark",
 	"foreground": "#f2f4f8",
 	"background": "#161616",
+	"cursorColor": "#f2f4f8",
+	"selectionBackground": "#f2f4f8",
 	"black": "#161616",
 	"blue": "#33b1ff",
 	"brightBlack": "#525252",

@@ -3,6 +3,8 @@
 	"name": "Grayscale Dark",
 	"foreground": "#b9b9b9",
 	"background": "#101010",
+	"cursorColor": "#b9b9b9",
+	"selectionBackground": "#b9b9b9",
 	"black": "#101010",
 	"blue": "#686868",
 	"brightBlack": "#525252",

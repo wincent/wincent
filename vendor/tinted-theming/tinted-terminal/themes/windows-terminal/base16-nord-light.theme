@@ -3,6 +3,8 @@
 	"name": "Nord Light",
 	"foreground": "#2e3440",
 	"background": "#e5e9f0",
+	"cursorColor": "#2e3440",
+	"selectionBackground": "#2e3440",
 	"black": "#e5e9f0",
 	"blue": "#3b6ea8",
 	"brightBlack": "#aebacf",

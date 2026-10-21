@@ -3,6 +3,8 @@
 	"name": "Medallion",
 	"foreground": "#aea578",
 	"background": "#1d1808",
+	"cursorColor": "#aea578",
+	"selectionBackground": "#aea578",
 	"black": "#1d1808",
 	"blue": "#606baf",
 	"brightBlack": "#786d38",

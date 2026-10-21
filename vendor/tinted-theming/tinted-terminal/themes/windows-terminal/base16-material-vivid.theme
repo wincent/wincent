@@ -3,6 +3,8 @@
 	"name": "Material Vivid",
 	"foreground": "#80868b",
 	"background": "#202124",
+	"cursorColor": "#80868b",
+	"selectionBackground": "#80868b",
 	"black": "#202124",
 	"blue": "#2196f3",
 	"brightBlack": "#44464d",

@@ -3,6 +3,8 @@
 	"name": "Atelier Estuary",
 	"foreground": "#929181",
 	"background": "#22221b",
+	"cursorColor": "#929181",
+	"selectionBackground": "#929181",
 	"black": "#22221b",
 	"blue": "#36a166",
 	"brightBlack": "#6c6b5a",

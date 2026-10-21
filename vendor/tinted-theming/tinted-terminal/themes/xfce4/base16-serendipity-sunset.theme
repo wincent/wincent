@@ -1,0 +1,10 @@
+# Scheme name: Serendipity Sunset
+# Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-serendipity-sunset
+ColorForeground=#dee0ef
+ColorBackground=#202231
+ColorCursor=#dee0ef
+ColorBoldIsBright=FALSE
+ColorPalette=#202231;#d1918f;#709bbd;#a392dc;#a0b6e8;#a392dc;#d6b4b4;#dee0ef;#8d8f9e;#d1918f;#709bbd;#a392dc;#a0b6e8;#a392dc;#d6b4b4;#202231

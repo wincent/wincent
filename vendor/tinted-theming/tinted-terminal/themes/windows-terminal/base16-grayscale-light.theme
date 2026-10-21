@@ -3,6 +3,8 @@
 	"name": "Grayscale Light",
 	"foreground": "#464646",
 	"background": "#f7f7f7",
+	"cursorColor": "#464646",
+	"selectionBackground": "#464646",
 	"black": "#f7f7f7",
 	"blue": "#686868",
 	"brightBlack": "#ababab",

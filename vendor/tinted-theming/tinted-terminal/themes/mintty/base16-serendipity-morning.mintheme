@@ -1,0 +1,27 @@
+# Serendipity Morning theme for Mintty
+# Scheme Author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f6f7fb
+Red         = #c25a4d
+Green       = #2f7aab
+Yellow      = #785fd0
+Blue        = #6288d8
+Magenta     = #785fd0
+Cyan        = #e58678
+White       = #3f4363
+BoldBlack   = #6d7296
+BoldRed     = #c25a4d
+BoldGreen   = #2f7aab
+BoldYellow  = #785fd0
+BoldBlue    = #6288d8
+BoldMagenta = #785fd0
+BoldCyan    = #e58678
+BoldWhite   = #f6f7fb
+
+# Background & foreground colors
+BackgroundColour = #f6f7fb
+ForegroundColour = #3f4363
+CursorColour     = #3f4363

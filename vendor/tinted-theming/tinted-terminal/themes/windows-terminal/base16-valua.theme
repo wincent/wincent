@@ -3,6 +3,8 @@
 	"name": "Valua",
 	"foreground": "#98c1a3",
 	"background": "#131f1f",
+	"cursorColor": "#98c1a3",
+	"selectionBackground": "#98c1a3",
 	"black": "#131f1f",
 	"blue": "#4ed2d2",
 	"brightBlack": "#3e5c53",

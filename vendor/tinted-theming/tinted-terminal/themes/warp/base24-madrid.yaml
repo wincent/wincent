@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Madrid by xscriptor (https://github.com/xscriptor)
+
+name: Base24 Madrid
+accent: "#007a9e" # base0D
+cursor: "#1a1a1a" # base05
+background: "#fafafa" # base00
+foreground: "#1a1a1a" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#fafafa" # base00
+    red: "#990026" # base08
+    yellow: "#8a6408" # base0A
+    green: "#007a28" # base0B
+    cyan: "#007a9e" # base0C
+    blue: "#007a9e" # base0D
+    magenta: "#4d2699" # base0E
+    white: "#1a1a1a" # base05
+
+  bright:
+    black: "#4d4d4d" # base03
+    red: "#990026" # base12
+    yellow: "#8a6408" # base13
+    green: "#007a28" # base14
+    cyan: "#007a9e" # base15
+    blue: "#007a9e" # base16
+    magenta: "#4d2699" # base17
+    white: "#1a1a1a" # base07

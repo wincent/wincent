@@ -3,6 +3,8 @@
 	"name": "Dracula",
 	"foreground": "#f8f8f2",
 	"background": "#282a36",
+	"cursorColor": "#f8f8f2",
+	"selectionBackground": "#f8f8f2",
 	"black": "#282a36",
 	"blue": "#bd93f9",
 	"brightBlack": "#6272a4",

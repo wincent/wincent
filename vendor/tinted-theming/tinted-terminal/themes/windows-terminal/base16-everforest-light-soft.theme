@@ -3,6 +3,8 @@
 	"name": "Everforest Light (Soft)",
 	"foreground": "#5c6a72",
 	"background": "#f3ead3",
+	"cursorColor": "#5c6a72",
+	"selectionBackground": "#5c6a72",
 	"black": "#f3ead3",
 	"blue": "#3a94c5",
 	"brightBlack": "#939f91",

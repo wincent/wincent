@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Github Dark Colorblind
+; Scheme system: tinted8
+; Scheme description: 
+; Scheme author: Tinted Theming (https://github.com/tinted-theming)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\tinted8-github-dark-colorblind]
+
+; Default Foreground
+; #f0f6fc
+"Colour0"="240,246,252"
+
+; Default Bold Foreground
+; #ffffff
+"Colour1"="255,255,255"
+
+; Default Background
+; #0d1117
+"Colour2"="13,17,23"
+
+; Default Bold Background  -- equals to non-bold
+; #0d1117
+"Colour3"="13,17,23"
+
+; Cursor Text
+; #0d1117
+"Colour4"="13,17,23"
+
+; Cursor Colour
+; #f0f6fc
+"Colour5"="240,246,252"
+
+; ANSI Black
+; 30m
+; #2f3742
+"Colour6"="47,55,66"
+
+; ANSI Black Bright
+; 1;30m
+; #656c76
+"Colour7"="101,108,118"
+
+; ANSI Red
+; 31m
+; #f0883e
+"Colour8"="240,136,62"
+
+; ANSI Red Bright
+; 1;31m
+; #ffa657
+"Colour9"="255,166,87"
+
+; ANSI Green
+; 32m
+; #58a6ff
+"Colour10"="88,166,255"
+
+; ANSI Green Bright
+; 1;32m
+; #79c0ff
+"Colour11"="121,192,255"
+
+; ANSI Yellow
+; 33m
+; #d29922
+"Colour12"="210,153,34"
+
+; ANSI Yellow Bright
+; 1;33m
+; #e3b341
+"Colour13"="227,179,65"
+
+; ANSI Blue
+; 34m
+; #58a6ff
+"Colour14"="88,166,255"
+
+; ANSI Blue Bright
+; 1;34m
+; #79c0ff
+"Colour15"="121,192,255"
+
+; ANSI Magenta
+; 35m
+; #be8fff
+"Colour16"="190,143,255"
+
+; ANSI Magenta Bright
+; 1;35m
+; #d2a8ff
+"Colour17"="210,168,255"
+
+; ANSI Cyan
+; 36m
+; #39c5cf
+"Colour18"="57,197,207"
+
+; ANSI Cyan Bright
+; 1;36m
+; #56d4dd
+"Colour19"="86,212,221"
+
+; ANSI White
+; 37m
+; #f0f6fc
+"Colour20"="240,246,252"
+
+; ANSI White Bright
+; 1;37m
+; #ffffff
+"Colour21"="255,255,255"

@@ -3,6 +3,8 @@
 	"name": "Gruvbox light, hard",
 	"foreground": "#504945",
 	"background": "#f9f5d7",
+	"cursorColor": "#504945",
+	"selectionBackground": "#504945",
 	"black": "#f9f5d7",
 	"blue": "#076678",
 	"brightBlack": "#bdae93",

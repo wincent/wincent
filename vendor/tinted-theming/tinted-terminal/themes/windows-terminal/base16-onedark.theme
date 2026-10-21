@@ -3,6 +3,8 @@
 	"name": "OneDark",
 	"foreground": "#abb2bf",
 	"background": "#282c34",
+	"cursorColor": "#abb2bf",
+	"selectionBackground": "#abb2bf",
 	"black": "#282c34",
 	"blue": "#61afef",
 	"brightBlack": "#545862",

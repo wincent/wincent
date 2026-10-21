@@ -3,6 +3,8 @@
 	"name": "Tokyo Night Storm",
 	"foreground": "#a9b1d6",
 	"background": "#24283b",
+	"cursorColor": "#a9b1d6",
+	"selectionBackground": "#a9b1d6",
 	"black": "#24283b",
 	"blue": "#2ac3de",
 	"brightBlack": "#444b6a",

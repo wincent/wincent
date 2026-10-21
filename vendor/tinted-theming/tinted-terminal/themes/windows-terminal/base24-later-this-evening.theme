@@ -3,6 +3,8 @@
 	"name": "Later This Evening",
 	"foreground": "#a6a6a6",
 	"background": "#212121",
+	"cursorColor": "#a6a6a6",
+	"selectionBackground": "#a6a6a6",
 	"black": "#212121",
 	"blue": "#a0b9d5",
 	"brightBlack": "#6f6f6f",

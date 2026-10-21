@@ -1,0 +1,27 @@
+# Serendipity Midnight theme for Mintty
+# Scheme Author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #151726
+Red         = #ee8679
+Green       = #5ba2d0
+Yellow      = #a78bfa
+Blue        = #94b8ff
+Magenta     = #a78bfa
+Cyan        = #f8d2c9
+White       = #dee0ef
+BoldBlack   = #6b6d7c
+BoldRed     = #ee8679
+BoldGreen   = #5ba2d0
+BoldYellow  = #a78bfa
+BoldBlue    = #94b8ff
+BoldMagenta = #a78bfa
+BoldCyan    = #f8d2c9
+BoldWhite   = #151726
+
+# Background & foreground colors
+BackgroundColour = #151726
+ForegroundColour = #dee0ef
+CursorColour     = #dee0ef

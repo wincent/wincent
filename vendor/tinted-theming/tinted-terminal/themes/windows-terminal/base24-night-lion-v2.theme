@@ -3,6 +3,8 @@
 	"name": "Night Lion V2",
 	"foreground": "#a1a1a1",
 	"background": "#171717",
+	"cursorColor": "#a1a1a1",
+	"selectionBackground": "#a1a1a1",
 	"black": "#171717",
 	"blue": "#63d0f0",
 	"brightBlack": "#6e6e6e",

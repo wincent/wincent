@@ -3,6 +3,8 @@
 	"name": "Mona Lisa",
 	"foreground": "#dab14e",
 	"background": "#110b0d",
+	"cursorColor": "#dab14e",
+	"selectionBackground": "#dab14e",
 	"black": "#110b0d",
 	"blue": "#515b5c",
 	"brightBlack": "#a26734",

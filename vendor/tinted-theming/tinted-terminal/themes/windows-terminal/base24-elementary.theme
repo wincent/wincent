@@ -3,6 +3,8 @@
 	"name": "Elementary",
 	"foreground": "#c5c5c5",
 	"background": "#181818",
+	"cursorColor": "#c5c5c5",
+	"selectionBackground": "#c5c5c5",
 	"black": "#181818",
 	"blue": "#053a8c",
 	"brightBlack": "#737373",

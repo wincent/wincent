@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Serendipity Sunset
+; Scheme system: base16
+; Scheme description: Serendipity Serendipity Sunset from the Serendipity theme family
+; Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-serendipity-sunset]
+
+; Default Foreground
+; base05 #dee0ef
+"Colour0"="222,224,239"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #dee0ef
+"Colour1"="222,224,239"
+
+; Default Background
+; base00 #202231
+"Colour2"="32,34,49"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #202231
+"Colour3"="32,34,49"
+
+; Cursor Text -- equals to default background
+; base00 #202231
+"Colour4"="32,34,49"
+
+; Cursor Colour -- equals to default foreground
+; base05 #dee0ef
+"Colour5"="222,224,239"
+
+; ANSI Black
+; 30m
+; base00 #202231
+"Colour6"="32,34,49"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #8d8f9e
+"Colour7"="141,143,158"
+
+; ANSI Red
+; 31m
+; base08 #d1918f
+"Colour8"="209,145,143"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #d1918f
+"Colour9"="209,145,143"
+
+; ANSI Green
+; 32m
+; base0B #709bbd
+"Colour10"="112,155,189"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #709bbd
+"Colour11"="112,155,189"
+
+; ANSI Yellow
+; 33m
+; base0A #a392dc
+"Colour12"="163,146,220"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #a392dc
+"Colour13"="163,146,220"
+
+; ANSI Blue
+; 34m
+; base0D #a0b6e8
+"Colour14"="160,182,232"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #a0b6e8
+"Colour15"="160,182,232"
+
+; ANSI Magenta
+; 35m
+; base0E #a392dc
+"Colour16"="163,146,220"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #a392dc
+"Colour17"="163,146,220"
+
+; ANSI Cyan
+; 36m
+; base0C #d6b4b4
+"Colour18"="214,180,180"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #d6b4b4
+"Colour19"="214,180,180"
+
+; ANSI White
+; 37m
+; base05 #dee0ef
+"Colour20"="222,224,239"
+
+; ANSI White Bright
+; 1;37m
+; base07 202231
+"Colour21"="32,34,49"

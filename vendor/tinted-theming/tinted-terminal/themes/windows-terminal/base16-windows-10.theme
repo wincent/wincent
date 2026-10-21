@@ -3,6 +3,8 @@
 	"name": "Windows 10",
 	"foreground": "#cccccc",
 	"background": "#0c0c0c",
+	"cursorColor": "#cccccc",
+	"selectionBackground": "#cccccc",
 	"black": "#0c0c0c",
 	"blue": "#3b78ff",
 	"brightBlack": "#767676",

@@ -3,6 +3,8 @@
 	"name": "Primer Dark Dimmed",
 	"foreground": "#909dab",
 	"background": "#1c2128",
+	"cursorColor": "#909dab",
+	"selectionBackground": "#909dab",
 	"black": "#1c2128",
 	"blue": "#539bf5",
 	"brightBlack": "#545d68",

@@ -3,6 +3,8 @@
 	"name": "Space Gray Eighties Dull",
 	"foreground": "#9a9fa6",
 	"background": "#212121",
+	"cursorColor": "#9a9fa6",
+	"selectionBackground": "#9a9fa6",
 	"black": "#212121",
 	"blue": "#7b8fa4",
 	"brightBlack": "#6c6d70",

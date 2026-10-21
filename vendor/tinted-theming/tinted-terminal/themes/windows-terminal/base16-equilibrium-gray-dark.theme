@@ -3,6 +3,8 @@
 	"name": "Equilibrium Gray Dark",
 	"foreground": "#ababab",
 	"background": "#111111",
+	"cursorColor": "#ababab",
+	"selectionBackground": "#ababab",
 	"black": "#111111",
 	"blue": "#008dd1",
 	"brightBlack": "#777777",

@@ -3,6 +3,8 @@
 	"name": "Apathy",
 	"foreground": "#81b5ac",
 	"background": "#031a16",
+	"cursorColor": "#81b5ac",
+	"selectionBackground": "#81b5ac",
 	"black": "#031a16",
 	"blue": "#96883e",
 	"brightBlack": "#2b685e",

@@ -1,0 +1,27 @@
+# London theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #ffffff
+Red         = #333333
+Green       = #444444
+Yellow      = #555555
+Blue        = #666666
+Magenta     = #777777
+Cyan        = #888888
+White       = #333333
+BoldBlack   = #333333
+BoldRed     = #333333
+BoldGreen   = #444444
+BoldYellow  = #555555
+BoldBlue    = #666666
+BoldMagenta = #777777
+BoldCyan    = #888888
+BoldWhite   = #aaaaaa
+
+# Background & foreground colors
+BackgroundColour = #ffffff
+ForegroundColour = #333333
+CursorColour     = #333333

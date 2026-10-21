@@ -3,6 +3,8 @@
 	"name": "Measured Dark",
 	"foreground": "#dcdcdc",
 	"background": "#00211f",
+	"cursorColor": "#dcdcdc",
+	"selectionBackground": "#dcdcdc",
 	"black": "#00211f",
 	"blue": "#88b0da",
 	"brightBlack": "#ababab",

@@ -3,6 +3,8 @@
 	"name": "Darktooth",
 	"foreground": "#a89984",
 	"background": "#1d2021",
+	"cursorColor": "#a89984",
+	"selectionBackground": "#a89984",
 	"black": "#1d2021",
 	"blue": "#0d6678",
 	"brightBlack": "#665c54",

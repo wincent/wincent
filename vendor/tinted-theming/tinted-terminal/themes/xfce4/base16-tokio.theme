@@ -1,0 +1,10 @@
+# Scheme name: Tokio
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-tokio
+ColorForeground=#f7f1ff
+ColorBackground=#1c1c1d
+ColorCursor=#f7f1ff
+ColorBoldIsBright=FALSE
+ColorPalette=#1c1c1d;#fc618d;#7bd88f;#fce566;#fd9353;#948ae3;#5ad4e6;#f7f1ff;#78757c;#fc618d;#7bd88f;#fce566;#fd9353;#948ae3;#5ad4e6;#f7f1ff

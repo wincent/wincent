@@ -3,9 +3,11 @@
 # Scheme author: {{scheme.author}}
 # Template author: Tinted Theming (https://github.com/tinted-theming)
 
-[colors]
-foreground={{ui.global.foreground.normal}}
-background={{ui.global.background.normal}}
+initial-color-theme={{#option.is-dark-variant}}dark{{/option.is-dark-variant}}{{^option.is-dark-variant}}light{{/option.is-dark-variant}}
+
+[colors-{{#option.is-dark-variant}}dark{{/option.is-dark-variant}}{{^option.is-dark-variant}}light{{/option.is-dark-variant}}]
+foreground={{ui.global.foreground.normal.hex}}
+background={{ui.global.background.normal.hex}}
 regular0={{palette.black.normal.hex}} # black
 regular1={{palette.red.normal.hex}} # red
 regular2={{palette.green.normal.hex}} # green

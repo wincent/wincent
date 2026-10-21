@@ -2,7 +2,7 @@
 
 " tinted-vim (https://github.com/tinted-theming/tinted-vim)
 " Scheme name: Apprentice
-" Scheme author: romainl
+" Scheme author: Romain Lafourcade (https://github.com/romainl)
 " Template author: Tinted Theming (https://github.com/tinted-theming)
 
 " This enables the coresponding base16-shell script to run so that
@@ -17,29 +17,29 @@ endif
 
 " GUI colors
 let s:gui00        = '262626'
-let s:gui01        = 'af5f5f'
-let s:gui02        = '5f875f'
-let s:gui03        = '87875f'
-let s:gui04        = '5f87af'
-let s:gui05        = '5f5f87'
-let s:gui06        = '5f8787'
-let s:gui07        = '6c6c6c'
-let s:gui08        = '444444'
+let s:gui01        = '303030'
+let s:gui02        = '3a3a3a'
+let s:gui03        = '444444'
+let s:gui04        = '6c6c6c'
+let s:gui05        = 'bcbcbc'
+let s:gui06        = 'dfdfdf'
+let s:gui07        = 'ffffff'
+let s:gui08        = 'af5f5f'
 let s:gui09        = 'ff8700'
-let s:gui0A        = '87af87'
-let s:gui0B        = 'ffffaf'
-let s:gui0C        = '87afd7'
-let s:gui0D        = '8787af'
-let s:gui0E        = '5fafaf'
-let s:gui0F        = 'bcbcbc'
+let s:gui0A        = '87875f'
+let s:gui0B        = '5f875f'
+let s:gui0C        = '5f8787'
+let s:gui0D        = '5f87af'
+let s:gui0E        = '5f5f87'
+let s:gui0F        = 'af5f5f'
 let s:gui10        = '262626'
 let s:gui11        = '262626'
-let s:gui12        = '444444'
-let s:gui13        = '87af87'
-let s:gui14        = 'ffffaf'
-let s:gui15        = '87afd7'
-let s:gui16        = '8787af'
-let s:gui17        = '5fafaf'
+let s:gui12        = 'af5f5f'
+let s:gui13        = '87875f'
+let s:gui14        = '5f875f'
+let s:gui15        = '5f8787'
+let s:gui16        = '5f87af'
+let s:gui17        = '5f5f87'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -96,21 +96,21 @@ call s:create_color_globals()
 " Integrated Terminal colors
 let s:colors = [
   \ '#262626',
-  \ '#444444',
-  \ '#ffffaf',
-  \ '#87af87',
-  \ '#8787af',
-  \ '#5fafaf',
-  \ '#87afd7',
-  \ '#5f5f87',
+  \ '#af5f5f',
+  \ '#5f875f',
   \ '#87875f',
+  \ '#5f87af',
+  \ '#5f5f87',
+  \ '#5f8787',
+  \ '#bcbcbc',
   \ '#444444',
-  \ '#ffffaf',
-  \ '#87af87',
-  \ '#8787af',
-  \ '#5fafaf',
-  \ '#87afd7',
-  \ '#6c6c6c'
+  \ '#af5f5f',
+  \ '#5f875f',
+  \ '#87875f',
+  \ '#5f87af',
+  \ '#5f5f87',
+  \ '#5f8787',
+  \ '#ffffff'
 \]
 
 if has('nvim')

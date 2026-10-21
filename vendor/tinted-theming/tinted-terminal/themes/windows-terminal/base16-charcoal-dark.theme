@@ -3,6 +3,8 @@
 	"name": "Charcoal Dark",
 	"foreground": "#c3a983",
 	"background": "#0f0b05",
+	"cursorColor": "#c3a983",
+	"selectionBackground": "#c3a983",
 	"black": "#0f0b05",
 	"blue": "#c3a983",
 	"brightBlack": "#57462c",

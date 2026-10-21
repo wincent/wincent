@@ -3,6 +3,8 @@
 	"name": "vice",
 	"foreground": "#8b9cbe",
 	"background": "#17191e",
+	"cursorColor": "#8b9cbe",
+	"selectionBackground": "#8b9cbe",
 	"black": "#17191e",
 	"blue": "#00eaff",
 	"brightBlack": "#383a47",

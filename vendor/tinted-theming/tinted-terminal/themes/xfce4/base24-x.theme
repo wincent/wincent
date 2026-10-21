@@ -1,0 +1,10 @@
+# Scheme name: X
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-x
+ColorForeground=#f7f1ff
+ColorBackground=#050505
+ColorCursor=#f7f1ff
+ColorBoldIsBright=FALSE
+ColorPalette=#050505;#fc618d;#7bd88f;#fce566;#fd9353;#948ae3;#5ad4e6;#f7f1ff;#6b686e;#fc618d;#7bd88f;#fce566;#fd9353;#948ae3;#5ad4e6;#f7f1ff

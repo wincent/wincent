@@ -1,0 +1,22 @@
+system: "base16"
+name: "Praha"
+slug: "praha"
+author: "xscriptor (https://github.com/xscriptor)"
+variant: "dark"
+palette:
+  base00: "#1a1a1a" # background
+  base01: "#2a2a2a" # derived: lighter background (ANSI 0 equals background)
+  base02: "#353535" # derived: selection background
+  base03: "#6272a4" # ANSI 8 (bright black)
+  base04: "#989898" # derived: dark foreground
+  base05: "#ffffff" # default foreground
+  base06: "#ffffff" # derived: light foreground
+  base07: "#ffffff" # ANSI 15 (bright white)
+  base08: "#ff5555" # ANSI 1 (red)
+  base09: "#ff9c7c" # derived: orange (red + yellow)
+  base0A: "#ffe4a3" # ANSI 3 (yellow)
+  base0B: "#b8e6a0" # ANSI 2 (green)
+  base0C: "#8be9fd" # ANSI 6 (cyan)
+  base0D: "#bd93f9" # ANSI 4 (blue)
+  base0E: "#ff9aa2" # ANSI 5 (magenta)
+  base0F: "#af6e5a" # derived: brown (darkened orange)

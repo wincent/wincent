@@ -3,6 +3,8 @@
 	"name": "Cyberdyne",
 	"foreground": "#c0c0c0",
 	"background": "#151144",
+	"cursorColor": "#c0c0c0",
+	"selectionBackground": "#c0c0c0",
 	"black": "#151144",
 	"blue": "#0071cf",
 	"brightBlack": "#5e5e5e",

@@ -3,6 +3,8 @@
 	"name": "Da One White",
 	"foreground": "#181818",
 	"background": "#ffffff",
+	"cursorColor": "#181818",
+	"selectionBackground": "#181818",
 	"black": "#ffffff",
 	"blue": "#5890f8",
 	"brightBlack": "#585858",

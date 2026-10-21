@@ -3,6 +3,8 @@
 	"name": "Builtin Solarized Light",
 	"foreground": "#b2b8ad",
 	"background": "#fdf6e3",
+	"cursorColor": "#b2b8ad",
+	"selectionBackground": "#b2b8ad",
 	"black": "#fdf6e3",
 	"blue": "#268bd2",
 	"brightBlack": "#3b5a5d",

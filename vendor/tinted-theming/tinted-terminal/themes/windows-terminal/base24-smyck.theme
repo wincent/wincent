@@ -3,6 +3,8 @@
 	"name": "Smyck",
 	"foreground": "#969696",
 	"background": "#1b1b1b",
+	"cursorColor": "#969696",
+	"selectionBackground": "#969696",
 	"black": "#1b1b1b",
 	"blue": "#62a3c4",
 	"brightBlack": "#838383",

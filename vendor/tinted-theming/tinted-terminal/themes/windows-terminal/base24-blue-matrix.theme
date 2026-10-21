@@ -3,6 +3,8 @@
 	"name": "Blue Matrix",
 	"foreground": "#afafaf",
 	"background": "#0f1115",
+	"cursorColor": "#afafaf",
+	"selectionBackground": "#afafaf",
 	"black": "#0f1115",
 	"blue": "#00b0fe",
 	"brightBlack": "#7f7f7f",

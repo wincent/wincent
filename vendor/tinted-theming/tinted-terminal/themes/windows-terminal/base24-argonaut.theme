@@ -3,6 +3,8 @@
 	"name": "Argonaut",
 	"foreground": "#d0d0d0",
 	"background": "#0d0f18",
+	"cursorColor": "#d0d0d0",
+	"selectionBackground": "#d0d0d0",
 	"black": "#0d0f18",
 	"blue": "#008df8",
 	"brightBlack": "#727272",

@@ -1,0 +1,22 @@
+system: "base16"
+name: "Helsinki"
+slug: "helsinki"
+author: "xscriptor (https://github.com/xscriptor)"
+variant: "light"
+palette:
+  base00: "#f8fafe" # background
+  base01: "#edeef1" # derived: darker background (ANSI 0 equals background)
+  base02: "#e4e5e7" # derived: selection background
+  base03: "#b0a999" # ANSI 8 (bright black)
+  base04: "#8d8a82" # derived: dark foreground
+  base05: "#544d40" # default foreground
+  base06: "#3b362d" # derived: dark foreground (light variant)
+  base07: "#000000" # ANSI 15 (bright white)
+  base08: "#1faa9e" # ANSI 1 (red)
+  base09: "#268da6" # derived: orange (red + yellow)
+  base0A: "#2e70ad" # ANSI 3 (yellow)
+  base0B: "#733d9a" # ANSI 2 (green)
+  base0C: "#bd4c3d" # ANSI 6 (cyan)
+  base0D: "#b55a0f" # ANSI 4 (blue)
+  base0E: "#3e9d21" # ANSI 5 (magenta)
+  base0F: "#1b6374" # derived: brown (darkened orange)

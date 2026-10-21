@@ -3,6 +3,8 @@
 	"name": "Nova",
 	"foreground": "#c5d4dd",
 	"background": "#3c4c55",
+	"cursorColor": "#c5d4dd",
+	"selectionBackground": "#c5d4dd",
 	"black": "#3c4c55",
 	"blue": "#83afe5",
 	"brightBlack": "#899ba6",

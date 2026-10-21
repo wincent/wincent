@@ -1,0 +1,22 @@
+system: "base16"
+name: "Madrid"
+slug: "madrid"
+author: "xscriptor (https://github.com/xscriptor)"
+variant: "light"
+palette:
+  base00: "#fafafa" # background
+  base01: "#eaeaea" # derived: darker background (ANSI 0 equals background)
+  base02: "#dfdfdf" # derived: selection background
+  base03: "#4d4d4d" # ANSI 8 (bright black)
+  base04: "#686868" # derived: dark foreground
+  base05: "#1a1a1a" # default foreground
+  base06: "#121212" # derived: dark foreground (light variant)
+  base07: "#1a1a1a" # ANSI 15 (bright white)
+  base08: "#990026" # ANSI 1 (red)
+  base09: "#923217" # derived: orange (red + yellow)
+  base0A: "#8a6408" # ANSI 3 (yellow)
+  base0B: "#007a28" # ANSI 2 (green)
+  base0C: "#007a9e" # ANSI 6 (cyan)
+  base0D: "#007a9e" # ANSI 4 (blue)
+  base0E: "#4d2699" # ANSI 5 (magenta)
+  base0F: "#662310" # derived: brown (darkened orange)

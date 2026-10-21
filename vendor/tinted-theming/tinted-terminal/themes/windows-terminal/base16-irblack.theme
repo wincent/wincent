@@ -3,6 +3,8 @@
 	"name": "IR Black",
 	"foreground": "#b5b3aa",
 	"background": "#000000",
+	"cursorColor": "#b5b3aa",
+	"selectionBackground": "#b5b3aa",
 	"black": "#000000",
 	"blue": "#96cbfe",
 	"brightBlack": "#6c6c66",

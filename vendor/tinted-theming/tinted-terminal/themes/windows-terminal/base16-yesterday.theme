@@ -3,6 +3,8 @@
 	"name": "Yesterday",
 	"foreground": "#d6d6d6",
 	"background": "#1d1f21",
+	"cursorColor": "#d6d6d6",
+	"selectionBackground": "#d6d6d6",
 	"black": "#1d1f21",
 	"blue": "#4271ae",
 	"brightBlack": "#969896",

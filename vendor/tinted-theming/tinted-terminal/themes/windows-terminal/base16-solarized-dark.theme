@@ -3,6 +3,8 @@
 	"name": "Solarized Dark",
 	"foreground": "#93a1a1",
 	"background": "#002b36",
+	"cursorColor": "#93a1a1",
+	"selectionBackground": "#93a1a1",
 	"black": "#002b36",
 	"blue": "#268bd2",
 	"brightBlack": "#657b83",

@@ -3,6 +3,8 @@
 	"name": "Elemental",
 	"foreground": "#756f68",
 	"background": "#21211c",
+	"cursorColor": "#756f68",
+	"selectionBackground": "#756f68",
 	"black": "#21211c",
 	"blue": "#497f7d",
 	"brightBlack": "#5f5d50",

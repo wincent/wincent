@@ -3,6 +3,8 @@
 	"name": "Tokyo City Dark",
 	"foreground": "#d8e2ec",
 	"background": "#171d23",
+	"cursorColor": "#d8e2ec",
+	"selectionBackground": "#d8e2ec",
 	"black": "#171d23",
 	"blue": "#7aa2f7",
 	"brightBlack": "#526270",

@@ -3,6 +3,8 @@
 	"name": "Jet Brains Darcula",
 	"foreground": "#979797",
 	"background": "#202020",
+	"cursorColor": "#979797",
+	"selectionBackground": "#979797",
 	"black": "#202020",
 	"blue": "#4581eb",
 	"brightBlack": "#6b6b6b",

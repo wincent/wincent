@@ -3,6 +3,8 @@
 	"name": "Blue Berry Pie",
 	"foreground": "#bbb2ad",
 	"background": "#1c0b28",
+	"cursorColor": "#bbb2ad",
+	"selectionBackground": "#bbb2ad",
 	"black": "#1c0b28",
 	"blue": "#90a5bc",
 	"brightBlack": "#534a5e",

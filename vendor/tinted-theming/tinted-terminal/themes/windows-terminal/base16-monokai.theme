@@ -3,6 +3,8 @@
 	"name": "Monokai",
 	"foreground": "#f8f8f2",
 	"background": "#272822",
+	"cursorColor": "#f8f8f2",
+	"selectionBackground": "#f8f8f2",
 	"black": "#272822",
 	"blue": "#66d9ef",
 	"brightBlack": "#75715e",

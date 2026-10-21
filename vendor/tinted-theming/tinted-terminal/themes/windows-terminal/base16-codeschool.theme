@@ -3,6 +3,8 @@
 	"name": "Codeschool",
 	"foreground": "#9ea7a6",
 	"background": "#232c31",
+	"cursorColor": "#9ea7a6",
+	"selectionBackground": "#9ea7a6",
 	"black": "#232c31",
 	"blue": "#484d79",
 	"brightBlack": "#3f4944",

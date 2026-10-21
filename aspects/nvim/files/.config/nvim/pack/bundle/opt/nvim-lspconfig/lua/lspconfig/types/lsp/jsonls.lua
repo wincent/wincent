@@ -35,6 +35,7 @@
 ---  ["https://raw.githubusercontent.com/devcontainers/spec/"] = true,
 ---  ["https://raw.githubusercontent.com/microsoft/vscode/"] = true,
 ---  ["https://schemastore.azurewebsites.net/"] = true,
+---  ["https://spec.openapis.org/"] = true,
 ---  ["https://www.schemastore.org/"] = true
 ---}
 ---```
@@ -46,7 +47,7 @@
 ---```lua
 ---default = "off"
 ---```
----@field server? "off" | "messages" | "verbose"
+---@field server? "off"|"messages"|"verbose"
 
 ---@class _.lspconfig.settings.jsonls.Json.Validate
 ---Enable/disable JSON validation.

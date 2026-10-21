@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Serendipity Midnight by Micheal Andreuzza (https://michaelandreuzza.com/)
+
+name: Base16 Serendipity Midnight
+accent: "#94b8ff" # base0D
+cursor: "#dee0ef" # base05
+background: "#151726" # base00
+foreground: "#dee0ef" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#151726" # base00
+    red: "#ee8679" # base08
+    yellow: "#a78bfa" # base0A
+    green: "#5ba2d0" # base0B
+    cyan: "#f8d2c9" # base0C
+    blue: "#94b8ff" # base0D
+    magenta: "#a78bfa" # base0E
+    white: "#dee0ef" # base05
+
+  bright:
+    black: "#6b6d7c" # base03
+    red: "#ee8679" # base08
+    yellow: "#a78bfa" # base0A
+    green: "#5ba2d0" # base0B
+    cyan: "#f8d2c9" # base0C
+    blue: "#94b8ff" # base0D
+    magenta: "#a78bfa" # base0E
+    white: "#151726" # base07

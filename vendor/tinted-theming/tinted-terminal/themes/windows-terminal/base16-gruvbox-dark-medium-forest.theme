@@ -3,6 +3,8 @@
 	"name": "Gruvbox Dark Medium (Forest)",
 	"foreground": "#d5c4a1",
 	"background": "#282828",
+	"cursorColor": "#d5c4a1",
+	"selectionBackground": "#d5c4a1",
 	"black": "#282828",
 	"blue": "#b8bb26",
 	"brightBlack": "#665c50",

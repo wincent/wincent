@@ -3,6 +3,8 @@
 	"name": "Pro",
 	"foreground": "#a8a8a8",
 	"background": "#000000",
+	"cursorColor": "#a8a8a8",
+	"selectionBackground": "#a8a8a8",
 	"black": "#000000",
 	"blue": "#1f08db",
 	"brightBlack": "#7c7c7c",

@@ -57,3 +57,14 @@ body:
       description: |
         Add any other context about the problem here.  You can attach screenshots by clicking
         this area to highlight it and then drag the files in.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Before submitting the issue, please make sure you have completed the following
+      options:
+        - label: I tried the [latest nightly build](https://yazi-rs.github.io/docs/installation#binaries), and the issue is still reproducible
+          required: true
+        - label: I updated the environment information (`ya env`) field to the nightly that I tried
+          required: true
+        - label: I can reproduce it after disabling all custom configs/plugins (`mv ~/.config/yazi ~/.config/yazi-backup`)

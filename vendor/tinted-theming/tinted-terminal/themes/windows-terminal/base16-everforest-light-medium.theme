@@ -3,6 +3,8 @@
 	"name": "Everforest Light (Medium)",
 	"foreground": "#5c6a72",
 	"background": "#fdf6e3",
+	"cursorColor": "#5c6a72",
+	"selectionBackground": "#5c6a72",
 	"black": "#fdf6e3",
 	"blue": "#3a94c5",
 	"brightBlack": "#939f91",

@@ -1,0 +1,10 @@
+# Scheme name: London
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-london
+ColorForeground=#333333
+ColorBackground=#ffffff
+ColorCursor=#333333
+ColorBoldIsBright=FALSE
+ColorPalette=#ffffff;#333333;#444444;#555555;#666666;#777777;#888888;#333333;#333333;#333333;#444444;#555555;#666666;#777777;#888888;#aaaaaa

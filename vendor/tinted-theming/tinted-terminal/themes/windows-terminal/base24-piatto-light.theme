@@ -3,6 +3,8 @@
 	"name": "Piatto Light",
 	"foreground": "#515151",
 	"background": "#ffffff",
+	"cursorColor": "#515151",
+	"selectionBackground": "#515151",
 	"black": "#ffffff",
 	"blue": "#3c5ea8",
 	"brightBlack": "#c1c1c1",

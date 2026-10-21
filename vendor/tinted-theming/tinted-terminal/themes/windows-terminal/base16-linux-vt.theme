@@ -3,6 +3,8 @@
 	"name": "Linux VT",
 	"foreground": "#aaaaaa",
 	"background": "#000000",
+	"cursorColor": "#aaaaaa",
+	"selectionBackground": "#aaaaaa",
 	"black": "#000000",
 	"blue": "#5555ff",
 	"brightBlack": "#555555",

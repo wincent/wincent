@@ -3,6 +3,8 @@
 	"name": "Oxocarbon Light",
 	"foreground": "#525f70",
 	"background": "#f2f4f8",
+	"cursorColor": "#525f70",
+	"selectionBackground": "#525f70",
 	"black": "#f2f4f8",
 	"blue": "#0f62fe",
 	"brightBlack": "#a1acba",

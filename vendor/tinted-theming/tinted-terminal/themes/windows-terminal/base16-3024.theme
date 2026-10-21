@@ -3,6 +3,8 @@
 	"name": "3024",
 	"foreground": "#a5a2a2",
 	"background": "#090300",
+	"cursorColor": "#a5a2a2",
+	"selectionBackground": "#a5a2a2",
 	"black": "#090300",
 	"blue": "#01a0e4",
 	"brightBlack": "#5c5855",

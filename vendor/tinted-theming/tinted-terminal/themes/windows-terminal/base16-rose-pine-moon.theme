@@ -3,6 +3,8 @@
 	"name": "Rosé Pine Moon",
 	"foreground": "#e0def4",
 	"background": "#232136",
+	"cursorColor": "#e0def4",
+	"selectionBackground": "#e0def4",
 	"black": "#232136",
 	"blue": "#c4a7e7",
 	"brightBlack": "#6e6a86",

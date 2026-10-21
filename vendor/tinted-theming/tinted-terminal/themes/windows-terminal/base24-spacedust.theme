@@ -3,6 +3,8 @@
 	"name": "Spacedust",
 	"foreground": "#cdc7a6",
 	"background": "#0a1e24",
+	"cursorColor": "#cdc7a6",
+	"selectionBackground": "#cdc7a6",
 	"black": "#0a1e24",
 	"blue": "#0e548b",
 	"brightBlack": "#897558",

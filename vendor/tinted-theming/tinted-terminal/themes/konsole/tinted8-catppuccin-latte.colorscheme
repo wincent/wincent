@@ -2,10 +2,10 @@
 Color=220,224,232
 
 [BackgroundFaint]
-Color=,,
+Color=182,191,209
 
 [BackgroundIntense]
-Color=,,
+Color=255,255,255
 
 [Color0]
 Color=76,79,105
@@ -83,10 +83,10 @@ Color=255,255,255
 Color=76,79,105
 
 [ForegroundFaint]
-Color=,,
+Color=108,111,133
 
 [ForegroundIntense]
-Color=,,
+Color=50,52,70
 
 [General]
 Description=Catppuccin Latte

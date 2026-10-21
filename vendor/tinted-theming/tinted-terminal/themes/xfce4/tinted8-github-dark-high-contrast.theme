@@ -1,0 +1,11 @@
+# Scheme name: Github Dark High Contrast
+# Scheme author: Tinted Theming (https://github.com/tinted-theming)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=tinted8-github-dark-high-contrast
+ColorForeground=#ffffff
+ColorBackground=#010409
+ColorCursor=#ffffff
+ColorBoldIsBright=FALSE
+ColorPalette=#2f3742;#ff9492;#28d751;#f0b72f;#71b7ff;#cb9eff;#39c5cf;#f0f6fc;#656c76;#ffb1af;#4ae168;#f7c843;#91cbff;#dbb7ff;#56d4dd;#ffffff
+

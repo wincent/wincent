@@ -3,6 +3,8 @@
 	"name": "The Hulk",
 	"foreground": "#b6b6b1",
 	"background": "#1b1d1e",
+	"cursorColor": "#b6b6b1",
+	"selectionBackground": "#b6b6b1",
 	"black": "#1b1d1e",
 	"blue": "#2424f4",
 	"brightBlack": "#727473",

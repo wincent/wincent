@@ -3,6 +3,8 @@
 	"name": "Atelier Sulphurpool Light",
 	"foreground": "#5e6687",
 	"background": "#f5f7ff",
+	"cursorColor": "#5e6687",
+	"selectionBackground": "#5e6687",
 	"black": "#f5f7ff",
 	"blue": "#3d8fd1",
 	"brightBlack": "#898ea4",

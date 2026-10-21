@@ -3,6 +3,8 @@
 	"name": "iA Dark",
 	"foreground": "#cccccc",
 	"background": "#1a1a1a",
+	"cursorColor": "#cccccc",
+	"selectionBackground": "#cccccc",
 	"black": "#1a1a1a",
 	"blue": "#8eccdd",
 	"brightBlack": "#767676",

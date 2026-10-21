@@ -3,6 +3,8 @@
 	"name": "Chinoiserie",
 	"foreground": "#4a4035",
 	"background": "#ffffff",
+	"cursorColor": "#4a4035",
+	"selectionBackground": "#4a4035",
 	"black": "#ffffff",
 	"blue": "#815c94",
 	"brightBlack": "#80766e",

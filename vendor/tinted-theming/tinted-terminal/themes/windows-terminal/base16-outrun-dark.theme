@@ -3,6 +3,8 @@
 	"name": "Outrun Dark",
 	"foreground": "#d0d0fa",
 	"background": "#00002a",
+	"cursorColor": "#d0d0fa",
+	"selectionBackground": "#d0d0fa",
 	"black": "#00002a",
 	"blue": "#66b0ff",
 	"brightBlack": "#50507a",

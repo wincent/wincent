@@ -2,10 +2,10 @@
 Color=40,40,40
 
 [BackgroundFaint]
-Color=,,
+Color=29,32,33
 
 [BackgroundIntense]
-Color=,,
+Color=60,56,54
 
 [Color0]
 Color=40,40,40
@@ -83,10 +83,10 @@ Color=251,241,199
 Color=235,219,178
 
 [ForegroundFaint]
-Color=,,
+Color=227,198,125
 
 [ForegroundIntense]
-Color=,,
+Color=251,241,199
 
 [General]
 Description=Gruvbox Dark

@@ -1,0 +1,27 @@
+# Bogota theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #200b0a
+Red         = #fc618d
+Green       = #7bd88f
+Yellow      = #ffed89
+Blue        = #47e6ff
+Magenta     = #ff9999
+Cyan        = #47e6ff
+White       = #f7f1ff
+BoldBlack   = #525053
+BoldRed     = #fc618d
+BoldGreen   = #7bd88f
+BoldYellow  = #ffed89
+BoldBlue    = #47e6ff
+BoldMagenta = #ff9999
+BoldCyan    = #47e6ff
+BoldWhite   = #f7f1ff
+
+# Background & foreground colors
+BackgroundColour = #200b0a
+ForegroundColour = #f7f1ff
+CursorColour     = #f7f1ff

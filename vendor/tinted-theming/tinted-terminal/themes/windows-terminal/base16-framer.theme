@@ -3,6 +3,8 @@
 	"name": "Framer",
 	"foreground": "#d0d0d0",
 	"background": "#181818",
+	"cursorColor": "#d0d0d0",
+	"selectionBackground": "#d0d0d0",
 	"black": "#181818",
 	"blue": "#20bcfc",
 	"brightBlack": "#747474",

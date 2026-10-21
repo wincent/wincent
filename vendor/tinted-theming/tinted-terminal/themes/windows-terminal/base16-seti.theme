@@ -3,6 +3,8 @@
 	"name": "Seti UI",
 	"foreground": "#d6d6d6",
 	"background": "#151718",
+	"cursorColor": "#d6d6d6",
+	"selectionBackground": "#d6d6d6",
 	"black": "#151718",
 	"blue": "#55b5db",
 	"brightBlack": "#41535b",

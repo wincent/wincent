@@ -3,6 +3,8 @@
 	"name": "Lichen Chartreuse Dark",
 	"foreground": "#e0e5da",
 	"background": "#151613",
+	"cursorColor": "#e0e5da",
+	"selectionBackground": "#e0e5da",
 	"black": "#151613",
 	"blue": "#78adc4",
 	"brightBlack": "#899282",

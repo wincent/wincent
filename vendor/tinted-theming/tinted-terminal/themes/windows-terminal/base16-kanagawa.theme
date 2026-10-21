@@ -3,6 +3,8 @@
 	"name": "Kanagawa",
 	"foreground": "#dcd7ba",
 	"background": "#1f1f28",
+	"cursorColor": "#dcd7ba",
+	"selectionBackground": "#dcd7ba",
 	"black": "#1f1f28",
 	"blue": "#7e9cd8",
 	"brightBlack": "#54546d",

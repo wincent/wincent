@@ -3,6 +3,8 @@
 	"name": "Charcoal Light",
 	"foreground": "#382e1b",
 	"background": "#cabda0",
+	"cursorColor": "#382e1b",
+	"selectionBackground": "#382e1b",
 	"black": "#cabda0",
 	"blue": "#251e0f",
 	"brightBlack": "#645538",

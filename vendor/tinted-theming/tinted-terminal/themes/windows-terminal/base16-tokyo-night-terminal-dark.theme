@@ -3,6 +3,8 @@
 	"name": "Tokyo Night Terminal Dark",
 	"foreground": "#787c99",
 	"background": "#16161e",
+	"cursorColor": "#787c99",
+	"selectionBackground": "#787c99",
 	"black": "#16161e",
 	"blue": "#7aa2f7",
 	"brightBlack": "#444b6a",

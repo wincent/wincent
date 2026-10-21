@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Serendipity Midnight
+; Scheme system: base16
+; Scheme description: Serendipity Serendipity Midnight from the Serendipity theme family
+; Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-serendipity-midnight]
+
+; Default Foreground
+; base05 #dee0ef
+"Colour0"="222,224,239"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #dee0ef
+"Colour1"="222,224,239"
+
+; Default Background
+; base00 #151726
+"Colour2"="21,23,38"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #151726
+"Colour3"="21,23,38"
+
+; Cursor Text -- equals to default background
+; base00 #151726
+"Colour4"="21,23,38"
+
+; Cursor Colour -- equals to default foreground
+; base05 #dee0ef
+"Colour5"="222,224,239"
+
+; ANSI Black
+; 30m
+; base00 #151726
+"Colour6"="21,23,38"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #6b6d7c
+"Colour7"="107,109,124"
+
+; ANSI Red
+; 31m
+; base08 #ee8679
+"Colour8"="238,134,121"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #ee8679
+"Colour9"="238,134,121"
+
+; ANSI Green
+; 32m
+; base0B #5ba2d0
+"Colour10"="91,162,208"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #5ba2d0
+"Colour11"="91,162,208"
+
+; ANSI Yellow
+; 33m
+; base0A #a78bfa
+"Colour12"="167,139,250"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #a78bfa
+"Colour13"="167,139,250"
+
+; ANSI Blue
+; 34m
+; base0D #94b8ff
+"Colour14"="148,184,255"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #94b8ff
+"Colour15"="148,184,255"
+
+; ANSI Magenta
+; 35m
+; base0E #a78bfa
+"Colour16"="167,139,250"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #a78bfa
+"Colour17"="167,139,250"
+
+; ANSI Cyan
+; 36m
+; base0C #f8d2c9
+"Colour18"="248,210,201"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #f8d2c9
+"Colour19"="248,210,201"
+
+; ANSI White
+; 37m
+; base05 #dee0ef
+"Colour20"="222,224,239"
+
+; ANSI White Bright
+; 1;37m
+; base07 151726
+"Colour21"="21,23,38"

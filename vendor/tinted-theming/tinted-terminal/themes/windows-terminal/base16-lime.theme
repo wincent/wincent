@@ -3,6 +3,8 @@
 	"name": "lime",
 	"foreground": "#818175",
 	"background": "#1a1a2f",
+	"cursorColor": "#818175",
+	"selectionBackground": "#818175",
 	"black": "#1a1a2f",
 	"blue": "#2b926f",
 	"brightBlack": "#313140",

@@ -3,6 +3,8 @@
 	"name": "emil",
 	"foreground": "#313145",
 	"background": "#efefef",
+	"cursorColor": "#313145",
+	"selectionBackground": "#313145",
 	"black": "#efefef",
 	"blue": "#471397",
 	"brightBlack": "#7c7c98",

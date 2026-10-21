@@ -3,6 +3,8 @@
 	"name": "Pencil Dark",
 	"foreground": "#b3b3b3",
 	"background": "#212121",
+	"cursorColor": "#b3b3b3",
+	"selectionBackground": "#b3b3b3",
 	"black": "#212121",
 	"blue": "#008ec4",
 	"brightBlack": "#676767",

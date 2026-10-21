@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Oslo by xscriptor (https://github.com/xscriptor)
+
+[colors]
+selection-background = '#abb2bf' # base05
+selection-foreground = '#4c515e' # base02
+
+cursor         = '#abb2bf' # base05
+tabs           = '#474c59' # base01
+tabs-active    = '#4c515e' # base02
+
+background     = '#3f4451' # base00
+foreground     = '#abb2bf' # base05
+black          = '#3f4451' # base00
+red            = '#e05561' # base08
+yellow         = '#d18f52' # base0A
+green          = '#8cc265' # base0B
+cyan           = '#42b3c2' # base0C
+blue           = '#4aa5f0' # base0D
+magenta        = '#c162de' # base0E
+white          = '#abb2bf' # base05
+
+dim-foreground   = '#abb2bf' # base05
+dim-black        = '#474c59' # base01
+dim-red          = '#e05561' # base08
+dim-yellow       = '#d18f52' # base0A
+dim-green        = '#8cc265' # base0B
+dim-cyan         = '#42b3c2' # base0C
+dim-blue         = '#4aa5f0' # base0D
+dim-magenta      = '#c162de' # base0E
+dim-white        = '#7a808e' # base04
+
+light-foreground = '#abb2bf' # base05
+light-black      = '#6c727f' # base03
+light-red        = '#ff616e' # base12
+light-yellow     = '#f0a45d' # base13
+light-green      = '#a5e075' # base14
+light-cyan       = '#4cd1e0' # base15
+light-blue       = '#4dc4ff' # base16
+light-magenta    = '#de73ff' # base17
+light-white      = '#ffffff' # base07

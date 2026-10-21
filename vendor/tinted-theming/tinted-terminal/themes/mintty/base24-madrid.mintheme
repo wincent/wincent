@@ -1,0 +1,27 @@
+# Madrid theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #fafafa
+Red         = #990026
+Green       = #007a28
+Yellow      = #8a6408
+Blue        = #007a9e
+Magenta     = #4d2699
+Cyan        = #007a9e
+White       = #1a1a1a
+BoldBlack   = #4d4d4d
+BoldRed     = #990026
+BoldGreen   = #007a28
+BoldYellow  = #8a6408
+BoldBlue    = #007a9e
+BoldMagenta = #4d2699
+BoldCyan    = #007a9e
+BoldWhite   = #1a1a1a
+
+# Background & foreground colors
+BackgroundColour = #fafafa
+ForegroundColour = #1a1a1a
+CursorColour     = #1a1a1a

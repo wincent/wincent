@@ -3,6 +3,8 @@
 	"name": "Precious Dark Fifteen",
 	"foreground": "#bab9b6",
 	"background": "#23262b",
+	"cursorColor": "#bab9b6",
+	"selectionBackground": "#bab9b6",
 	"black": "#23262b",
 	"blue": "#66b0ef",
 	"brightBlack": "#898989",

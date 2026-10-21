@@ -3,6 +3,8 @@
 	"name": "Builtin Pastel Dark",
 	"foreground": "#d1d1d1",
 	"background": "#000000",
+	"cursorColor": "#d1d1d1",
+	"selectionBackground": "#d1d1d1",
 	"black": "#000000",
 	"blue": "#96cafd",
 	"brightBlack": "#989898",

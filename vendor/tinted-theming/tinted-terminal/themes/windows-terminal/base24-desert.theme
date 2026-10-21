@@ -3,6 +3,8 @@
 	"name": "Desert",
 	"foreground": "#cdbb9b",
 	"background": "#333333",
+	"cursorColor": "#cdbb9b",
+	"selectionBackground": "#cdbb9b",
 	"black": "#333333",
 	"blue": "#cd853f",
 	"brightBlack": "#7d776c",

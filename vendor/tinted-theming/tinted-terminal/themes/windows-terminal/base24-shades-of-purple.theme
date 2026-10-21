@@ -3,6 +3,8 @@
 	"name": "Shades Of Purple",
 	"foreground": "#afafaf",
 	"background": "#1e1d40",
+	"cursorColor": "#afafaf",
+	"selectionBackground": "#afafaf",
 	"black": "#1e1d40",
 	"blue": "#6943ff",
 	"brightBlack": "#7f7f7f",

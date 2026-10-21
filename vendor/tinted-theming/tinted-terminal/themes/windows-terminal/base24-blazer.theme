@@ -3,6 +3,8 @@
 	"name": "Blazer",
 	"foreground": "#acacac",
 	"background": "#0d1926",
+	"cursorColor": "#acacac",
+	"selectionBackground": "#acacac",
 	"black": "#0d1926",
 	"blue": "#7a7ab8",
 	"brightBlack": "#525252",

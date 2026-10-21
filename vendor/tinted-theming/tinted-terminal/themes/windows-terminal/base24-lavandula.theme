@@ -3,6 +3,8 @@
 	"name": "Lavandula",
 	"foreground": "#645d6f",
 	"background": "#050014",
+	"cursorColor": "#645d6f",
+	"selectionBackground": "#645d6f",
 	"black": "#050014",
 	"blue": "#4f4a7f",
 	"brightBlack": "#463c53",

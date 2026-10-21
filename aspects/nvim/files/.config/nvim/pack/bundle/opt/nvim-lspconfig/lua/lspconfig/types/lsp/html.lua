@@ -6,7 +6,7 @@
 ---```lua
 ---default = "doublequotes"
 ---```
----@field attributeDefaultValue? "doublequotes" | "singlequotes" | "empty"
+---@field attributeDefaultValue? "doublequotes"|"singlequotes"|"empty"
 
 ---@class _.lspconfig.settings.html.Html.Format
 ---List of tags, comma separated, where the content shouldn't be reformatted. `null` defaults to the `pre` tag.
@@ -58,7 +58,7 @@
 ---```lua
 ---default = "auto"
 ---```
----@field wrapAttributes? "auto" | "force" | "force-aligned" | "force-expand-multiline" | "aligned-multiple" | "preserve" | "preserve-aligned"
+---@field wrapAttributes? "auto"|"force"|"force-aligned"|"force-expand-multiline"|"aligned-multiple"|"preserve"|"preserve-aligned"
 ---Indent wrapped attributes to after N characters. Use `null` to use the default indent size. Ignored if `#html.format.wrapAttributes#` is set to `aligned`.
 ---@field wrapAttributesIndentSize? number
 ---Maximum amount of characters per line (0 = disable).
@@ -98,7 +98,7 @@
 ---```lua
 ---default = "off"
 ---```
----@field server? "off" | "messages" | "verbose"
+---@field server? "off"|"messages"|"verbose"
 
 ---@class _.lspconfig.settings.html.Html.Validate
 ---Controls whether the built-in HTML language support validates embedded scripts.
@@ -140,8 +140,6 @@
 ---@field customData? string[]
 ---@field format? _.lspconfig.settings.html.Html.Format
 ---@field hover? _.lspconfig.settings.html.Html.Hover
----Enable/disable mirroring cursor on matching HTML tag.
----@field mirrorCursorOnMatchingTag? boolean
 ---@field suggest? _.lspconfig.settings.html.Html.Suggest
 ---@field trace? _.lspconfig.settings.html.Html.Trace
 ---@field validate? _.lspconfig.settings.html.Html.Validate

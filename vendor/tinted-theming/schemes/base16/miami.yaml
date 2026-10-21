@@ -1,0 +1,22 @@
+system: "base16"
+name: "Miami"
+slug: "miami"
+author: "xscriptor (https://github.com/xscriptor)"
+variant: "dark"
+palette:
+  base00: "#000000" # background
+  base01: "#111112" # derived: lighter background (ANSI 0 equals background)
+  base02: "#1e1d1f" # derived: selection background
+  base03: "#69676c" # ANSI 8 (bright black)
+  base04: "#88858c" # derived: dark foreground
+  base05: "#f7f1ff" # default foreground
+  base06: "#f9f4ff" # derived: light foreground
+  base07: "#f7f1ff" # ANSI 15 (bright white)
+  base08: "#ff4c8b" # ANSI 1 (red)
+  base09: "#ff926c" # derived: orange (red + yellow)
+  base0A: "#ffd84c" # ANSI 3 (yellow)
+  base0B: "#7fffd4" # ANSI 2 (green)
+  base0C: "#47cfff" # ANSI 6 (cyan)
+  base0D: "#00ffa8" # ANSI 4 (blue)
+  base0E: "#d36cff" # ANSI 5 (magenta)
+  base0F: "#a65f46" # derived: brown (darkened orange)

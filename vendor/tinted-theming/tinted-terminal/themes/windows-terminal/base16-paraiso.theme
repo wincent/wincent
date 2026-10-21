@@ -3,6 +3,8 @@
 	"name": "Paraiso",
 	"foreground": "#a39e9b",
 	"background": "#2f1e2e",
+	"cursorColor": "#a39e9b",
+	"selectionBackground": "#a39e9b",
 	"black": "#2f1e2e",
 	"blue": "#06b6ef",
 	"brightBlack": "#776e71",

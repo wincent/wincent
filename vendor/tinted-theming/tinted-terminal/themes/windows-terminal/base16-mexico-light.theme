@@ -3,6 +3,8 @@
 	"name": "Mexico Light",
 	"foreground": "#383838",
 	"background": "#f8f8f8",
+	"cursorColor": "#383838",
+	"selectionBackground": "#383838",
 	"black": "#f8f8f8",
 	"blue": "#7cafc2",
 	"brightBlack": "#b8b8b8",

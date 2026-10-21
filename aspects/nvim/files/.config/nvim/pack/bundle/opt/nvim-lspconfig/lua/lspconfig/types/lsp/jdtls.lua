@@ -8,17 +8,21 @@
 ---```
 ---@field enabled? boolean
 
+---@class _.lspconfig.settings.jdtls.Java.Classpath
+---Set of classpath variable strings of the form: "name=path" that are used to resolve classpath entries.
+---@field variables? string[]
+
 ---@class _.lspconfig.settings.jdtls.Java.Cleanup
 ---The list of clean ups to be run on the current document when it's saved or when the cleanup command is issued. Clean ups can automatically fix code style or programming mistakes. Click [HERE](command:_java.learnMoreAboutCleanUps) to learn more about what each clean up does.
 ---
 ---```lua
 ---default = { "renameFileToType" }
 ---```
----@field actions? string[]
+---@field actions? ("qualifyMembers"|"qualifyStaticMembers"|"addOverride"|"addDeprecated"|"stringConcatToTextBlock"|"invertEquals"|"addFinalModifier"|"instanceofPatternMatch"|"lambdaExpressionFromAnonymousClass"|"lambdaExpression"|"switchExpression"|"tryWithResource"|"renameFileToType"|"organizeImports"|"renameUnusedLocalVariables"|"useSwitchForInstanceofPattern"|"redundantComparisonStatement"|"redundantFallingThroughBlockEnd"|"redundantIfCondition"|"redundantModifiers"|"redundantSuperCall")[]
 ---```lua
 ---default = {}
 ---```
----@field actionsOnSave? string[]
+---@field actionsOnSave? ("qualifyMembers"|"qualifyStaticMembers"|"addOverride"|"addDeprecated"|"stringConcatToTextBlock"|"invertEquals"|"addFinalModifier"|"instanceofPatternMatch"|"lambdaExpressionFromAnonymousClass"|"lambdaExpression"|"switchExpression"|"tryWithResource")[]
 
 ---@class _.lspconfig.settings.jdtls.Java.CodeAction.SortMembers
 ---Reordering of fields, enum constants, and initializers can result in semantic and runtime changes due to different initialization and persistence order. This setting prevents this from occurring.
@@ -43,7 +47,7 @@
 ---```lua
 ---default = "STRING_CONCATENATION"
 ---```
----@field codeStyle? "STRING_CONCATENATION" | "STRING_BUILDER" | "STRING_BUILDER_CHAINED" | "STRING_FORMAT"
+---@field codeStyle? "STRING_CONCATENATION"|"STRING_BUILDER"|"STRING_BUILDER_CHAINED"|"STRING_FORMAT"
 ---Limit number of items in arrays/collections/maps to list, if 0 then list all.
 ---
 ---```lua
@@ -71,7 +75,7 @@
 ---```lua
 ---default = "none"
 ---```
----@field addFinalForNewDeclaration? "none" | "fields" | "variables" | "all"
+---@field addFinalForNewDeclaration? "none"|"fields"|"variables"|"all"
 ---Generate method comments when generating the methods.
 ---@field generateComments? boolean
 ---Generate Javadoc comments in Markdown style (requires source compliance >= 23).
@@ -82,7 +86,7 @@
 ---```lua
 ---default = "afterCursor"
 ---```
----@field insertionLocation? "afterCursor" | "beforeCursor" | "lastMember"
+---@field insertionLocation? "afterCursor"|"beforeCursor"|"lastMember"
 ---@field toString? _.lspconfig.settings.jdtls.Java.CodeGeneration.ToString
 ---Use blocks in 'if' statements when generating the methods.
 ---@field useBlocks? boolean
@@ -93,7 +97,7 @@
 ---```lua
 ---default = "interactive"
 ---```
----@field mode? "disabled" | "interactive" | "automatic"
+---@field mode? "disabled"|"interactive"|"automatic"
 ---Specify the Nonnull annotation types to be used for null analysis. If more than one annotation is specified, then the topmost annotation will be used first if it exists in project dependencies. This setting will be ignored if `java.compile.nullAnalysis.mode` is set to `disabled`
 ---
 ---```lua
@@ -151,7 +155,7 @@
 ---```lua
 ---default = "ecj"
 ---```
----@field engine? "ecj" | "dom"
+---@field engine? "ecj"|"dom"
 ---Defines a list of static members or types with static members. Content assist will propose those static members even if the import is missing.
 ---
 ---```lua
@@ -169,7 +173,7 @@
 ---```lua
 ---default = "auto"
 ---```
----@field guessMethodArguments? "auto" | "off" | "insertParameterNames" | "insertBestGuessedArguments"
+---@field guessMethodArguments? "auto"|"off"|"insertParameterNames"|"insertBestGuessedArguments"
 ---Defines the sorting order of import statements. A package or type name prefix (e.g. 'org.eclipse') is a valid entry. An import is always added to the most specific group. As a result, the empty string (e.g. '') can be used to group all other imports. Static imports are prefixed with a '#'
 ---
 ---```lua
@@ -182,7 +186,7 @@
 ---```lua
 ---default = "firstLetter"
 ---```
----@field matchCase? "firstLetter" | "off"
+---@field matchCase? "firstLetter"|"off"
 ---Maximum number of completion results (not including snippets).
 ---`0` (the default value) disables the limit, all results are returned. In case of performance problems, consider setting a sensible limit.
 ---
@@ -198,7 +202,7 @@
 ---```lua
 ---default = "ignore"
 ---```
----@field defaultMojoExecutionAction? "ignore" | "warn" | "error" | "execute"
+---@field defaultMojoExecutionAction? "ignore"|"warn"|"error"|"execute"
 ---Path to Maven's global settings.xml
 ---@field globalSettings? string
 ---Path to Maven's lifecycle mappings xml
@@ -208,7 +212,7 @@
 ---```lua
 ---default = "warning"
 ---```
----@field notCoveredPluginExecutionSeverity? "ignore" | "warning" | "error"
+---@field notCoveredPluginExecutionSeverity? "ignore"|"warning"|"error"
 ---Path to Maven's user settings.xml
 ---@field userSettings? string
 
@@ -233,7 +237,7 @@
 ---```lua
 ---default = "interactive"
 ---```
----@field updateBuildConfiguration? "disabled" | "interactive" | "automatic"
+---@field updateBuildConfiguration? "disabled"|"interactive"|"automatic"
 ---The number of days (if enabled) to keep unused workspace cache data. Beyond this limit, cached workspace data may be removed.
 ---
 ---```lua
@@ -272,7 +276,7 @@
 ---```lua
 ---default = "ask"
 ---```
----@field reloadChangedSources? "ask" | "auto" | "manual"
+---@field reloadChangedSources? "ask"|"auto"|"manual"
 
 ---@class _.lspconfig.settings.jdtls.Java.Errors.IncompleteClasspath
 ---Specifies the severity of the message when the classpath is incomplete for a Java file
@@ -280,7 +284,7 @@
 ---```lua
 ---default = "warning"
 ---```
----@field severity? "ignore" | "info" | "warning" | "error"
+---@field severity? "ignore"|"info"|"warning"|"error"
 
 ---@class _.lspconfig.settings.jdtls.Java.Errors
 ---@field incompleteClasspath? _.lspconfig.settings.jdtls.Java.Errors.IncompleteClasspath
@@ -412,13 +416,21 @@
 ---@field generatesMetadataFilesAtProjectRoot? boolean
 ---@field gradle? _.lspconfig.settings.jdtls.Java.Import.Gradle
 ---@field maven? _.lspconfig.settings.jdtls.Java.Import.Maven
+---Controls how projects are imported into the workspace.
+---- `full`: all projects are discovered and imported at startup (default). Safe and well-tested, but slow for large workspaces.
+---- `ondemand`: projects are imported lazily when the user first opens a file belonging to that module. This drastically reduces startup time and memory usage for large multi-module workspaces (e.g. Quarkus with 1300+ modules).
+---
+---```lua
+---default = "full"
+---```
+---@field mode? "full"|"ondemand"
 ---[Experimental] Specifies how to select build configuration files to import. 
 ---Note: Currently, `Gradle` projects cannot be partially imported.
 ---
 ---```lua
 ---default = "automatic"
 ---```
----@field projectSelection? "manual" | "automatic"
+---@field projectSelection? "manual"|"automatic"
 
 ---@class _.lspconfig.settings.jdtls.Java.Imports.Gradle.Wrapper
 ---Defines allowed/disallowed SHA-256 checksums of Gradle Wrappers
@@ -450,7 +462,7 @@
 ---```lua
 ---default = "literals"
 ---```
----@field enabled? "none" | "literals" | "all"
+---@field enabled? "none"|"literals"|"all"
 ---The patterns for the methods that will be disabled to show the inlay hints. Supported pattern examples:
 --- - `java.lang.Math.*` - All the methods from java.lang.Math.
 --- - `*.Arrays.asList` - Methods named as 'asList' in the types named as 'Arrays'.
@@ -501,7 +513,7 @@
 ---```lua
 ---default = "auto"
 ---```
----@field enabled? "auto" | "on" | "off"
+---@field enabled? "auto"|"on"|"off"
 
 ---@class _.lspconfig.settings.jdtls.Java.Jdt.Ls.Appcds
 ---[Experimental] Enable Java AppCDS (Application Class Data Sharing) for improvements to extension activation. When set to `auto`, AppCDS will be enabled in Visual Studio Code - Insiders, and for pre-release versions.
@@ -509,7 +521,7 @@
 ---```lua
 ---default = "auto"
 ---```
----@field enabled? "auto" | "on" | "off"
+---@field enabled? "auto"|"on"|"off"
 
 ---@class _.lspconfig.settings.jdtls.Java.Jdt.Ls.AspectjSupport
 ---Specify whether to enable `io.freefair.aspectj` plugin in Gradle projects. Defaults to `false`.
@@ -524,10 +536,10 @@
 ---@field enabled? boolean
 
 ---@class _.lspconfig.settings.jdtls.Java.Jdt.Ls.Java
----Specifies the folder path to the JDK (21 or more recent) used to launch the Java Language Server. This setting will replace the Java extension's embedded JRE to start the Java Language Server. 
+---Specifies the folder path to the JDK (25 or more recent) used to launch the Java Language Server. This setting will replace the Java extension's embedded JRE to start the Java Language Server. 
 ---
 ---On Windows, backslashes must be escaped, i.e.
----"java.jdt.ls.java.home":"C:\\Program Files\\Java\\jdk-21.0_5"
+---"java.jdt.ls.java.home":"C:\\Program Files\\Java\\jdk-25.0.2"
 ---@field home? string
 
 ---@class _.lspconfig.settings.jdtls.Java.Jdt.Ls.Javac
@@ -536,7 +548,7 @@
 ---```lua
 ---default = "off"
 ---```
----@field enabled? "on" | "off"
+---@field enabled? "on"|"off"
 
 ---@class _.lspconfig.settings.jdtls.Java.Jdt.Ls.KotlinSupport
 ---[Experimental] Specify whether to enable `org.jetbrains.kotlin.jvm` plugin in Gradle projects. Defaults to `true`.
@@ -581,6 +593,12 @@
 ---@field javac? _.lspconfig.settings.jdtls.Java.Jdt.Ls.Javac
 ---@field kotlinSupport? _.lspconfig.settings.jdtls.Java.Jdt.Ls.KotlinSupport
 ---@field lombokSupport? _.lspconfig.settings.jdtls.Java.Jdt.Ls.LombokSupport
+---Specifies the size of the in-memory Maven project cache to use. Increasing the project cache size will help load multi-module projects and monorepos faster, but will result in a significant increase in memory usage.
+---
+---```lua
+---default = 50
+---```
+---@field mavenProjectCacheSize? integer
 ---@field protobufSupport? _.lspconfig.settings.jdtls.Java.Jdt.Ls.ProtobufSupport
 ---@field scalaSupport? _.lspconfig.settings.jdtls.Java.Jdt.Ls.ScalaSupport
 ---Specifies extra VM arguments used to launch the Java Language Server. Eg. use `-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable` to optimize memory usage with the parallel garbage collector
@@ -605,7 +623,7 @@
 ---```lua
 ---default = "ignore"
 ---```
----@field encoding? "ignore" | "warning" | "setDefault"
+---@field encoding? "ignore"|"warning"|"setDefault"
 ---Enable/disable the server-mode switch information, when Java projects import is skipped on startup.
 ---
 ---```lua
@@ -617,7 +635,7 @@
 ---```lua
 ---default = "automatic"
 ---```
----@field importOnFirstTimeStartup? "disabled" | "interactive" | "automatic"
+---@field importOnFirstTimeStartup? "disabled"|"interactive"|"automatic"
 ---A relative path to the workspace where stores the compiled output. `Only` effective in the `WORKSPACE` scope. The setting will `NOT` affect Maven or Gradle project.
 ---
 ---```lua
@@ -649,7 +667,7 @@
 ---```lua
 ---default = "line"
 ---```
----@field showAt? "line" | "problem"
+---@field showAt? "line"|"problem"
 
 ---@class _.lspconfig.settings.jdtls.Java.Refactoring.Extract.Interface
 ---Specify whether to replace all the occurrences of the subtype with the new extracted interface.
@@ -710,7 +728,7 @@
 ---```lua
 ---default = "all"
 ---```
----@field scope? "all" | "main" | "projectOnly"
+---@field scope? "all"|"main"|"projectOnly"
 
 ---@class _.lspconfig.settings.jdtls.Java.SelectionRange
 ---Enable/disable Smart Selection support for Java. Disabling this option will not affect the VS Code built-in word-based and bracket-based smart selection.
@@ -726,7 +744,7 @@
 ---```lua
 ---default = "Hybrid"
 ---```
----@field launchMode? "Standard" | "LightWeight" | "Hybrid"
+---@field launchMode? "Standard"|"LightWeight"|"Hybrid"
 
 ---@class _.lspconfig.settings.jdtls.Java.Settings
 ---Specifies the url or file path to the workspace Java settings. See [Setting Global Preferences](https://github.com/redhat-developer/vscode-java/wiki/Settings-Global-Preferences)
@@ -738,7 +756,7 @@
 ---```lua
 ---default = "auto"
 ---```
----@field enabled? "auto" | "on" | "off"
+---@field enabled? "auto"|"on"|"off"
 ---Specifies a common index location for all workspaces. See default values as follows:
 --- 
 ---Windows: First use `"$APPDATA\\.jdt\\index"`, or `"~\\.jdt\\index"` if it does not exist
@@ -758,7 +776,7 @@
 ---```lua
 ---default = "notification"
 ---```
----@field enabled? "notification" | "terminal" | "off"|any
+---@field enabled? "notification"|"terminal"|"off"|any
 
 ---@class _.lspconfig.settings.jdtls.Java.SignatureHelp.Description
 ---Enable/disable to show the description in signature help.
@@ -845,7 +863,7 @@
 ---```lua
 ---default = "off"
 ---```
----@field server? "off" | "messages" | "verbose"
+---@field server? "off"|"messages"|"verbose"
 
 ---@class _.lspconfig.settings.jdtls.Java.TypeHierarchy
 ---Enable/disable lazy loading the content in type hierarchy. Lazy loading could save a lot of loading time but every type should be expanded manually to load its content.
@@ -861,6 +879,7 @@
 
 ---@class _.lspconfig.settings.jdtls.Java
 ---@field autobuild? _.lspconfig.settings.jdtls.Java.Autobuild
+---@field classpath? _.lspconfig.settings.jdtls.Java.Classpath
 ---@field cleanup? _.lspconfig.settings.jdtls.Java.Cleanup
 ---@field codeAction? _.lspconfig.settings.jdtls.Java.CodeAction
 ---@field codeGeneration? _.lspconfig.settings.jdtls.Java.CodeGeneration
@@ -875,9 +894,9 @@
 ---@field errors? _.lspconfig.settings.jdtls.Java.Errors
 ---@field foldingRange? _.lspconfig.settings.jdtls.Java.FoldingRange
 ---@field format? _.lspconfig.settings.jdtls.Java.Format
----Specifies the folder path to the JDK (21 or more recent) used to launch the Java Language Server.
+---Specifies the folder path to the JDK (25 or more recent) used to launch the Java Language Server.
 ---On Windows, backslashes must be escaped, i.e.
----"java.home":"C:\\Program Files\\Java\\jdk-21.0_5"
+---"java.home":"C:\\Program Files\\Java\\jdk-25.0.2"
 ---@field home? string
 ---@field hover? _.lspconfig.settings.jdtls.Java.Hover
 ---Enable/disable the implementations code lens for the provided categories.
@@ -885,7 +904,7 @@
 ---```lua
 ---default = "none"
 ---```
----@field implementationCodeLens? "none" | "types" | "methods" | "all"
+---@field implementationCodeLens? "none"|"types"|"methods"|"all"
 ---@field import? _.lspconfig.settings.jdtls.Java.Import
 ---@field imports? _.lspconfig.settings.jdtls.Java.Imports
 ---@field inlayHints? _.lspconfig.settings.jdtls.Java.InlayHints

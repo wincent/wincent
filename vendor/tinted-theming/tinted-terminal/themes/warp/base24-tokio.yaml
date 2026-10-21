@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Tokio by xscriptor (https://github.com/xscriptor)
+
+name: Base24 Tokio
+accent: "#fd9353" # base0D
+cursor: "#f7f1ff" # base05
+background: "#1c1c1d" # base00
+foreground: "#f7f1ff" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1c1c1d" # base00
+    red: "#fc618d" # base08
+    yellow: "#fce566" # base0A
+    green: "#7bd88f" # base0B
+    cyan: "#5ad4e6" # base0C
+    blue: "#fd9353" # base0D
+    magenta: "#948ae3" # base0E
+    white: "#f7f1ff" # base05
+
+  bright:
+    black: "#78757c" # base03
+    red: "#fc618d" # base12
+    yellow: "#fce566" # base13
+    green: "#7bd88f" # base14
+    cyan: "#5ad4e6" # base15
+    blue: "#fd9353" # base16
+    magenta: "#948ae3" # base17
+    white: "#f7f1ff" # base07

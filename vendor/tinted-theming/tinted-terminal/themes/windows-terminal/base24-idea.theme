@@ -3,6 +3,8 @@
 	"name": "Idea",
 	"foreground": "#515151",
 	"background": "#202020",
+	"cursorColor": "#515151",
+	"selectionBackground": "#515151",
 	"black": "#202020",
 	"blue": "#437ee6",
 	"brightBlack": "#c5c5c5",

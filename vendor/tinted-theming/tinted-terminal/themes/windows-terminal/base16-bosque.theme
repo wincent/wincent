@@ -3,6 +3,8 @@
 	"name": "Bosque",
 	"foreground": "#cfe5d2",
 	"background": "#0e1410",
+	"cursorColor": "#cfe5d2",
+	"selectionBackground": "#cfe5d2",
 	"black": "#0e1410",
 	"blue": "#6dae9e",
 	"brightBlack": "#5c6e5e",

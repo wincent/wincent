@@ -3,6 +3,8 @@
 	"name": "Windows NT",
 	"foreground": "#c0c0c0",
 	"background": "#000000",
+	"cursorColor": "#c0c0c0",
+	"selectionBackground": "#c0c0c0",
 	"black": "#000000",
 	"blue": "#0000ff",
 	"brightBlack": "#808080",

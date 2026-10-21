@@ -3,6 +3,8 @@
 	"name": "Swamp Dark",
 	"foreground": "#d2c3a4",
 	"background": "#242015",
+	"cursorColor": "#d2c3a4",
+	"selectionBackground": "#d2c3a4",
 	"black": "#242015",
 	"blue": "#c1666b",
 	"brightBlack": "#5f4e41",

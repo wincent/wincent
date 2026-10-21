@@ -3,6 +3,8 @@
 	"name": "Horizon Terminal Dark",
 	"foreground": "#cbced0",
 	"background": "#1c1e26",
+	"cursorColor": "#cbced0",
+	"selectionBackground": "#cbced0",
 	"black": "#1c1e26",
 	"blue": "#26bbd9",
 	"brightBlack": "#6f6f70",

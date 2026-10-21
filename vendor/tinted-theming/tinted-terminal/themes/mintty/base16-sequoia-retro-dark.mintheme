@@ -1,0 +1,27 @@
+# Sequoia Retro Dark theme for Mintty
+# Scheme Author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #0f1014
+Red         = #829fa7
+Green       = #648f68
+Yellow      = #da674b
+Blue        = #5c87a4
+Magenta     = #da674b
+Cyan        = #a27e57
+White       = #868690
+BoldBlack   = #43444d
+BoldRed     = #829fa7
+BoldGreen   = #648f68
+BoldYellow  = #da674b
+BoldBlue    = #5c87a4
+BoldMagenta = #da674b
+BoldCyan    = #a27e57
+BoldWhite   = #0f1014
+
+# Background & foreground colors
+BackgroundColour = #0f1014
+ForegroundColour = #868690
+CursorColour     = #868690

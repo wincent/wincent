@@ -3,6 +3,8 @@
 	"name": "Sagelight",
 	"foreground": "#383838",
 	"background": "#f8f8f8",
+	"cursorColor": "#383838",
+	"selectionBackground": "#383838",
 	"black": "#f8f8f8",
 	"blue": "#a0a7d2",
 	"brightBlack": "#b8b8b8",

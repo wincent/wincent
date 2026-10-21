@@ -1,0 +1,10 @@
+# Scheme name: Apprentice
+# Scheme author: Romain Lafourcade (https://github.com/romainl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-apprentice
+ColorForeground=#bcbcbc
+ColorBackground=#262626
+ColorCursor=#bcbcbc
+ColorBoldIsBright=FALSE
+ColorPalette=#262626;#af5f5f;#5f875f;#87875f;#5f87af;#5f5f87;#5f8787;#bcbcbc;#444444;#ff8700;#87af87;#ffffaf;#87afd7;#8787af;#5fafaf;#ffffff

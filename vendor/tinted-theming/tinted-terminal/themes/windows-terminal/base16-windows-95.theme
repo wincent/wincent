@@ -3,6 +3,8 @@
 	"name": "Windows 95",
 	"foreground": "#a8a8a8",
 	"background": "#000000",
+	"cursorColor": "#a8a8a8",
+	"selectionBackground": "#a8a8a8",
 	"black": "#000000",
 	"blue": "#5454fc",
 	"brightBlack": "#545454",

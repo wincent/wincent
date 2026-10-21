@@ -3,8 +3,8 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base16-github-dark-dimmed
-ColorForeground=#adbac7
-ColorBackground=#22272e
-ColorCursor=#adbac7
+ColorForeground=#d1d7e0
+ColorBackground=#0d1117
+ColorCursor=#d1d7e0
 ColorBoldIsBright=FALSE
-ColorPalette=#22272e;#f69d50;#96d0ff;#ae7c14;#dcbdfb;#f47067;#8ddb8c;#adbac7;#636e7b;#f69d50;#96d0ff;#ae7c14;#dcbdfb;#f47067;#8ddb8c;#ffffff
+ColorPalette=#0d1117;#f47067;#57ab5a;#c69026;#539bf5;#b083f0;#39c5cf;#d1d7e0;#656c76;#f47067;#57ab5a;#c69026;#539bf5;#b083f0;#39c5cf;#cdd9e5

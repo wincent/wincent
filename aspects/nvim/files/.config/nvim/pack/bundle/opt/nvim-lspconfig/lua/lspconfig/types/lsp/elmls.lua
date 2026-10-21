@@ -10,10 +10,10 @@
 ---```lua
 ---default = "off"
 ---```
----@field server? "off" | "messages" | "verbose"
+---@field server? "off"|"messages"|"verbose"
 
 ---@class _.lspconfig.settings.elmls.ElmLS
----Disable linting diagnostics from the language server.
+---Disable linting diagnostics from the language server, including elm-analyse checks.
 ---@field disableElmLSDiagnostics? boolean
 ---The path to your elm-format executable. Should be empty by default, in that case it will assume the name and try to first get it from a local npm installation or a global one. If you set it manually it will not try to load from the npm folder.
 ---
@@ -32,7 +32,7 @@
 ---```lua
 ---default = "off"
 ---```
----@field elmReviewDiagnostics? "off" | "warning" | "error"
+---@field elmReviewDiagnostics? "off"|"warning"|"error"
 ---The path to your elm-review executable. Should be empty by default, in that case it will assume the name and try to first get it from a local npm installation or a global one. If you set it manually it will not try to load from the npm folder.
 ---
 ---```lua

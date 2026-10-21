@@ -3,6 +3,8 @@
 	"name": "Fish Tank",
 	"foreground": "#ccc9c9",
 	"background": "#222436",
+	"cursorColor": "#ccc9c9",
+	"selectionBackground": "#ccc9c9",
 	"black": "#222436",
 	"blue": "#525fb8",
 	"brightBlack": "#8c7f63",

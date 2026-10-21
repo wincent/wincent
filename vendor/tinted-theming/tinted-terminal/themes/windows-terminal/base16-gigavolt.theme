@@ -3,6 +3,8 @@
 	"name": "Gigavolt",
 	"foreground": "#e9e7e1",
 	"background": "#202126",
+	"cursorColor": "#e9e7e1",
+	"selectionBackground": "#e9e7e1",
 	"black": "#202126",
 	"blue": "#40bfff",
 	"brightBlack": "#a1d2e6",

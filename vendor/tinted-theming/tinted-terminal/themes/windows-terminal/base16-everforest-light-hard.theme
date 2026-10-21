@@ -3,6 +3,8 @@
 	"name": "Everforest Light (Hard)",
 	"foreground": "#5c6a72",
 	"background": "#fffbef",
+	"cursorColor": "#5c6a72",
+	"selectionBackground": "#5c6a72",
 	"black": "#fffbef",
 	"blue": "#3a94c5",
 	"brightBlack": "#939f91",

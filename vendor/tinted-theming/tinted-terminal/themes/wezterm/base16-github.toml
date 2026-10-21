@@ -4,40 +4,40 @@
 
 [colors]
 background = "#ffffff"
-foreground = "#424a53"
+foreground = "#454c54"
 
-cursor_bg = "#424a53"
-cursor_border = "#424a53"
+cursor_bg = "#454c54"
+cursor_border = "#454c54"
 cursor_fg = "#ffffff"
 
-selection_bg = "#424a53"
-selection_fg = "#afb8c1"
+selection_bg = "#454c54"
+selection_fg = "#d1d9e0"
 
 ansi = [
   "#ffffff",
-  "#953800",
-  "#0a3069",
-  "#bf8700",
-  "#8250df",
   "#cf222e",
   "#116329",
-  "#424a53"
+  "#9a6700",
+  "#0969da",
+  "#8250df",
+  "#1b7c83",
+  "#454c54"
 ]
 brights = [
-  "#8c959f",
-  "#953800",
-  "#0a3069",
-  "#bf8700",
-  "#8250df",
+  "#818b98",
   "#cf222e",
   "#116329",
+  "#9a6700",
+  "#0969da",
+  "#8250df",
+  "#1b7c83",
   "#1f2328"
 ]
 
 [colors.indexed]
-16 = "#0550ae"
-17 = "#82071e"
+16 = "#953800"
+17 = "#a40e26"
 18 = "#f6f8fa"
-19 = "#afb8c1"
-20 = "#6e7781"
-21 = "#32383f"
+19 = "#d1d9e0"
+20 = "#59636e"
+21 = "#25292e"

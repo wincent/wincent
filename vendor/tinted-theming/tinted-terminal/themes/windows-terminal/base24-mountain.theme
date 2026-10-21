@@ -3,6 +3,8 @@
 	"name": "Mountain",
 	"foreground": "#cacaca",
 	"background": "#0f0f0f",
+	"cursorColor": "#cacaca",
+	"selectionBackground": "#cacaca",
 	"black": "#0f0f0f",
 	"blue": "#8f8aac",
 	"brightBlack": "#393939",

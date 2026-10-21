@@ -3,6 +3,8 @@
 	"name": "Material Dark",
 	"foreground": "#c3c3c3",
 	"background": "#222221",
+	"cursorColor": "#c3c3c3",
+	"selectionBackground": "#c3c3c3",
 	"black": "#222221",
 	"blue": "#134eb2",
 	"brightBlack": "#6d6d6d",

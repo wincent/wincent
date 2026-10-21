@@ -3,6 +3,8 @@
 	"name": "Nebula",
 	"foreground": "#a4a6a9",
 	"background": "#22273b",
+	"cursorColor": "#a4a6a9",
+	"selectionBackground": "#a4a6a9",
 	"black": "#22273b",
 	"blue": "#4d6bb6",
 	"brightBlack": "#6e6f72",

@@ -1,10 +1,5 @@
 --- @since 26.8.15
-
-local root = ya.sync(function() return cx.active.current.cwd end)
-
-local function fail(content)
-	return ya.notify { title = "VCS Files", content = tostring(content), timeout = 5, level = "error" }
-end
+--- @sync entry
 
 ---@param args string[]
 ---@return (fun(): string)?
@@ -42,36 +37,66 @@ local function merge(a, b)
 	end)
 end
 
-local function entry()
-	local root = root()
+local function file(url)
+	local file, err = fs.file(url.physical)
+	return file and File { url = url, stat = file.stat, lstat = file.lstat, link_to = file.link_to }, err
+end
+
+local function read_dir(job)
+	local root = job.url.physical
 
 	local tracked, err = output(root, { "diff", "--name-only", "--relative", "HEAD" })
 	if err then
-		return fail(err)
+		return nil, err
 	end
 
 	local untracked, err = output(root, { "ls-files", "--others", "--exclude-standard" })
 	if err then
-		return fail(err)
+		return nil, err
 	end
 
-	local id = ya.id("ft")
-	local cwd = root:into_search("Git changes")
-	ya.emit("cd", { Url(cwd), source = "search" })
-	ya.emit("update_files", { op = fs.op("part", { id = id, url = Url(cwd), files = {} }) })
-
-	local files = {}
 	for line in merge(tracked, untracked) do
-		local url = cwd:join(line)
-		local cha = fs.cha(url, true)
-		if cha then
-			files[#files + 1] = File { url = url, cha = cha }
+		local url = job.url:join(line)
+		local file = fs.file(url)
+		if file then
+			coroutine.yield(file)
 		end
 	end
-
-	local dir = File { url = cwd, cha = Cha { mode = tonumber("100644", 8) } }
-	ya.emit("update_files", { op = fs.op("part", { id = id, url = dir.url, files = files }) })
-	ya.emit("update_files", { op = fs.op("done", { id = id, file = dir }) })
 end
 
-return { entry = entry }
+local function entry()
+	if not vf then
+		return ya.async(function() require(".old"):entry() end) -- TODO: remove
+	end
+
+	vf.vcs = {
+		default = { kind = "view", run = "vcs-files" },
+	}
+
+	ya.emit("cd", {
+		Url {
+			cx.active.current.cwd,
+			scheme = "vcs",
+			domain = "default",
+			data = { "Git changes" },
+		},
+		raw = true,
+	})
+end
+
+local function provide(_, job)
+	local op = job.op
+	if op == "Capabilities" then
+		return { file = 1, read_dir = 1, revalidate = 1 }
+	elseif op == "File" then
+		return file(job.url)
+	elseif op == "Revalidate" then
+		return file(job.file.url)
+	elseif op == "ReadDir" then
+		return ya.co(function() return read_dir(job) end)
+	else
+		return false, Err("Unsupported VCS operation: %s", op)
+	end
+end
+
+return { entry = entry, provide = provide }

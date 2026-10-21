@@ -16,30 +16,30 @@ if !has('gui_running')
 endif
 
 " GUI colors
-let s:gui00        = '0a0c10'
-let s:gui01        = '272b33'
-let s:gui02        = '7a828e'
-let s:gui03        = '9ea7b3'
-let s:gui04        = 'bdc4cc'
-let s:gui05        = 'f0f3f6'
-let s:gui06        = 'ffffff'
+let s:gui00        = '0d1117'
+let s:gui01        = '151b23'
+let s:gui02        = '2f3742'
+let s:gui03        = '656c76'
+let s:gui04        = '9198a1'
+let s:gui05        = 'd1d7e0'
+let s:gui06        = 'f0f6fc'
 let s:gui07        = 'ffffff'
-let s:gui08        = 'ffb757'
-let s:gui09        = '91cbff'
-let s:gui0A        = 'e09b13'
-let s:gui0B        = 'addcff'
-let s:gui0C        = '72f088'
-let s:gui0D        = 'dbb7ff'
-let s:gui0E        = 'ff9492'
+let s:gui08        = 'ff9492'
+let s:gui09        = 'ffb757'
+let s:gui0A        = 'f0b72f'
+let s:gui0B        = '28d751'
+let s:gui0C        = '39c5cf'
+let s:gui0D        = '71b7ff'
+let s:gui0E        = 'cb9eff'
 let s:gui0F        = 'ffb1af'
-let s:gui10        = '0a0c10'
-let s:gui11        = '0a0c10'
-let s:gui12        = 'ffb757'
-let s:gui13        = 'e09b13'
-let s:gui14        = 'addcff'
-let s:gui15        = '72f088'
-let s:gui16        = 'dbb7ff'
-let s:gui17        = 'ff9492'
+let s:gui10        = '0d1117'
+let s:gui11        = '0d1117'
+let s:gui12        = 'ff9492'
+let s:gui13        = 'f0b72f'
+let s:gui14        = '28d751'
+let s:gui15        = '39c5cf'
+let s:gui16        = '71b7ff'
+let s:gui17        = 'cb9eff'
 
 " Terminal colors
 let s:cterm00  = '00'
@@ -95,21 +95,21 @@ call s:create_color_globals()
 
 " Integrated Terminal colors
 let s:colors = [
-  \ '#0a0c10',
-  \ '#ffb757',
-  \ '#addcff',
-  \ '#e09b13',
-  \ '#dbb7ff',
+  \ '#0d1117',
   \ '#ff9492',
-  \ '#72f088',
-  \ '#f0f3f6',
-  \ '#9ea7b3',
-  \ '#ffb757',
-  \ '#addcff',
-  \ '#e09b13',
-  \ '#dbb7ff',
+  \ '#28d751',
+  \ '#f0b72f',
+  \ '#71b7ff',
+  \ '#cb9eff',
+  \ '#39c5cf',
+  \ '#d1d7e0',
+  \ '#656c76',
   \ '#ff9492',
-  \ '#72f088',
+  \ '#28d751',
+  \ '#f0b72f',
+  \ '#71b7ff',
+  \ '#cb9eff',
+  \ '#39c5cf',
   \ '#ffffff'
 \]
 

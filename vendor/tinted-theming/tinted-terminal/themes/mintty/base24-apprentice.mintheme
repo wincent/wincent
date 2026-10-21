@@ -1,0 +1,27 @@
+# Apprentice theme for Mintty
+# Scheme Author: Romain Lafourcade (https://github.com/romainl)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #262626
+Red         = #af5f5f
+Green       = #5f875f
+Yellow      = #87875f
+Blue        = #5f87af
+Magenta     = #5f5f87
+Cyan        = #5f8787
+White       = #bcbcbc
+BoldBlack   = #444444
+BoldRed     = #ff8700
+BoldGreen   = #87af87
+BoldYellow  = #ffffaf
+BoldBlue    = #87afd7
+BoldMagenta = #8787af
+BoldCyan    = #5fafaf
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #262626
+ForegroundColour = #bcbcbc
+CursorColour     = #bcbcbc

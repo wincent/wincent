@@ -3,6 +3,8 @@
 	"name": "Tokyo Night Light",
 	"foreground": "#343b59",
 	"background": "#d5d6db",
+	"cursorColor": "#343b59",
+	"selectionBackground": "#343b59",
 	"black": "#d5d6db",
 	"blue": "#34548a",
 	"brightBlack": "#9699a3",

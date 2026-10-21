@@ -3,6 +3,8 @@
 	"name": "selenized-light",
 	"foreground": "#53676d",
 	"background": "#fbf3db",
+	"cursorColor": "#53676d",
+	"selectionBackground": "#53676d",
 	"black": "#fbf3db",
 	"blue": "#006dce",
 	"brightBlack": "#909995",

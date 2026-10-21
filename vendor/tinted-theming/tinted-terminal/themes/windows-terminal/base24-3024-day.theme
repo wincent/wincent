@@ -3,6 +3,8 @@
 	"name": "3024 Day",
 	"foreground": "#928f8e",
 	"background": "#f7f7f7",
+	"cursorColor": "#928f8e",
+	"selectionBackground": "#928f8e",
 	"black": "#f7f7f7",
 	"blue": "#01a0e4",
 	"brightBlack": "#6e6a68",

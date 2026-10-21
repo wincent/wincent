@@ -3,6 +3,8 @@
 	"name": "Flexoki Light",
 	"foreground": "#403e3c",
 	"background": "#fffcf0",
+	"cursorColor": "#403e3c",
+	"selectionBackground": "#403e3c",
 	"black": "#fffcf0",
 	"blue": "#205ea6",
 	"brightBlack": "#cecdc3",

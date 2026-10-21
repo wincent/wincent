@@ -3,6 +3,8 @@
 	"name": "Cerulean Signal Dark",
 	"foreground": "#dce6f2",
 	"background": "#101722",
+	"cursorColor": "#dce6f2",
+	"selectionBackground": "#dce6f2",
 	"black": "#101722",
 	"blue": "#7dd3ff",
 	"brightBlack": "#8fa0b5",

@@ -655,6 +655,7 @@ MiniExtra.pickers.git_branches = function(local_opts, opts)
     if win_target == nil or not H.is_valid_win(win_target) then return end
     local buf_id = vim.api.nvim_create_buf(true, true)
     H.set_buf_name(buf_id, item:match('^%*?%s*(%S+)'))
+    vim.bo[buf_id].modifiable = true
     preview(buf_id, item)
     vim.api.nvim_win_set_buf(win_target, buf_id)
   end
@@ -713,6 +714,7 @@ MiniExtra.pickers.git_commits = function(local_opts, opts)
     if win_target == nil or not H.is_valid_win(win_target) then return end
     local buf_id = vim.api.nvim_create_buf(true, true)
     H.set_buf_name(buf_id, item:match('^(%S+)'))
+    vim.bo[buf_id].modifiable = true
     preview(buf_id, item)
     -- Set filetype on opened buffer to trigger appropriate `FileType` event
     vim.bo[buf_id].filetype = 'git'
@@ -1278,11 +1280,12 @@ MiniExtra.pickers.manpages = function(local_opts, opts)
   local preview = function(buf_id, item) show_man(vim.fn.win_findbuf(buf_id)[1], item, true) end
   local choose = function(item) show_man(MiniPick.get_picker_state().windows.target, item) end
 
-  -- Set necessary environment variables for `vim.loop.spawn` (as it doesn't
+  -- Set necessary environment variables for `vim.uv.spawn` (as it doesn't
   -- inherit environment variables)
   local env = { 'MANWIDTH=999' }
   table.insert(env, vim.env.PATH ~= nil and ('PATH=' .. vim.env.PATH) or nil)
   table.insert(env, vim.env.MANPATH ~= nil and ('MANPATH=' .. vim.env.MANPATH) or nil)
+  table.insert(env, vim.env.HOME ~= nil and ('HOME=' .. vim.env.HOME) or nil)
   local source = { name = 'Manpages', choose = choose, preview = preview }
   opts = vim.tbl_deep_extend('force', { source = source }, opts or {})
   return pick.builtin.cli({ command = { 'man', '-k', '.' }, spawn_opts = { env = env } }, opts)
@@ -1669,7 +1672,7 @@ MiniExtra.pickers.visit_labels = function(local_opts, opts)
     return vim.tbl_map(function(x) return H.normalize_path(H.short_path(x, picker_cwd)) end, all_paths)
   end
 
-  local preview = function(buf_id, label) vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, list_label_paths(label)) end
+  local preview = function(buf_id, label) H.set_buflines(buf_id, list_label_paths(label)) end
   local choose = function(label)
     if label == nil then return end
 
@@ -1699,7 +1702,7 @@ H.ns_id = {
 H.cache = {}
 
 -- File system information
-H.is_windows = vim.loop.os_uname().sysname == 'Windows_NT'
+H.is_windows = vim.uv.os_uname().sysname == 'Windows_NT'
 
 -- Helper functionality =======================================================
 -- Settings -------------------------------------------------------------------
@@ -1869,7 +1872,7 @@ H.preview_cs_hl_groups = function(buf_id, hl_groups)
     lines = vim.tbl_keys(vim.api.nvim_get_hl(0, {}))
     table.sort(lines)
   end
-  vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, lines)
+  H.set_buflines(buf_id, lines)
 
   local ns_id = H.ns_id.pickers
   vim.api.nvim_buf_clear_namespace(buf_id, ns_id, 0, -1)
@@ -2189,9 +2192,9 @@ end
 H.cli_run = function(command, stdout_hook)
   stdout_hook = stdout_hook or function() end
   local executable, args = command[1], vim.list_slice(command, 2, #command)
-  local process, stdout, stderr = nil, vim.loop.new_pipe(), vim.loop.new_pipe()
+  local process, stdout, stderr = nil, vim.uv.new_pipe(), vim.uv.new_pipe()
   local spawn_opts = { args = args, stdio = { nil, stdout, stderr } }
-  process = vim.loop.spawn(executable, spawn_opts, function() process:close() end)
+  process = vim.uv.spawn(executable, spawn_opts, function() process:close() end)
 
   H.cli_read_stream(stdout, stdout_hook)
   H.cli_read_stream(stderr, function(lines)

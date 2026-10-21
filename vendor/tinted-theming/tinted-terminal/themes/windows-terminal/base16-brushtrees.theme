@@ -3,6 +3,8 @@
 	"name": "Brush Trees",
 	"foreground": "#6d828e",
 	"background": "#e3efef",
+	"cursorColor": "#6d828e",
+	"selectionBackground": "#6d828e",
 	"black": "#e3efef",
 	"blue": "#868cb3",
 	"brightBlack": "#98afb5",

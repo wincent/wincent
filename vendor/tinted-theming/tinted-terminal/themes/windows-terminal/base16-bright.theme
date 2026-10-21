@@ -3,6 +3,8 @@
 	"name": "Bright",
 	"foreground": "#e0e0e0",
 	"background": "#000000",
+	"cursorColor": "#e0e0e0",
+	"selectionBackground": "#e0e0e0",
 	"black": "#000000",
 	"blue": "#6fb3d2",
 	"brightBlack": "#b0b0b0",

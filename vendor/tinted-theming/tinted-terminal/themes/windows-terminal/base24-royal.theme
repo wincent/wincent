@@ -3,6 +3,8 @@
 	"name": "Royal",
 	"foreground": "#49425a",
 	"background": "#100814",
+	"cursorColor": "#49425a",
+	"selectionBackground": "#49425a",
 	"black": "#100814",
 	"blue": "#6480af",
 	"brightBlack": "#393446",

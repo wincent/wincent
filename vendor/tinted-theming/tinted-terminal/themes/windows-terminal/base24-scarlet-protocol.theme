@@ -3,6 +3,8 @@
 	"name": "Scarlet Protocol",
 	"foreground": "#afafaf",
 	"background": "#1b153c",
+	"cursorColor": "#afafaf",
+	"selectionBackground": "#afafaf",
 	"black": "#1b153c",
 	"blue": "#0271b6",
 	"brightBlack": "#7f7f7f",

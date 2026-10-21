@@ -3,6 +3,8 @@
 	"name": "Dark Violet",
 	"foreground": "#b08ae6",
 	"background": "#000000",
+	"cursorColor": "#b08ae6",
+	"selectionBackground": "#b08ae6",
 	"black": "#000000",
 	"blue": "#4136d9",
 	"brightBlack": "#593380",

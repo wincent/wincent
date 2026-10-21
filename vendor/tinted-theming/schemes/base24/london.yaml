@@ -1,0 +1,30 @@
+system: "base24"
+name: "London"
+slug: "london"
+author: "xscriptor (https://github.com/xscriptor)"
+variant: "light"
+palette:
+  base00: "#ffffff" # background
+  base01: "#f1f1f1" # derived: darker background (ANSI 0 equals background)
+  base02: "#e7e7e7" # derived: selection background
+  base03: "#333333" # ANSI 8 (bright black)
+  base04: "#7a7a7a" # derived: dark foreground
+  base05: "#333333" # default foreground
+  base06: "#242424" # derived: dark foreground (light variant)
+  base07: "#aaaaaa" # ANSI 15 (bright white)
+  base08: "#333333" # ANSI 1 (red)
+  base09: "#444444" # derived: orange (red + yellow)
+  base0A: "#555555" # ANSI 3 (yellow)
+  base0B: "#444444" # ANSI 2 (green)
+  base0C: "#888888" # ANSI 6 (cyan)
+  base0D: "#666666" # ANSI 4 (blue)
+  base0E: "#777777" # ANSI 5 (magenta)
+  base0F: "#303030" # derived: brown (darkened orange)
+  base10: "#ffffff" # derived: lighter background
+  base11: "#ffffff" # derived: lightest background
+  base12: "#444444" # ANSI 9 (bright red)
+  base13: "#666666" # ANSI 11 (bright yellow)
+  base14: "#555555" # ANSI 10 (bright green)
+  base15: "#999999" # ANSI 14 (bright cyan)
+  base16: "#777777" # ANSI 12 (bright blue)
+  base17: "#888888" # ANSI 13 (bright magenta)

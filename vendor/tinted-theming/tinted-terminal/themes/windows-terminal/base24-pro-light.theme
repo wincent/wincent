@@ -3,6 +3,8 @@
 	"name": "Pro Light",
 	"foreground": "#4f4f4f",
 	"background": "#feffff",
+	"cursorColor": "#4f4f4f",
+	"selectionBackground": "#4f4f4f",
 	"black": "#feffff",
 	"blue": "#3a75ff",
 	"brightBlack": "#cccccc",

@@ -3,6 +3,8 @@
 	"name": "Ollie",
 	"foreground": "#7e7789",
 	"background": "#212024",
+	"cursorColor": "#7e7789",
+	"selectionBackground": "#7e7789",
 	"black": "#212024",
 	"blue": "#2c56ab",
 	"brightBlack": "#664b46",

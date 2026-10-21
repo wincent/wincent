@@ -3,6 +3,8 @@
 	"name": "Horizon Terminal Light",
 	"foreground": "#403c3d",
 	"background": "#fdf0ed",
+	"cursorColor": "#403c3d",
+	"selectionBackground": "#403c3d",
 	"black": "#fdf0ed",
 	"blue": "#26bbd9",
 	"brightBlack": "#bdb3b1",

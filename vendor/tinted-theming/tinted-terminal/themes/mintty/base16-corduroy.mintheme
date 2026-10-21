@@ -1,0 +1,27 @@
+# Corduroy theme for Mintty
+# Scheme Author: taysatte (https://github.com/taysatte)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1d1920
+Red         = #e06278
+Green       = #4b8686
+Yellow      = #edb392
+Blue        = #d27f91
+Magenta     = #c285b2
+Cyan        = #e99d90
+White       = #cdc8d0
+BoldBlack   = #6f6373
+BoldRed     = #e06278
+BoldGreen   = #4b8686
+BoldYellow  = #edb392
+BoldBlue    = #d27f91
+BoldMagenta = #c285b2
+BoldCyan    = #e99d90
+BoldWhite   = #504757
+
+# Background & foreground colors
+BackgroundColour = #1d1920
+ForegroundColour = #cdc8d0
+CursorColour     = #cdc8d0

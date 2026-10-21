@@ -3,6 +3,8 @@
 	"name": "Yesterday Bright",
 	"foreground": "#dfe1e8",
 	"background": "#343d46",
+	"cursorColor": "#dfe1e8",
+	"selectionBackground": "#dfe1e8",
 	"black": "#343d46",
 	"blue": "#7aa6da",
 	"brightBlack": "#a7adba",

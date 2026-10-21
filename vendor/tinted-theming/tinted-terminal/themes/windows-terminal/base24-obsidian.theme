@@ -3,6 +3,8 @@
 	"name": "Obsidian",
 	"foreground": "#a1a1a1",
 	"background": "#273032",
+	"cursorColor": "#a1a1a1",
+	"selectionBackground": "#a1a1a1",
 	"black": "#273032",
 	"blue": "#399bda",
 	"brightBlack": "#6e6e6e",

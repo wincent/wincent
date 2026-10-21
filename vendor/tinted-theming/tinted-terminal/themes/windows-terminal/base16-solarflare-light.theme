@@ -3,6 +3,8 @@
 	"name": "Solar Flare Light",
 	"foreground": "#586875",
 	"background": "#f5f7fa",
+	"cursorColor": "#586875",
+	"selectionBackground": "#586875",
 	"black": "#f5f7fa",
 	"blue": "#33b5e1",
 	"brightBlack": "#85939e",

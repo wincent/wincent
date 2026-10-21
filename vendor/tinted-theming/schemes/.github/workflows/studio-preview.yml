@@ -1,0 +1,170 @@
+name: Studio preview
+
+# Posts one comment per PR linking every added/changed scheme to Tinted Studio,
+# and keeps it in sync: updated on each push, deleted if the PR stops touching
+# schemes.
+#
+# Uses pull_request_target so fork PRs can be commented on. That is only safe
+# because this workflow never checks out or executes PR code — it only reads
+# the PR's file list and the changed scheme files' text through the API.
+"on":
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches:
+      - "spec-**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: studio-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create, update or delete the preview comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const MARKER = "<!-- tinted-studio-preview -->";
+            const STUDIO = "https://tinted-theming.github.io/studio/";
+            const SCHEME_PATH = /^(base16|base24|tinted8)\/[^/]+\.ya?ml$/;
+
+            const pr = context.payload.pull_request;
+            const { owner, repo } = context.repo;
+            const issue_number = pr.number;
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: issue_number, per_page: 100,
+            });
+            const schemes = files
+              .filter((f) => f.status !== "removed" && SCHEME_PATH.test(f.filename))
+              // "added" is a new scheme; modified/renamed/changed count as updated.
+              .map((f) => ({ path: f.filename, isNew: f.status === "added" }))
+              // New schemes first, then by path.
+              .sort((a, b) => Number(b.isNew) - Number(a.isNew) || a.path.localeCompare(b.path));
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const existing = comments.find(
+              (c) => c.user?.login === "github-actions[bot]" && c.body?.includes(MARKER),
+            );
+
+            // The head repo is null if the fork was deleted; links would be dead.
+            const headRepo = pr.head.repo?.full_name;
+            if (!schemes.length || !headRepo) {
+              if (existing) {
+                await github.rest.issues.deleteComment({ owner, repo, comment_id: existing.id });
+                core.info(`Deleted stale preview comment ${existing.id}.`);
+              } else {
+                core.info("No added or changed schemes; nothing to do.");
+              }
+              return;
+            }
+
+            const sha = pr.head.sha;
+            const [headOwner, headName] = headRepo.split("/");
+            const encPath = (path) => path.split("/").map(encodeURIComponent).join("/");
+            const blobUrl = (path) => `https://github.com/${headRepo}/blob/${sha}/${encPath(path)}`;
+            const studioUrl = (path) => {
+              const raw = `https://raw.githubusercontent.com/${headRepo}/${sha}/${encPath(path)}`;
+              return `${STUDIO}#url=${encodeURIComponent(raw)}`;
+            };
+
+            // Scheme files are untrusted text. Render names inside code spans:
+            // GitHub doesn't autolink URLs or turn @handles into mentions there.
+            // Strip backticks (can't close the span early) and escape `|` (table).
+            const clean = (s) => s.slice(0, 80).replace(/[\u0000-\u001f`]/g, "").trim() || "—";
+            // Pad a code span with non-breaking spaces (GitHub doesn't trim those)
+            // to a shared width, so columns line up across the per-system tables.
+            const PAD_CAP = 40;
+            const span = (t, width) =>
+              "`" + (t + "\u00a0".repeat(Math.max(0, width - t.length))).replace(/\|/g, "\\|") + "`";
+            const slugify = (s) => s
+              .normalize("NFKD")
+              .replace(/[̀-ͯ]/g, "")
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/^-+|-+$/g, "");
+            // A `key: value` line's value, unquoted, minus any trailing comment.
+            const field = (text, key) => {
+              const m = text.match(new RegExp(`^\\s*${key}:\\s*(.*)$`, "m"));
+              if (!m) return "";
+              const v = m[1].trim();
+              const quoted = v.match(/^(["'])(.*?)\1/);
+              return quoted ? quoted[2] : v.replace(/\s+#.*$/, "").trim();
+            };
+            // Read name/slug from the file at the PR head, as data only. Base16/24
+            // keep them top-level; Tinted8 nests them under `scheme:`.
+            const readMeta = async (path) => {
+              try {
+                const { data } = await github.rest.repos.getContent({
+                  owner: headOwner, repo: headName, path, ref: sha,
+                });
+                const text = Buffer.from(data.content, "base64").toString("utf8");
+                // Tinted8 may give family + style instead of a name.
+                const name = field(text, "name") ||
+                  [field(text, "family"), field(text, "style")].filter(Boolean).join(" ");
+                return { name, slug: field(text, "slug") || slugify(name) };
+              } catch (e) {
+                core.warning(`Could not read ${path}: ${e.message}`);
+                return { name: "", slug: "" };
+              }
+            };
+
+            const entries = await Promise.all(schemes.map(async ({ path, isNew }) => {
+              const [system, file] = path.split("/");
+              const meta = await readMeta(path);
+              const slug = meta.slug.replace(/[^a-z0-9._-]/gi, "");
+              // The slug links to the YAML file (falls back to the filename).
+              return { system, path, isNew, name: clean(meta.name), slug: clean(slug || file) };
+            }));
+
+            // Widths shared by every table (capped so one long name can't blow them up).
+            const width = (key) => Math.min(PAD_CAP, Math.max(...entries.map((e) => e[key].length)));
+            const nameWidth = width("name");
+            const slugWidth = width("slug");
+            for (const e of entries) {
+              e.row = `| ${e.isNew ? "🆕" : "✏️"} ${span(e.name, nameWidth)} ` +
+                `| [${span(e.slug, slugWidth)}](${blobUrl(e.path)}) ` +
+                `| [Open in Studio ↗](${studioUrl(e.path)}) |`;
+            }
+
+            // One table per system, in a fixed order.
+            const SYSTEMS = [["base16", "Base16"], ["base24", "Base24"], ["tinted8", "Tinted8"]];
+            const sections = SYSTEMS.flatMap(([system, label]) => {
+              const rows = entries.filter((e) => e.system === system).map((e) => e.row);
+              if (!rows.length) return [];
+              return [
+                `#### ${label}`,
+                "",
+                "| Scheme | Slug | Preview |",
+                "|---|---|---|",
+                ...rows,
+                "",
+              ];
+            });
+
+            const body = [
+              MARKER,
+              "### Preview in Tinted Studio",
+              "",
+              `Open each proposed scheme in [Tinted Studio](${STUDIO}) to see it in the editor, terminal and diff previews.`,
+              "",
+              "🆕 new scheme · ✏️ updated scheme",
+              "",
+              ...sections,
+              `<sub>Links point to ${sha.slice(0, 7)} and update automatically when this PR changes.</sub>`,
+            ].join("\n");
+
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+              core.info(`Updated preview comment ${existing.id} (${schemes.length} scheme(s)).`);
+            } else {
+              const { data } = await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              core.info(`Created preview comment ${data.id} (${schemes.length} scheme(s)).`);
+            }

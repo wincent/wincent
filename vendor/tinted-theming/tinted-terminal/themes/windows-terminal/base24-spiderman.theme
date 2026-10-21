@@ -3,6 +3,8 @@
 	"name": "Spiderman",
 	"foreground": "#d3d3cd",
 	"background": "#1b1d1e",
+	"cursorColor": "#d3d3cd",
+	"selectionBackground": "#d3d3cd",
 	"black": "#1b1d1e",
 	"blue": "#2b3fff",
 	"brightBlack": "#7b7d7c",

@@ -13,6 +13,7 @@ local index = {
   denols = 'https://raw.githubusercontent.com/denoland/vscode_deno/main/package.json',
   elixirls = 'https://raw.githubusercontent.com/elixir-lsp/vscode-elixir-ls/master/package.json',
   elmls = 'https://raw.githubusercontent.com/elm-tooling/elm-language-client-vscode/master/package.json',
+  emmylua_ls = 'https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/main/crates/emmylua_code_analysis/resources/schema.json',
   eslint = 'https://raw.githubusercontent.com/microsoft/vscode-eslint/main/package.json',
   flow = 'https://raw.githubusercontent.com/flowtype/flow-for-vscode/master/package.json',
   fsautocomplete = 'https://raw.githubusercontent.com/ionide/ionide-vscode-fsharp/main/release/package.json',
@@ -24,6 +25,7 @@ local index = {
   intelephense = 'https://raw.githubusercontent.com/bmewburn/vscode-intelephense/master/package.json',
   java_language_server = 'https://raw.githubusercontent.com/georgewfraser/java-language-server/master/package.json',
   jdtls = 'https://raw.githubusercontent.com/redhat-developer/vscode-java/master/package.json',
+  jetls = 'https://raw.githubusercontent.com/aviatesk/jetls-vscode/refs/heads/master/package.json',
   jsonls = 'https://raw.githubusercontent.com/microsoft/vscode/master/extensions/json-language-features/package.json',
   julials = 'https://raw.githubusercontent.com/julia-vscode/julia-vscode/master/package.json',
   kotlin_language_server = 'https://raw.githubusercontent.com/fwcd/vscode-kotlin/master/package.json',
@@ -64,6 +66,7 @@ local index = {
   tailwindcss = 'https://raw.githubusercontent.com/tailwindlabs/tailwindcss-intellisense/master/packages/vscode-tailwindcss/package.json',
   terraformls = 'https://raw.githubusercontent.com/hashicorp/vscode-terraform/master/package.json',
   tinymist = 'https://raw.githubusercontent.com/Myriad-Dreamin/tinymist/refs/heads/main/editors/vscode/package.json',
+  tombi = 'https://raw.githubusercontent.com/tombi-toml/tombi/refs/heads/main/www.schemastore.org/tombi.json',
   ts_ls = 'https://raw.githubusercontent.com/microsoft/vscode/main/extensions/typescript-language-features/package.json',
   typst_lsp = 'https://raw.githubusercontent.com/nvarner/typst-lsp/refs/heads/master/editors/vscode/package.json',
   volar = 'https://raw.githubusercontent.com/vuejs/language-tools/master/extensions/vscode/package.json',
@@ -131,8 +134,14 @@ local overrides = {
   cssls = {
     translate = true,
   },
+  emmylua_ls = {
+    prefix = 'emmylua.',
+  },
   nixd = {
     prefix = 'nixd.',
+  },
+  tombi = {
+    prefix = 'tombi.',
   },
   zls = {
     prefix = 'zls.',
@@ -210,34 +219,24 @@ local function generate_server_schema(schema)
   local package_json = vim.json.decode(request(schema.package_url)) or {}
   local config_schema = package_json.contributes and package_json.contributes.configuration
     or package_json.properties and package_json
-
-  local properties = vim.empty_dict()
-
-  if vim.islist(config_schema) then
-    for _, config_section in pairs(config_schema) do
-      if config_section.properties then
-        for k, v in pairs(config_section.properties) do
-          properties[k] = v
-        end
-      end
-    end
-  elseif config_schema.properties then
-    properties = config_schema.properties
+  if not config_schema then
+    error('Missing `contributes.configuration` or `properties`')
   end
 
-  -- `properties["enable_snippets"]` => `properties["zls.enable_snippets"]`
-  if schema.prefix then
-    if type(properties) == 'table' then
-      local new = vim.empty_dict()
-      for key, value in pairs(properties) do
-        new[schema.prefix .. key] = value
+  local properties = vim.empty_dict()
+  for _, config_section in ipairs(vim.islist(config_schema) and config_schema or { config_schema }) do
+    for k, v in pairs(config_section.properties or {}) do
+      if k ~= '$schema' then
+        properties[('%s%s'):format(schema.prefix or '', k)] = v
       end
-      properties = new
     end
   end
 
   local schema_json = {
     ['$schema'] = 'http://json-schema.org/draft-07/schema#',
+    -- Targets of local `$ref`s (see gen_annotations.lua).
+    ['$defs'] = package_json['$defs'],
+    definitions = package_json.definitions,
     description = package_json.description,
     properties = properties,
   }
@@ -257,6 +256,8 @@ local function generate_all_schemas()
   local schemas = resolve_schema_configs()
   local names = vim.tbl_keys(schemas)
   table.sort(names)
+  -- Try all servers before failing, to report every broken URL in one run.
+  local failures = {} ---@type string[]
   for _, name in ipairs(names) do
     local schema_config = schemas[name]
     print(('Generating schema for %s'):format(name))
@@ -270,8 +271,13 @@ local function generate_all_schemas()
           schema_config.settings_file,
           'b'
         )
+      else
+        table.insert(failures, ('%s (%s): %s'):format(name, schema_config.package_url, schema_json))
       end
     end
+  end
+  if #failures > 0 then
+    error(('Failed to generate schemas:\n%s'):format(table.concat(failures, '\n')))
   end
 end
 

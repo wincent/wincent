@@ -3,6 +3,8 @@
 	"name": "dirtysea",
 	"foreground": "#000000",
 	"background": "#e0e0e0",
+	"cursorColor": "#000000",
+	"selectionBackground": "#000000",
 	"black": "#e0e0e0",
 	"blue": "#007300",
 	"brightBlack": "#707070",

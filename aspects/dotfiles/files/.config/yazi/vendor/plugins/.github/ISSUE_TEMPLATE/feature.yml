@@ -43,5 +43,7 @@ body:
       label: Checklist
       description: Before submitting the issue, please make sure you have completed the following
       options:
+        - label: No existing plugin already covers this feature
+          required: true
         - label: I have searched the existing issues/discussions
           required: true

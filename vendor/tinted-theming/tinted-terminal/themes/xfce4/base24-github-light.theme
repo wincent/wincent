@@ -3,8 +3,8 @@
 # Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
 [Scheme]
 Name=base24-github-light
-ColorForeground=#424a53
+ColorForeground=#454c54
 ColorBackground=#ffffff
-ColorCursor=#424a53
+ColorCursor=#454c54
 ColorBoldIsBright=FALSE
-ColorPalette=#ffffff;#953800;#0a3069;#bf8700;#8250df;#cf222e;#116329;#424a53;#8c959f;#ff8182;#4ac26b;#d4a72c;#54aeff;#c297ff;#49bcb7;#1f2328
+ColorPalette=#ffffff;#cf222e;#116329;#9a6700;#0969da;#8250df;#1b7c83;#454c54;#818b98;#a40e26;#1a7f37;#633c01;#218bff;#a475f9;#3192aa;#1f2328

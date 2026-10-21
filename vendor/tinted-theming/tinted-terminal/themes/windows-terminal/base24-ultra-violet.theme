@@ -3,6 +3,8 @@
 	"name": "Ultra Violet",
 	"foreground": "#c1c2c2",
 	"background": "#242728",
+	"cursorColor": "#c1c2c2",
+	"selectionBackground": "#c1c2c2",
 	"black": "#242728",
 	"blue": "#47dffb",
 	"brightBlack": "#818484",

@@ -339,7 +339,7 @@ function Builder:add_hidden_count_string(node, idx, num_children)
 
     local indent_padding = string.rep(" ", indent_width)
     local indent_string = indent_padding .. indent_markers.str
-    local line_nr = #self.lines - 1
+    local line_nr = math.max(#self.lines - 1, 0)
     self.virtual_lines[line_nr] = self.virtual_lines[line_nr] or {}
 
     -- NOTE: We are inserting in depth order because of current traversal

@@ -9,8 +9,6 @@
 ---default = {}
 ---```
 ---@field build_on_save_args? string[]
----Specify a custom build runner to resolve build system information.
----@field build_runner_path? string
 ---Override the path to 'builtin' module. Automatically resolved if unset.
 ---@field builtin_path? string
 ---Whether to show the function signature in completion results. May improve readability in some editors when disabled
@@ -27,7 +25,7 @@
 ---@field enable_argument_placeholders? boolean
 ---Whether to enable build-on-save diagnostics. Will be automatically enabled if the `build.zig` has declared a 'check' step.
 ---
----For more infromation, checkout the [Build-On-Save](https://zigtools.org/zls/guides/build-on-save/) Guide.
+---For more information, checkout the [Build-On-Save](https://zigtools.org/zls/guides/build-on-save/) Guide.
 ---@field enable_build_on_save? boolean
 ---Enables snippet completions when the client also supports them
 ---
@@ -35,7 +33,7 @@
 ---default = true
 ---```
 ---@field enable_snippets? boolean
----Work around editors that do not support 'source.fixall' code actions on save. This option may delivered a substandard user experience. Please refer to the installation guide to see which editors natively support code actions on save.
+---Work around editors that do not support 'source.fixall' code actions on save. This option may deliver a substandard user experience. Please refer to the installation guide to see which editors natively support code actions on save.
 ---@field force_autofix? boolean
 ---Path to a directory that will be used as zig's cache. Will default to `${KnownFolders.Cache}/zls`.
 ---@field global_cache_path? string
@@ -86,7 +84,7 @@
 ---```lua
 ---default = "full"
 ---```
----@field semantic_tokens? "none" | "partial" | "full"
+---@field semantic_tokens? "none"|"partial"|"full"
 ---No longer used. May be brought back to configure how symbol references in the standard library should behave
 ---@field skip_std_references? boolean
 ---Enables warnings for style guideline mismatches

@@ -1,0 +1,14 @@
+name: Validate Issue
+
+on:
+  issues:
+    types: [opened, edited]
+  schedule:
+    - cron: "20 * * * *"
+
+jobs:
+  check-version:
+    permissions:
+      contents: read
+      issues: write
+    uses: yazi-rs/.github/.github/workflows/validate-issue.yml@main

@@ -3,6 +3,8 @@
 	"name": "Tokyo Night Moon",
 	"foreground": "#c8d3f5",
 	"background": "#222436",
+	"cursorColor": "#c8d3f5",
+	"selectionBackground": "#c8d3f5",
 	"black": "#222436",
 	"blue": "#82aaff",
 	"brightBlack": "#444a73",

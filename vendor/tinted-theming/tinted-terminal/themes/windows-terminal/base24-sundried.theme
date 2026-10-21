@@ -3,6 +3,8 @@
 	"name": "Sundried",
 	"foreground": "#a9a9a7",
 	"background": "#1a1818",
+	"cursorColor": "#a9a9a7",
+	"selectionBackground": "#a9a9a7",
 	"black": "#1a1818",
 	"blue": "#485a98",
 	"brightBlack": "#6b6b67",

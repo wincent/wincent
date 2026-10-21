@@ -3,6 +3,8 @@
 	"name": "Lab Fox",
 	"foreground": "#cfd0d0",
 	"background": "#2e2e2e",
+	"cursorColor": "#cfd0d0",
+	"selectionBackground": "#cfd0d0",
 	"black": "#2e2e2e",
 	"blue": "#db3b21",
 	"brightBlack": "#737373",

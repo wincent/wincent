@@ -3,6 +3,8 @@
 	"name": "PaperColor Dark",
 	"foreground": "#d0d0d0",
 	"background": "#1c1c1c",
+	"cursorColor": "#d0d0d0",
+	"selectionBackground": "#d0d0d0",
 	"black": "#1c1c1c",
 	"blue": "#5fafd7",
 	"brightBlack": "#808080",

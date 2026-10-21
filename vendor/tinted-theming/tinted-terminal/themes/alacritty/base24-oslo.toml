@@ -1,0 +1,58 @@
+# base24 Oslo 256 - alacritty color config
+# xscriptor (https://github.com/xscriptor)
+
+# Default colors
+[colors.primary]
+background = '0x3f4451'
+foreground = '0xabb2bf'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x3f4451'
+cursor = '0xabb2bf'
+
+# Normal colors
+[colors.normal]
+black = '0x3f4451'
+red = '0xe05561'
+green = '0x8cc265'
+yellow = '0xd18f52'
+blue = '0x4aa5f0'
+magenta = '0xc162de'
+cyan = '0x42b3c2'
+white = '0xabb2bf'
+
+# Bright colors
+[colors.bright]
+black = '0x6c727f'
+red = '0xff616e'
+green = '0xa5e075'
+yellow = '0xf0a45d'
+blue = '0x4dc4ff'
+magenta = '0xde73ff'
+cyan = '0x4cd1e0'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xd8725a"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xa26257"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x474c59"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x4c515e"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7a808e"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xbcc1cc"

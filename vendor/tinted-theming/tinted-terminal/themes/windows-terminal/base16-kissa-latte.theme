@@ -3,6 +3,8 @@
 	"name": "Kissa Latte",
 	"foreground": "#1f1c16",
 	"background": "#f5f4f0",
+	"cursorColor": "#1f1c16",
+	"selectionBackground": "#1f1c16",
 	"black": "#f5f4f0",
 	"blue": "#3468a8",
 	"brightBlack": "#91887d",

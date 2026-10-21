@@ -3,6 +3,8 @@
 	"name": "Black Metal",
 	"foreground": "#c1c1c1",
 	"background": "#000000",
+	"cursorColor": "#c1c1c1",
+	"selectionBackground": "#c1c1c1",
 	"black": "#000000",
 	"blue": "#888888",
 	"brightBlack": "#333333",

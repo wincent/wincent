@@ -3,6 +3,8 @@
 	"name": "Embarcadero",
 	"foreground": "#bcbdc0",
 	"background": "#252a2f",
+	"cursorColor": "#bcbdc0",
+	"selectionBackground": "#bcbdc0",
 	"black": "#252a2f",
 	"blue": "#4080d0",
 	"brightBlack": "#7f8285",

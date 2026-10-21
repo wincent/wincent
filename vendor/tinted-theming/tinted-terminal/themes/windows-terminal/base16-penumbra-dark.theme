@@ -3,6 +3,8 @@
 	"name": "Penumbra Dark",
 	"foreground": "#bebebe",
 	"background": "#24272b",
+	"cursorColor": "#bebebe",
+	"selectionBackground": "#bebebe",
 	"black": "#24272b",
 	"blue": "#5794d0",
 	"brightBlack": "#636363",

@@ -3,6 +3,8 @@
 	"name": "Da One Paper",
 	"foreground": "#181818",
 	"background": "#faf0dc",
+	"cursorColor": "#181818",
+	"selectionBackground": "#181818",
 	"black": "#faf0dc",
 	"blue": "#5890f8",
 	"brightBlack": "#585858",

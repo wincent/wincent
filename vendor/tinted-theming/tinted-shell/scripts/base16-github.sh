@@ -6,14 +6,14 @@
 export BASE16_THEME=github
 
 color00="ff/ff/ff" # Base 00 - Black
-color01="95/38/00" # Base 08 - Red
-color02="0a/30/69" # Base 0B - Green
-color03="bf/87/00" # Base 0A - Yellow
-color04="82/50/df" # Base 0D - Blue
-color05="cf/22/2e" # Base 0E - Magenta
-color06="11/63/29" # Base 0C - Cyan
-color07="42/4a/53" # Base 05 - White
-color08="8c/95/9f" # Base 03 - Bright Black
+color01="cf/22/2e" # Base 08 - Red
+color02="11/63/29" # Base 0B - Green
+color03="9a/67/00" # Base 0A - Yellow
+color04="09/69/da" # Base 0D - Blue
+color05="82/50/df" # Base 0E - Magenta
+color06="1b/7c/83" # Base 0C - Cyan
+color07="45/4c/54" # Base 05 - White
+color08="81/8b/98" # Base 03 - Bright Black
 color09="$color01" # Base 08 - Bright Red
 color10="$color02" # Base 0B - Bright Green
 color11="$color03" # Base 0A - Bright Yellow
@@ -21,13 +21,13 @@ color12="$color04" # Base 0D - Bright Blue
 color13="$color05" # Base 0E - Bright Magenta
 color14="$color06" # Base 0C - Bright Cyan
 color15="1f/23/28" # Base 07 - Bright White
-color16="05/50/ae" # Base 09
-color17="82/07/1e" # Base 0F
+color16="95/38/00" # Base 09
+color17="a4/0e/26" # Base 0F
 color18="f6/f8/fa" # Base 01
-color19="af/b8/c1" # Base 02
-color20="6e/77/81" # Base 04
-color21="32/38/3f" # Base 06
-color_foreground="42/4a/53" # Base 05
+color19="d1/d9/e0" # Base 02
+color20="59/63/6e" # Base 04
+color21="25/29/2e" # Base 06
+color_foreground="45/4c/54" # Base 05
 color_background="ff/ff/ff" # Base 00
 
 if [ -z "$TTY" ] && ! TTY=$(tty) || [ ! -w "$TTY" ]; then
@@ -84,12 +84,12 @@ put_template 21 "$color21"
 # foreground / background / cursor color
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
-  put_template_custom Pg 424a53 # foreground
+  put_template_custom Pg 454c54 # foreground
   put_template_custom Ph ffffff # background
-  put_template_custom Pi 424a53 # bold color
-  put_template_custom Pj afb8c1 # selection color
-  put_template_custom Pk 424a53 # selected text color
-  put_template_custom Pl 424a53 # cursor
+  put_template_custom Pi 454c54 # bold color
+  put_template_custom Pj d1d9e0 # selection color
+  put_template_custom Pk 454c54 # selected text color
+  put_template_custom Pl 454c54 # cursor
   put_template_custom Pm ffffff # cursor text
 else
   put_template_var 10 "$color_foreground"
@@ -135,18 +135,18 @@ unset color_background
 if [ -n "$TINTED_SHELL_ENABLE_BASE16_VARS" ] || [ -n "$BASE16_SHELL_ENABLE_VARS" ]; then
   export BASE16_COLOR_00_HEX="ffffff"
   export BASE16_COLOR_01_HEX="f6f8fa"
-  export BASE16_COLOR_02_HEX="afb8c1"
-  export BASE16_COLOR_03_HEX="8c959f"
-  export BASE16_COLOR_04_HEX="6e7781"
-  export BASE16_COLOR_05_HEX="424a53"
-  export BASE16_COLOR_06_HEX="32383f"
+  export BASE16_COLOR_02_HEX="d1d9e0"
+  export BASE16_COLOR_03_HEX="818b98"
+  export BASE16_COLOR_04_HEX="59636e"
+  export BASE16_COLOR_05_HEX="454c54"
+  export BASE16_COLOR_06_HEX="25292e"
   export BASE16_COLOR_07_HEX="1f2328"
-  export BASE16_COLOR_08_HEX="953800"
-  export BASE16_COLOR_09_HEX="0550ae"
-  export BASE16_COLOR_0A_HEX="bf8700"
-  export BASE16_COLOR_0B_HEX="0a3069"
-  export BASE16_COLOR_0C_HEX="116329"
-  export BASE16_COLOR_0D_HEX="8250df"
-  export BASE16_COLOR_0E_HEX="cf222e"
-  export BASE16_COLOR_0F_HEX="82071e"
+  export BASE16_COLOR_08_HEX="cf222e"
+  export BASE16_COLOR_09_HEX="953800"
+  export BASE16_COLOR_0A_HEX="9a6700"
+  export BASE16_COLOR_0B_HEX="116329"
+  export BASE16_COLOR_0C_HEX="1b7c83"
+  export BASE16_COLOR_0D_HEX="0969da"
+  export BASE16_COLOR_0E_HEX="8250df"
+  export BASE16_COLOR_0F_HEX="a40e26"
 fi

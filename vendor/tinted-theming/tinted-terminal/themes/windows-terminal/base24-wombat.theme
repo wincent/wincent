@@ -3,6 +3,8 @@
 	"name": "Wombat",
 	"foreground": "#b2afa6",
 	"background": "#171717",
+	"cursorColor": "#b2afa6",
+	"selectionBackground": "#b2afa6",
 	"black": "#171717",
 	"blue": "#5da9f6",
 	"brightBlack": "#5c5b58",

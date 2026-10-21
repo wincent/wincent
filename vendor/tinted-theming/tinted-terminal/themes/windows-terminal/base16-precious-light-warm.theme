@@ -3,6 +3,8 @@
 	"name": "Precious Light Warm",
 	"foreground": "#4e5359",
 	"background": "#fff5e5",
+	"cursorColor": "#4e5359",
+	"selectionBackground": "#4e5359",
 	"black": "#fff5e5",
 	"blue": "#246da5",
 	"brightBlack": "#7f8080",

@@ -3,6 +3,8 @@
 	"name": "Red Alert",
 	"foreground": "#aaaaaa",
 	"background": "#762423",
+	"cursorColor": "#aaaaaa",
+	"selectionBackground": "#aaaaaa",
 	"black": "#762423",
 	"blue": "#479bed",
 	"brightBlack": "#525252",

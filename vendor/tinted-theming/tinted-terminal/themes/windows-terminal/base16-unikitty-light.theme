@@ -3,6 +3,8 @@
 	"name": "Unikitty Light",
 	"foreground": "#6c696e",
 	"background": "#ffffff",
+	"cursorColor": "#6c696e",
+	"selectionBackground": "#6c696e",
 	"black": "#ffffff",
 	"blue": "#775dff",
 	"brightBlack": "#a7a5a8",

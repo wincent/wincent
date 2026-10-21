@@ -3,6 +3,8 @@
 	"name": "DanQing",
 	"foreground": "#e0f0ef",
 	"background": "#2d302f",
+	"cursorColor": "#e0f0ef",
+	"selectionBackground": "#e0f0ef",
 	"black": "#2d302f",
 	"blue": "#b0a4e3",
 	"brightBlack": "#9da8a3",

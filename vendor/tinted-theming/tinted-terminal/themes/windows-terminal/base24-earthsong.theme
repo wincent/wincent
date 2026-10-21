@@ -3,6 +3,8 @@
 	"name": "Earthsong",
 	"foreground": "#c5ab93",
 	"background": "#282420",
+	"cursorColor": "#c5ab93",
+	"selectionBackground": "#c5ab93",
 	"black": "#282420",
 	"blue": "#1397b9",
 	"brightBlack": "#857769",

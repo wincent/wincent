@@ -3,6 +3,8 @@
 	"name": "Green Screen",
 	"foreground": "#00bb00",
 	"background": "#001100",
+	"cursorColor": "#00bb00",
+	"selectionBackground": "#00bb00",
 	"black": "#001100",
 	"blue": "#009900",
 	"brightBlack": "#007700",

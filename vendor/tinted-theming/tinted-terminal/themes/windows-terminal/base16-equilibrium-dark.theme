@@ -3,6 +3,8 @@
 	"name": "Equilibrium Dark",
 	"foreground": "#afaba2",
 	"background": "#0c1118",
+	"cursorColor": "#afaba2",
+	"selectionBackground": "#afaba2",
 	"black": "#0c1118",
 	"blue": "#008dd1",
 	"brightBlack": "#7b776e",

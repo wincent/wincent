@@ -1,0 +1,43 @@
+# base16 Miami
+# Scheme author: xscriptor (https://github.com/xscriptor)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#000000"
+foreground = "#f7f1ff"
+
+cursor_bg = "#f7f1ff"
+cursor_border = "#f7f1ff"
+cursor_fg = "#000000"
+
+selection_bg = "#f7f1ff"
+selection_fg = "#1e1d1f"
+
+ansi = [
+  "#000000",
+  "#ff4c8b",
+  "#7fffd4",
+  "#ffd84c",
+  "#00ffa8",
+  "#d36cff",
+  "#47cfff",
+  "#f7f1ff"
+]
+brights = [
+  "#69676c",
+  "#ff4c8b",
+  "#7fffd4",
+  "#ffd84c",
+  "#00ffa8",
+  "#d36cff",
+  "#47cfff",
+  "#f7f1ff"
+]
+
+[colors.indexed]
+16 = "#ff926c"
+17 = "#a65f46"
+18 = "#111112"
+19 = "#1e1d1f"
+20 = "#88858c"
+21 = "#f9f4ff"

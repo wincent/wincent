@@ -42,7 +42,10 @@
   "\"" @punctuation.delimiter)
 
 (property_binding
-  "\"" @punctuation.delimiter)
+  [
+    "\""
+    "\"\""
+  ] @punctuation.delimiter)
 
 (structural_assignment
   operator: (identifier) @keyword)
@@ -126,6 +129,7 @@
   "."
   ","
   "?."
+  "!."
 ] @punctuation.delimiter
 
 (nullish_coalescing_expression
@@ -157,3 +161,18 @@
     "||"
     "%"
   ] @operator)
+
+(arrow_function
+  "=>" @operator)
+
+(object
+  (spread
+    "..." @punctuation.special))
+
+(array
+  (spread
+    "..." @punctuation.special))
+
+(arguments
+  (spread
+    "..." @punctuation.special))

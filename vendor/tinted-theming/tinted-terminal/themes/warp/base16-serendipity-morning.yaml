@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Serendipity Morning by Micheal Andreuzza (https://michaelandreuzza.com/)
+
+name: Base16 Serendipity Morning
+accent: "#6288d8" # base0D
+cursor: "#3f4363" # base05
+background: "#f6f7fb" # base00
+foreground: "#3f4363" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#f6f7fb" # base00
+    red: "#c25a4d" # base08
+    yellow: "#785fd0" # base0A
+    green: "#2f7aab" # base0B
+    cyan: "#e58678" # base0C
+    blue: "#6288d8" # base0D
+    magenta: "#785fd0" # base0E
+    white: "#3f4363" # base05
+
+  bright:
+    black: "#6d7296" # base03
+    red: "#c25a4d" # base08
+    yellow: "#785fd0" # base0A
+    green: "#2f7aab" # base0B
+    cyan: "#e58678" # base0C
+    blue: "#6288d8" # base0D
+    magenta: "#785fd0" # base0E
+    white: "#f6f7fb" # base07

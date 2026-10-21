@@ -1,0 +1,43 @@
+# base16 Sequoia Retro Dark
+# Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0f1014"
+foreground = "#868690"
+
+cursor_bg = "#868690"
+cursor_border = "#868690"
+cursor_fg = "#0f1014"
+
+selection_bg = "#868690"
+selection_fg = "#111216"
+
+ansi = [
+  "#0f1014",
+  "#829fa7",
+  "#648f68",
+  "#da674b",
+  "#5c87a4",
+  "#da674b",
+  "#a27e57",
+  "#868690"
+]
+brights = [
+  "#43444d",
+  "#829fa7",
+  "#648f68",
+  "#da674b",
+  "#5c87a4",
+  "#da674b",
+  "#a27e57",
+  "#0f1014"
+]
+
+[colors.indexed]
+16 = "#829fa7"
+17 = "#648f68"
+18 = "#111216"
+19 = "#111216"
+20 = "#575861"
+21 = "#868690"

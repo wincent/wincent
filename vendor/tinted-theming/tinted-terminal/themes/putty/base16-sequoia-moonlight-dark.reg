@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Sequoia Moonlight Dark
+; Scheme system: base16
+; Scheme description: Sequoia Sequoia Moonlight Dark from the Sequoia theme family
+; Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base16-sequoia-moonlight-dark]
+
+; Default Foreground
+; base05 #868690
+"Colour0"="134,134,144"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #868690
+"Colour1"="134,134,144"
+
+; Default Background
+; base00 #0f1014
+"Colour2"="15,16,20"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #0f1014
+"Colour3"="15,16,20"
+
+; Cursor Text -- equals to default background
+; base00 #0f1014
+"Colour4"="15,16,20"
+
+; Cursor Colour -- equals to default foreground
+; base05 #868690
+"Colour5"="134,134,144"
+
+; ANSI Black
+; 30m
+; base00 #0f1014
+"Colour6"="15,16,20"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #43444d
+"Colour7"="67,68,77"
+
+; ANSI Red
+; 31m
+; base08 #f58ee0
+"Colour8"="245,142,224"
+
+; ANSI Red Bright
+; 1;31m
+; base08 #f58ee0
+"Colour9"="245,142,224"
+
+; ANSI Green
+; 32m
+; base0B #8eb6f5
+"Colour10"="142,182,245"
+
+; ANSI Green Bright
+; 1;32m
+; base0B #8eb6f5
+"Colour11"="142,182,245"
+
+; ANSI Yellow
+; 33m
+; base0A #9898a6
+"Colour12"="152,152,166"
+
+; ANSI Yellow Bright
+; 1;33m
+; base0A #9898a6
+"Colour13"="152,152,166"
+
+; ANSI Blue
+; 34m
+; base0D #c58fff
+"Colour14"="197,143,255"
+
+; ANSI Blue Bright
+; 1;34m
+; base0D #c58fff
+"Colour15"="197,143,255"
+
+; ANSI Magenta
+; 35m
+; base0E #9898a6
+"Colour16"="152,152,166"
+
+; ANSI Magenta Bright
+; 1;35m
+; base0E #9898a6
+"Colour17"="152,152,166"
+
+; ANSI Cyan
+; 36m
+; base0C #ffbb88
+"Colour18"="255,187,136"
+
+; ANSI Cyan Bright
+; 1;36m
+; base0C #ffbb88
+"Colour19"="255,187,136"
+
+; ANSI White
+; 37m
+; base05 #868690
+"Colour20"="134,134,144"
+
+; ANSI White Bright
+; 1;37m
+; base07 0f1014
+"Colour21"="15,16,20"

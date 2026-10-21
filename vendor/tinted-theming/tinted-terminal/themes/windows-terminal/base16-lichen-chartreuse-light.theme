@@ -3,6 +3,8 @@
 	"name": "Lichen Chartreuse Light",
 	"foreground": "#2d302b",
 	"background": "#f5f7f2",
+	"cursorColor": "#2d302b",
+	"selectionBackground": "#2d302b",
 	"black": "#f5f7f2",
 	"blue": "#356e8a",
 	"brightBlack": "#687161",

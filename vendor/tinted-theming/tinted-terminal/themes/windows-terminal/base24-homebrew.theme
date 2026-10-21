@@ -3,6 +3,8 @@
 	"name": "Homebrew",
 	"foreground": "#a8a8a8",
 	"background": "#000000",
+	"cursorColor": "#a8a8a8",
+	"selectionBackground": "#a8a8a8",
 	"black": "#000000",
 	"blue": "#0000b2",
 	"brightBlack": "#7c7c7c",

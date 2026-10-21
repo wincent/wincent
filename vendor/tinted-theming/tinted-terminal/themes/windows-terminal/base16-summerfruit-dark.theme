@@ -3,6 +3,8 @@
 	"name": "Summerfruit Dark",
 	"foreground": "#d0d0d0",
 	"background": "#151515",
+	"cursorColor": "#d0d0d0",
+	"selectionBackground": "#d0d0d0",
 	"black": "#151515",
 	"blue": "#3777e6",
 	"brightBlack": "#505050",

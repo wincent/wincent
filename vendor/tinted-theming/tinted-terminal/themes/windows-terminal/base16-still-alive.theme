@@ -3,6 +3,8 @@
 	"name": "Still Alive",
 	"foreground": "#4c383b",
 	"background": "#f0f0f0",
+	"cursorColor": "#4c383b",
+	"selectionBackground": "#4c383b",
 	"black": "#f0f0f0",
 	"blue": "#365eff",
 	"brightBlack": "#a3a3a3",

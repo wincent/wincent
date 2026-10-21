@@ -3,6 +3,8 @@
 	"name": "Mellow Purple",
 	"foreground": "#ffeeff",
 	"background": "#1e0528",
+	"cursorColor": "#ffeeff",
+	"selectionBackground": "#ffeeff",
 	"black": "#1e0528",
 	"blue": "#550068",
 	"brightBlack": "#320f55",

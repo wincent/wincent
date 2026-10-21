@@ -3,6 +3,8 @@
 	"name": "Oceanic Material",
 	"foreground": "#989898",
 	"background": "#1c262b",
+	"cursorColor": "#989898",
+	"selectionBackground": "#989898",
 	"black": "#1c262b",
 	"blue": "#1d80ef",
 	"brightBlack": "#818181",

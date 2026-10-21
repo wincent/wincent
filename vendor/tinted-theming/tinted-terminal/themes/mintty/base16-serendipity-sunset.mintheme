@@ -1,0 +1,27 @@
+# Serendipity Sunset theme for Mintty
+# Scheme Author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #202231
+Red         = #d1918f
+Green       = #709bbd
+Yellow      = #a392dc
+Blue        = #a0b6e8
+Magenta     = #a392dc
+Cyan        = #d6b4b4
+White       = #dee0ef
+BoldBlack   = #8d8f9e
+BoldRed     = #d1918f
+BoldGreen   = #709bbd
+BoldYellow  = #a392dc
+BoldBlue    = #a0b6e8
+BoldMagenta = #a392dc
+BoldCyan    = #d6b4b4
+BoldWhite   = #202231
+
+# Background & foreground colors
+BackgroundColour = #202231
+ForegroundColour = #dee0ef
+CursorColour     = #dee0ef

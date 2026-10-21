@@ -3,6 +3,8 @@
 	"name": "IC-Green-PPL",
 	"foreground": "#add5b6",
 	"background": "#2c2c2c",
+	"cursorColor": "#add5b6",
+	"selectionBackground": "#add5b6",
 	"black": "#2c2c2c",
 	"blue": "#2ec3b9",
 	"brightBlack": "#3b843e",

@@ -2,10 +2,10 @@
 Color=46,52,64
 
 [BackgroundFaint]
-Color=,,
+Color=20,23,29
 
 [BackgroundIntense]
-Color=,,
+Color=70,81,101
 
 [Color0]
 Color=46,52,64
@@ -83,10 +83,10 @@ Color=236,239,244
 Color=229,233,240
 
 [ForegroundFaint]
-Color=,,
+Color=216,222,233
 
 [ForegroundIntense]
-Color=,,
+Color=236,239,244
 
 [General]
 Description=Nord

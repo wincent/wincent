@@ -726,14 +726,11 @@ MiniSurround.add = function(mode)
   -- Get marks' positions based on current mode
   local marks = H.get_marks_pos(mode)
 
-  -- Get surround info. Try take from cache only in not visual mode (as there
-  -- is no intended dot-repeatability).
-  local surr_info
-  if mode == 'visual' then
-    surr_info = H.get_surround_spec('output', false)
-  else
-    surr_info = H.get_surround_spec('output', true)
-  end
+  -- Always ask for user input for Visual mode action
+  if mode == 'visual' then H.cache = {} end
+
+  -- Get surround info
+  local surr_info = H.get_surround_spec('output')
   if surr_info == nil then return '<Esc>' end
 
   -- Extend parts based on provided `[count]` before operator (if this is not
@@ -801,7 +798,7 @@ end
 --- No need to use it directly, everything is setup in |MiniSurround.setup()|.
 MiniSurround.delete = function()
   -- Find input surrounding region
-  local surr = H.find_surrounding(H.get_surround_spec('input', true))
+  local surr = H.find_surrounding(H.get_surround_spec('input'))
   if surr == nil then return '<Esc>' end
 
   -- Delete surrounding region. Begin with right to not break column numbers.
@@ -837,11 +834,11 @@ end
 --- No need to use it directly, everything is setup in |MiniSurround.setup()|.
 MiniSurround.replace = function()
   -- Find input surrounding region
-  local surr = H.find_surrounding(H.get_surround_spec('input', true))
+  local surr = H.find_surrounding(H.get_surround_spec('input'))
   if surr == nil then return '<Esc>' end
 
   -- Get output surround info
-  local new_surr_info = H.get_surround_spec('output', true)
+  local new_surr_info = H.get_surround_spec('output')
   if new_surr_info == nil then return '<Esc>' end
 
   -- Replace by parts starting from right to not break column numbers
@@ -858,7 +855,7 @@ end
 --- No need to use it directly, everything is setup in |MiniSurround.setup()|.
 MiniSurround.find = function()
   -- Find surrounding region
-  local surr = H.find_surrounding(H.get_surround_spec('input', true))
+  local surr = H.find_surrounding(H.get_surround_spec('input'))
   if surr == nil then return end
 
   -- Make array of unique positions to cycle through
@@ -875,7 +872,7 @@ end
 --- No need to use it directly, everything is setup in |MiniSurround.setup()|.
 MiniSurround.highlight = function()
   -- Find surrounding region
-  local surr = H.find_surrounding(H.get_surround_spec('input', true))
+  local surr = H.find_surrounding(H.get_surround_spec('input'))
   if surr == nil then return end
 
   -- Highlight surrounding region
@@ -1012,13 +1009,7 @@ MiniSurround.gen_spec = { input = {}, output = {} }
 ---   (`[left.form; right.to]`) and inner (`(left.to; right.from)` both edges
 ---   exclusive, i.e. they won't be a part of surrounding) regions. Each value
 ---   should be a string capture starting with `'@'`.
----@param opts table|nil Options. Possible values:
----   - <use_nvim_treesitter> - whether to try to use `nvim-treesitter` plugin
----     (if present) to do the query. It used to implement more advanced behavior
----     and more coherent experience if `nvim-treesitter-textobjects` queries are
----     used. However, as |lua-treesitter-core| methods are more capable now,
----     the option will soon be removed. Only present for backward compatibility.
----     Default: `false`.
+---@param opts table|nil Options. Not used at the moment.
 ---
 ---@return function Function which returns array of current buffer region pairs
 ---   representing differences between outer and inner captures.
@@ -1030,8 +1021,18 @@ MiniSurround.gen_spec = { input = {}, output = {} }
 ---   no `nvim-treesitter`.
 --- - |MiniAi.gen_spec.treesitter()| for similar |mini.ai| generator.
 MiniSurround.gen_spec.input.treesitter = function(captures, opts)
-  -- TODO: Remove after releasing 'mini.nvim' 0.17.0
-  opts = vim.tbl_deep_extend('force', { use_nvim_treesitter = false }, opts or {})
+  -- TODO: Remove after releasing 'mini.nvim' 0.19.0
+  opts = opts or {}
+  if opts.use_nvim_treesitter then
+    vim.notify(
+      '(mini.surround) `opts.use_nvim_treesitter` in `MiniSurround.gen_spec.input.treesitter()` is deprecated.'
+        .. " It will be removed after the next 'mini.nvim' release in favor of using built-in `vim.treesitter` API."
+        .. ' Drop setting this option.'
+        .. ' In case of problems not addressed in `:h MiniSurround.gen_spec.input.treesitter()`, please open an issue.',
+      vim.log.levels.WARN
+    )
+  end
+
   captures = H.prepare_captures(captures)
 
   -- Tree-sitter ranges are 0-based, end-exclusive, and usually
@@ -1287,10 +1288,9 @@ H.make_action = function(task, direction, search_method)
 end
 
 -- Work with surrounding info -------------------------------------------------
-H.get_surround_spec = function(surr_type, use_cache)
+H.get_surround_spec = function(surr_type)
   -- Try using cache
-  if not use_cache then H.cache = {} end
-  if use_cache and H.cache[surr_type] ~= nil then return H.cache[surr_type] end
+  if H.cache[surr_type] ~= nil then return H.cache[surr_type] end
 
   -- Prompt user to enter identifier of surrounding
   local char = H.user_surround_id(surr_type)
@@ -1317,7 +1317,7 @@ H.get_surround_spec = function(surr_type, use_cache)
   res = setmetatable(res, { __index = { id = char } })
 
   -- Cache result
-  if use_cache then H.cache[surr_type] = res end
+  H.cache[surr_type] = res
 
   return res
 end
@@ -1369,15 +1369,22 @@ end
 
 -- Work with finding surrounding ----------------------------------------------
 ---@param surr_spec table Composed pattern. Last item(s) - extraction template.
----@param opts table|nil Options.
 ---@private
-H.find_surrounding = function(surr_spec, opts)
+H.find_surrounding = function(surr_spec)
   if surr_spec == nil then return end
   if H.is_region_pair(surr_spec) then return surr_spec end
 
-  opts = vim.tbl_deep_extend('force', H.get_default_opts(), opts or {})
+  local config = H.get_config()
+  local cur_pos = vim.api.nvim_win_get_cursor(0)
+  local opts = {
+    n_lines = config.n_lines,
+    n_times = H.cache.count or vim.v.count1,
+    -- Empty region at cursor position. This won't get called in Visual mode,
+    -- so don't check for it (to return visual selection, as in 'mini.ai').
+    reference_region = { from = { line = cur_pos[1], col = cur_pos[2] + 1 } },
+    search_method = H.cache.search_method or config.search_method,
+  }
   H.validate_search_method(opts.search_method)
-
   local region_pair = H.find_surrounding_region_pair(surr_spec, opts)
   if region_pair == nil then
     local msg = ([[No surrounding %s found within %d line%s and `config.search_method = '%s'`.]]):format(
@@ -1462,18 +1469,6 @@ H.find_surrounding_region_pair = function(surr_spec, opts)
 
   -- Convert to region pair
   return { left = neigh.span_to_region(final_spans.left), right = neigh.span_to_region(final_spans.right) }
-end
-
-H.get_default_opts = function()
-  local config = H.get_config()
-  local cur_pos = vim.api.nvim_win_get_cursor(0)
-  return {
-    n_lines = config.n_lines,
-    n_times = H.cache.count or vim.v.count1,
-    -- Empty region at cursor position
-    reference_region = { from = { line = cur_pos[1], col = cur_pos[2] + 1 } },
-    search_method = H.cache.search_method or config.search_method,
-  }
 end
 
 -- Work with treesitter surrounding -------------------------------------------

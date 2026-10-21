@@ -3,6 +3,8 @@
 	"name": "Birds Of Paradise",
 	"foreground": "#cdbe9b",
 	"background": "#2a1e1d",
+	"cursorColor": "#cdbe9b",
+	"selectionBackground": "#cdbe9b",
 	"black": "#2a1e1d",
 	"blue": "#5a86ac",
 	"brightBlack": "#ab8664",

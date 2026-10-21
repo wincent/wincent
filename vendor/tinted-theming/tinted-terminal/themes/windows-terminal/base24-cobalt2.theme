@@ -3,6 +3,8 @@
 	"name": "Cobalt2",
 	"foreground": "#a1a1a1",
 	"background": "#122637",
+	"cursorColor": "#a1a1a1",
+	"selectionBackground": "#a1a1a1",
 	"black": "#122637",
 	"blue": "#1460d2",
 	"brightBlack": "#6e6e6e",

@@ -3,6 +3,8 @@
 	"name": "Red Sands",
 	"foreground": "#a1a1a1",
 	"background": "#79241e",
+	"cursorColor": "#a1a1a1",
+	"selectionBackground": "#a1a1a1",
 	"black": "#79241e",
 	"blue": "#0071ff",
 	"brightBlack": "#6e6e6e",

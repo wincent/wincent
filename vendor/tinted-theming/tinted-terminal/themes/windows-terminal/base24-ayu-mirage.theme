@@ -3,6 +3,8 @@
 	"name": "Ayu Mirage",
 	"foreground": "#cccac2",
 	"background": "#1f2430",
+	"cursorColor": "#cccac2",
+	"selectionBackground": "#cccac2",
 	"black": "#1f2430",
 	"blue": "#73d0ff",
 	"brightBlack": "#4a5059",

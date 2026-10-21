@@ -1,0 +1,27 @@
+# Praha theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a1a1a
+Red         = #ff5555
+Green       = #b8e6a0
+Yellow      = #ffe4a3
+Blue        = #bd93f9
+Magenta     = #ff9aa2
+Cyan        = #8be9fd
+White       = #ffffff
+BoldBlack   = #6272a4
+BoldRed     = #ff6e6e
+BoldGreen   = #b8e6a0
+BoldYellow  = #ffe4a3
+BoldBlue    = #d6acff
+BoldMagenta = #ff9aa2
+BoldCyan    = #a4ffff
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #1a1a1a
+ForegroundColour = #ffffff
+CursorColour     = #ffffff

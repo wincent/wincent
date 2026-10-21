@@ -3,6 +3,8 @@
 	"name": "Pencil Light",
 	"foreground": "#b3b3b3",
 	"background": "#f1f1f1",
+	"cursorColor": "#b3b3b3",
+	"selectionBackground": "#b3b3b3",
 	"black": "#f1f1f1",
 	"blue": "#008ec4",
 	"brightBlack": "#676767",

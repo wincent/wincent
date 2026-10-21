@@ -3,6 +3,8 @@
 	"name": "Bespin",
 	"foreground": "#8a8986",
 	"background": "#28211c",
+	"cursorColor": "#8a8986",
+	"selectionBackground": "#8a8986",
 	"black": "#28211c",
 	"blue": "#5ea6ea",
 	"brightBlack": "#666666",

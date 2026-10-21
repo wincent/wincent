@@ -3,6 +3,8 @@
 	"name": "Wild Cherry",
 	"foreground": "#bfe1d8",
 	"background": "#1f1626",
+	"cursorColor": "#bfe1d8",
+	"selectionBackground": "#bfe1d8",
 	"black": "#1f1626",
 	"blue": "#883cdc",
 	"brightBlack": "#3fb3ce",

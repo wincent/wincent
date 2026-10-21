@@ -3,6 +3,8 @@
 	"name": "Hipster Green",
 	"foreground": "#a8a8a8",
 	"background": "#0f0a05",
+	"cursorColor": "#a8a8a8",
+	"selectionBackground": "#a8a8a8",
 	"black": "#0f0a05",
 	"blue": "#246db2",
 	"brightBlack": "#7c7c7c",

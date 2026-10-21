@@ -3,6 +3,8 @@
 	"name": "Gruber",
 	"foreground": "#f4f4ff",
 	"background": "#181818",
+	"cursorColor": "#f4f4ff",
+	"selectionBackground": "#f4f4ff",
 	"black": "#181818",
 	"blue": "#96a6c8",
 	"brightBlack": "#52494e",

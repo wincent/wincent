@@ -1,0 +1,30 @@
+# Tinted Terminal base16 color theme (https://github.com/tinted-theming)
+# Color scheme: Praha by xscriptor (https://github.com/xscriptor)
+
+name: Base16 Praha
+accent: "#bd93f9" # base0D
+cursor: "#ffffff" # base05
+background: "#1a1a1a" # base00
+foreground: "#ffffff" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1a1a1a" # base00
+    red: "#ff5555" # base08
+    yellow: "#ffe4a3" # base0A
+    green: "#b8e6a0" # base0B
+    cyan: "#8be9fd" # base0C
+    blue: "#bd93f9" # base0D
+    magenta: "#ff9aa2" # base0E
+    white: "#ffffff" # base05
+
+  bright:
+    black: "#6272a4" # base03
+    red: "#ff5555" # base08
+    yellow: "#ffe4a3" # base0A
+    green: "#b8e6a0" # base0B
+    cyan: "#8be9fd" # base0C
+    blue: "#bd93f9" # base0D
+    magenta: "#ff9aa2" # base0E
+    white: "#ffffff" # base07

@@ -3,6 +3,8 @@
 	"name": "Cacao",
 	"foreground": "#e8d6c4",
 	"background": "#160f0c",
+	"cursorColor": "#e8d6c4",
+	"selectionBackground": "#e8d6c4",
 	"black": "#160f0c",
 	"blue": "#a89ad0",
 	"brightBlack": "#766052",

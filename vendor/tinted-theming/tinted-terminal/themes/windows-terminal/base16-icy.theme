@@ -3,6 +3,8 @@
 	"name": "Icy Dark",
 	"foreground": "#095b67",
 	"background": "#021012",
+	"cursorColor": "#095b67",
+	"selectionBackground": "#095b67",
 	"black": "#021012",
 	"blue": "#00bcd4",
 	"brightBlack": "#052e34",

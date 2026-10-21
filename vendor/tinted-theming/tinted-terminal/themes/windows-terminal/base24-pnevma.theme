@@ -3,6 +3,8 @@
 	"name": "Pnevma",
 	"foreground": "#aeaead",
 	"background": "#1c1c1c",
+	"cursorColor": "#aeaead",
+	"selectionBackground": "#aeaead",
 	"black": "#1c1c1c",
 	"blue": "#7fa5bd",
 	"brightBlack": "#6b6a67",

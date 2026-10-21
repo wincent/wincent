@@ -3,6 +3,8 @@
 	"name": "Cerulean Signal Light",
 	"foreground": "#232b38",
 	"background": "#f7f9fc",
+	"cursorColor": "#232b38",
+	"selectionBackground": "#232b38",
 	"black": "#f7f9fc",
 	"blue": "#006fa8",
 	"brightBlack": "#637287",

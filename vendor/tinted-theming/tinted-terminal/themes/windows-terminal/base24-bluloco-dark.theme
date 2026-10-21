@@ -3,6 +3,8 @@
 	"name": "Bluloco Dark",
 	"foreground": "#b1bac9",
 	"background": "#1e2027",
+	"cursorColor": "#b1bac9",
+	"selectionBackground": "#b1bac9",
 	"black": "#1e2027",
 	"blue": "#285afe",
 	"brightBlack": "#7b8494",

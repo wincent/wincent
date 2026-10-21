@@ -1,0 +1,27 @@
+# Github Dark High Contrast theme for Mintty
+# Scheme Author: Tinted Theming (https://github.com/tinted-theming)
+# Scheme System: tinted8
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #2f3742
+Red         = #ff9492
+Green       = #28d751
+Yellow      = #f0b72f
+Blue        = #71b7ff
+Magenta     = #cb9eff
+Cyan        = #39c5cf
+White       = #f0f6fc
+BoldBlack   = #656c76
+BoldRed     = #ffb1af
+BoldGreen   = #4ae168
+BoldYellow  = #f7c843
+BoldBlue    = #91cbff
+BoldMagenta = #dbb7ff
+BoldCyan    = #56d4dd
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #010409
+ForegroundColour = #ffffff
+CursorColour     = #ffffff

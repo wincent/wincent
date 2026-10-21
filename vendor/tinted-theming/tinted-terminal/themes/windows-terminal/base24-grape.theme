@@ -3,6 +3,8 @@
 	"name": "Grape",
 	"foreground": "#8c8a92",
 	"background": "#161423",
+	"cursorColor": "#8c8a92",
+	"selectionBackground": "#8c8a92",
 	"black": "#161423",
 	"blue": "#487cf4",
 	"brightBlack": "#696377",

@@ -3,6 +3,8 @@
 	"name": "Windows High Contrast Light",
 	"foreground": "#545454",
 	"background": "#fcfcfc",
+	"cursorColor": "#545454",
+	"selectionBackground": "#545454",
 	"black": "#fcfcfc",
 	"blue": "#000080",
 	"brightBlack": "#c0c0c0",

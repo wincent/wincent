@@ -1,0 +1,10 @@
+# Scheme name: Serendipity Morning
+# Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-serendipity-morning
+ColorForeground=#3f4363
+ColorBackground=#f6f7fb
+ColorCursor=#3f4363
+ColorBoldIsBright=FALSE
+ColorPalette=#f6f7fb;#c25a4d;#2f7aab;#785fd0;#6288d8;#785fd0;#e58678;#3f4363;#6d7296;#c25a4d;#2f7aab;#785fd0;#6288d8;#785fd0;#e58678;#f6f7fb

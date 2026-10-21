@@ -3,6 +3,8 @@
 	"name": "Shapeshifter",
 	"foreground": "#102015",
 	"background": "#f9f9f9",
+	"cursorColor": "#102015",
+	"selectionBackground": "#102015",
 	"black": "#f9f9f9",
 	"blue": "#3b48e3",
 	"brightBlack": "#555555",

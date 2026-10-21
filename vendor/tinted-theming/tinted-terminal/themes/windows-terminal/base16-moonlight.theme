@@ -3,6 +3,8 @@
 	"name": "Moonlight",
 	"foreground": "#a3ace1",
 	"background": "#212337",
+	"cursorColor": "#a3ace1",
+	"selectionBackground": "#a3ace1",
 	"black": "#212337",
 	"blue": "#40ffff",
 	"brightBlack": "#748cd6",

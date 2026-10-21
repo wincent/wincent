@@ -1,0 +1,10 @@
+# Scheme name: Sequoia Monochrome Dark
+# Scheme author: Micheal Andreuzza (https://michaelandreuzza.com/)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-sequoia-monochrome-dark
+ColorForeground=#868690
+ColorBackground=#0f1014
+ColorCursor=#868690
+ColorBoldIsBright=FALSE
+ColorPalette=#0f1014;#999eb2;#626983;#d3d5de;#7c829d;#d3d5de;#b6bac8;#868690;#43444d;#999eb2;#626983;#d3d5de;#7c829d;#d3d5de;#b6bac8;#0f1014

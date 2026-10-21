@@ -3,6 +3,8 @@
 	"name": "Noche",
 	"foreground": "#cbd4ec",
 	"background": "#0c0e16",
+	"cursorColor": "#cbd4ec",
+	"selectionBackground": "#cbd4ec",
 	"black": "#0c0e16",
 	"blue": "#7aa0e8",
 	"brightBlack": "#5a6178",

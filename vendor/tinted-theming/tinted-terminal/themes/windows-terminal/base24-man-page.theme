@@ -3,6 +3,8 @@
 	"name": "Man Page",
 	"foreground": "#b2b2b2",
 	"background": "#fef49c",
+	"cursorColor": "#b2b2b2",
+	"selectionBackground": "#b2b2b2",
 	"black": "#fef49c",
 	"blue": "#0000b2",
 	"brightBlack": "#7f7f7f",

@@ -3,6 +3,8 @@
 	"name": "Da One Gray",
 	"foreground": "#ffffff",
 	"background": "#181818",
+	"cursorColor": "#ffffff",
+	"selectionBackground": "#ffffff",
 	"black": "#181818",
 	"blue": "#6bb8ff",
 	"brightBlack": "#888888",

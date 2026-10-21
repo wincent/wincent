@@ -1,0 +1,27 @@
+# Helsinki theme for Mintty
+# Scheme Author: xscriptor (https://github.com/xscriptor)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f8fafe
+Red         = #1faa9e
+Green       = #733d9a
+Yellow      = #2e70ad
+Blue        = #b55a0f
+Magenta     = #3e9d21
+Cyan        = #bd4c3d
+White       = #544d40
+BoldBlack   = #b0a999
+BoldRed     = #009e91
+BoldGreen   = #5a1f8a
+BoldYellow  = #0f5ba2
+BoldBlue    = #b23b00
+BoldMagenta = #218c00
+BoldCyan    = #b32e1f
+BoldWhite   = #000000
+
+# Background & foreground colors
+BackgroundColour = #f8fafe
+ForegroundColour = #544d40
+CursorColour     = #544d40

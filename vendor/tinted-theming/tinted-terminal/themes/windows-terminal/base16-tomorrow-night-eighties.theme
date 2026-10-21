@@ -3,6 +3,8 @@
 	"name": "Tomorrow Night Eighties",
 	"foreground": "#cccccc",
 	"background": "#2d2d2d",
+	"cursorColor": "#cccccc",
+	"selectionBackground": "#cccccc",
 	"black": "#2d2d2d",
 	"blue": "#6699cc",
 	"brightBlack": "#999999",

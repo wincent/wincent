@@ -3,6 +3,8 @@
 	"name": "Synth Midnight Terminal Dark",
 	"foreground": "#c1c3c4",
 	"background": "#050608",
+	"cursorColor": "#c1c3c4",
+	"selectionBackground": "#c1c3c4",
 	"black": "#050608",
 	"blue": "#03aeff",
 	"brightBlack": "#474849",

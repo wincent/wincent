@@ -3,6 +3,8 @@
 	"name": "Toy Chest",
 	"foreground": "#27b684",
 	"background": "#23364a",
+	"cursorColor": "#27b684",
+	"selectionBackground": "#27b684",
 	"black": "#23364a",
 	"blue": "#325d96",
 	"brightBlack": "#2f8288",

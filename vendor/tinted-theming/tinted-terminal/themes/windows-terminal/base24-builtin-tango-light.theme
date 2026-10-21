@@ -3,6 +3,8 @@
 	"name": "Builtin Tango Light",
 	"foreground": "#b3b7b0",
 	"background": "#ffffff",
+	"cursorColor": "#b3b7b0",
+	"selectionBackground": "#b3b7b0",
 	"black": "#ffffff",
 	"blue": "#3464a4",
 	"brightBlack": "#737772",

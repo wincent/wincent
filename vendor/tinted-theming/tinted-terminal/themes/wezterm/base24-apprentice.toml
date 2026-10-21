@@ -1,0 +1,43 @@
+# base24 Apprentice
+# Scheme author: Romain Lafourcade (https://github.com/romainl)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#262626"
+foreground = "#bcbcbc"
+
+cursor_bg = "#bcbcbc"
+cursor_border = "#bcbcbc"
+cursor_fg = "#262626"
+
+selection_bg = "#bcbcbc"
+selection_fg = "#3a3a3a"
+
+ansi = [
+  "#262626",
+  "#af5f5f",
+  "#5f875f",
+  "#87875f",
+  "#5f87af",
+  "#5f5f87",
+  "#5f8787",
+  "#bcbcbc"
+]
+brights = [
+  "#444444",
+  "#ff8700",
+  "#87af87",
+  "#ffffaf",
+  "#87afd7",
+  "#8787af",
+  "#5fafaf",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ff8700"
+17 = "#af5f5f"
+18 = "#303030"
+19 = "#3a3a3a"
+20 = "#6c6c6c"
+21 = "#dfdfdf"

@@ -3,6 +3,8 @@
 	"name": "Humanoid dark",
 	"foreground": "#f8f8f2",
 	"background": "#232629",
+	"cursorColor": "#f8f8f2",
+	"selectionBackground": "#f8f8f2",
 	"black": "#232629",
 	"blue": "#00a6fb",
 	"brightBlack": "#60615d",

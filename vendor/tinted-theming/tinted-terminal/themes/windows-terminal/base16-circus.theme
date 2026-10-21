@@ -3,6 +3,8 @@
 	"name": "Circus",
 	"foreground": "#a7a7a7",
 	"background": "#191919",
+	"cursorColor": "#a7a7a7",
+	"selectionBackground": "#a7a7a7",
 	"black": "#191919",
 	"blue": "#639ee4",
 	"brightBlack": "#5f5a60",

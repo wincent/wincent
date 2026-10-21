@@ -3,6 +3,8 @@
 	"name": "Tango Adapted",
 	"foreground": "#4f4f4f",
 	"background": "#feffff",
+	"cursorColor": "#4f4f4f",
+	"selectionBackground": "#4f4f4f",
 	"black": "#feffff",
 	"blue": "#00a1ff",
 	"brightBlack": "#cccccc",
