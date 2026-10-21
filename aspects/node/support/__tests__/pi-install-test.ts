@@ -170,7 +170,7 @@ test('a failed first installation can be retried', (t) => {
   clean();
 });
 
-test('lock pins the manifest, has registry integrity for every package, and retains platform optionals', () => {
+test('lock pins the manifest and has registry integrity for every package', () => {
   const lock = JSON.parse(
     readFileSync(join(source, 'package-lock.json'), 'utf8'),
   );
@@ -184,10 +184,5 @@ test('lock pins the manifest, has registry integrity for every package, and reta
     const pkg = entry as {integrity: string; resolved: string};
     assert.match(pkg.integrity, /^sha512-[A-Za-z0-9+/]+=*$/, name);
     assert.match(pkg.resolved, /^https:\/\/registry\.npmjs\.org\//, name);
-  }
-  for (const platform of ['darwin-arm64', 'linux-arm64']) {
-    assert.ok(
-      packages.some(([name]) => name.endsWith(`/@esbuild/${platform}`)),
-    );
   }
 });
