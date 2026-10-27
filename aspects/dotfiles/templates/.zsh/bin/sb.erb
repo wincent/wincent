@@ -26,6 +26,7 @@ PROJECT_NAME="$(basename "$PROJECT_ROOT")"
 SB_BRANCHES=(main)
 SB_WORKTREES=()
 SB_PORTS=()
+SB_ENV=()
 SB_SOCKETS=("$HOME/.clipper.sock:/home/admin/.clipper.sock")
 SB_REPO_SUBDIR="code"
 SB_VM_CPU=4
@@ -493,6 +494,16 @@ cmd_ssh() {
     fi
     # Launcher hint for tools in the guest; do not export it on the host.
     GUEST_ENV_SCRIPT+=$'export SB_SANDBOX=1\n'
+    local entry name assignment
+    for entry in "${SB_ENV[@]+"${SB_ENV[@]}"}"; do
+        name="${entry%%=*}"
+        if [[ "$entry" != *=* || ! "$name" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]; then
+            echo "sb: SB_ENV entries must be NAME=value assignments" >&2
+            return 1
+        fi
+        printf -v assignment 'export %q\n' "$entry"
+        GUEST_ENV_SCRIPT+="$assignment"
+    done
     setup_optional_ssh_forwards "$ip" \
         "${port_args[@]+"${port_args[@]}"}" \
         "${socket_args[@]+"${socket_args[@]}"}" </dev/null || return 1
@@ -865,6 +876,7 @@ Configuration (built-in defaults, then \$SB_BASE_CONFIG, then project config):
   SB_WORKTREES     Branches to check out as worktrees (default: none)
   SB_PORTS         Port forwards as host:vm pairs (default: none)
   SB_SOCKETS       Socket forwards as host:vm pairs (default: clipper)
+  SB_ENV           Guest environment as NAME=value array entries (default: none)
   SB_SSH_EXEC      Command to exec on SSH (default: cd into repo + login shell)
   SB_REPO_SUBDIR   VM home subdirectory holding the repo (default: code)
   SB_VM_CPU        CPU cores (default: 4)

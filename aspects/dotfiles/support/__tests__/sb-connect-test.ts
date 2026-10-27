@@ -43,11 +43,14 @@ function fixture(t: TestContext, base = '', local = '') {
     `#!/bin/bash
 printf 'session:%s\\n' "$*" >> "$CALLS"
 printf 'cwd:%s\\n' "$PWD" >> "$CALLS"
+if [[ "$EXECUTE_REMOTE" == 1 ]]; then
+  exec /usr/bin/env -i PATH="$PATH" USER=admin /bin/bash -c "\${!#}"
+fi
 cat
 `,
     {mode: 0o755},
   );
-  function run(command = 'cmd_ssh', extra = '') {
+  function run(command = 'cmd_ssh', extra = '', executeRemote = false) {
     const result = spawnSync('/bin/bash', [
       '-c',
       `${loader}
@@ -77,6 +80,7 @@ ${command}
         HOME: home,
         PATH: `${bin}:${process.env.PATH}`,
         CALLS: calls,
+        EXECUTE_REMOTE: executeRemote ? '1' : '0',
         ...(base ? {SB_BASE_CONFIG: join(home, 'base')} : {}),
       },
     });
@@ -85,7 +89,8 @@ ${command}
   return {project, run};
 }
 
-const baseHook = `sb_before_connect() {
+const baseHook = `SB_ENV=('FORWARDED=host-value')
+sb_before_connect() {
   cat >/dev/null
   type sb_ssh >/dev/null
   type sb_scp >/dev/null
@@ -124,10 +129,56 @@ for (
     assert.doesNotMatch(result.calls, /INVALID_HOOK_SETTING/);
     assert.match(
       result.calls,
-      /export FIXTURE_API_KEY=proxied; export SB_SANDBOX=1\n/,
+      /export FIXTURE_API_KEY=proxied; export SB_SANDBOX=1\nexport FORWARDED=host-value\n/,
     );
   });
 }
+
+test('guest environment values are quoted literally without replacing the guest user', (t) => {
+  const value = "team's reports; $(exit 17) `exit 18`\nnext";
+  const quoted = "'" + value.replaceAll("'", "'\\''") + "'";
+  const result = fixture(t, `SB_ENV=("FORWARDED="${quoted} 'EMPTY=')`).run(
+    `cmd_ssh /bin/bash -c 'printf "%s\\0" "$FORWARDED" "$EMPTY" "$USER" "$FIXTURE_API_KEY" "$SB_SANDBOX"'`,
+    '',
+    true,
+  );
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(
+    result.stdout,
+    [value, '', 'admin', 'proxied', '1', ''].join('\0'),
+  );
+});
+
+test('project configuration can replace or disable inherited guest environment', (t) => {
+  for (const local of ["SB_ENV=('FORWARDED=project-value')", 'SB_ENV=()']) {
+    const result = fixture(t, baseHook, local).run();
+    assert.equal(result.status, 0, result.stderr);
+    assert.doesNotMatch(result.calls, /host-value/);
+    if (local !== 'SB_ENV=()') {
+      assert.match(result.calls, /export FORWARDED=project-value/);
+    }
+  }
+});
+
+test('invalid guest environment assignments abort before SSH without echoing values', (t) => {
+  for (
+    const entry of [
+      'NO_EQUALS',
+      '=secret-value',
+      'BAD-NAME=secret-value',
+      'A;exit=secret-value',
+    ]
+  ) {
+    const result = fixture(t, `SB_ENV=('${entry}')`).run();
+    assert.notEqual(result.status, 0);
+    assert.match(
+      result.stderr,
+      /SB_ENV entries must be NAME=value assignments/,
+    );
+    assert.doesNotMatch(result.stderr, /secret-value/);
+    assert.doesNotMatch(result.calls, /session:/);
+  }
+});
 
 test('project connect hook replaces the base hook', (t) => {
   const result = fixture(
