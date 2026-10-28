@@ -10,7 +10,7 @@
     "datadog-openai/*",
     "openai-codex/gpt-6-luna",
     "openai-codex/gpt-6.1-sol",
-    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-6.1-terra",
     "openai-codex/gpt-6-astra",
     "openrouter-zdr-fireworks/deepseek/deepseek-v4.1-flash-1017",
     "openrouter-zdr-deepinfra/deepseek/deepseek-v4.1-flash-1017",
