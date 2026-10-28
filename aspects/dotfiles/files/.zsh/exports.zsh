@@ -151,6 +151,9 @@ export CLICOLOR=true
 # https://github.com/muescha/consoledonottrack.com
 export DO_NOT_TRACK=1
 
+# https://dprint.dev/cli/#respecting-a-global-.gitignore
+export DPRINT_GLOBAL_GITIGNORE=1
+
 if [ -n "$TTY" ]; then
   export GPG_TTY=$TTY
 else
