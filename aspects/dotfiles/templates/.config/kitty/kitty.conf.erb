@@ -1,6 +1,4 @@
 # vim:fileencoding=utf-8:foldmethod=marker
-#
-# <%= variables.figManaged %>
 
 #: Fonts {{{
 
@@ -943,7 +941,7 @@ show_hyperlink_targets cmd
 
 #: Click the link under the mouse or move the cursor even when grabbed
 
-mouse_map <%= variables.kittyAlt %>+left click grabbed,ungrabbed mouse_handle_click selection link prompt
+# See override in {linux,macos}.conf:
 # mouse_map shift+left click grabbed,ungrabbed mouse_handle_click selection link prompt
 
 #::  Same as above, except that the action is performed even when the
@@ -951,7 +949,7 @@ mouse_map <%= variables.kittyAlt %>+left click grabbed,ungrabbed mouse_handle_cl
 
 #: Click the link under the mouse cursor
 
-mouse_map <%= variables.kittyAlt %>+shift+left release grabbed,ungrabbed mouse_handle_click link
+# See override in {linux,macos}.conf:
 # mouse_map ctrl+shift+left release grabbed,ungrabbed mouse_handle_click link
 
 #::  Variant with Ctrl+Shift is present because the simple click based
@@ -960,7 +958,7 @@ mouse_map <%= variables.kittyAlt %>+shift+left release grabbed,ungrabbed mouse_h
 
 #: Discard press event for link click
 
-mouse_map <%= variables.kittyAlt %>+shift+left press grabbed discard_event
+# See override in {linux,macos}.conf:
 # mouse_map ctrl+shift+left press grabbed discard_event
 
 #::  Prevent this press event from being sent to the program that has
@@ -3562,5 +3560,6 @@ include themes/bright.conf
 
 # Optional overrides; kitty will ignore if not present.
 include colors.conf
+include ${KITTY_OS}.conf
 
 #: }}}
