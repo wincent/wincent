@@ -175,7 +175,7 @@ The helper skips installation when the installed Pi version matches the pin, eve
 
 After provisioning, ask the user to verify the managed executable's version and normal command resolution, then start a fresh Pi through the usual sandbox/proxy launcher to check extension loading. Until verified, report preparation or provisioning as pending, not a successful runtime upgrade.
 
-Remind the user to manually run the `bin/install-types` helper in each repository where they keep Pi extensions:
+Remind the user to manually run the `bin/install-types` helper and update the Pi version used in CI to match the newly provisioned version in each repository where they keep Pi extensions:
 
 - `wincent` (public dotfiles)
 - `wincent` (private/corporate dotfiles)
