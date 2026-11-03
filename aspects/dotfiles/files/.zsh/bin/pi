@@ -38,6 +38,13 @@ if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
   fi
   chmod 700 "$socket_root" || exit 1
 
+  # Keep nono's own tracing output off the tty: the supervisor logs to stderr,
+  # which is the terminal pi's TUI owns, so warnings such as the network audit
+  # buffer filling at 4096 events corrupt the display. $$ becomes nono's PID
+  # after exec, which matches the session id suffix in `nono ps`, so concurrent
+  # launches each get their own file.
+  export NONO_LOG_FILE="${NONO_LOG_FILE:-${TMPDIR%/}/nono-pi-$$.log}"
+
   exec nono run --profile pi --allow-cwd -- "$pi_binary" "$@"
 fi
 exec "$pi_binary" "$@"
