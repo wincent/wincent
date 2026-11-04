@@ -425,7 +425,7 @@ function -update-ps1() {
     local LVL=$SHLVL
   fi
 
-  # OSC-133 escape sequences for prompt navigation.
+  # OSC 133 escape sequences for prompt navigation.
   #
   # See: https://gitlab.freedesktop.org/Per_Bothner/specifications/blob/master/proposals/semantic-prompts.md
   #

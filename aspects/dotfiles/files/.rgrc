@@ -80,7 +80,7 @@
 #     Set the format of hyperlinks to use when printing results. Hyperlinks
 #     make certain elements of ripgrep's output, such as file paths,
 #     clickable. This generally only works in terminal emulators that support
-#     OSC-8 hyperlinks. For example, the format file://{host}{path} will emit
+#     OSC 8 hyperlinks. For example, the format file://{host}{path} will emit
 #     an RFC 8089 hyperlink. To see the format that ripgrep is using, pass
 #     the --debug flag.
 #
