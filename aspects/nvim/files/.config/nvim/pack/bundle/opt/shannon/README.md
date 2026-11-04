@@ -1,16 +1,16 @@
 # Shannon
 
-A bidirectional communication bridge between Neovim and a terminal coding agent (pi or Claude Code).
+A bidirectional communication bridge between Neovim and a terminal coding agent such as [Pi](https://pi.dev/).
 
 Shannon opens a floating window in Neovim where you type a prompt. When you save (`:w` or `:x`), it delivers the prompt to a running agent session in a sibling tmux pane, along with file and cursor context. Close without sending using `:fclo` or `:q!`.
 
-With the companion Pi skill or Claude Code plugin installed, communication flows in both directions — the agent can annotate your code with virtual text, open files, and jump to lines.
+With the companion Pi skill installed, communication flows in both directions — the agent can annotate your code with virtual text, open files, and jump to lines.
 
 ## Requirements
 
 - Neovim 0.9+
 - tmux
-- A supported agent (pi or Claude Code) running in a sibling tmux pane
+- A supported agent (Pi, Claude Code etc) running in a sibling tmux pane
 
 ## Installation
 
@@ -67,12 +67,9 @@ require('wincent.shannon').setup({
 
 #### `agents`
 
-Shannon locates the target pane by running `pgrep -x <name>` for each entry in
-`agents` and walking up the process tree until it reaches a sibling tmux pane's
-shell. The first match wins, so order the list by preference.
+Shannon locates the target pane by running `pgrep -x <name>` for each entry in `agents` and walking up the process tree until it reaches a sibling tmux pane's shell. The first match wins, so order the list by preference.
 
-Defaults to `{ 'pi', 'claude' }`. Override to pin a single agent, reorder
-priority, or add others:
+Defaults to `{ 'pi', 'claude' }`. Override to pin a single agent, reorder priority, or add others:
 
 ```lua
 -- pi only
@@ -95,26 +92,29 @@ While the floating window is open, `CTRL-Y` and `CTRL-E` scroll the parent windo
 
 If the prompt starts with `/btw`, the prompt text is placed before the context line.
 
-## Companion Pi skill and Claude Code plugin
+## Companion Pi skill
 
-For bidirectional communication with the agent, install the `shannon` Claude Code plugin from the `wincent-claude-plugins` marketplace:
+For bidirectional communication, install the `neovim` skill from [wincent-agent-plugins](https://github.com/wincent/wincent-agent-plugins). This teaches Pi to annotate code, open files, and navigate your Neovim session via RPC.
+
+Clone the repository:
 
 ```sh
-claude plugin marketplace add wincent/wincent-claude-plugins
-claude plugin install shannon
+mkdir -p ~/.local/share/agents
+git clone https://github.com/wincent/wincent-agent-plugins.git \
+  ~/.local/share/agents/wincent-agent-plugins
 ```
 
-This teaches Claude Code to annotate code, open files, and navigate your Neovim session via RPC.
-
-Equivalently, a "neovim" Pi skill exists in the marketplace repo under `pi/skills/`. If you want to share the marketplace repo with both Claude and Pi, you can configure Pi to read from the marketplace repo by add the following in `~/.pi/agent/settings.json`:
+Add the skill path to the `skills` array in `~/.pi/agent/settings.json`, preserving any existing entries:
 
 ```json
 {
   "skills": [
-    "~/.claude/plugins/marketplaces/wincent-claude-plugins/pi"
+    "~/.local/share/agents/wincent-agent-plugins/pi/skills/neovim"
   ]
 }
 ```
+
+Run `/reload` or start a new Pi session. Invoke `/skill:neovim` or ask Pi to annotate code, navigate files, or do a walkthrough in Neovim.
 
 ## License
 

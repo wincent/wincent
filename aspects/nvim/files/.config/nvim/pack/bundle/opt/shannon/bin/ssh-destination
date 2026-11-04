@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+"""Print an SSH process's destination without flattening its argument vector.
+
+Usage: ssh-destination PID
+Requires Python 3.9+ on macOS or Linux. Exits 1 without output for non-SSH
+processes, unreadable processes, or arguments that cannot be parsed safely.
+"""
+
+import argparse
+import ctypes
+import getopt
+import os
+import struct
+import sys
+from typing import Optional
+
+
+# OpenSSH short options: getopt preserves values containing spaces, handles
+# attached values and grouped flags, and stops at the first positional argument.
+SSH_OPTIONS = "246AaCfGgKkMNnqsTtVvXxYyZB:b:c:D:E:e:F:I:i:J:L:l:m:O:o:P:p:Q:R:S:W:w:"
+
+
+def ssh_destination(argv: list[str]) -> Optional[str]:
+    if not argv or os.path.basename(argv[0]) != "ssh":
+        return None
+    try:
+        _, positional = getopt.getopt(argv[1:], SSH_OPTIONS)
+    except getopt.GetoptError:
+        return None
+    if not positional:
+        return None
+    destination = positional[0]
+    if not destination or destination.startswith("-"):
+        return None
+    if any(char.isspace() or char == "\0" for char in destination):
+        return None
+    return destination
+
+
+def decode_macos_argv(data: bytes) -> list[str]:
+    # KERN_PROCARGS2: native int argc, executable path, NUL padding, argv,
+    # then environment strings. Read exactly argc strings, not the environment.
+    int_size = struct.calcsize("i")
+    if len(data) < int_size:
+        raise ValueError("missing argc")
+    argc = struct.unpack_from("i", data)[0]
+    if argc <= 0 or argc > len(data):
+        raise ValueError("invalid argc")
+    start = data.index(b"\0", int_size) + 1
+    while start < len(data) and data[start] == 0:
+        start += 1
+    parts = data[start:].split(b"\0", argc)
+    if len(parts) != argc + 1:
+        raise ValueError("incomplete argument vector")
+    return [os.fsdecode(part) for part in parts[:argc]]
+
+
+def read_macos_argv(pid: int) -> list[str]:
+    libc = ctypes.CDLL(None, use_errno=True)
+    sysctl = libc.sysctl
+    sysctl.argtypes = [
+        ctypes.POINTER(ctypes.c_int),
+        ctypes.c_uint,
+        ctypes.c_void_p,
+        ctypes.POINTER(ctypes.c_size_t),
+        ctypes.c_void_p,
+        ctypes.c_size_t,
+    ]
+    sysctl.restype = ctypes.c_int
+
+    def query(mib: list[int], capacity: int) -> bytes:
+        name = (ctypes.c_int * len(mib))(*mib)
+        buffer = ctypes.create_string_buffer(capacity)
+        size = ctypes.c_size_t(capacity)
+        if sysctl(name, len(mib), buffer, ctypes.byref(size), None, 0) != 0:
+            error = ctypes.get_errno()
+            raise OSError(error, os.strerror(error))
+        return buffer.raw[:size.value]
+
+    # CTL_KERN=1, KERN_ARGMAX=8, KERN_PROCARGS2=49.
+    argmax = struct.unpack("i", query([1, 8], struct.calcsize("i")))[0]
+    if argmax <= 0:
+        raise ValueError("invalid argument buffer size")
+    return decode_macos_argv(query([1, 49, pid], argmax))
+
+
+def decode_linux_argv(data: bytes) -> list[str]:
+    if not data:
+        return []
+    if not data.endswith(b"\0"):
+        raise ValueError("incomplete argument vector")
+    return [os.fsdecode(part) for part in data[:-1].split(b"\0")]
+
+
+def read_argv(pid: int) -> list[str]:
+    if sys.platform == "darwin":
+        return read_macos_argv(pid)
+    if sys.platform.startswith("linux"):
+        with open("/proc/{}/cmdline".format(pid), "rb") as stream:
+            return decode_linux_argv(stream.read())
+    raise OSError("unsupported platform")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("pid", type=int)
+    args = parser.parse_args()
+    if not 0 < args.pid <= 2147483647:
+        parser.error("PID must be a positive 32-bit integer")
+    try:
+        destination = ssh_destination(read_argv(args.pid))
+    except (OSError, ValueError):
+        return 1
+    if destination is None:
+        return 1
+    print(destination)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
