@@ -1,0 +1,58 @@
+# base24 Lumina Ember Light 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0xf9f4ea'
+foreground = '0x372b1e'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf9f4ea'
+cursor = '0x372b1e'
+
+# Normal colors
+[colors.normal]
+black = '0xf9f4ea'
+red = '0x811d1d'
+green = '0x437329'
+yellow = '0xa06116'
+blue = '0x256b99'
+magenta = '0x6559a1'
+cyan = '0x007285'
+white = '0x372b1e'
+
+# Bright colors
+[colors.bright]
+black = '0xd8d1c4'
+red = '0x5c1d1b'
+green = '0x355d20'
+yellow = '0x874e01'
+blue = '0x005785'
+magenta = '0x783763'
+cyan = '0x005c6c'
+white = '0x372b1e'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x864315"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x96437b"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xf4eddf"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xe9e2d4"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x8c8579"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x4d473c"

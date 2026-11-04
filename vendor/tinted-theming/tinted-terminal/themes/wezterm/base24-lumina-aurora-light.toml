@@ -1,0 +1,43 @@
+# base24 Lumina Aurora Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f2faf9"
+foreground = "#163236"
+
+cursor_bg = "#163236"
+cursor_border = "#163236"
+cursor_fg = "#f2faf9"
+
+selection_bg = "#163236"
+selection_fg = "#dde9e7"
+
+ansi = [
+  "#f2faf9",
+  "#942a28",
+  "#026d43",
+  "#9f6116",
+  "#425b7a",
+  "#754fa5",
+  "#007386",
+  "#163236"
+]
+brights = [
+  "#cdd8d7",
+  "#6d2926",
+  "#005734",
+  "#864e01",
+  "#17467d",
+  "#733a6e",
+  "#005d6d",
+  "#163236"
+]
+
+[colors.indexed]
+16 = "#985022"
+17 = "#894c84"
+18 = "#e9f4f3"
+19 = "#dde9e7"
+20 = "#7e8987"
+21 = "#414a49"

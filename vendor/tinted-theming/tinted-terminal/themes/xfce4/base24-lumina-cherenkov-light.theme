@@ -1,0 +1,10 @@
+# Scheme name: Lumina Cherenkov Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-cherenkov-light
+ColorForeground=#1f2e53
+ColorBackground=#f5f8ff
+ColorCursor=#1f2e53
+ColorBoldIsBright=FALSE
+ColorPalette=#f5f8ff;#a32224;#227a3e;#a35f00;#0a4fcc;#7849c1;#087181;#1f2e53;#d1d5df;#792825;#07652c;#874e00;#1d448f;#793474;#005c69;#1f2e53

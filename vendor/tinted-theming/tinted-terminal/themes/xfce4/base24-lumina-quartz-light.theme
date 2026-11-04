@@ -1,0 +1,10 @@
+# Scheme name: Lumina Quartz Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-quartz-light
+ColorForeground=#30353b
+ColorBackground=#f5f7fa
+ColorCursor=#30353b
+ColorBoldIsBright=FALSE
+ColorPalette=#f5f7fa;#7d2b28;#217550;#9a642c;#446894;#7653a5;#007092;#30353b;#d2d4d9;#5a2522;#215e41;#82511c;#31547e;#6c3f69;#115a74;#30353b

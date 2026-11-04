@@ -1,0 +1,115 @@
+-- vim: ft=lua
+-- Floraverse theme for Rex
+-- Scheme Author: FredHappyface (https://github.com/fredHappyface)
+-- Scheme System: base24
+-- Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+--
+-- Imports this scheme into every Rex app running on this machine and switches
+-- the app to the scheme's appearance. Run it with the Rex CLI, for example as a
+-- tinty hook:
+--
+--     hook = "rex --autostart=false do %f"
+--
+-- Rex can only import theme files from the app's own machine, so apps connected
+-- to the Rex server from another machine are skipped. Run tinty there too.
+
+local name = "base24-floraverse"
+local variant = "dark"
+
+-- This must match themes/ghostty/base24-floraverse exactly. CI checks that it does.
+local theme = [==[
+# vim: ft=ghostty
+# Floraverse theme for Ghostty
+# Scheme Author: FredHappyface (https://github.com/fredHappyface)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#0e0c15
+palette = 1=#64002c
+palette = 2=#5d731a
+palette = 3=#40a4cf
+palette = 4=#1d6da1
+palette = 5=#b7077e
+palette = 6=#42a38c
+palette = 7=#c3af9d
+palette = 8=#634e67
+palette = 9=#d02063
+palette = 10=#b4ce59
+palette = 11=#fac357
+palette = 12=#40a4cf
+palette = 13=#f12aae
+palette = 14=#62caa8
+palette = 15=#fff5db
+palette = 16=#cd751c
+palette = 17=#320016
+palette = 18=#08002e
+palette = 19=#331e4d
+palette = 20=#937f82
+palette = 21=#f3e0b8
+
+# Foreground & background colors
+background = #0e0c15
+foreground = #c3af9d
+cursor-color = #c3af9d
+selection-background = #c3af9d
+selection-foreground = #331e4d
+search-background = #40a4cf
+search-foreground = #08002e
+search-selected-background = #cd751c
+search-selected-foreground = #08002e
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #fff5db
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #40a4cf
+]==]
+
+local me = assert(rex.call("server.whoami")).principal
+if me.transport ~= "unix" then
+    io.stderr:write("rex: not connected to a local Rex server, skipping\n")
+    return
+end
+
+-- Rex names an imported theme after its file, and re-importing a name
+-- replaces that theme's colors.
+local home = os.getenv("HOME")
+local dir = (os.getenv("XDG_CACHE_HOME") or (home .. "/.cache")) .. "/tinted-theming/rex"
+rex.exec({ "mkdir", "-p", dir })
+local file = dir .. "/" .. name
+local out = assert(io.open(file, "w"))
+out:write(theme)
+out:close()
+
+local function perform(client, action, args)
+    local _, err = rex.call("client.perform", {
+        client_id = client.client_id, action = action, args = args,
+    })
+    return err
+end
+
+-- Apps connected over the server's local socket as the same user are the
+-- apps on this machine.
+local list = assert(rex.call("client.list", { kinds = { "app" } }))
+local failures = {}
+for _, client in ipairs(list.clients or {}) do
+    local peer = client.principal or {}
+    local label = (client.info or {}).label or client.client_id
+    if peer.transport == "unix" and peer.uid == me.uid then
+        -- Rex guesses a theme's appearance from its colors when importing.
+        -- Switch to the scheme's own variant in case it guessed wrong.
+        local err = perform(client, "client.theme.import", { path = file })
+            or perform(client, "client.appearance.switch_mode", { mode = variant })
+        if err then
+            table.insert(failures, label .. ": " .. tostring(err))
+        end
+    else
+        io.stderr:write("rex: skipped " .. label .. ", which is connected from another machine or user\n")
+    end
+end
+
+if #failures > 0 then
+    error(table.concat(failures, "\n"))
+end

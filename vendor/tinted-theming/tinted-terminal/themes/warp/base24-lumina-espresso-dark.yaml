@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Espresso Dark by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Espresso Dark
+accent: "#96bfe9" # base0D
+cursor: "#e5dfd6" # base05
+background: "#1e150e" # base00
+foreground: "#e5dfd6" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#1e150e" # base00
+    red: "#cd766e" # base08
+    yellow: "#efca86" # base0A
+    green: "#95d3b1" # base0B
+    cyan: "#90cad1" # base0C
+    blue: "#96bfe9" # base0D
+    magenta: "#c7ade7" # base0E
+    white: "#e5dfd6" # base05
+
+  bright:
+    black: "#382d24" # base03
+    red: "#db968f" # base12
+    yellow: "#ffe4b4" # base13
+    green: "#b5ebcd" # base14
+    cyan: "#a9e4ec" # base15
+    blue: "#b5d8fd" # base16
+    magenta: "#f6c6f1" # base17
+    white: "#e5dfd6" # base07

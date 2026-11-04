@@ -1,0 +1,27 @@
+# Lumina Parchment Light theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f9efda
+Red         = #912918
+Green       = #2d7341
+Yellow      = #654935
+Blue        = #2e5fb0
+Magenta     = #62559d
+Cyan        = #006e81
+White       = #352516
+BoldBlack   = #d3cdbf
+BoldRed     = #6b281c
+BoldGreen   = #195e2f
+BoldYellow  = #5f2f00
+BoldBlue    = #284d8a
+BoldMagenta = #6b3770
+BoldCyan    = #005868
+BoldWhite   = #352516
+
+# Background & foreground colors
+BackgroundColour = #f9efda
+ForegroundColour = #352516
+CursorColour     = #352516

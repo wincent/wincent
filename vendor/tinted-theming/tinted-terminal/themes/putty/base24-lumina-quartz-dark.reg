@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Lumina Quartz Dark
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-lumina-quartz-dark]
+
+; Default Foreground
+; base05 #ccd0d3
+"Colour0"="204,208,211"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #ccd0d3
+"Colour1"="204,208,211"
+
+; Default Background
+; base00 #161719
+"Colour2"="22,23,25"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #161719
+"Colour3"="22,23,25"
+
+; Cursor Text -- equals to default background
+; base00 #161719
+"Colour4"="22,23,25"
+
+; Cursor Colour -- equals to default foreground
+; base05 #ccd0d3
+"Colour5"="204,208,211"
+
+; ANSI Black
+; 30m
+; base00 #161719
+"Colour6"="22,23,25"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #2e2f31
+"Colour7"="46,47,49"
+
+; ANSI Red
+; 31m
+; base08 #c57c74
+"Colour8"="197,124,116"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #d59a93
+"Colour9"="213,154,147"
+
+; ANSI Green
+; 32m
+; base0B #9dd7b7
+"Colour10"="157,215,183"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #c2edd5
+"Colour11"="194,237,213"
+
+; ANSI Yellow
+; 33m
+; base0A #dfcfb0
+"Colour12"="223,207,176"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #ffe5b1
+"Colour13"="255,229,177"
+
+; ANSI Blue
+; 34m
+; base0D #b6ceed
+"Colour14"="182,206,237"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #d6e8ff
+"Colour15"="214,232,255"
+
+; ANSI Magenta
+; 35m
+; base0E #cbb4ef
+"Colour16"="203,180,239"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #ffd7fa
+"Colour17"="255,215,250"
+
+; ANSI Cyan
+; 36m
+; base0C #a8d5db
+"Colour18"="168,213,219"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #c1eff6
+"Colour19"="193,239,246"
+
+; ANSI White
+; 37m
+; base05 #ccd0d3
+"Colour20"="204,208,211"
+
+; ANSI White Bright
+; 1;37m
+; base07 ccd0d3
+"Colour21"="204,208,211"

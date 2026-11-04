@@ -1,0 +1,43 @@
+# base24 Lumina Rayleigh Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#091d30"
+foreground = "#d4dfeb"
+
+cursor_bg = "#d4dfeb"
+cursor_border = "#d4dfeb"
+cursor_fg = "#091d30"
+
+selection_bg = "#d4dfeb"
+selection_fg = "#152c42"
+
+ansi = [
+  "#091d30",
+  "#d96d65",
+  "#96d2a2",
+  "#f1cc79",
+  "#6fc3ff",
+  "#bf9ef1",
+  "#afdee6",
+  "#d4dfeb"
+]
+brights = [
+  "#1f364d",
+  "#e59088",
+  "#aeedbb",
+  "#ffe5ad",
+  "#aadaff",
+  "#ffc3e0",
+  "#b6f4ff",
+  "#d4dfeb"
+]
+
+[colors.indexed]
+16 = "#faac77"
+17 = "#eea3c9"
+18 = "#0b2237"
+19 = "#152c42"
+20 = "#567089"
+21 = "#a2b3c5"

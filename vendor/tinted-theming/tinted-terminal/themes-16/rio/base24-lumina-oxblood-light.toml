@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Oxblood Light by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#42222f' # base05
+selection-foreground = '#efdee1' # base02
+
+cursor         = '#42222f' # base05
+tabs           = '#fbeaed' # base01
+tabs-active    = '#efdee1' # base02
+
+background     = '#fef2f4' # base00
+foreground     = '#42222f' # base05
+black          = '#fef2f4' # base00
+red            = '#9b2827' # base08
+yellow         = '#a1600a' # base0A
+green          = '#237742' # base0B
+cyan           = '#087380' # base0C
+blue           = '#3166a6' # base0D
+magenta        = '#6556a3' # base0E
+white          = '#42222f' # base05
+
+dim-foreground   = '#42222f' # base05
+dim-black        = '#fbeaed' # base01
+dim-red          = '#9b2827' # base08
+dim-yellow       = '#a1600a' # base0A
+dim-green        = '#237742' # base0B
+dim-cyan         = '#087380' # base0C
+dim-blue         = '#3166a6' # base0D
+dim-magenta      = '#6556a3' # base0E
+dim-white        = '#918284' # base04
+
+light-foreground = '#42222f' # base05
+light-black      = '#deced1' # base03
+light-red        = '#732926' # base12
+light-yellow     = '#874e00' # base13
+light-green      = '#0f6131' # base14
+light-cyan       = '#005d68' # base15
+light-blue       = '#1c5290' # base16
+light-magenta    = '#683a7d' # base17
+light-white      = '#42222f' # base07

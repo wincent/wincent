@@ -1,0 +1,10 @@
+# Scheme name: Lumina Ember Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-ember-dark
+ColorForeground=#e4ddd0
+ColorBackground=#171511
+ColorCursor=#e4ddd0
+ColorBoldIsBright=FALSE
+ColorPalette=#171511;#cb7870;#a9cc97;#e5cc88;#94bedc;#bbb5e3;#91c7cd;#e4ddd0;#2f2d28;#da9890;#c5e5b5;#ffe6a2;#b0d7f4;#f0bcdf;#aae1e7;#e4ddd0

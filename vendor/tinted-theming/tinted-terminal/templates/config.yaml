@@ -217,6 +217,23 @@ qterminal-tinted8:
       tinted8-builder: ~0.2.0
       tinted8-styling: ~0.2.0
 
+# Rex
+# ----------------------------------------------------------------------
+rex-base16:
+  filename: themes/rex/{{ scheme-system }}-{{ scheme-slug }}.lua
+  supported-systems: [base16]
+
+rex-base24:
+  filename: themes/rex/{{ scheme-system }}-{{ scheme-slug }}.lua
+  supported-systems: [base24]
+
+rex-tinted8:
+  filename: themes/rex/{{ scheme-system }}-{{ scheme-slug }}.lua
+  supported-systems: [tinted8]
+  supports:
+    tinted8-builder: ~0.2.0
+    tinted8-styling: ~0.2.0
+
 # Rio
 # ----------------------------------------------------------------------
 rio-base16-16:

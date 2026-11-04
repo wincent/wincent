@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Parchment Light by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#352516' # base05
+selection-foreground = '#e4ddcf' # base02
+
+cursor         = '#352516' # base05
+tabs           = '#efe9db' # base01
+tabs-active    = '#e4ddcf' # base02
+
+background     = '#f9efda' # base00
+foreground     = '#352516' # base05
+black          = '#f9efda' # base00
+red            = '#912918' # base08
+yellow         = '#654935' # base0A
+green          = '#2d7341' # base0B
+cyan           = '#006e81' # base0C
+blue           = '#2e5fb0' # base0D
+magenta        = '#62559d' # base0E
+white          = '#352516' # base05
+
+dim-foreground   = '#352516' # base05
+dim-black        = '#efe9db' # base01
+dim-red          = '#912918' # base08
+dim-yellow       = '#654935' # base0A
+dim-green        = '#2d7341' # base0B
+dim-cyan         = '#006e81' # base0C
+dim-blue         = '#2e5fb0' # base0D
+dim-magenta      = '#62559d' # base0E
+dim-white        = '#908369' # base04
+
+light-foreground = '#352516' # base05
+light-black      = '#d3cdbf' # base03
+light-red        = '#6b281c' # base12
+light-yellow     = '#5f2f00' # base13
+light-green      = '#195e2f' # base14
+light-cyan       = '#005868' # base15
+light-blue       = '#284d8a' # base16
+light-magenta    = '#6b3770' # base17
+light-white      = '#352516' # base07

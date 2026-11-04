@@ -1,0 +1,10 @@
+# Scheme name: Lumina Oxblood Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-oxblood-dark
+ColorForeground=#e8d6dc
+ColorBackground=#200f16
+ColorCursor=#e8d6dc
+ColorBoldIsBright=FALSE
+ColorPalette=#200f16;#db6c63;#7dc797;#f9c875;#9ac3f8;#bfb6f9;#6fcad4;#e8d6dc;#3b262e;#e78f86;#9ce0b2;#ffe4b8;#c2dcff;#f2d5ff;#8de4ed;#e8d6dc

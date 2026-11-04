@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Canopy Dark by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Canopy Dark
+accent: "#9acaf1" # base0D
+cursor: "#d8e3d6" # base05
+background: "#0c1b10" # base00
+foreground: "#d8e3d6" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0c1b10" # base00
+    red: "#d57068" # base08
+    yellow: "#d1cca8" # base0A
+    green: "#99d0a4" # base0B
+    cyan: "#86cfd7" # base0C
+    blue: "#9acaf1" # base0D
+    magenta: "#bfb8f3" # base0E
+    white: "#d8e3d6" # base05
+
+  bright:
+    black: "#223427" # base03
+    red: "#e1928b" # base12
+    yellow: "#f4e792" # base13
+    green: "#b2ebbd" # base14
+    cyan: "#9fe9f1" # base15
+    blue: "#c0e3ff" # base16
+    magenta: "#fdc5f8" # base17
+    white: "#d8e3d6" # base07

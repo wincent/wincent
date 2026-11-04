@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Rayleigh Light by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#1d2f47' # base05
+selection-foreground = '#d8e6f0' # base02
+
+cursor         = '#1d2f47' # base05
+tabs           = '#e3f2fb' # base01
+tabs-active    = '#d8e6f0' # base02
+
+background     = '#edf8ff' # base00
+foreground     = '#1d2f47' # base05
+black          = '#edf8ff' # base00
+red            = '#94171b' # base08
+yellow         = '#a35f00' # base0A
+green          = '#1e773b' # base0B
+cyan           = '#056271' # base0C
+blue           = '#0160a7' # base0D
+magenta        = '#7244a9' # base0E
+white          = '#1d2f47' # base05
+
+dim-foreground   = '#1d2f47' # base05
+dim-black        = '#e3f2fb' # base01
+dim-red          = '#94171b' # base08
+dim-yellow       = '#a35f00' # base0A
+dim-green        = '#1e773b' # base0B
+dim-cyan         = '#056271' # base0C
+dim-blue         = '#0160a7' # base0D
+dim-magenta      = '#7244a9' # base0E
+dim-white        = '#7b8891' # base04
+
+light-foreground = '#1d2f47' # base05
+light-black      = '#c8d6df' # base03
+light-red        = '#6c1f1d' # base12
+light-yellow     = '#874e00' # base13
+light-green      = '#01622a' # base14
+light-cyan       = '#004d59' # base15
+light-blue       = '#004c87' # base16
+light-magenta    = '#763171' # base17
+light-white      = '#1d2f47' # base07

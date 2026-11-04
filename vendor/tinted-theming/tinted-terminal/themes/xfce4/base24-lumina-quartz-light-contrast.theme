@@ -1,0 +1,10 @@
+# Scheme name: Lumina Quartz Light Contrast
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-quartz-light-contrast
+ColorForeground=#0e0f13
+ColorBackground=#fdfdfe
+ColorCursor=#0e0f13
+ColorBoldIsBright=FALSE
+ColorPalette=#fdfdfe;#660005;#00581f;#7e4800;#004b7a;#6d3c98;#005463;#0e0f13;#dadadc;#470103;#004215;#643800;#00385d;#5b0f58;#00404b;#0e0f13

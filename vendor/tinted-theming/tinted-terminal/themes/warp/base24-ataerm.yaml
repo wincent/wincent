@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Aftertaerm by Radek Polasek (https://github.com/radekp31), based on Taerminal by cozywigwam
+
+name: Base24 Aftertaerm
+accent: "#8bbce5" # base0D
+cursor: "#f0f0f0" # base05
+background: "#26282a" # base00
+foreground: "#f0f0f0" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#26282a" # base00
+    red: "#ff8878" # base08
+    yellow: "#fffcb7" # base0A
+    green: "#b4fb73" # base0B
+    cyan: "#a2e1f8" # base0C
+    blue: "#8bbce5" # base0D
+    magenta: "#ffb2fe" # base0E
+    white: "#f0f0f0" # base05
+
+  bright:
+    black: "#6f6f6f" # base03
+    red: "#fe978b" # base12
+    yellow: "#fffed5" # base13
+    green: "#d6fcba" # base14
+    cyan: "#c0e9f8" # base15
+    blue: "#c2e3ff" # base16
+    magenta: "#ffc6ff" # base17
+    white: "#ffffff" # base07

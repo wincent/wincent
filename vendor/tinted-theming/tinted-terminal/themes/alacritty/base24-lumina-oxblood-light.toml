@@ -1,0 +1,58 @@
+# base24 Lumina Oxblood Light 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0xfef2f4'
+foreground = '0x42222f'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfef2f4'
+cursor = '0x42222f'
+
+# Normal colors
+[colors.normal]
+black = '0xfef2f4'
+red = '0x9b2827'
+green = '0x237742'
+yellow = '0xa1600a'
+blue = '0x3166a6'
+magenta = '0x6556a3'
+cyan = '0x087380'
+white = '0x42222f'
+
+# Bright colors
+[colors.bright]
+black = '0xdeced1'
+red = '0x732926'
+green = '0x0f6131'
+yellow = '0x874e00'
+blue = '0x1c5290'
+magenta = '0x683a7d'
+cyan = '0x005d68'
+white = '0x42222f'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x9e511f"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x82469d"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xfbeaed"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xefdee1"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x918284"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x514446"

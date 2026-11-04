@@ -1,0 +1,113 @@
+name: Check templates
+# Render every theme from the PR's templates and check the output. This only
+# reports results: it never commits the rendered themes.
+on:
+  pull_request:
+    paths:
+      - "templates/**"
+      - "scripts/check-*.sh"
+      - ".github/workflows/check-templates.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    # Unlike the default shell, this sets pipefail, so `| tee` keeps a
+    # check's exit status.
+    shell: bash
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch the repository code
+        uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08 # 4.1.7
+        with:
+          persist-credentials: false
+
+      - name: Install tinted-builder-rust
+        uses: jaxxstorm/action-install-gh-release@v1.10.0
+        with:
+          repo: tinted-theming/tinted-builder-rust
+
+      # Render into empty directories so outputs left behind by schemes that
+      # were removed upstream aren't checked.
+      - name: Render themes
+        id: render
+        run: |
+          rm -rf themes themes-16
+          tinted-builder-rust sync
+          tinted-builder-rust build .
+          mkdir -p "$RUNNER_TEMP/results"
+
+      # Each check runs even if an earlier one failed, so the summary reports
+      # all of them. Any failure still fails the job.
+      - name: Check final newlines
+        id: final-newline
+        if: ${{ !cancelled() && steps.render.outcome == 'success' }}
+        run: scripts/check-final-newline.sh templates themes themes-16 2>&1 | tee "$RUNNER_TEMP/results/final-newline.log"
+
+      - name: Check st patches apply
+        id: st-patches
+        if: ${{ !cancelled() && steps.render.outcome == 'success' }}
+        run: scripts/check-st-patches.sh 2>&1 | tee "$RUNNER_TEMP/results/st-patches.log"
+
+      - name: Check Rex themes match Ghostty themes
+        id: rex-themes
+        if: ${{ !cancelled() && steps.render.outcome == 'success' }}
+        run: scripts/check-rex-themes.sh 2>&1 | tee "$RUNNER_TEMP/results/rex-themes.log"
+
+      - name: Report results
+        if: ${{ !cancelled() }}
+        env:
+          RENDER: ${{ steps.render.outcome }}
+          FINAL_NEWLINE: ${{ steps.final-newline.outcome }}
+          ST_PATCHES: ${{ steps.st-patches.outcome }}
+          REX_THEMES: ${{ steps.rex-themes.outcome }}
+        run: |
+          icon() {
+            case "$1" in
+              success) echo "✅ passed" ;;
+              failure) echo "❌ failed" ;;
+              *) echo "⏭️ ${1:-skipped}" ;;
+            esac
+          }
+          report() {
+            local title=$1 outcome=$2 log="$RUNNER_TEMP/results/$3.log"
+            echo "| $title | $(icon "$outcome") |" >> "$GITHUB_STEP_SUMMARY"
+            if [ "$outcome" = failure ] && [ -s "$log" ]; then
+              failures+=("$title" "$log")
+            fi
+          }
+
+          failures=()
+          {
+            echo "## Template checks"
+            echo
+            echo "| Check | Result |"
+            echo "| --- | --- |"
+            echo "| Render themes | $(icon "$RENDER") |"
+          } >> "$GITHUB_STEP_SUMMARY"
+          report "Final newlines" "$FINAL_NEWLINE" final-newline
+          report "st patches apply" "$ST_PATCHES" st-patches
+          report "Rex themes match Ghostty themes" "$REX_THEMES" rex-themes
+
+          # Include the output of each failed check, trimmed to stay well
+          # under the summary's size limit.
+          for ((i = 0; i < ${#failures[@]}; i += 2)); do
+            {
+              echo
+              echo "<details><summary>${failures[i]} output</summary>"
+              echo
+              echo '```'
+              head -n 200 "${failures[i + 1]}"
+              echo '```'
+              echo "</details>"
+            } >> "$GITHUB_STEP_SUMMARY"
+          done

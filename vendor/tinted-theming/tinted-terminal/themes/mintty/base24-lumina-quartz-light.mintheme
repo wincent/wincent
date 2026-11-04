@@ -1,0 +1,27 @@
+# Lumina Quartz Light theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f5f7fa
+Red         = #7d2b28
+Green       = #217550
+Yellow      = #9a642c
+Blue        = #446894
+Magenta     = #7653a5
+Cyan        = #007092
+White       = #30353b
+BoldBlack   = #d2d4d9
+BoldRed     = #5a2522
+BoldGreen   = #215e41
+BoldYellow  = #82511c
+BoldBlue    = #31547e
+BoldMagenta = #6c3f69
+BoldCyan    = #115a74
+BoldWhite   = #30353b
+
+# Background & foreground colors
+BackgroundColour = #f5f7fa
+ForegroundColour = #30353b
+CursorColour     = #30353b

@@ -1,0 +1,43 @@
+# base24 Lumina Olive Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#1a1b0c"
+foreground = "#e1dfce"
+
+cursor_bg = "#e1dfce"
+cursor_border = "#e1dfce"
+cursor_fg = "#1a1b0c"
+
+selection_bg = "#e1dfce"
+selection_fg = "#282918"
+
+ansi = [
+  "#1a1b0c",
+  "#d3726a",
+  "#b5d5c6",
+  "#ebc27c",
+  "#a2c4f0",
+  "#c0baf2",
+  "#8bcfd7",
+  "#e1dfce"
+]
+brights = [
+  "#323422",
+  "#e0938c",
+  "#b5f7da",
+  "#ffdea7",
+  "#c4ddff",
+  "#f0bbeb",
+  "#a3e9f2",
+  "#e1dfce"
+]
+
+[colors.indexed]
+16 = "#ffc39b"
+17 = "#d5a2d0"
+18 = "#1f200f"
+19 = "#282918"
+20 = "#6a6e58"
+21 = "#b1b2a5"

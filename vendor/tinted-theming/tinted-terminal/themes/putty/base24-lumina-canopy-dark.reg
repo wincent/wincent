@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Lumina Canopy Dark
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-lumina-canopy-dark]
+
+; Default Foreground
+; base05 #d8e3d6
+"Colour0"="216,227,214"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #d8e3d6
+"Colour1"="216,227,214"
+
+; Default Background
+; base00 #0c1b10
+"Colour2"="12,27,16"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #0c1b10
+"Colour3"="12,27,16"
+
+; Cursor Text -- equals to default background
+; base00 #0c1b10
+"Colour4"="12,27,16"
+
+; Cursor Colour -- equals to default foreground
+; base05 #d8e3d6
+"Colour5"="216,227,214"
+
+; ANSI Black
+; 30m
+; base00 #0c1b10
+"Colour6"="12,27,16"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #223427
+"Colour7"="34,52,39"
+
+; ANSI Red
+; 31m
+; base08 #d57068
+"Colour8"="213,112,104"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #e1928b
+"Colour9"="225,146,139"
+
+; ANSI Green
+; 32m
+; base0B #99d0a4
+"Colour10"="153,208,164"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #b2ebbd
+"Colour11"="178,235,189"
+
+; ANSI Yellow
+; 33m
+; base0A #d1cca8
+"Colour12"="209,204,168"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #f4e792
+"Colour13"="244,231,146"
+
+; ANSI Blue
+; 34m
+; base0D #9acaf1
+"Colour14"="154,202,241"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #c0e3ff
+"Colour15"="192,227,255"
+
+; ANSI Magenta
+; 35m
+; base0E #bfb8f3
+"Colour16"="191,184,243"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #fdc5f8
+"Colour17"="253,197,248"
+
+; ANSI Cyan
+; 36m
+; base0C #86cfd7
+"Colour18"="134,207,215"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #9fe9f1
+"Colour19"="159,233,241"
+
+; ANSI White
+; 37m
+; base05 #d8e3d6
+"Colour20"="216,227,214"
+
+; ANSI White Bright
+; 1;37m
+; base07 d8e3d6
+"Colour21"="216,227,214"

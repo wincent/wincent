@@ -1,0 +1,10 @@
+# Scheme name: Lumina Dusk Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-dusk-light
+ColorForeground=#2e2945
+ColorBackground=#f6f3fe
+ColorCursor=#2e2945
+ColorBoldIsBright=FALSE
+ColorPalette=#f6f3fe;#872423;#357545;#9e611b;#3163ad;#7b46a4;#007185;#2e2945;#d4d0de;#622320;#216033;#854e07;#2b5088;#713a6c;#005b6c;#2e2945

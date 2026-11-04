@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Lumina Dusk Light
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-lumina-dusk-light]
+
+; Default Foreground
+; base05 #2e2945
+"Colour0"="46,41,69"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #2e2945
+"Colour1"="46,41,69"
+
+; Default Background
+; base00 #f6f3fe
+"Colour2"="246,243,254"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #f6f3fe
+"Colour3"="246,243,254"
+
+; Cursor Text -- equals to default background
+; base00 #f6f3fe
+"Colour4"="246,243,254"
+
+; Cursor Colour -- equals to default foreground
+; base05 #2e2945
+"Colour5"="46,41,69"
+
+; ANSI Black
+; 30m
+; base00 #f6f3fe
+"Colour6"="246,243,254"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #d4d0de
+"Colour7"="212,208,222"
+
+; ANSI Red
+; 31m
+; base08 #872423
+"Colour8"="135,36,35"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #622320
+"Colour9"="98,35,32"
+
+; ANSI Green
+; 32m
+; base0B #357545
+"Colour10"="53,117,69"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #216033
+"Colour11"="33,96,51"
+
+; ANSI Yellow
+; 33m
+; base0A #9e611b
+"Colour12"="158,97,27"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #854e07
+"Colour13"="133,78,7"
+
+; ANSI Blue
+; 34m
+; base0D #3163ad
+"Colour14"="49,99,173"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #2b5088
+"Colour15"="43,80,136"
+
+; ANSI Magenta
+; 35m
+; base0E #7b46a4
+"Colour16"="123,70,164"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #713a6c
+"Colour17"="113,58,108"
+
+; ANSI Cyan
+; 36m
+; base0C #007185
+"Colour18"="0,113,133"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #005b6c
+"Colour19"="0,91,108"
+
+; ANSI White
+; 37m
+; base05 #2e2945
+"Colour20"="46,41,69"
+
+; ANSI White Bright
+; 1;37m
+; base07 2e2945
+"Colour21"="46,41,69"

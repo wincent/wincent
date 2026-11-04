@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Quartz Dark by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Quartz Dark
+accent: "#b6ceed" # base0D
+cursor: "#ccd0d3" # base05
+background: "#161719" # base00
+foreground: "#ccd0d3" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#161719" # base00
+    red: "#c57c74" # base08
+    yellow: "#dfcfb0" # base0A
+    green: "#9dd7b7" # base0B
+    cyan: "#a8d5db" # base0C
+    blue: "#b6ceed" # base0D
+    magenta: "#cbb4ef" # base0E
+    white: "#ccd0d3" # base05
+
+  bright:
+    black: "#2e2f31" # base03
+    red: "#d59a93" # base12
+    yellow: "#ffe5b1" # base13
+    green: "#c2edd5" # base14
+    cyan: "#c1eff6" # base15
+    blue: "#d6e8ff" # base16
+    magenta: "#ffd7fa" # base17
+    white: "#ccd0d3" # base07

@@ -1,0 +1,10 @@
+# Scheme name: Lumina Vitrail Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-vitrail-dark
+ColorForeground=#f1eee6
+ColorBackground=#070912
+ColorCursor=#f1eee6
+ColorBoldIsBright=FALSE
+ColorPalette=#070912;#ff763b;#76d983;#fbca3f;#7299ff;#b8acff;#4de0f7;#f1eee6;#1c1f2b;#ffa37f;#93f39f;#ffe6a7;#97b6ff;#efb2ff;#abf2ff;#f1eee6

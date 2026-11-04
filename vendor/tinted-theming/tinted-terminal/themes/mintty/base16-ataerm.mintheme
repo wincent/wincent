@@ -1,0 +1,27 @@
+# Aftertaerm theme for Mintty
+# Scheme Author: Radek Polasek (https://github.com/radekp31), based on Taerminal by cozywigwam
+# Scheme System: base16
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #26282a
+Red         = #ff8878
+Green       = #b4fb73
+Yellow      = #fffcb7
+Blue        = #8bbce5
+Magenta     = #ffb2fe
+Cyan        = #a2e1f8
+White       = #f0f0f0
+BoldBlack   = #6f6f6f
+BoldRed     = #ff8878
+BoldGreen   = #b4fb73
+BoldYellow  = #fffcb7
+BoldBlue    = #8bbce5
+BoldMagenta = #ffb2fe
+BoldCyan    = #a2e1f8
+BoldWhite   = #ffffff
+
+# Background & foreground colors
+BackgroundColour = #26282a
+ForegroundColour = #f0f0f0
+CursorColour     = #f0f0f0

@@ -16,6 +16,7 @@ terminal emulators with links to their installation instructions:
 - [Mintty](#mintty)
 - [PuTTY](#putty)
 - [QTerminal](#qterminal)
+- [Rex](#rex)
 - [st](#st)
 - [Rio](#rio)
 - [Termite](#termite)
@@ -691,6 +692,60 @@ Tinted Theming template for [QTerminal terminal emulator].
 
 5. Close and reopen QTerminal.
 
+## Rex
+
+<img src="./assets/rex-icon.png" alt="Rex logo" width="50"/>
+
+Tinted Theming template for [Rex].
+
+Rex reads Ghostty theme files, so each Rex theme carries the matching
+[Ghostty](#ghostty) theme unchanged.
+
+**Theme directory**: [themes/rex/]
+
+> [!WARNING]
+>
+> Rex is in private beta and hasn't been publicly released yet. Its CLI and theme handling may change before release, so these instructions are subject to change.
+
+### Tinty
+
+Each Lua script in `themes/rex/` imports its scheme into every Rex app on
+the machine where it runs, then switches the app to the scheme's light or
+dark appearance. The themes appear in Rex's theme picker under their
+scheme names, such as `base16-ayu-dark`.
+
+1. Add the following to `~/.config/tinted-theming/tinty/config.toml`:
+
+   ```toml
+   [[items]]
+   path = "https://github.com/tinted-theming/tinted-terminal"
+   name = "tinted-terminal-rex"
+   themes-dir = "themes/rex"
+   hook = "rex --autostart=false do %f"
+   supported-systems = ["base16", "base24", "tinted8"]
+   ```
+
+2. `tinty install` to install the theme repository.
+3. `tinty apply base16-ayu-dark` to change the theme to
+   `base16-ayu-dark`.
+
+`--autostart=false` stops the hook from starting a Rex server when none
+is running; the hook fails instead. Rex can only import a theme file from
+the app's own machine, so the script skips apps connected to the server
+from another machine. To theme those apps, run Tinty on their machines
+too.
+
+### Manual
+
+Run a theme's script with the Rex CLI:
+
+```sh
+rex do themes/rex/base16-ayu-dark.lua
+```
+
+Or run **Import Theme File** from Rex's command palette and choose a
+theme from [themes/ghostty/].
+
 ## Rio
 
 <img src="./assets/rio-icon.svg" alt="Terminal icon" width="50"/>
@@ -991,6 +1046,7 @@ terminal template decisions.
 [themes/mintty/]: ./themes/mintty/
 [themes/putty/]: ./themes/putty/
 [themes/qterminal/]: ./themes/qterminal/
+[themes/rex/]: ./themes/rex/
 [themes-16/rio/]: ./themes-16/rio/
 [themes/st/]: ./themes/st/
 [themes/termite/]: ./themes/termite/
@@ -1009,6 +1065,7 @@ terminal template decisions.
 [Mintty terminal emulator]: https://mintty.github.io/
 [PuTTY terminal emulator]: https://www.putty.org/
 [QTerminal terminal emulator]: https://github.com/lxqt/qterminal
+[Rex]: https://www.superlogical.com/rex
 [Rio terminal emulator]: https://github.com/raphamorim/rio
 [st terminal emulator]: https://st.suckless.org/
 [Termite terminal emulator]: https://github.com/thestinger/termite

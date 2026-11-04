@@ -1,0 +1,58 @@
+# base24 Lumina Nebula Light 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0xf8f4ff'
+foreground = '0x2d2c46'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf8f4ff'
+cursor = '0x2d2c46'
+
+# Normal colors
+[colors.normal]
+black = '0xf8f4ff'
+red = '0x932222'
+green = '0x007650'
+yellow = '0x955b01'
+blue = '0x3f5777'
+magenta = '0x5d40b1'
+cyan = '0x016e90'
+white = '0x2d2c46'
+
+# Bright colors
+[colors.bright]
+black = '0xd6d1df'
+red = '0x6c2421'
+green = '0x005f40'
+yellow = '0x7a4a00'
+blue = '0x0e417f'
+magenta = '0x72356e'
+cyan = '0x005975'
+white = '0x2d2c46'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x934916"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x894884"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xf2edfb"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xe6e1ef"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x888391"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x4a4551"

@@ -1,0 +1,27 @@
+# Lumina Dusk Dark theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a1825
+Red         = #d0746c
+Green       = #a0d1a9
+Yellow      = #efcb7b
+Blue        = #9bbef2
+Magenta     = #c1bbf0
+Cyan        = #90cfd7
+White       = #e0dcea
+BoldBlack   = #323040
+BoldRed     = #de958d
+BoldGreen   = #b9ecc2
+BoldYellow  = #ffe5ad
+BoldBlue    = #bdd8ff
+BoldMagenta = #fcc9f7
+BoldCyan    = #a9e9f2
+BoldWhite   = #e0dcea
+
+# Background & foreground colors
+BackgroundColour = #1a1825
+ForegroundColour = #e0dcea
+CursorColour     = #e0dcea

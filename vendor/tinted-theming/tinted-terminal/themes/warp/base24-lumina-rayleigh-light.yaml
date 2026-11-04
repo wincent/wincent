@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Rayleigh Light by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Rayleigh Light
+accent: "#0160a7" # base0D
+cursor: "#1d2f47" # base05
+background: "#edf8ff" # base00
+foreground: "#1d2f47" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#edf8ff" # base00
+    red: "#94171b" # base08
+    yellow: "#a35f00" # base0A
+    green: "#1e773b" # base0B
+    cyan: "#056271" # base0C
+    blue: "#0160a7" # base0D
+    magenta: "#7244a9" # base0E
+    white: "#1d2f47" # base05
+
+  bright:
+    black: "#c8d6df" # base03
+    red: "#6c1f1d" # base12
+    yellow: "#874e00" # base13
+    green: "#01622a" # base14
+    cyan: "#004d59" # base15
+    blue: "#004c87" # base16
+    magenta: "#763171" # base17
+    white: "#1d2f47" # base07

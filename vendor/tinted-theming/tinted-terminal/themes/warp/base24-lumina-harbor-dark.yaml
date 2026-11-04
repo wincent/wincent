@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Harbor Dark by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Harbor Dark
+accent: "#91c5ea" # base0D
+cursor: "#dde1eb" # base05
+background: "#0d111d" # base00
+foreground: "#dde1eb" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#0d111d" # base00
+    red: "#d0756c" # base08
+    yellow: "#eace8c" # base0A
+    green: "#9bd8b4" # base0B
+    cyan: "#91cfd6" # base0C
+    blue: "#91c5ea" # base0D
+    magenta: "#c1bbef" # base0E
+    white: "#dde1eb" # base05
+
+  bright:
+    black: "#232837" # base03
+    red: "#de968e" # base12
+    yellow: "#ffe5a9" # base13
+    green: "#b9f1d0" # base14
+    cyan: "#aae9f0" # base15
+    blue: "#b1deff" # base16
+    magenta: "#ebc4f5" # base17
+    white: "#dde1eb" # base07

@@ -1,0 +1,58 @@
+# base24 Lumina Espresso Light 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0xfcf0e3'
+foreground = '0x39261b'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfcf0e3'
+cursor = '0x39261b'
+
+# Normal colors
+[colors.normal]
+black = '0xfcf0e3'
+red = '0x842120'
+green = '0x15744d'
+yellow = '0x6d4e36'
+blue = '0x2868a3'
+magenta = '0x7049a1'
+cyan = '0x007083'
+white = '0x39261b'
+
+# Bright colors
+[colors.bright]
+black = '0xd9cec2'
+red = '0x5f201e'
+green = '0x005e3c'
+yellow = '0x653400'
+blue = '0x1a5488'
+magenta = '0x70386b'
+cyan = '0x005a6a'
+white = '0x39261b'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x89461a"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x864b81"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xf5eade"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xe9ded2"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x928373"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x524536"

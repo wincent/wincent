@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Lumina Oxblood Dark
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-lumina-oxblood-dark]
+
+; Default Foreground
+; base05 #e8d6dc
+"Colour0"="232,214,220"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #e8d6dc
+"Colour1"="232,214,220"
+
+; Default Background
+; base00 #200f16
+"Colour2"="32,15,22"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #200f16
+"Colour3"="32,15,22"
+
+; Cursor Text -- equals to default background
+; base00 #200f16
+"Colour4"="32,15,22"
+
+; Cursor Colour -- equals to default foreground
+; base05 #e8d6dc
+"Colour5"="232,214,220"
+
+; ANSI Black
+; 30m
+; base00 #200f16
+"Colour6"="32,15,22"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #3b262e
+"Colour7"="59,38,46"
+
+; ANSI Red
+; 31m
+; base08 #db6c63
+"Colour8"="219,108,99"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #e78f86
+"Colour9"="231,143,134"
+
+; ANSI Green
+; 32m
+; base0B #7dc797
+"Colour10"="125,199,151"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #9ce0b2
+"Colour11"="156,224,178"
+
+; ANSI Yellow
+; 33m
+; base0A #f9c875
+"Colour12"="249,200,117"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #ffe4b8
+"Colour13"="255,228,184"
+
+; ANSI Blue
+; 34m
+; base0D #9ac3f8
+"Colour14"="154,195,248"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #c2dcff
+"Colour15"="194,220,255"
+
+; ANSI Magenta
+; 35m
+; base0E #bfb6f9
+"Colour16"="191,182,249"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #f2d5ff
+"Colour17"="242,213,255"
+
+; ANSI Cyan
+; 36m
+; base0C #6fcad4
+"Colour18"="111,202,212"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #8de4ed
+"Colour19"="141,228,237"
+
+; ANSI White
+; 37m
+; base05 #e8d6dc
+"Colour20"="232,214,220"
+
+; ANSI White Bright
+; 1;37m
+; base07 e8d6dc
+"Colour21"="232,214,220"

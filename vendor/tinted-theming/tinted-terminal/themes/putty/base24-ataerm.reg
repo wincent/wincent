@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Aftertaerm
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Radek Polasek (https://github.com/radekp31), based on Taerminal by cozywigwam
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-ataerm]
+
+; Default Foreground
+; base05 #f0f0f0
+"Colour0"="240,240,240"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #f0f0f0
+"Colour1"="240,240,240"
+
+; Default Background
+; base00 #26282a
+"Colour2"="38,40,42"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #26282a
+"Colour3"="38,40,42"
+
+; Cursor Text -- equals to default background
+; base00 #26282a
+"Colour4"="38,40,42"
+
+; Cursor Colour -- equals to default foreground
+; base05 #f0f0f0
+"Colour5"="240,240,240"
+
+; ANSI Black
+; 30m
+; base00 #26282a
+"Colour6"="38,40,42"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #6f6f6f
+"Colour7"="111,111,111"
+
+; ANSI Red
+; 31m
+; base08 #ff8878
+"Colour8"="255,136,120"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #fe978b
+"Colour9"="254,151,139"
+
+; ANSI Green
+; 32m
+; base0B #b4fb73
+"Colour10"="180,251,115"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #d6fcba
+"Colour11"="214,252,186"
+
+; ANSI Yellow
+; 33m
+; base0A #fffcb7
+"Colour12"="255,252,183"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #fffed5
+"Colour13"="255,254,213"
+
+; ANSI Blue
+; 34m
+; base0D #8bbce5
+"Colour14"="139,188,229"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #c2e3ff
+"Colour15"="194,227,255"
+
+; ANSI Magenta
+; 35m
+; base0E #ffb2fe
+"Colour16"="255,178,254"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #ffc6ff
+"Colour17"="255,198,255"
+
+; ANSI Cyan
+; 36m
+; base0C #a2e1f8
+"Colour18"="162,225,248"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #c0e9f8
+"Colour19"="192,233,248"
+
+; ANSI White
+; 37m
+; base05 #f0f0f0
+"Colour20"="240,240,240"
+
+; ANSI White Bright
+; 1;37m
+; base07 ffffff
+"Colour21"="255,255,255"

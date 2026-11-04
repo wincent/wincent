@@ -1,0 +1,10 @@
+# Scheme name: Lumina Harbor Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-harbor-dark
+ColorForeground=#dde1eb
+ColorBackground=#0d111d
+ColorCursor=#dde1eb
+ColorBoldIsBright=FALSE
+ColorPalette=#0d111d;#d0756c;#9bd8b4;#eace8c;#91c5ea;#c1bbef;#91cfd6;#dde1eb;#232837;#de968e;#b9f1d0;#ffe5a9;#b1deff;#ebc4f5;#aae9f0;#dde1eb

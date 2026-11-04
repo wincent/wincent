@@ -1,0 +1,43 @@
+# base16 Aftertaerm
+# Scheme author: Radek Polasek (https://github.com/radekp31), based on Taerminal by cozywigwam
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#26282a"
+foreground = "#f0f0f0"
+
+cursor_bg = "#f0f0f0"
+cursor_border = "#f0f0f0"
+cursor_fg = "#26282a"
+
+selection_bg = "#f0f0f0"
+selection_fg = "#3c3e41"
+
+ansi = [
+  "#26282a",
+  "#ff8878",
+  "#b4fb73",
+  "#fffcb7",
+  "#8bbce5",
+  "#ffb2fe",
+  "#a2e1f8",
+  "#f0f0f0"
+]
+brights = [
+  "#6f6f6f",
+  "#ff8878",
+  "#b4fb73",
+  "#fffcb7",
+  "#8bbce5",
+  "#ffb2fe",
+  "#a2e1f8",
+  "#ffffff"
+]
+
+[colors.indexed]
+16 = "#ffb88a"
+17 = "#d69a8a"
+18 = "#303234"
+19 = "#3c3e41"
+20 = "#a8a8a8"
+21 = "#f1f1f1"

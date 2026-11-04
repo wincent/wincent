@@ -1,0 +1,27 @@
+# Lumina Aurora Dark theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #041212
+Red         = #d86f66
+Green       = #6cd79d
+Yellow      = #e9d487
+Blue        = #c5d8ed
+Magenta     = #bf9ef1
+Cyan        = #84d2db
+White       = #d6e3e2
+BoldBlack   = #182a2a
+BoldRed     = #e59289
+BoldGreen   = #a7eac2
+BoldYellow  = #ffe791
+BoldBlue    = #d7eaff
+BoldMagenta = #ffc9f9
+BoldCyan    = #9decf6
+BoldWhite   = #d6e3e2
+
+# Background & foreground colors
+BackgroundColour = #041212
+ForegroundColour = #d6e3e2
+CursorColour     = #d6e3e2

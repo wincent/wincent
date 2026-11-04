@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Quartz Light by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#30353b' # base05
+selection-foreground = '#e2e5e9' # base02
+
+cursor         = '#30353b' # base05
+tabs           = '#eef0f5' # base01
+tabs-active    = '#e2e5e9' # base02
+
+background     = '#f5f7fa' # base00
+foreground     = '#30353b' # base05
+black          = '#f5f7fa' # base00
+red            = '#7d2b28' # base08
+yellow         = '#9a642c' # base0A
+green          = '#217550' # base0B
+cyan           = '#007092' # base0C
+blue           = '#446894' # base0D
+magenta        = '#7653a5' # base0E
+white          = '#30353b' # base05
+
+dim-foreground   = '#30353b' # base05
+dim-black        = '#eef0f5' # base01
+dim-red          = '#7d2b28' # base08
+dim-yellow       = '#9a642c' # base0A
+dim-green        = '#217550' # base0B
+dim-cyan         = '#007092' # base0C
+dim-blue         = '#446894' # base0D
+dim-magenta      = '#7653a5' # base0E
+dim-white        = '#84868a' # base04
+
+light-foreground = '#30353b' # base05
+light-black      = '#d2d4d9' # base03
+light-red        = '#5a2522' # base12
+light-yellow     = '#82511c' # base13
+light-green      = '#215e41' # base14
+light-cyan       = '#115a74' # base15
+light-blue       = '#31547e' # base16
+light-magenta    = '#6c3f69' # base17
+light-white      = '#30353b' # base07

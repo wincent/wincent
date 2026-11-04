@@ -18,12 +18,12 @@ Add this to your `init.lua` to enable the plugin:
 require("full-border"):setup()
 ```
 
-Or you can customize the border type:
+Or you can customize the border shape:
 
 ```lua
 require("full-border"):setup {
-	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
-	type = ui.Border.ROUNDED,
+	-- Available values: "plain", "rounded"
+	set = "rounded",
 }
 ```
 

@@ -1,0 +1,58 @@
+# base24 Aftertaerm 256 - alacritty color config
+# Radek Polasek (https://github.com/radekp31), based on Taerminal by cozywigwam
+
+# Default colors
+[colors.primary]
+background = '0x26282a'
+foreground = '0xf0f0f0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x26282a'
+cursor = '0xf0f0f0'
+
+# Normal colors
+[colors.normal]
+black = '0x26282a'
+red = '0xff8878'
+green = '0xb4fb73'
+yellow = '0xfffcb7'
+blue = '0x8bbce5'
+magenta = '0xffb2fe'
+cyan = '0xa2e1f8'
+white = '0xf0f0f0'
+
+# Bright colors
+[colors.bright]
+black = '0x6f6f6f'
+red = '0xfe978b'
+green = '0xd6fcba'
+yellow = '0xfffed5'
+blue = '0xc2e3ff'
+magenta = '0xffc6ff'
+cyan = '0xc0e9f8'
+white = '0xffffff'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xffb88a"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xd69a8a"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x303234"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x3c3e41"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0xa8a8a8"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xf1f1f1"

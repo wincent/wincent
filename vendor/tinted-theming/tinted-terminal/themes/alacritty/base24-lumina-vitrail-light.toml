@@ -1,0 +1,58 @@
+# base24 Lumina Vitrail Light 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0xfcfaf4'
+foreground = '0x0f141d'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xfcfaf4'
+cursor = '0x0f141d'
+
+# Normal colors
+[colors.normal]
+black = '0xfcfaf4'
+red = '0x752200'
+green = '0x00490f'
+yellow = '0x7c4700'
+blue = '0x1729b2'
+magenta = '0x49318e'
+cyan = '0x005b72'
+white = '0x0f141d'
+
+# Bright colors
+[colors.bright]
+black = '0xdad7cf'
+red = '0x581700'
+green = '0x003408'
+yellow = '0x623700'
+blue = '0x12247b'
+magenta = '0x480d5e'
+cyan = '0x004659'
+white = '0x0f141d'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x4c1f00"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x62127e"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xf6f3eb"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xeae8df"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x89867f"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x4a4841"

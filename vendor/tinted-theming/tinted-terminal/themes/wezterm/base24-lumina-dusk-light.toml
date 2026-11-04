@@ -1,0 +1,43 @@
+# base24 Lumina Dusk Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#f6f3fe"
+foreground = "#2e2945"
+
+cursor_bg = "#2e2945"
+cursor_border = "#2e2945"
+cursor_fg = "#f6f3fe"
+
+selection_bg = "#2e2945"
+selection_fg = "#e4e0ef"
+
+ansi = [
+  "#f6f3fe",
+  "#872423",
+  "#357545",
+  "#9e611b",
+  "#3163ad",
+  "#7b46a4",
+  "#007185",
+  "#2e2945"
+]
+brights = [
+  "#d4d0de",
+  "#622320",
+  "#216033",
+  "#854e07",
+  "#2b5088",
+  "#713a6c",
+  "#005b6c",
+  "#2e2945"
+]
+
+[colors.indexed]
+16 = "#8c491d"
+17 = "#874d82"
+18 = "#f0ecfa"
+19 = "#e4e0ef"
+20 = "#878491"
+21 = "#494552"

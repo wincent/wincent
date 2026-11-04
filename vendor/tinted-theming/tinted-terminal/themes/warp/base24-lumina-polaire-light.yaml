@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Polaire Light by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Polaire Light
+accent: "#3e5372" # base0D
+cursor: "#17323f" # base05
+background: "#f0f9fa" # base00
+foreground: "#17323f" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#f0f9fa" # base00
+    red: "#882322" # base08
+    yellow: "#965a1c" # base0A
+    green: "#327645" # base0B
+    cyan: "#06677c" # base0C
+    blue: "#3e5372" # base0D
+    magenta: "#6754bb" # base0E
+    white: "#17323f" # base05
+
+  bright:
+    black: "#cbd7d9" # base03
+    red: "#63221f" # base12
+    yellow: "#7f4700" # base13
+    green: "#1f6133" # base14
+    cyan: "#005264" # base15
+    blue: "#173e76" # base16
+    magenta: "#723a6e" # base17
+    white: "#17323f" # base07

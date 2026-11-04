@@ -1,0 +1,27 @@
+# Lumina Rayleigh Light theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #edf8ff
+Red         = #94171b
+Green       = #1e773b
+Yellow      = #a35f00
+Blue        = #0160a7
+Magenta     = #7244a9
+Cyan        = #056271
+White       = #1d2f47
+BoldBlack   = #c8d6df
+BoldRed     = #6c1f1d
+BoldGreen   = #01622a
+BoldYellow  = #874e00
+BoldBlue    = #004c87
+BoldMagenta = #763171
+BoldCyan    = #004d59
+BoldWhite   = #1d2f47
+
+# Background & foreground colors
+BackgroundColour = #edf8ff
+ForegroundColour = #1d2f47
+CursorColour     = #1d2f47

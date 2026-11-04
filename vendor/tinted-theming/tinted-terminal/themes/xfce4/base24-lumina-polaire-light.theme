@@ -1,0 +1,10 @@
+# Scheme name: Lumina Polaire Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-polaire-light
+ColorForeground=#17323f
+ColorBackground=#f0f9fa
+ColorCursor=#17323f
+ColorBoldIsBright=FALSE
+ColorPalette=#f0f9fa;#882322;#327645;#965a1c;#3e5372;#6754bb;#06677c;#17323f;#cbd7d9;#63221f;#1f6133;#7f4700;#173e76;#723a6e;#005264;#17323f

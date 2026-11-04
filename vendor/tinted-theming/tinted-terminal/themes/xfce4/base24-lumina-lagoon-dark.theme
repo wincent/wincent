@@ -1,0 +1,10 @@
+# Scheme name: Lumina Lagoon Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-lagoon-dark
+ColorForeground=#d7e6e7
+ColorBackground=#042930
+ColorCursor=#d7e6e7
+ColorBoldIsBright=FALSE
+ColorPalette=#042930;#d3726a;#9fd4a9;#e7cf94;#8ec3f9;#c8baf6;#5ad3d6;#d7e6e7;#1c434b;#e0938c;#b8efc2;#ffe6a7;#badcff;#ffcaf9;#9fe6e8;#d7e6e7

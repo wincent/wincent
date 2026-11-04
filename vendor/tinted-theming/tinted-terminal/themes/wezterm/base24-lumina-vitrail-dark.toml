@@ -1,0 +1,43 @@
+# base24 Lumina Vitrail Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#070912"
+foreground = "#f1eee6"
+
+cursor_bg = "#f1eee6"
+cursor_border = "#f1eee6"
+cursor_fg = "#070912"
+
+selection_bg = "#f1eee6"
+selection_fg = "#131621"
+
+ansi = [
+  "#070912",
+  "#ff763b",
+  "#76d983",
+  "#fbca3f",
+  "#7299ff",
+  "#b8acff",
+  "#4de0f7",
+  "#f1eee6"
+]
+brights = [
+  "#1c1f2b",
+  "#ffa37f",
+  "#93f39f",
+  "#ffe6a7",
+  "#97b6ff",
+  "#efb2ff",
+  "#abf2ff",
+  "#f1eee6"
+]
+
+[colors.indexed]
+16 = "#ff9e56"
+17 = "#d19cdf"
+18 = "#0a0d17"
+19 = "#131621"
+20 = "#646876"
+21 = "#aeb1ba"

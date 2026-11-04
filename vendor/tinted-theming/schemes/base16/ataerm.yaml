@@ -1,0 +1,26 @@
+system: "base16"
+name: "Aftertaerm"
+slug: "ataerm"
+author: "Radek Polasek (https://github.com/radekp31), based on Taerminal by cozywigwam"
+variant: "dark"
+# Derived from the Taerminal iTerm2 scheme (github.com/cozywigwam/iterm-taerminal, now deleted).
+# A copy survives in alacritty-theme: https://github.com/alacritty/alacritty-theme/blob/master/themes/taerminal.toml
+# The original has only the 16 ANSI colors. Slots marked "added" are not in the original.
+# The base24 version (base24/ataerm.yaml) also has the bright colors.
+palette:
+  base00: "#26282a" # background, black
+  base01: "#303234" # added
+  base02: "#3c3e41" # added
+  base03: "#6f6f6f" # bright black
+  base04: "#a8a8a8" # added
+  base05: "#f0f0f0" # foreground
+  base06: "#f1f1f1" # white
+  base07: "#ffffff" # bright white
+  base08: "#ff8878" # red
+  base09: "#ffb88a" # added
+  base0A: "#fffcb7" # yellow
+  base0B: "#b4fb73" # green
+  base0C: "#a2e1f8" # cyan
+  base0D: "#8bbce5" # blue
+  base0E: "#ffb2fe" # magenta
+  base0F: "#d69a8a" # added

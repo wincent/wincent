@@ -1,0 +1,43 @@
+# base24 Lumina Polaire Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#0f1a21"
+foreground = "#d7e1e8"
+
+cursor_bg = "#d7e1e8"
+cursor_border = "#d7e1e8"
+cursor_fg = "#0f1a21"
+
+selection_bg = "#d7e1e8"
+selection_fg = "#1c2831"
+
+ansi = [
+  "#0f1a21",
+  "#cd776f",
+  "#a9d6b1",
+  "#e2c682",
+  "#aeccf2",
+  "#bfbaf7",
+  "#8cd9f4",
+  "#d7e1e8"
+]
+brights = [
+  "#25323b",
+  "#dc978f",
+  "#c2f1ca",
+  "#fde099",
+  "#d1e5ff",
+  "#ffd3fa",
+  "#c2efff",
+  "#d7e1e8"
+]
+
+[colors.indexed]
+16 = "#f4c59d"
+17 = "#e6b8e1"
+18 = "#121f27"
+19 = "#1c2831"
+20 = "#5e6d77"
+21 = "#a9b3b9"

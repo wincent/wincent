@@ -1,0 +1,58 @@
+# base24 Lumina Dusk Dark 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0x1a1825'
+foreground = '0xe0dcea'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x1a1825'
+cursor = '0xe0dcea'
+
+# Normal colors
+[colors.normal]
+black = '0x1a1825'
+red = '0xd0746c'
+green = '0xa0d1a9'
+yellow = '0xefcb7b'
+blue = '0x9bbef2'
+magenta = '0xc1bbf0'
+cyan = '0x90cfd7'
+white = '0xe0dcea'
+
+# Bright colors
+[colors.bright]
+black = '0x323040'
+red = '0xde958d'
+green = '0xb9ecc2'
+yellow = '0xffe5ad'
+blue = '0xbdd8ff'
+magenta = '0xfcc9f7'
+cyan = '0xa9e9f2'
+white = '0xe0dcea'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf5b284"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xe1b0dc"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x1f1c2b"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x282635"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x6d697d"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xb1afbc"

@@ -1,0 +1,43 @@
+# base24 Lumina Harbor Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#fbf5ec"
+foreground = "#1c2d4f"
+
+cursor_bg = "#1c2d4f"
+cursor_border = "#1c2d4f"
+cursor_fg = "#fbf5ec"
+
+selection_bg = "#1c2d4f"
+selection_fg = "#ebe2d6"
+
+ansi = [
+  "#fbf5ec",
+  "#8c1c1d",
+  "#19784d",
+  "#a25f06",
+  "#0468a4",
+  "#6758a8",
+  "#046871",
+  "#1c2d4f"
+]
+brights = [
+  "#dad2c6",
+  "#651f1d",
+  "#00623c",
+  "#874e00",
+  "#005486",
+  "#713b7d",
+  "#00535a",
+  "#1c2d4f"
+]
+
+[colors.indexed]
+16 = "#9f501d"
+17 = "#8b499a"
+18 = "#f6eee1"
+19 = "#ebe2d6"
+20 = "#8d857a"
+21 = "#4d473c"

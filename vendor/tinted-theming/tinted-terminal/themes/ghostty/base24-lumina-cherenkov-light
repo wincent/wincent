@@ -1,0 +1,47 @@
+# vim: ft=ghostty
+# Lumina Cherenkov Light theme for Ghostty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# Color palette
+palette = 0=#f5f8ff
+palette = 1=#a32224
+palette = 2=#227a3e
+palette = 3=#a35f00
+palette = 4=#0a4fcc
+palette = 5=#7849c1
+palette = 6=#087181
+palette = 7=#1f2e53
+palette = 8=#d1d5df
+palette = 9=#792825
+palette = 10=#07652c
+palette = 11=#874e00
+palette = 12=#1d448f
+palette = 13=#793474
+palette = 14=#005c69
+palette = 15=#1f2e53
+palette = 16=#b54a04
+palette = 17=#90478a
+palette = 18=#edf1fb
+palette = 19=#e2e6ef
+palette = 20=#82868f
+palette = 21=#44484f
+
+# Foreground & background colors
+background = #f5f8ff
+foreground = #1f2e53
+cursor-color = #1f2e53
+selection-background = #1f2e53
+selection-foreground = #e2e6ef
+search-background = #a35f00
+search-foreground = #edf1fb
+search-selected-background = #b54a04
+search-selected-foreground = #edf1fb
+
+# Set `macos-icon = custom-style` in your main configuration file to enable theming of the app icon.
+#
+# Set the ghost color to the lightest foreground:
+macos-icon-ghost-color = #1f2e53
+# Replace the official icon's blue background with the designated bright blue color:
+macos-icon-screen-color = #1d448f

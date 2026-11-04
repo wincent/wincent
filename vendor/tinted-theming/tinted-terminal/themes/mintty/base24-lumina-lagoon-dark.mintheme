@@ -1,0 +1,27 @@
+# Lumina Lagoon Dark theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #042930
+Red         = #d3726a
+Green       = #9fd4a9
+Yellow      = #e7cf94
+Blue        = #8ec3f9
+Magenta     = #c8baf6
+Cyan        = #5ad3d6
+White       = #d7e6e7
+BoldBlack   = #1c434b
+BoldRed     = #e0938c
+BoldGreen   = #b8efc2
+BoldYellow  = #ffe6a7
+BoldBlue    = #badcff
+BoldMagenta = #ffcaf9
+BoldCyan    = #9fe6e8
+BoldWhite   = #d7e6e7
+
+# Background & foreground colors
+BackgroundColour = #042930
+ForegroundColour = #d7e6e7
+CursorColour     = #d7e6e7

@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Canopy Light by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#1e3323' # base05
+selection-foreground = '#dde8db' # base02
+
+cursor         = '#1e3323' # base05
+tabs           = '#e9f3e6' # base01
+tabs-active    = '#dde8db' # base02
+
+background     = '#f1f9ef' # base00
+foreground     = '#1e3323' # base05
+black          = '#f1f9ef' # base00
+red            = '#860c2c' # base08
+yellow         = '#905705' # base0A
+green          = '#337545' # base0B
+cyan           = '#007184' # base0C
+blue           = '#046aa7' # base0D
+magenta        = '#65599e' # base0E
+white          = '#1e3323' # base05
+
+dim-foreground   = '#1e3323' # base05
+dim-black        = '#e9f3e6' # base01
+dim-red          = '#860c2c' # base08
+dim-yellow       = '#905705' # base0A
+dim-green        = '#337545' # base0B
+dim-cyan         = '#007184' # base0C
+dim-blue         = '#046aa7' # base0D
+dim-magenta      = '#65599e' # base0E
+dim-white        = '#808a7d' # base04
+
+light-foreground = '#1e3323' # base05
+light-black      = '#cdd7cb' # base03
+light-red        = '#5b1d26' # base12
+light-yellow     = '#764600' # base13
+light-green      = '#206033' # base14
+light-cyan       = '#005b6b' # base15
+light-blue       = '#0e5686' # base16
+light-magenta    = '#70396c' # base17
+light-white      = '#1e3323' # base07

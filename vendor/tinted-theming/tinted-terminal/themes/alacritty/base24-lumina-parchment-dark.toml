@@ -1,0 +1,58 @@
+# base24 Lumina Parchment Dark 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0x2a2116'
+foreground = '0xefe5d0'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x2a2116'
+cursor = '0xefe5d0'
+
+# Normal colors
+[colors.normal]
+black = '0x2a2116'
+red = '0xd47169'
+green = '0x92d3b9'
+yellow = '0xe0ba6a'
+blue = '0x97bdf4'
+magenta = '0xbcb5ee'
+cyan = '0x85cbd3'
+white = '0xefe5d0'
+
+# Bright colors
+[colors.bright]
+black = '0x443a2d'
+red = '0xe1938b'
+green = '0xaaeed2'
+yellow = '0xfad484'
+blue = '0xbbd7ff'
+magenta = '0xecbef3'
+cyan = '0x9ee5ee'
+white = '0xefe5d0'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xffbd90"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xd4a3dc"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x302619"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x3a3023"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x7f7162"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xb8b0a6"

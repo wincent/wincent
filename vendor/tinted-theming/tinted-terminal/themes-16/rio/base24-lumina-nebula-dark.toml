@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Nebula Dark by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#dde1ec' # base05
+selection-foreground = '#242636' # base02
+
+cursor         = '#dde1ec' # base05
+tabs           = '#1a1c2c' # base01
+tabs-active    = '#242636' # base02
+
+background     = '#161826' # base00
+foreground     = '#dde1ec' # base05
+black          = '#161826' # base00
+red            = '#d57068' # base08
+yellow         = '#f3c085' # base0A
+green          = '#8fdcba' # base0B
+cyan           = '#88d2da' # base0C
+blue           = '#c6d6e8' # base0D
+magenta        = '#b0a4f8' # base0E
+white          = '#dde1ec' # base05
+
+dim-foreground   = '#dde1ec' # base05
+dim-black        = '#1a1c2c' # base01
+dim-red          = '#d57068' # base08
+dim-yellow       = '#f3c085' # base0A
+dim-green        = '#8fdcba' # base0B
+dim-cyan         = '#88d2da' # base0C
+dim-blue         = '#c6d6e8' # base0D
+dim-magenta      = '#b0a4f8' # base0E
+dim-white        = '#666b7e' # base04
+
+light-foreground = '#dde1ec' # base05
+light-black      = '#2d3041' # base03
+light-red        = '#e2928a' # base12
+light-yellow     = '#ffdfba' # base13
+light-green      = '#b0f5d5' # base14
+light-cyan       = '#a1ecf5' # base15
+light-blue       = '#d8eaff' # base16
+light-magenta    = '#ffc8f9' # base17
+light-white      = '#dde1ec' # base07

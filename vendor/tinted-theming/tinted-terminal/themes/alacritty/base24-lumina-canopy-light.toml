@@ -1,0 +1,58 @@
+# base24 Lumina Canopy Light 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0xf1f9ef'
+foreground = '0x1e3323'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0xf1f9ef'
+cursor = '0x1e3323'
+
+# Normal colors
+[colors.normal]
+black = '0xf1f9ef'
+red = '0x860c2c'
+green = '0x337545'
+yellow = '0x905705'
+blue = '0x046aa7'
+magenta = '0x65599e'
+cyan = '0x007184'
+white = '0x1e3323'
+
+# Bright colors
+[colors.bright]
+black = '0xcdd7cb'
+red = '0x5b1d26'
+green = '0x206033'
+yellow = '0x764600'
+blue = '0x0e5686'
+magenta = '0x70396c'
+cyan = '0x005b6b'
+white = '0x1e3323'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0x7b3c12"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0x864c82"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0xe9f3e6"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0xdde8db"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x808a7d"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0x424b3f"

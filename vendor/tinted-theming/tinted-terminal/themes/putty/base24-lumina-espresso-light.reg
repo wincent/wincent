@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Lumina Espresso Light
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-lumina-espresso-light]
+
+; Default Foreground
+; base05 #39261b
+"Colour0"="57,38,27"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #39261b
+"Colour1"="57,38,27"
+
+; Default Background
+; base00 #fcf0e3
+"Colour2"="252,240,227"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #fcf0e3
+"Colour3"="252,240,227"
+
+; Cursor Text -- equals to default background
+; base00 #fcf0e3
+"Colour4"="252,240,227"
+
+; Cursor Colour -- equals to default foreground
+; base05 #39261b
+"Colour5"="57,38,27"
+
+; ANSI Black
+; 30m
+; base00 #fcf0e3
+"Colour6"="252,240,227"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #d9cec2
+"Colour7"="217,206,194"
+
+; ANSI Red
+; 31m
+; base08 #842120
+"Colour8"="132,33,32"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #5f201e
+"Colour9"="95,32,30"
+
+; ANSI Green
+; 32m
+; base0B #15744d
+"Colour10"="21,116,77"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #005e3c
+"Colour11"="0,94,60"
+
+; ANSI Yellow
+; 33m
+; base0A #6d4e36
+"Colour12"="109,78,54"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #653400
+"Colour13"="101,52,0"
+
+; ANSI Blue
+; 34m
+; base0D #2868a3
+"Colour14"="40,104,163"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #1a5488
+"Colour15"="26,84,136"
+
+; ANSI Magenta
+; 35m
+; base0E #7049a1
+"Colour16"="112,73,161"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #70386b
+"Colour17"="112,56,107"
+
+; ANSI Cyan
+; 36m
+; base0C #007083
+"Colour18"="0,112,131"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #005a6a
+"Colour19"="0,90,106"
+
+; ANSI White
+; 37m
+; base05 #39261b
+"Colour20"="57,38,27"
+
+; ANSI White Bright
+; 1;37m
+; base07 39261b
+"Colour21"="57,38,27"

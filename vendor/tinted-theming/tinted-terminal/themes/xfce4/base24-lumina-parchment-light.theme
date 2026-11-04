@@ -1,0 +1,10 @@
+# Scheme name: Lumina Parchment Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-parchment-light
+ColorForeground=#352516
+ColorBackground=#f9efda
+ColorCursor=#352516
+ColorBoldIsBright=FALSE
+ColorPalette=#f9efda;#912918;#2d7341;#654935;#2e5fb0;#62559d;#006e81;#352516;#d3cdbf;#6b281c;#195e2f;#5f2f00;#284d8a;#6b3770;#005868;#352516

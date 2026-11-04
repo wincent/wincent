@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Dusk Light by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Dusk Light
+accent: "#3163ad" # base0D
+cursor: "#2e2945" # base05
+background: "#f6f3fe" # base00
+foreground: "#2e2945" # base05
+details: lighter
+
+terminal_colors:
+  normal:
+    black: "#f6f3fe" # base00
+    red: "#872423" # base08
+    yellow: "#9e611b" # base0A
+    green: "#357545" # base0B
+    cyan: "#007185" # base0C
+    blue: "#3163ad" # base0D
+    magenta: "#7b46a4" # base0E
+    white: "#2e2945" # base05
+
+  bright:
+    black: "#d4d0de" # base03
+    red: "#622320" # base12
+    yellow: "#854e07" # base13
+    green: "#216033" # base14
+    cyan: "#005b6c" # base15
+    blue: "#2b5088" # base16
+    magenta: "#713a6c" # base17
+    white: "#2e2945" # base07

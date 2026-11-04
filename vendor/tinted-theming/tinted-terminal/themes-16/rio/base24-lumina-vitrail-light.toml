@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Vitrail Light by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#0f141d' # base05
+selection-foreground = '#eae8df' # base02
+
+cursor         = '#0f141d' # base05
+tabs           = '#f6f3eb' # base01
+tabs-active    = '#eae8df' # base02
+
+background     = '#fcfaf4' # base00
+foreground     = '#0f141d' # base05
+black          = '#fcfaf4' # base00
+red            = '#752200' # base08
+yellow         = '#7c4700' # base0A
+green          = '#00490f' # base0B
+cyan           = '#005b72' # base0C
+blue           = '#1729b2' # base0D
+magenta        = '#49318e' # base0E
+white          = '#0f141d' # base05
+
+dim-foreground   = '#0f141d' # base05
+dim-black        = '#f6f3eb' # base01
+dim-red          = '#752200' # base08
+dim-yellow       = '#7c4700' # base0A
+dim-green        = '#00490f' # base0B
+dim-cyan         = '#005b72' # base0C
+dim-blue         = '#1729b2' # base0D
+dim-magenta      = '#49318e' # base0E
+dim-white        = '#89867f' # base04
+
+light-foreground = '#0f141d' # base05
+light-black      = '#dad7cf' # base03
+light-red        = '#581700' # base12
+light-yellow     = '#623700' # base13
+light-green      = '#003408' # base14
+light-cyan       = '#004659' # base15
+light-blue       = '#12247b' # base16
+light-magenta    = '#480d5e' # base17
+light-white      = '#0f141d' # base07

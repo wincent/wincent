@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Ember Light by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#372b1e' # base05
+selection-foreground = '#e9e2d4' # base02
+
+cursor         = '#372b1e' # base05
+tabs           = '#f4eddf' # base01
+tabs-active    = '#e9e2d4' # base02
+
+background     = '#f9f4ea' # base00
+foreground     = '#372b1e' # base05
+black          = '#f9f4ea' # base00
+red            = '#811d1d' # base08
+yellow         = '#a06116' # base0A
+green          = '#437329' # base0B
+cyan           = '#007285' # base0C
+blue           = '#256b99' # base0D
+magenta        = '#6559a1' # base0E
+white          = '#372b1e' # base05
+
+dim-foreground   = '#372b1e' # base05
+dim-black        = '#f4eddf' # base01
+dim-red          = '#811d1d' # base08
+dim-yellow       = '#a06116' # base0A
+dim-green        = '#437329' # base0B
+dim-cyan         = '#007285' # base0C
+dim-blue         = '#256b99' # base0D
+dim-magenta      = '#6559a1' # base0E
+dim-white        = '#8c8579' # base04
+
+light-foreground = '#372b1e' # base05
+light-black      = '#d8d1c4' # base03
+light-red        = '#5c1d1b' # base12
+light-yellow     = '#874e01' # base13
+light-green      = '#355d20' # base14
+light-cyan       = '#005c6c' # base15
+light-blue       = '#005785' # base16
+light-magenta    = '#783763' # base17
+light-white      = '#372b1e' # base07

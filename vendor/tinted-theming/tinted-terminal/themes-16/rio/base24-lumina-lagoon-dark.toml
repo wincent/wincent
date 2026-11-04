@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Lagoon Dark by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#d7e6e7' # base05
+selection-foreground = '#103941' # base02
+
+cursor         = '#d7e6e7' # base05
+tabs           = '#042e36' # base01
+tabs-active    = '#103941' # base02
+
+background     = '#042930' # base00
+foreground     = '#d7e6e7' # base05
+black          = '#042930' # base00
+red            = '#d3726a' # base08
+yellow         = '#e7cf94' # base0A
+green          = '#9fd4a9' # base0B
+cyan           = '#5ad3d6' # base0C
+blue           = '#8ec3f9' # base0D
+magenta        = '#c8baf6' # base0E
+white          = '#d7e6e7' # base05
+
+dim-foreground   = '#d7e6e7' # base05
+dim-black        = '#042e36' # base01
+dim-red          = '#d3726a' # base08
+dim-yellow       = '#e7cf94' # base0A
+dim-green        = '#9fd4a9' # base0B
+dim-cyan         = '#5ad3d6' # base0C
+dim-blue         = '#8ec3f9' # base0D
+dim-magenta      = '#c8baf6' # base0E
+dim-white        = '#547c86' # base04
+
+light-foreground = '#d7e6e7' # base05
+light-black      = '#1c434b' # base03
+light-red        = '#e0938c' # base12
+light-yellow     = '#ffe6a7' # base13
+light-green      = '#b8efc2' # base14
+light-cyan       = '#9fe6e8' # base15
+light-blue       = '#badcff' # base16
+light-magenta    = '#ffcaf9' # base17
+light-white      = '#d7e6e7' # base07

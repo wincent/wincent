@@ -1,0 +1,43 @@
+# base24 Lumina Parchment Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#2a2116"
+foreground = "#efe5d0"
+
+cursor_bg = "#efe5d0"
+cursor_border = "#efe5d0"
+cursor_fg = "#2a2116"
+
+selection_bg = "#efe5d0"
+selection_fg = "#3a3023"
+
+ansi = [
+  "#2a2116",
+  "#d47169",
+  "#92d3b9",
+  "#e0ba6a",
+  "#97bdf4",
+  "#bcb5ee",
+  "#85cbd3",
+  "#efe5d0"
+]
+brights = [
+  "#443a2d",
+  "#e1938b",
+  "#aaeed2",
+  "#fad484",
+  "#bbd7ff",
+  "#ecbef3",
+  "#9ee5ee",
+  "#efe5d0"
+]
+
+[colors.indexed]
+16 = "#ffbd90"
+17 = "#d4a3dc"
+18 = "#302619"
+19 = "#3a3023"
+20 = "#7f7162"
+21 = "#b8b0a6"

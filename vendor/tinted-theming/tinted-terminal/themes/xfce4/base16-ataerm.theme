@@ -1,0 +1,10 @@
+# Scheme name: Aftertaerm
+# Scheme author: Radek Polasek (https://github.com/radekp31), based on Taerminal by cozywigwam
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base16-ataerm
+ColorForeground=#f0f0f0
+ColorBackground=#26282a
+ColorCursor=#f0f0f0
+ColorBoldIsBright=FALSE
+ColorPalette=#26282a;#ff8878;#b4fb73;#fffcb7;#8bbce5;#ffb2fe;#a2e1f8;#f0f0f0;#6f6f6f;#ff8878;#b4fb73;#fffcb7;#8bbce5;#ffb2fe;#a2e1f8;#ffffff

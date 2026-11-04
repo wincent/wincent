@@ -1,0 +1,27 @@
+# Lumina Olive Dark theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #1a1b0c
+Red         = #d3726a
+Green       = #b5d5c6
+Yellow      = #ebc27c
+Blue        = #a2c4f0
+Magenta     = #c0baf2
+Cyan        = #8bcfd7
+White       = #e1dfce
+BoldBlack   = #323422
+BoldRed     = #e0938c
+BoldGreen   = #b5f7da
+BoldYellow  = #ffdea7
+BoldBlue    = #c4ddff
+BoldMagenta = #f0bbeb
+BoldCyan    = #a3e9f2
+BoldWhite   = #e1dfce
+
+# Background & foreground colors
+BackgroundColour = #1a1b0c
+ForegroundColour = #e1dfce
+CursorColour     = #e1dfce

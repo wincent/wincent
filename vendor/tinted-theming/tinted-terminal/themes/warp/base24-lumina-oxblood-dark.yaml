@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Oxblood Dark by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Oxblood Dark
+accent: "#9ac3f8" # base0D
+cursor: "#e8d6dc" # base05
+background: "#200f16" # base00
+foreground: "#e8d6dc" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#200f16" # base00
+    red: "#db6c63" # base08
+    yellow: "#f9c875" # base0A
+    green: "#7dc797" # base0B
+    cyan: "#6fcad4" # base0C
+    blue: "#9ac3f8" # base0D
+    magenta: "#bfb6f9" # base0E
+    white: "#e8d6dc" # base05
+
+  bright:
+    black: "#3b262e" # base03
+    red: "#e78f86" # base12
+    yellow: "#ffe4b8" # base13
+    green: "#9ce0b2" # base14
+    cyan: "#8de4ed" # base15
+    blue: "#c2dcff" # base16
+    magenta: "#f2d5ff" # base17
+    white: "#e8d6dc" # base07

@@ -124,9 +124,9 @@ function M.Capabilities()
 	}
 end
 
-function M.Absolute(job) return job.url end
+function M.Absolute(job) return fs.clean_url(job.url:join("/"):join(job.url.path)) end
 
-function M.Canonicalize(job) return job.url end
+function M.Canonicalize(job) return M.Absolute(job) end
 
 function M.Casefold(job) return job.url end
 
@@ -179,10 +179,7 @@ function M.Revalidate(job)
 	end
 end
 
-function M.Reroute(job)
-	-- TODO: should we use `args.root`?
-	return M.File { opts = job.opts, url = job.url:join("/") }
-end
+function M.Reroute(job) return M.File { opts = job.opts, url = M.Absolute(job) } end
 
 function M.Open(job)
 	local d = job.demand
@@ -207,9 +204,7 @@ function M.Open(job)
 		end
 	end
 
-	if d.read then
-		return { id = ya.id("ft") }
-	elseif d.create_new then
+	if d.create_new then
 		local ok, err = M.CreateFileNew(job)
 		if not ok then
 			return nil, err
@@ -220,7 +215,7 @@ function M.Open(job)
 			return nil, err
 		end
 	end
-	return { id = ya.id("ft"), seekless = true }
+	return { id = ya.id("ft"), random = "read" }
 end
 
 function M.CreateFile(job)
@@ -277,25 +272,27 @@ function M.RemoveDir(job)
 end
 
 function M.RemoveDirAll(job)
-	if relative(job.url.path) == "" then
-		return false, rc.error("InvalidInput", "Cannot purge the rclone VFS root")
-	end
+	return ya.co(function()
+		if relative(job.url.path) == "" then
+			return nil, rc.error("InvalidInput", "Cannot purge the rclone VFS root")
+		end
 
-	local dest, err = target(job.opts, job.url)
-	if not dest then
-		return false, err
-	end
+		local dest, err = target(job.opts, job.url)
+		if not dest then
+			return nil, err
+		end
 
-	local result, err = rc.call("operations/purge", job.opts, { fs = dest, remote = "" })
-	if result then
-		return true
-	elseif err.kind == "NotFound" then
-		return true
-	elseif tostring(err) == "rmdir failed: 404 Not Found" then
-		return true
-	else
-		return false, err
-	end
+		local result, err = rc.call("operations/purge", job.opts, { fs = dest, remote = "" })
+		if result then
+			return
+		elseif err.kind == "NotFound" then
+			return
+		elseif tostring(err) == "rmdir failed: 404 Not Found" then
+			return
+		else
+			return nil, err
+		end
+	end)
 end
 
 function M.RemoveFile(job)
@@ -485,7 +482,6 @@ function M.CopyTo(job)
 		if bytes > sent then
 			coroutine.yield(bytes - sent)
 		end
-		coroutine.yield(0)
 	end)
 end
 

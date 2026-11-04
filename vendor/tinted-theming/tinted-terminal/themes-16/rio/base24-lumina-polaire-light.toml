@@ -1,0 +1,41 @@
+# Rio Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Polaire Light by Razik Ikhlef (https://github.com/RazikSF)
+
+[colors]
+selection-background = '#17323f' # base05
+selection-foreground = '#dbe8e9' # base02
+
+cursor         = '#17323f' # base05
+tabs           = '#e7f3f5' # base01
+tabs-active    = '#dbe8e9' # base02
+
+background     = '#f0f9fa' # base00
+foreground     = '#17323f' # base05
+black          = '#f0f9fa' # base00
+red            = '#882322' # base08
+yellow         = '#965a1c' # base0A
+green          = '#327645' # base0B
+cyan           = '#06677c' # base0C
+blue           = '#3e5372' # base0D
+magenta        = '#6754bb' # base0E
+white          = '#17323f' # base05
+
+dim-foreground   = '#17323f' # base05
+dim-black        = '#e7f3f5' # base01
+dim-red          = '#882322' # base08
+dim-yellow       = '#965a1c' # base0A
+dim-green        = '#327645' # base0B
+dim-cyan         = '#06677c' # base0C
+dim-blue         = '#3e5372' # base0D
+dim-magenta      = '#6754bb' # base0E
+dim-white        = '#7d898a' # base04
+
+light-foreground = '#17323f' # base05
+light-black      = '#cbd7d9' # base03
+light-red        = '#63221f' # base12
+light-yellow     = '#7f4700' # base13
+light-green      = '#1f6133' # base14
+light-cyan       = '#005264' # base15
+light-blue       = '#173e76' # base16
+light-magenta    = '#723a6e' # base17
+light-white      = '#17323f' # base07

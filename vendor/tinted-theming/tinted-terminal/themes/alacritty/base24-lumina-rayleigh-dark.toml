@@ -1,0 +1,58 @@
+# base24 Lumina Rayleigh Dark 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0x091d30'
+foreground = '0xd4dfeb'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x091d30'
+cursor = '0xd4dfeb'
+
+# Normal colors
+[colors.normal]
+black = '0x091d30'
+red = '0xd96d65'
+green = '0x96d2a2'
+yellow = '0xf1cc79'
+blue = '0x6fc3ff'
+magenta = '0xbf9ef1'
+cyan = '0xafdee6'
+white = '0xd4dfeb'
+
+# Bright colors
+[colors.bright]
+black = '0x1f364d'
+red = '0xe59088'
+green = '0xaeedbb'
+yellow = '0xffe5ad'
+blue = '0xaadaff'
+magenta = '0xffc3e0'
+cyan = '0xb6f4ff'
+white = '0xd4dfeb'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xfaac77"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xeea3c9"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x0b2237"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x152c42"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x567089"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xa2b3c5"

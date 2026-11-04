@@ -1,0 +1,27 @@
+# Lumina Vitrail Dark theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #070912
+Red         = #ff763b
+Green       = #76d983
+Yellow      = #fbca3f
+Blue        = #7299ff
+Magenta     = #b8acff
+Cyan        = #4de0f7
+White       = #f1eee6
+BoldBlack   = #1c1f2b
+BoldRed     = #ffa37f
+BoldGreen   = #93f39f
+BoldYellow  = #ffe6a7
+BoldBlue    = #97b6ff
+BoldMagenta = #efb2ff
+BoldCyan    = #abf2ff
+BoldWhite   = #f1eee6
+
+# Background & foreground colors
+BackgroundColour = #070912
+ForegroundColour = #f1eee6
+CursorColour     = #f1eee6

@@ -1,0 +1,30 @@
+# Tinted Terminal base24 color theme (https://github.com/tinted-theming)
+# Color scheme: Lumina Lagoon Dark by Razik Ikhlef (https://github.com/RazikSF)
+
+name: Base24 Lumina Lagoon Dark
+accent: "#8ec3f9" # base0D
+cursor: "#d7e6e7" # base05
+background: "#042930" # base00
+foreground: "#d7e6e7" # base05
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#042930" # base00
+    red: "#d3726a" # base08
+    yellow: "#e7cf94" # base0A
+    green: "#9fd4a9" # base0B
+    cyan: "#5ad3d6" # base0C
+    blue: "#8ec3f9" # base0D
+    magenta: "#c8baf6" # base0E
+    white: "#d7e6e7" # base05
+
+  bright:
+    black: "#1c434b" # base03
+    red: "#e0938c" # base12
+    yellow: "#ffe6a7" # base13
+    green: "#b8efc2" # base14
+    cyan: "#9fe6e8" # base15
+    blue: "#badcff" # base16
+    magenta: "#ffcaf9" # base17
+    white: "#d7e6e7" # base07

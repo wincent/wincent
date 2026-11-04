@@ -42,6 +42,7 @@ ghostty_palette_color_18="#eef1f8"
 ghostty_palette_color_19="#9b9ea4"
 ghostty_palette_color_20="#2c2e33"
 ghostty_palette_color_21="#07080d"
+ghostty_search_foreground=$ghostty_palette_color_15
 
 _theme_file() {
 cat <<EOF
@@ -82,9 +83,9 @@ cursor-color = $ghostty_palette_color_7
 selection-background = $ghostty_palette_color_7
 selection-foreground = $ghostty_palette_color_19
 search-background = $ghostty_palette_color_11
-search-foreground = $ghostty_palette_color_18
+search-foreground = $ghostty_search_foreground
 search-selected-background = $ghostty_palette_color_16
-search-selected-foreground = $ghostty_palette_color_18
+search-selected-foreground = $ghostty_search_foreground
 
 
 # Set \`macos-icon\` = custom-style in your main configuration file to enable theming of the app icon.

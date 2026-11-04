@@ -1,0 +1,10 @@
+# Scheme name: Lumina Nebula Dark
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-xfce-terminal)
+[Scheme]
+Name=base24-lumina-nebula-dark
+ColorForeground=#dde1ec
+ColorBackground=#161826
+ColorCursor=#dde1ec
+ColorBoldIsBright=FALSE
+ColorPalette=#161826;#d57068;#8fdcba;#f3c085;#c6d6e8;#b0a4f8;#88d2da;#dde1ec;#2d3041;#e2928a;#b0f5d5;#ffdfba;#d8eaff;#ffc8f9;#a1ecf5;#dde1ec

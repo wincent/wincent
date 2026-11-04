@@ -1,0 +1,27 @@
+# Lumina Polaire Light theme for Mintty
+# Scheme Author: Razik Ikhlef (https://github.com/RazikSF)
+# Scheme System: base24
+# Template Author: Tinted Terminal (https://github.com/tinted-theming/tinted-terminal)
+
+# The 16 color palette
+Black       = #f0f9fa
+Red         = #882322
+Green       = #327645
+Yellow      = #965a1c
+Blue        = #3e5372
+Magenta     = #6754bb
+Cyan        = #06677c
+White       = #17323f
+BoldBlack   = #cbd7d9
+BoldRed     = #63221f
+BoldGreen   = #1f6133
+BoldYellow  = #7f4700
+BoldBlue    = #173e76
+BoldMagenta = #723a6e
+BoldCyan    = #005264
+BoldWhite   = #17323f
+
+# Background & foreground colors
+BackgroundColour = #f0f9fa
+ForegroundColour = #17323f
+CursorColour     = #17323f

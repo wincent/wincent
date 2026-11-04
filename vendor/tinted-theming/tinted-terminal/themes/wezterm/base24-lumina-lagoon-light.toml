@@ -1,0 +1,43 @@
+# base24 Lumina Lagoon Light
+# Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+# Template author: Tinted Theming (https://github.com/tinted-theming/tinted-termihal)
+
+[colors]
+background = "#e9fafa"
+foreground = "#0b323b"
+
+cursor_bg = "#0b323b"
+cursor_border = "#0b323b"
+cursor_fg = "#e9fafa"
+
+selection_bg = "#0b323b"
+selection_fg = "#d5e8e8"
+
+ansi = [
+  "#e9fafa",
+  "#8f2121",
+  "#2e6147",
+  "#a1600d",
+  "#185ca9",
+  "#7153b5",
+  "#006e71",
+  "#0b323b"
+]
+brights = [
+  "#c5d8d8",
+  "#682220",
+  "#005031",
+  "#874e00",
+  "#154986",
+  "#72366e",
+  "#00585b",
+  "#0b323b"
+]
+
+[colors.indexed]
+16 = "#924918"
+17 = "#894984"
+18 = "#e1f4f4"
+19 = "#d5e8e8"
+20 = "#758b8b"
+21 = "#384c4c"

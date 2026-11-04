@@ -49,6 +49,12 @@ README.md @tinted-theming/terminal
 /themes/putty/* @tinted-theming/putty-terminal
 /assets/putty-icon.svg @tinted-theming/putty-terminal
 
+# Rex
+/templates/rex-* @tinted-theming/rex-multiplexer
+/themes/rex/* @tinted-theming/rex-multiplexer
+/scripts/check-rex-themes.sh @tinted-theming/rex-multiplexer
+/assets/rex-icon.png @tinted-theming/rex-multiplexer
+
 # Rio
 /templates/rio-* @tinted-theming/rio-terminal
 /themes-16/rio/* @tinted-theming/rio-terminal

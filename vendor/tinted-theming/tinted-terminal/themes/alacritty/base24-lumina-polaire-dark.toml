@@ -1,0 +1,58 @@
+# base24 Lumina Polaire Dark 256 - alacritty color config
+# Razik Ikhlef (https://github.com/RazikSF)
+
+# Default colors
+[colors.primary]
+background = '0x0f1a21'
+foreground = '0xd7e1e8'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '0x0f1a21'
+cursor = '0xd7e1e8'
+
+# Normal colors
+[colors.normal]
+black = '0x0f1a21'
+red = '0xcd776f'
+green = '0xa9d6b1'
+yellow = '0xe2c682'
+blue = '0xaeccf2'
+magenta = '0xbfbaf7'
+cyan = '0x8cd9f4'
+white = '0xd7e1e8'
+
+# Bright colors
+[colors.bright]
+black = '0x25323b'
+red = '0xdc978f'
+green = '0xc2f1ca'
+yellow = '0xfde099'
+blue = '0xd1e5ff'
+magenta = '0xffd3fa'
+cyan = '0xc2efff'
+white = '0xd7e1e8'
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf4c59d"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xe6b8e1"
+
+[[colors.indexed_colors]]
+index = 18
+color = "0x121f27"
+
+[[colors.indexed_colors]]
+index = 19
+color = "0x1c2831"
+
+[[colors.indexed_colors]]
+index = 20
+color = "0x5e6d77"
+
+[[colors.indexed_colors]]
+index = 21
+color = "0xa9b3b9"

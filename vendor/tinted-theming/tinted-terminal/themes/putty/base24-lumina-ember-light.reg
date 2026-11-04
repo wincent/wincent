@@ -1,0 +1,112 @@
+Windows Registry Editor Version 5.00
+
+; Scheme name: Lumina Ember Light
+; Scheme system: base24
+; Scheme description: 
+; Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+; Template author: Tinted Theming (https://github.com/tinted-theming)
+[HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\base24-lumina-ember-light]
+
+; Default Foreground
+; base05 #372b1e
+"Colour0"="55,43,30"
+
+; Default Bold Foreground  -- equals to non-bold
+; base05 #372b1e
+"Colour1"="55,43,30"
+
+; Default Background
+; base00 #f9f4ea
+"Colour2"="249,244,234"
+
+; Default Bold Background  -- equals to non-bold
+; base00 #f9f4ea
+"Colour3"="249,244,234"
+
+; Cursor Text -- equals to default background
+; base00 #f9f4ea
+"Colour4"="249,244,234"
+
+; Cursor Colour -- equals to default foreground
+; base05 #372b1e
+"Colour5"="55,43,30"
+
+; ANSI Black
+; 30m
+; base00 #f9f4ea
+"Colour6"="249,244,234"
+
+; ANSI Black Bright
+; 1;30m
+; base03 #d8d1c4
+"Colour7"="216,209,196"
+
+; ANSI Red
+; 31m
+; base08 #811d1d
+"Colour8"="129,29,29"
+
+; ANSI Red Bright
+; 1;31m
+; base12 #5c1d1b
+"Colour9"="92,29,27"
+
+; ANSI Green
+; 32m
+; base0B #437329
+"Colour10"="67,115,41"
+
+; ANSI Green Bright
+; 1;32m
+; base14 #355d20
+"Colour11"="53,93,32"
+
+; ANSI Yellow
+; 33m
+; base0A #a06116
+"Colour12"="160,97,22"
+
+; ANSI Yellow Bright
+; 1;33m
+; base13 #874e01
+"Colour13"="135,78,1"
+
+; ANSI Blue
+; 34m
+; base0D #256b99
+"Colour14"="37,107,153"
+
+; ANSI Blue Bright
+; 1;34m
+; base16 #005785
+"Colour15"="0,87,133"
+
+; ANSI Magenta
+; 35m
+; base0E #6559a1
+"Colour16"="101,89,161"
+
+; ANSI Magenta Bright
+; 1;35m
+; base17 #783763
+"Colour17"="120,55,99"
+
+; ANSI Cyan
+; 36m
+; base0C #007285
+"Colour18"="0,114,133"
+
+; ANSI Cyan Bright
+; 1;36m
+; base15 #005c6c
+"Colour19"="0,92,108"
+
+; ANSI White
+; 37m
+; base05 #372b1e
+"Colour20"="55,43,30"
+
+; ANSI White Bright
+; 1;37m
+; base07 372b1e
+"Colour21"="55,43,30"

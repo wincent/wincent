@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    base24 Lumina Olive Dark
+    Scheme author: Razik Ikhlef (https://github.com/RazikSF)
+    Template author: Tinted Theming (https://github.com/tinted-theming)
+    semanticClass: theme.base24.lumina-olive-dark
+-->
+<key name="Palette1">
+    <value name="Name" type="string" data="base24-lumina-olive-dark"/>
+    <value name="ExtendColors" type="hex" data="00"/>
+    <value name="ExtendColorIdx" type="hex" data="0e"/>
+    <value name="TextColorIdx" type="hex" data="07"/>
+    <value name="BackColorIdx" type="hex" data="00"/>
+    <value name="PopTextColorIdx" type="hex" data="07"/>
+    <value name="PopBackColorIdx" type="hex" data="00"/>
+    <value name="ColorTable00" type="dword" data="000c1b1a"/> <!-- base00 - Black -->
+    <value name="ColorTable01" type="dword" data="006a72d3"/> <!-- base08 - Red -->
+    <value name="ColorTable02" type="dword" data="00c6d5b5"/> <!-- base0B - Green -->
+    <value name="ColorTable03" type="dword" data="007cc2eb"/> <!-- base0A - Yellow -->
+    <value name="ColorTable04" type="dword" data="00f0c4a2"/> <!-- base0D - Blue -->
+    <value name="ColorTable05" type="dword" data="00f2bac0"/> <!-- base0E - Magenta -->
+    <value name="ColorTable06" type="dword" data="00d7cf8b"/> <!-- base0C - Cyan -->
+    <value name="ColorTable07" type="dword" data="00cedfe1"/> <!-- base05 - White -->
+    <value name="ColorTable08" type="dword" data="00223432"/> <!-- base03 - Bright Black -->
+    <value name="ColorTable09" type="dword" data="008c93e0"/> <!-- base12 - Bright Red -->
+    <value name="ColorTable10" type="dword" data="00daf7b5"/> <!-- base14 - Bright Green -->
+    <value name="ColorTable11" type="dword" data="00a7deff"/> <!-- base13 - Bright Yellow -->
+    <value name="ColorTable12" type="dword" data="00ffddc4"/> <!-- base16 - Bright Blue -->
+    <value name="ColorTable13" type="dword" data="00ebbbf0"/> <!-- base17 - Bright Magenta -->
+    <value name="ColorTable14" type="dword" data="00f2e9a3"/> <!-- base15 - Bright Cyan -->
+    <value name="ColorTable15" type="dword" data="00cedfe1"/> <!-- base07 - Bright White -->
+    <value name="ColorTable16" type="dword" data="009bc3ff"/> <!-- base09 -->
+    <value name="ColorTable17" type="dword" data="00d0a2d5"/> <!-- base0F -->
+    <value name="ColorTable18" type="dword" data="000f201f"/> <!-- base01 -->
+    <value name="ColorTable19" type="dword" data="00182928"/> <!-- base02 -->
+    <value name="ColorTable20" type="dword" data="00586e6a"/> <!-- base04 -->
+    <value name="ColorTable21" type="dword" data="00a5b2b1"/> <!-- base06 -->
+</key>
