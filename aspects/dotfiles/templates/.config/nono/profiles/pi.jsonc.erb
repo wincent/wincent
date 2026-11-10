@@ -126,6 +126,7 @@ for (const name of Object.keys(local.credentials)) {
       // Keep sandboxed agent state separate (don't commingle with non-sandboxed
       // state in  "~/.local/state", "~/.cache", or "~/Library/Caches/").
       "DPRINT_CACHE_DIR": "$TMPDIR/nono-pi/cache/dprint",
+      "GOCACHE": "$TMPDIR/nono-pi/cache/go-build",
       "XDG_CACHE_HOME": "$TMPDIR/nono-pi/cache",
       "XDG_STATE_HOME": "$TMPDIR/nono-pi/state",
 
