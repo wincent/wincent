@@ -111,13 +111,6 @@ task('install memcached formula', when('personal'), async () => {
   });
 });
 
-// Development kit for the Java programming language.
-task('install openjdk@21 formula', when('personal'), async () => {
-  await command('brew', ['install', 'openjdk@21'], {
-    creates: '/opt/homebrew/Cellar/openjdk@21',
-  });
-});
-
 // Persistent key-value database, with built-in net interface.
 task('install redis formula', when('personal'), async () => {
   await command('brew', ['install', 'redis'], {

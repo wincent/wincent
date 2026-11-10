@@ -114,14 +114,6 @@
       "note": null
     },
     {
-      "name": "openjdk@21",
-      "tap": "homebrew/core",
-      "description": "Development kit for the Java programming language",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
       "name": "redis",
       "tap": "homebrew/core",
       "description": "Persistent key-value database, with built-in net interface",

@@ -974,14 +974,6 @@
       "note": null
     },
     {
-      "name": "rhino",
-      "tap": "homebrew/core",
-      "description": "JavaScript engine",
-      "args": [],
-      "restartService": false,
-      "note": null
-    },
-    {
       "name": "ripgrep",
       "tap": "homebrew/core",
       "description": "Search tool like grep and The Silver Searcher",

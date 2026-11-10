@@ -877,13 +877,6 @@ task('install readline formula', async () => {
   });
 });
 
-// JavaScript engine.
-task('install rhino formula', async () => {
-  await command('brew', ['install', 'rhino'], {
-    creates: '/opt/homebrew/Cellar/rhino',
-  });
-});
-
 // Search tool like grep and The Silver Searcher.
 task('install ripgrep formula', async () => {
   await command('brew', ['install', 'ripgrep'], {
