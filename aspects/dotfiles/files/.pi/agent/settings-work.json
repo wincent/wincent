@@ -1,5 +1,5 @@
 {
-  "defaultModel": "gpt-6.1-sol",
+  "defaultModel": "gpt-6.2-sol",
   "defaultProvider": "openai-codex",
   "enabledModels": [
     "anthropic/claude-haiku-5-5",
@@ -9,9 +9,9 @@
     "datadog-google/*",
     "datadog-openai/*",
     "openai-codex/gpt-6-luna",
-    "openai-codex/gpt-6.1-sol",
+    "openai-codex/gpt-6.2-sol",
     "openai-codex/gpt-6.1-terra",
-    "openai-codex/gpt-6-astra",
+    "openai-codex/gpt-6.2-astra",
     "openrouter-zdr-fireworks/deepseek/deepseek-v4.1-flash-1017",
     "openrouter-zdr-deepinfra/deepseek/deepseek-v4.1-flash-1017",
     "xai/grok-4.7"
