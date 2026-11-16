@@ -1,5 +1,5 @@
 {
-  "defaultModel": "gpt-6-astra",
+  "defaultModel": "gpt-6.1-sol",
   "defaultProvider": "openai-codex",
   "enabledModels": [
     "anthropic/claude-haiku-5-5",
