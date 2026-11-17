@@ -52,7 +52,19 @@
 	}; f"
 
 	# Equivalent to: `graph --all`
-	gr = !git --paginate log --graph --all --pretty=default
+	gr = "!f() { \
+		all=--all; \
+		for arg in \"$@\"; do \
+			shift; \
+			if [ \"$arg\" = -- ] && [ -n \"$all\" ]; then \
+				set -- \"$@\" \"$all\"; \
+				all=; \
+			fi; \
+			set -- \"$@\" \"$arg\"; \
+		done; \
+		if [ -n \"$all\" ]; then set -- \"$@\" \"$all\"; fi; \
+		git --paginate log --graph --no-walk=unsorted --do-walk --pretty=default \"$@\"; \
+	}; f"
 
 	# Requires Git 1.6.3 or later.
 	graph = !git --paginate log --graph --pretty=default
