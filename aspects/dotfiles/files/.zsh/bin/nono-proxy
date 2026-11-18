@@ -16,6 +16,7 @@ import json
 import os
 from pathlib import Path
 import re
+import secrets
 import shlex
 import shutil
 import signal
@@ -206,7 +207,7 @@ def inherited_inputs(profile, config, executable, env):
     return files, targets, aliases
 
 
-def resolve_inputs():
+def resolve_inputs(github_layer=None):
     env = host_environment()
     for name in ASSETS:
         if not (STATE / name).is_file():
@@ -246,14 +247,16 @@ def resolve_inputs():
     references = set(re.findall(rb'\$\{?([A-Za-z_][A-Za-z0-9_]*)', b'\n'.join(files.values())))
     names = {name.decode() for name in references}
     names.update(name.decode() for name in re.findall(rb'env://([A-Za-z_][A-Za-z0-9_]*)', b'\n'.join(files.values())))
-    names.update(name for name in env if name.startswith('NONO_'))
+    names.update(name for name in env if name.startswith('NONO_') and not name.startswith('NONO_GITHUB_'))
     names.difference_update(('NONO_PROXY_GENERATION', 'NONO_PROXY_EXPORTS', 'NONO_PROXY_CONFIG', 'NONO_PROXY_START_TIMEOUT_SECS',
                              'NONO_PROXY_PASS', 'NONO_PROFILE', 'NONO_PROXY_CA_CERT', 'NONO_PROXY_CA_KEY'))
     names.update(('OP_ACCOUNT', 'PATH', 'HOME', 'XDG_CONFIG_HOME'))
     environment = {name: env.get(name) for name in names}
     inputs['environment'] = environment
+    if github_layer is not None:
+        inputs['github_layer'] = hashlib.sha256(github_layer).hexdigest()
     fingerprint = hashlib.sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest()
-    return fingerprint, executable, profile, assets, files, targets, aliases, inputs['resolved']
+    return fingerprint, executable, profile, assets, files, targets, aliases, inputs['resolved'], github_layer
 
 
 def terminate(record):
@@ -323,7 +326,7 @@ def collect(keep=None):
 
 
 def start(inputs):
-    fingerprint, executable, profile, assets, sources, targets, aliases, resolved = inputs
+    fingerprint, executable, profile, assets, sources, targets, aliases, resolved, github_layer = inputs
     identifier = fingerprint[:16] + '-' + uuid.uuid4().hex[:12]
     directory = GENERATIONS / identifier
     directory.mkdir(mode=0o700)
@@ -349,6 +352,22 @@ def start(inputs):
                                    env=host_environment(), cwd=Path.home()))
         if check != resolved:
             raise Error('snapshotted profile resolves differently; refusing to start the proxy')
+        if github_layer is not None:
+            # A child with `extends: pi` would resolve the live installed
+            # profile even beside the snapshot. Add the route to the mirrored
+            # authored document instead, keeping its original inheritance.
+            base = parse_jsonc(snapshot.read_bytes())
+            layer = json.loads(github_layer)
+            network = base.setdefault('network', {})
+            network.setdefault('credentials', []).extend(layer['network']['credentials'])
+            network.setdefault('custom_credentials', {}).update(layer['network']['custom_credentials'])
+            base.setdefault('credential_capture', {}).update(layer['credential_capture'])
+            snapshot.write_text(json.dumps(base))
+            assets = {**assets,
+                      'phantoms.env': assets['phantoms.env'] + b'export GITHUB_TOKEN=proxied\n',
+                      # An unrelated VM session must not be able to use this
+                      # generation's port with its own proxy password.
+                      'pass': secrets.token_hex(32).encode()}
         for name, data in assets.items():
             (directory / name).write_bytes(data)
         command(['openssl', 'x509', '-in', str(directory / 'ca.crt'), '-checkend', '0', '-noout'],
@@ -376,7 +395,7 @@ def start(inputs):
             raise Error('NONO_PROXY_START_TIMEOUT_SECS must be between 0 and 600')
         deadline = time.monotonic() + timeout
         record = {'pid': process.pid, 'birth': birth, 'fingerprint': fingerprint,
-                  'leases': {}, 'manual': False}
+                  'leases': {}, 'manual': False, 'github_checkout': github_layer is not None}
         while time.monotonic() < deadline:
             if process.poll() is not None:
                 raise Error('proxy exited during startup (output suppressed)')
@@ -400,12 +419,12 @@ def start(inputs):
         raise
 
 
-def ensure(owner=None):
+def ensure(owner=None, github_layer=None):
     birth = identity(owner) if owner is not None else None
     if owner is not None and not birth:
         raise Error('lease owner must be a live process owned by this user')
     for _ in range(3):
-        inputs = resolve_inputs()
+        inputs = resolve_inputs(github_layer)
         found = next(((directory, record) for directory, record in records()
                       if record['fingerprint'] == inputs[0] and listening(record)), None)
         created = found is None
@@ -413,7 +432,7 @@ def ensure(owner=None):
         # Never label an old policy as current if installation changed during
         # credential-provider unlock/startup. Retry without disrupting clients.
         try:
-            changed = resolve_inputs()[0] != inputs[0]
+            changed = resolve_inputs(github_layer)[0] != inputs[0]
         except BaseException:
             if created:
                 terminate(record)
@@ -481,6 +500,8 @@ def exports(directory, record, ca=None, bundle=None, port=None):
     values['NONO_PROXY_EXPORTS'] = ' '.join(sorted(current))
     # Lowercase proxy variables otherwise take precedence in some HTTP clients.
     prefix = 'unset http_proxy https_proxy all_proxy ALL_PROXY no_proxy\n'
+    if record.get('github_checkout'):
+        prefix += 'unset GH_TOKEN GITHUB_TOKEN\n'
     if previous - current:
         prefix += 'unset ' + ' '.join(sorted(previous - current)) + '\n'
     return prefix + text + ''.join(f'export {name}={shlex.quote(value)}\n' for name, value in values.items())
@@ -511,6 +532,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--generation', help='pin ca/port/env/guest-env/stop to an acquired generation')
     parser.add_argument('--guest-port', type=int, help='guest loopback port selected for this SSH connection')
+    parser.add_argument('--github-layer', help='host-generated GitHub checkout profile JSON (acquire only)')
     parser.add_argument('command', choices=['acquire', 'lease-dir', 'start', 'stop', 'status', 'env', 'guest-env', 'port', 'ca', 'gc', 'help'])
     parser.add_argument('args', nargs='*')
     args = parser.parse_args()
@@ -526,6 +548,15 @@ def main():
         raise Error('guest-env requires guest CA and combined bundle paths')
     if args.command in ('acquire', 'lease-dir') and (len(args.args) != 1 or not args.args[0].isdigit()):
         raise Error(f'{args.command} requires the client process PID')
+    github_layer = None
+    if args.github_layer is not None:
+        if args.command != 'acquire':
+            raise Error('--github-layer requires acquire')
+        profile = json.loads(args.github_layer)
+        if (not isinstance(profile, dict) or profile.get('extends') != 'pi'
+                or profile.get('meta') != {'name': 'pi-github-checkout'}):
+            raise Error('invalid GitHub checkout profile')
+        github_layer = json.dumps(profile, sort_keys=True).encode()
     if args.command == 'lease-dir' and not args.generation:
         raise Error('lease-dir requires --generation')
     if args.command not in ('guest-env', 'acquire', 'lease-dir') and args.args:
@@ -557,7 +588,7 @@ def main():
             if args.command == 'acquire':
                 if args.generation:
                     raise Error('acquire always selects current configuration')
-                directory, record = ensure(int(args.args[0]))
+                directory, record = ensure(int(args.args[0]), github_layer)
                 print(directory.name)
                 return
             directory, record = select(args.generation) if args.generation else ensure()

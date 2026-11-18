@@ -45,6 +45,14 @@ if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
   # launches each get their own file.
   export NONO_LOG_FILE="${NONO_LOG_FILE:-${TMPDIR%/}/nono-pi-$$.log}"
 
-  exec nono run --profile pi --allow-cwd -- "$pi_binary" "$@"
+  profile=pi
+  if [ -n "${NONO_GITHUB_SSH_ACCOUNTS:-}" ]; then
+    github_profile="$("$HOME/.zsh/bin/github-proxy-layer" --file "$PWD")" || exit $?
+    if [ -n "$github_profile" ]; then
+      unset GH_TOKEN GITHUB_TOKEN
+      profile="$github_profile"
+    fi
+  fi
+  exec nono run --profile "$profile" --allow-cwd -- "$pi_binary" "$@"
 fi
 exec "$pi_binary" "$@"

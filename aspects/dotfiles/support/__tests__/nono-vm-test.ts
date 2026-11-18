@@ -1,6 +1,6 @@
 import * as assert from 'node:assert/strict';
 import {execFile} from 'node:child_process';
-import {readFileSync, writeFileSync} from 'node:fs';
+import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {createServer} from 'node:net';
 import {dirname, join} from 'node:path';
 import {test} from 'node:test';
@@ -69,6 +69,48 @@ printf '%s\\n' "$SB_NONO_PROXY_PORT" "$SB_GUEST_PROXY_PORT" "$GUEST_ENV_SCRIPT"
     log,
     new RegExp(`--generation ${generation} --guest-port 4567 guest-env`),
   );
+});
+
+test('VM GitHub scope is derived from the host project root and exports only the placeholder', async (t) => {
+  const {home, bin, env} = await generationFixture(t);
+  const launcher = join(home, '.zsh/bin');
+  mkdirSync(launcher, {recursive: true});
+  writeFileSync(
+    join(launcher, 'github-proxy-layer'),
+    `#!/bin/bash
+[[ "$1" == "$HOME/host checkout" ]] || exit 92
+printf '%s\\n' '{"extends":"pi","meta":{"name":"pi-github-checkout"},"network":{"credentials":[],"custom_credentials":{}},"credential_capture":{}}'
+`,
+    {mode: 0o755},
+  );
+  writeFileSync(
+    join(bin, 'nono-proxy'),
+    '#!/bin/bash\nexec "$PROXY_SCRIPT" "$@"\n',
+    {mode: 0o755},
+  );
+  const script = `set -euo pipefail
+PROJECT_ROOT="$HOME/host checkout"
+VM_USER=fixture
+sb_ssh() {
+  if [[ "$2" == python3* ]]; then echo 4567;
+  elif [[ "$2" == 'bash -s'* ]]; then cat >/dev/null; fi
+}
+sb_scp() { :; }
+${setup}
+setup_nono_proxy_for_vm 127.0.0.1
+printf '%s\\n' "$GUEST_ENV_SCRIPT"
+`;
+  const result = await exec('/bin/bash', ['-c', script], {
+    env: {
+      ...env,
+      NONO_GITHUB_SSH_ACCOUNTS: 'github.com=fixture',
+      GH_TOKEN: 'dummy-override',
+      PROXY_SCRIPT: proxyScript,
+    },
+  });
+  assert.match(result.stdout, /unset GH_TOKEN GITHUB_TOKEN\n/);
+  assert.match(result.stdout, /export GITHUB_TOKEN=proxied\n/);
+  assert.doesNotMatch(result.stdout, /dummy-override|host checkout/);
 });
 
 test('optional forward collisions cannot abort the required proxy tunnel', async (t) => {

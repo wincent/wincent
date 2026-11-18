@@ -177,6 +177,43 @@ test('Pi launcher aborts before nono if root creation or chmod fails', (t) => {
   assert.equal(result.stdout, '');
 });
 
+test('native Pi uses the selected GitHub profile without inheriting token overrides', (t) => {
+  const {runtime, run, script} = fixture(t);
+  const home = dirname(dirname(dirname(runtime)));
+  const bin = join(home, '.zsh/bin');
+  mkdirSync(bin, {recursive: true});
+  writeFileSync(
+    join(bin, 'github-proxy-layer'),
+    `#!/bin/bash
+[[ "$1" == --file && "$2" == "$PWD" ]] || exit 92
+printf '%s\\n' "$HOME/github scoped.json"
+`,
+    {mode: 0o755},
+  );
+  script(
+    'nono',
+    'printf "%s\\0" "${GH_TOKEN-unset}" "${GITHUB_TOKEN-unset}" "$@"\n',
+  );
+  const result = run({
+    NONO_GITHUB_SSH_ACCOUNTS: 'github.com=test',
+    GH_TOKEN: 'dummy-override',
+    GITHUB_TOKEN: 'dummy-override',
+  }, ['--print']);
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(result.stdout.split('\0'), [
+    'unset',
+    'unset',
+    'run',
+    '--profile',
+    join(home, 'github scoped.json'),
+    '--allow-cwd',
+    '--',
+    runtime,
+    '--print',
+    '',
+  ]);
+});
+
 test('Pi launcher leaves non-Darwin launches alone', (t) => {
   const {root, run} = fixture(t);
   const result = run({FIXTURE_OS: 'Linux'}, ['hello world']);

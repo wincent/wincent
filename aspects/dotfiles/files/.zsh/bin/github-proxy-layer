@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+"""Derive a host-side nono profile from a trusted checkout's Git remotes."""
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+import tempfile
+
+HOST = r'[A-Za-z0-9][A-Za-z0-9.-]*'
+LOGIN = r'[A-Za-z0-9][A-Za-z0-9_-]*'
+SSH_REMOTE = re.compile(rf'(?:git@({HOST}):|ssh://git@({HOST})/)(.+)')
+HTTPS_REMOTE = re.compile(r'https://(github\.com)/(.+)', re.IGNORECASE)
+REPO = re.compile(r'[A-Za-z0-9][A-Za-z0-9-]*/[A-Za-z0-9_.-]+')
+ROUTE = 'github_checkout'
+
+
+def account_map(value):
+    accounts = {}
+    for item in value.split(',') if value else []:
+        host, sep, account = item.partition('=')
+        host = host.lower()
+        if not sep or not re.fullmatch(HOST, host) or not re.fullmatch(LOGIN, account) or host in accounts:
+            raise ValueError('expected unique host=login pairs in NONO_GITHUB_SSH_ACCOUNTS')
+        accounts[host] = account
+    return accounts
+
+
+def fetch_urls(checkout):
+    # Don't let environment overrides select a different repository. Raw fetch
+    # URLs preserve the SSH alias (insteadOf rewrites and push URLs do not).
+    env = {key: value for key, value in os.environ.items() if not key.startswith('GIT_')}
+    base = ['/usr/bin/git', '-C', checkout]
+    if subprocess.run(base + ['rev-parse', '--git-dir'], env=env, capture_output=True).returncode:
+        return
+    result = subprocess.run(
+        base + ['config', '--local', '--includes', '--null', '--get-regexp', r'^remote\..+\.url$'],
+        env=env, capture_output=True,
+    )
+    if result.returncode not in (0, 1):
+        raise ValueError('could not read checkout Git remotes')
+    for entry in result.stdout.decode(errors='surrogateescape').split('\0'):
+        key, sep, url = entry.partition('\n')
+        if sep:
+            yield key[len('remote.'):-len('.url')], url
+
+
+def binding_for(checkout, accounts, override):
+    bindings = set()
+    for name, url in fetch_urls(checkout):
+        if override and name != override:
+            continue
+        if match := SSH_REMOTE.fullmatch(url):
+            host = match[1] or match[2]
+            repo = match[3]
+        elif match := HTTPS_REMOTE.fullmatch(url):
+            host, repo = match.groups()
+        else:
+            continue
+        account = accounts.get(host.lower())
+        repo = repo.removesuffix('.git')
+        if account and REPO.fullmatch(repo) and repo.split('/')[1] not in {'.', '..'}:
+            bindings.add((repo, account))
+    if len(bindings) == 1:
+        return bindings.pop()
+    if override:
+        raise ValueError('NONO_GITHUB_REMOTE must select exactly one mapped GitHub repository and account')
+    if bindings:
+        print('github-proxy-layer: ambiguous GitHub remotes; set NONO_GITHUB_REMOTE to select one', file=sys.stderr)
+    return None
+
+
+def profile(repo, account):
+    # Never look up the host credential reader relative to the checkout or PATH.
+    gh_paths = ('/opt/homebrew/bin/gh', '/usr/local/bin/gh')
+    gh = next((path for path in gh_paths if os.access(path, os.X_OK)), gh_paths[0])
+    return {
+        'meta': {'name': 'pi-github-checkout'},
+        'extends': 'pi',
+        # gh expects to be able to read its config even with a token env var.
+        # Give the child its own location; the host capture keeps its own env.
+        'environment': {'set_vars': {'GH_CONFIG_DIR': '$TMPDIR/nono-pi/gh'}},
+        'filesystem': {'deny': ['~/.config/gh', '~/.local/state/nono-proxy/github-profiles']},
+        'network': {
+            'credentials': [ROUTE],
+            'custom_credentials': {ROUTE: {
+                'upstream': 'https://api.github.com',
+                'credential_key': f'cmd://{ROUTE}',
+                'env_var': 'GITHUB_TOKEN',
+                'inject_header': 'Authorization',
+                'credential_format': 'Bearer {}',
+                'endpoint_policy': {
+                    'default': {'decision': 'deny'},
+                    'allow': [
+                        {'method': 'GET', 'path': f'/repos/{repo}{suffix}'}
+                        for suffix in ('', '/issues', '/issues/**', '/pulls', '/pulls/**')
+                    ],
+                },
+            }},
+        },
+        'credential_capture': {ROUTE: {'command': [
+            '/usr/bin/env', '-u', 'GH_TOKEN', '-u', 'GITHUB_TOKEN', '-u', 'GH_DEBUG',
+            gh, 'auth', 'token', '--hostname', 'github.com', '--user', account,
+        ]}},
+    }
+
+
+def write_profile(data):
+    directory = Path.home() / '.local/state/nono-proxy/github-profiles'
+    directory.mkdir(parents=True, exist_ok=True, mode=0o700)
+    if directory.is_symlink() or directory.stat().st_uid != os.getuid():
+        raise ValueError('GitHub profile directory must be owned by this user and not a symlink')
+    directory.chmod(0o700)
+    path = directory / (hashlib.sha256(data.encode()).hexdigest() + '.json')
+    with tempfile.NamedTemporaryFile(dir=directory, mode='w', delete=False) as temporary:
+        temp_path = Path(temporary.name)
+        try:
+            temporary.write(data)
+            temporary.close()
+            temp_path.replace(path)
+        finally:
+            temp_path.unlink(missing_ok=True)
+    return path
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--file', action='store_true', help='write a private host profile and print its path')
+    parser.add_argument('checkout')
+    args = parser.parse_args()
+    accounts = account_map(os.environ.get('NONO_GITHUB_SSH_ACCOUNTS', ''))
+    if accounts and (binding := binding_for(args.checkout, accounts, os.environ.get('NONO_GITHUB_REMOTE'))):
+        data = json.dumps(profile(*binding), sort_keys=True)
+        print(write_profile(data) if args.file else data)
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except (OSError, ValueError) as error:
+        sys.exit(f'github-proxy-layer: {error}')

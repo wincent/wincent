@@ -306,8 +306,15 @@ setup_nono_proxy_for_vm() {
         return 1
     fi
 
-    local generation ca port guest_dir guest_ca guest_bundle
-    generation="$(nono-proxy acquire "$$")" || {
+    local generation ca port guest_dir guest_ca guest_bundle github_layer
+    local github_args=()
+    if [ -n "${NONO_GITHUB_SSH_ACCOUNTS:-}" ]; then
+        github_layer="$("$HOME/.zsh/bin/github-proxy-layer" "$PROJECT_ROOT")" || return 1
+        if [ -n "$github_layer" ]; then
+            github_args=(--github-layer "$github_layer")
+        fi
+    fi
+    generation="$(nono-proxy ${github_args[@]+"${github_args[@]}"} acquire "$$")" || {
         echo "sb: failed to acquire a credential proxy generation" >&2
         return 1
     }
