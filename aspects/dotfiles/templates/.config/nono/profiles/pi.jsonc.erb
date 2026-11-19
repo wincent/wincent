@@ -239,6 +239,9 @@ for (const name of Object.keys(local.credentials)) {
       "~/.zsh/*.private.zsh*",
       "~/.zsh/host/comp-*",
 
+      // Host-side checkout approvals must also be protected in unscoped sessions.
+      "~/.local/state/nono-proxy/github-profiles",
+
       // Don't leak unsandboxed nvim undo/view/shada to the agent.
       "~/.local/state/nvim",
 

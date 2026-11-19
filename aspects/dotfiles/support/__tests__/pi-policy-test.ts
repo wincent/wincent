@@ -45,6 +45,14 @@ test('Pi profile keeps config read-only with exact runtime and lock exceptions',
   assert.ok(profile.filesystem.read.includes('~/.pi/agent/extensions'));
 });
 
+test('Pi protects host GitHub approvals even without a credential layer', () => {
+  assert.ok(
+    profile.filesystem.deny.includes(
+      '~/.local/state/nono-proxy/github-profiles',
+    ),
+  );
+});
+
 test('Pi profile grants read-only access to an optional external Git hooks directory', () => {
   const hooks = '$NONO_GIT_HOOKS_PATH';
   assert.ok(profile.filesystem.read.includes(hooks));

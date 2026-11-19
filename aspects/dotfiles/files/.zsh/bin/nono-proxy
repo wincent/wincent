@@ -125,7 +125,7 @@ def parse_jsonc(data):
     return json.loads(text)
 
 
-def inherited_inputs(profile, config, executable, env):
+def inherited_inputs(profile, config, executable, env, *, native_edges=None):
     files, targets, aliases = {}, {}, {}
     catalog = json.loads(command([executable, 'profile', 'list', '--json'], env=env, cwd=Path.home()))
     builtins = {entry['name']: entry.get('extends', []) for entry in catalog if entry['source'] == 'built-in'}
@@ -139,28 +139,11 @@ def inherited_inputs(profile, config, executable, env):
         targets[str(path)] = str(canonical)
         return canonical, parse_jsonc(data)
 
-    # Re-evaluate provider selection on every launch, but fingerprint only
-    # selected manifests/profiles. Ignore malformed unrelated packs as nono does.
-    packs = []
-    for manifest in sorted((config / 'packages').glob('*/*/package.json')):
-        try:
-            data = json.loads(manifest.read_bytes())
-        except (OSError, ValueError):
-            continue
-        if not isinstance(data, dict) or not isinstance(data.get('artifacts'), list):
-            continue
-        key = str(manifest.parent.relative_to(config / 'packages'))
-        for artifact in data['artifacts']:
-            if isinstance(artifact, dict) and artifact.get('type') == 'profile' and isinstance(artifact.get('install_as'), str):
-                path = manifest.parent / 'profiles' / (artifact['install_as'] + '.json')
-                if path.is_file():
-                    packs.append((key, artifact['install_as'], artifact.get('aliases', []), path, manifest))
-
     seen = set()
 
-    def walk(path, sibling_context=True, depth=0):
+    def walk(path, depth=0, package_context=False):
         canonical, data = remember(path)
-        identity = (canonical, sibling_context)
+        identity = (canonical, package_context)
         if identity in seen:
             return
         seen.add(identity)
@@ -168,32 +151,43 @@ def inherited_inputs(profile, config, executable, env):
         if isinstance(bases, str):
             bases = [bases]
         for name in bases:
-            resolve(name, canonical if sibling_context else None, depth + 1)
+            resolve(name, canonical, depth + 1, package_context)
 
-    def resolve(name, source, depth):
+    def resolve(name, source, depth, package_context=False):
         if depth > 10:
             raise Error('profile inheritance exceeds nono depth limit')
         sibling = source.parent / (name + '.json') if source else None
         if sibling and sibling.is_file() and sibling.resolve() != source:
-            walk(sibling, depth=depth)
+            walk(sibling, depth=depth, package_context=package_context)
+            return
+        if '/' in name:
+            # A fully qualified package exposes its namesake profile. Keep its
+            # canonical sibling directory for internal transitive bases.
+            if (not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', name)
+                    or any(part in ('.', '..') for part in name.split('/'))):
+                raise Error('invalid package profile reference')
+            pack = config / 'packages' / name
+            remember(pack / 'package.json')
+            walk(pack / 'profiles' / (pack.name + '.json'), depth=depth, package_context=True)
             return
         for suffix in ('.jsonc', '.json'):
             candidate = config / 'profiles' / (name + suffix)
             if candidate.is_file():
+                if native_edges is not None and (source is None or package_context):
+                    # A built-in has no sibling context. An installed package
+                    # uses its actual store directory for native verification.
+                    # Neither can pick up a sibling alias from our snapshot.
+                    via = 'a built-in' if source is None else 'an installed package'
+                    raise Error(f'cannot freeze user profile {name!r} inherited via {via}; '
+                                'refusing to enable the GitHub overlay')
                 walk(candidate, depth=depth)
-                # Pin a global user lookup to its canonical snapshot, including
-                # its transitive external siblings. A self-reference must still
-                # fall through to the native resolver rather than overwrite self.
+                # Pin global lookups without replacing an existing sibling
+                # (which can be the source file itself). In that case native
+                # snapshots rewrite just this extends edge to a private alias.
                 if sibling and not sibling.exists():
                     aliases[str(sibling)] = str(candidate.resolve())
-                return
-        ref = name.split('@', 1)[0]
-        for key, install_as, names, path, manifest in packs:
-            if ref == key or name == install_as or name in names:
-                remember(manifest)
-                # Pack lookup clears sibling context. Let nono load/verify the
-                # installed pack itself; hash all raw inputs before/after start.
-                walk(path, sibling_context=False, depth=depth)
+                elif native_edges is not None:
+                    native_edges.setdefault(str(source), {})[name] = str(candidate.resolve())
                 return
         if name in builtins:
             for base in builtins[name]:
@@ -207,15 +201,7 @@ def inherited_inputs(profile, config, executable, env):
     return files, targets, aliases
 
 
-def resolve_inputs(github_layer=None):
-    env = host_environment()
-    for name in ASSETS:
-        if not (STATE / name).is_file():
-            raise Error('state missing; run `./install dotfiles`')
-    try:
-        command(['openssl', 'x509', '-in', str(STATE / 'ca.crt'), '-checkend', '0', '-noout'], env=env, cwd=Path.home())
-    except Error:
-        raise Error('proxy CA missing, invalid, or expired; run `./install dotfiles`') from None
+def profile_inputs(env, *, native_edges=None):
     executable = shutil.which('nono', path=env['PATH'])
     if not executable:
         raise Error('nono is not installed')
@@ -231,9 +217,44 @@ def resolve_inputs(github_layer=None):
     profile = next((path for path in candidates if path.is_file()), None)
     if profile is None:
         raise Error('installed pi profile missing; run `./install dotfiles`')
+    return executable, profile, inherited_inputs(profile, config, executable, env, native_edges=native_edges)
+
+
+def check_github_profile(files):
+    # profile show --json omits capture definitions and credential sources.
+    # A reference alone matters: adding the capture could supply a credential
+    # to an unrelated route even if its capture was previously undefined.
+    platform = {'darwin': 'macos', 'linux': 'linux', 'win32': 'windows'}.get(sys.platform)
+    def collides(doc):
+        network = doc.get('network') or {}
+        custom = network.get('custom_credentials') or {}
+        scoped = (doc.get('command_policies') or {}).get('credentials') or {}
+        name = 'github_checkout'
+        return (name in (network.get('credentials') or []) or name in custom or name in scoped
+                or name in (doc.get('credential_capture') or {})
+                or any(route.get('credential_key') == f'cmd://{name}'
+                       for routes in (custom, scoped) for route in routes.values()))
+
+    for data in set(files.values()):
+        doc = parse_jsonc(data)
+        if collides(doc) or collides((doc.get('platform_overrides') or {}).get(platform) or {}):
+            raise Error('pi profile already uses github_checkout; refusing to overlay the GitHub capture')
+
+
+def resolve_inputs(github_layer=None):
+    env = host_environment()
+    for name in ASSETS:
+        if not (STATE / name).is_file():
+            raise Error('state missing; run `./install dotfiles`')
+    try:
+        command(['openssl', 'x509', '-in', str(STATE / 'ca.crt'), '-checkend', '0', '-noout'], env=env, cwd=Path.home())
+    except Error:
+        raise Error('proxy CA missing, invalid, or expired; run `./install dotfiles`') from None
+    executable, profile, (files, targets, aliases) = profile_inputs(env)
+    if github_layer is not None:
+        check_github_profile(files)
     assets = {name: (STATE / name).read_bytes() for name in ASSETS}
     resolved = command([executable, 'profile', 'show', str(profile), '--json'], env=env, cwd=Path.home())
-    files, targets, aliases = inherited_inputs(profile, config, executable, env)
     # Hash authored inputs as well as resolved inherited settings, including
     # user parents/overrides. Built-in policy changes are covered by the binary.
     inputs = {'format': FORMAT, 'profile': str(profile), 'cwd': str(Path.home().resolve()),
@@ -325,6 +346,80 @@ def collect(keep=None):
             save(directory / 'running.json', record)
 
 
+def mirror_profile(directory, profile, sources, targets, aliases, *, native_edges=None):
+    # Relative symlinks survive atomic publication of the private snapshot.
+    def mirror(path):
+        return directory / 'authored' / os.path.abspath(path).lstrip('/')
+
+    def link_to(link, target):
+        link.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+        link.symlink_to(os.path.relpath(target, link.parent))
+
+    for source, data in sources.items():
+        target = mirror(targets.get(source, source))
+        target.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+        target.write_bytes(data)
+    for source, destination in {**targets, **aliases}.items():
+        target, link = mirror(destination), mirror(source)
+        if link != target and not link.exists():
+            link_to(link, target)
+    for source, edges in (native_edges or {}).items():
+        doc = parse_jsonc(sources[source])
+        rewritten = {}
+        for name, destination in edges.items():
+            alias = 'frozen-' + uuid.uuid4().hex
+            link_to(mirror(source).with_name(alias + '.json'), mirror(destination))
+            rewritten[name] = alias
+        bases = doc['extends']
+        doc['extends'] = rewritten.get(bases, bases) if isinstance(bases, str) else [rewritten.get(b, b) for b in bases]
+        mirror(source).write_text(json.dumps(doc))
+    link_to(directory / 'profiles', mirror(profile.parent))
+    return directory / 'profiles' / profile.name
+
+
+def native_github_profile(layer_bytes):
+    env = host_environment()
+    native_edges = {}
+    executable, profile, (sources, targets, aliases) = profile_inputs(env, native_edges=native_edges)
+    check_github_profile(sources)
+    digest = hashlib.sha256(json.dumps([
+        'native-github-v2', str(profile), targets, aliases, native_edges, layer_bytes.decode(),
+        {name: hashlib.sha256(data).hexdigest() for name, data in sources.items()},
+    ], sort_keys=True).encode()).hexdigest()
+    parent = STATE / 'github-profiles'
+    parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+    destination = parent / digest
+    result = destination / 'github.json'
+    with (parent / 'snapshot.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        if not result.is_file():
+            directory = Path(tempfile.mkdtemp(dir=parent))
+            try:
+                base = mirror_profile(directory, profile, sources, targets, aliases, native_edges=native_edges)
+                # nono prefers a sibling <name>.json over the live named profile.
+                base_name = 'frozen-' + uuid.uuid4().hex
+                (directory / (base_name + '.json')).symlink_to(base.relative_to(directory))
+                layer = json.loads(layer_bytes)
+                layer['extends'] = base_name
+                # Keep native pack verification and built-in lookup intact. If
+                # their live resolution changes during launch, a static capture
+                # reference in such a parent still cannot redeem our credential.
+                net = layer['network']
+                name = 'github_checkout_' + secrets.token_hex(16)
+                route = net['custom_credentials'].pop('github_checkout')
+                route['credential_key'] = 'cmd://' + name
+                net['custom_credentials'][name] = route
+                net['credentials'] = [name]
+                layer['credential_capture'][name] = layer['credential_capture'].pop('github_checkout')
+                (directory / 'github.json').write_text(json.dumps(layer, sort_keys=True))
+                command([executable, 'profile', 'show', str(directory / 'github.json'), '--json'], env=env, cwd=Path.home())
+                directory.rename(destination)
+            finally:
+                if directory.exists():
+                    shutil.rmtree(directory)
+    return result
+
+
 def start(inputs):
     fingerprint, executable, profile, assets, sources, targets, aliases, resolved, github_layer = inputs
     identifier = fingerprint[:16] + '-' + uuid.uuid4().hex[:12]
@@ -332,22 +427,7 @@ def start(inputs):
     directory.mkdir(mode=0o700)
     process = None
     try:
-        # Mirror canonical source locations, including symlink targets outside
-        # the user profile directory. nono derives context from canonical paths.
-        def mirror(path):
-            return directory / 'authored' / os.path.abspath(path).lstrip('/')
-
-        for source, data in sources.items():
-            target = mirror(targets.get(source, source))
-            target.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
-            target.write_bytes(data)
-        for source, destination in {**targets, **aliases}.items():
-            target, link = mirror(destination), mirror(source)
-            if link != target and not link.exists():
-                link.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
-                link.symlink_to(target)
-        (directory / 'profiles').symlink_to(mirror(profile.parent), target_is_directory=True)
-        snapshot = directory / 'profiles' / profile.name
+        snapshot = mirror_profile(directory, profile, sources, targets, aliases)
         check = json.loads(command([executable, 'profile', 'show', str(snapshot), '--json'],
                                    env=host_environment(), cwd=Path.home()))
         if check != resolved:
@@ -359,7 +439,7 @@ def start(inputs):
             base = parse_jsonc(snapshot.read_bytes())
             layer = json.loads(github_layer)
             network = base.setdefault('network', {})
-            network.setdefault('credentials', []).extend(layer['network']['credentials'])
+            network['credentials'] = (network.get('credentials') or []) + layer['network']['credentials']
             network.setdefault('custom_credentials', {}).update(layer['network']['custom_credentials'])
             base.setdefault('credential_capture', {}).update(layer['credential_capture'])
             snapshot.write_text(json.dumps(base))
@@ -532,8 +612,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--generation', help='pin ca/port/env/guest-env/stop to an acquired generation')
     parser.add_argument('--guest-port', type=int, help='guest loopback port selected for this SSH connection')
-    parser.add_argument('--github-layer', help='host-generated GitHub checkout profile JSON (acquire only)')
-    parser.add_argument('command', choices=['acquire', 'lease-dir', 'start', 'stop', 'status', 'env', 'guest-env', 'port', 'ca', 'gc', 'help'])
+    parser.add_argument('--github-layer', help='host-generated GitHub checkout profile JSON')
+    parser.add_argument('command', choices=['acquire', 'native-github-profile', 'lease-dir', 'start', 'stop', 'status', 'env', 'guest-env', 'port', 'ca', 'gc', 'help'])
     parser.add_argument('args', nargs='*')
     args = parser.parse_args()
     if args.command == 'help':
@@ -550,8 +630,8 @@ def main():
         raise Error(f'{args.command} requires the client process PID')
     github_layer = None
     if args.github_layer is not None:
-        if args.command != 'acquire':
-            raise Error('--github-layer requires acquire')
+        if args.command not in ('acquire', 'native-github-profile'):
+            raise Error('--github-layer requires acquire or native-github-profile')
         profile = json.loads(args.github_layer)
         if (not isinstance(profile, dict) or profile.get('extends') != 'pi'
                 or profile.get('meta') != {'name': 'pi-github-checkout'}):
@@ -561,6 +641,11 @@ def main():
         raise Error('lease-dir requires --generation')
     if args.command not in ('guest-env', 'acquire', 'lease-dir') and args.args:
         raise Error('unexpected arguments')
+    if args.command == 'native-github-profile':
+        if github_layer is None:
+            raise Error('native-github-profile requires --github-layer')
+        print(native_github_profile(github_layer))
+        return
     with locked():
         reap_starting()
         if args.command == 'stop':

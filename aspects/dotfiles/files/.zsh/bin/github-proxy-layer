@@ -2,20 +2,22 @@
 """Derive a host-side nono profile from a trusted checkout's Git remotes."""
 
 import argparse
-import hashlib
+import fcntl
 import json
 import os
 from pathlib import Path
 import re
+import shlex
 import subprocess
 import sys
 import tempfile
+import unicodedata
 
 HOST = r'[A-Za-z0-9][A-Za-z0-9.-]*'
 LOGIN = r'[A-Za-z0-9][A-Za-z0-9_-]*'
 SSH_REMOTE = re.compile(rf'(?:git@({HOST}):|ssh://git@({HOST})/)(.+)')
 HTTPS_REMOTE = re.compile(r'https://(github\.com)/(.+)', re.IGNORECASE)
-REPO = re.compile(r'[A-Za-z0-9][A-Za-z0-9-]*/[A-Za-z0-9_.-]+')
+REPO = re.compile(rf'{LOGIN}/[A-Za-z0-9_.-]+')
 ROUTE = 'github_checkout'
 
 
@@ -38,22 +40,28 @@ def fetch_urls(checkout):
     if subprocess.run(base + ['rev-parse', '--git-dir'], env=env, capture_output=True).returncode:
         return
     result = subprocess.run(
-        base + ['config', '--local', '--includes', '--null', '--get-regexp', r'^remote\..+\.url$'],
+        base + ['config', '--show-scope', '--includes', '--null', '--get-regexp', r'^remote\..+\.url$'],
         env=env, capture_output=True,
     )
     if result.returncode not in (0, 1):
         raise ValueError('could not read checkout Git remotes')
-    for entry in result.stdout.decode(errors='surrogateescape').split('\0'):
+    parts = result.stdout.decode(errors='surrogateescape').split('\0')
+    first, eligible = {}, set()
+    for scope, entry in zip(parts[::2], parts[1::2]):
         key, sep, url = entry.partition('\n')
         if sep:
+            # Fetch uses the first URL across *all* scopes. A global-only
+            # remote, however, is not a binding supplied by this checkout.
+            first.setdefault(key, url)
+            if scope in ('local', 'worktree'):
+                eligible.add(key)
+    for key, url in first.items():
+        if key in eligible:
             yield key[len('remote.'):-len('.url')], url
 
 
-def binding_for(checkout, accounts, override):
-    bindings = set()
+def candidates_for(checkout, accounts):
     for name, url in fetch_urls(checkout):
-        if override and name != override:
-            continue
         if match := SSH_REMOTE.fullmatch(url):
             host = match[1] or match[2]
             repo = match[3]
@@ -64,17 +72,27 @@ def binding_for(checkout, accounts, override):
         account = accounts.get(host.lower())
         repo = repo.removesuffix('.git')
         if account and REPO.fullmatch(repo) and repo.split('/')[1] not in {'.', '..'}:
-            bindings.add((repo, account))
-    if len(bindings) == 1:
-        return bindings.pop()
-    if override:
-        raise ValueError('NONO_GITHUB_REMOTE must select exactly one mapped GitHub repository and account')
-    if bindings:
-        print('github-proxy-layer: ambiguous GitHub remotes; set NONO_GITHUB_REMOTE to select one', file=sys.stderr)
+            yield name, repo, account
+
+
+def unique_binding(bindings):
+    if len({(repo.lower(), account.lower()) for repo, account in bindings}) == 1:
+        # Preserve the URL spelling in the case-sensitive endpoint policy.
+        return min(bindings)
     return None
 
 
-def profile(repo, account):
+def select(candidates, override):
+    bindings = [(repo, account) for name, repo, account in candidates if not override or name == override]
+    binding = unique_binding(bindings)
+    if not binding and override:
+        raise ValueError('NONO_GITHUB_REMOTE must select exactly one mapped GitHub repository and account')
+    if not binding and bindings:
+        print('github-proxy-layer: ambiguous GitHub remotes; set NONO_GITHUB_REMOTE to select one', file=sys.stderr)
+    return binding
+
+
+def profile(repos, account):
     # Never look up the host credential reader relative to the checkout or PATH.
     gh_paths = ('/opt/homebrew/bin/gh', '/usr/local/bin/gh')
     gh = next((path for path in gh_paths if os.access(path, os.X_OK)), gh_paths[0])
@@ -97,6 +115,7 @@ def profile(repo, account):
                     'default': {'decision': 'deny'},
                     'allow': [
                         {'method': 'GET', 'path': f'/repos/{repo}{suffix}'}
+                        for repo in repos
                         for suffix in ('', '/issues', '/issues/**', '/pulls', '/pulls/**')
                     ],
                 },
@@ -109,14 +128,17 @@ def profile(repo, account):
     }
 
 
-def write_profile(data):
+def private_directory():
     directory = Path.home() / '.local/state/nono-proxy/github-profiles'
     directory.mkdir(parents=True, exist_ok=True, mode=0o700)
     if directory.is_symlink() or directory.stat().st_uid != os.getuid():
         raise ValueError('GitHub profile directory must be owned by this user and not a symlink')
     directory.chmod(0o700)
-    path = directory / (hashlib.sha256(data.encode()).hexdigest() + '.json')
-    with tempfile.NamedTemporaryFile(dir=directory, mode='w', delete=False) as temporary:
+    return directory
+
+
+def atomic_write(path, data):
+    with tempfile.NamedTemporaryFile(dir=path.parent, mode='w', delete=False) as temporary:
         temp_path = Path(temporary.name)
         try:
             temporary.write(data)
@@ -124,18 +146,117 @@ def write_profile(data):
             temp_path.replace(path)
         finally:
             temp_path.unlink(missing_ok=True)
-    return path
+
+
+def checkout_root(checkout):
+    # Use the checkout path, not config-controlled core.worktree or the
+    # target of a worktree's .git file. Subdirectory launches share a pin.
+    for path in (checkout, *checkout.parents):
+        if (path / '.git').exists() or ((path / 'HEAD').is_file() and (path / 'objects').is_dir()):
+            return path
+    return None
+
+
+def historical_key(candidate, pins):
+    key = str(candidate)
+    if key in pins:
+        return key
+    st = candidate.stat()
+    identity = [st.st_dev, st.st_ino]
+    spelling = unicodedata.normalize('NFD', key.casefold())
+    for old, record in pins.items():
+        # A replacement can have both a new inode and different on-disk case.
+        # A spelling match is a reason to stat, not authority by itself.
+        if record.get('identity') == identity or unicodedata.normalize('NFD', old.casefold()) == spelling:
+            try:
+                if candidate.samefile(old):
+                    return old
+            except (FileNotFoundError, NotADirectoryError):
+                continue
+    return key
+
+
+def authorize(checkout, candidates, binding, approval, override):
+    checkout = Path(checkout).resolve(strict=True)
+    repository = checkout_root(checkout)
+    root = repository or checkout
+    selected = f'{binding[0]}@{binding[1]}'.lower() if binding else None
+    if approval is not None and (not selected or approval.lower() != selected):
+        raise ValueError('--approve must match the selected OWNER/REPO@ACCOUNT exactly')
+    directory = private_directory()
+    path = directory / 'bindings.json'
+    with (directory / 'bindings.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        pins = json.loads(path.read_bytes()) if path.exists() else {}
+        ancestor = None
+        for candidate in (checkout, *checkout.parents):
+            key = historical_key(candidate, pins)
+            if key in pins and (candidate == checkout or candidate == root or pins[key]['subtree']):
+                ancestor = candidate
+                prior = pins[key]
+                break
+        # A changed .git marker or core.worktree must not turn a known
+        # checkout into an independent first use. Non-repo launches (e.g.
+        # from HOME) don't implicitly enroll every descendant checkout.
+        if ancestor and (not repository or root in ancestor.parents):
+            root = ancestor
+        if ancestor is None:
+            # Trust on first host launch. Remember the named choices to keep
+            # explicit fork/upstream selection working, but pin the automatic
+            # selection separately. Removing one fork must not resolve a
+            # previously ambiguous default without host approval.
+            choices = {name: f'{repo}@{account}'.lower() for name, repo, account in candidates}
+            automatic = unique_binding([(repo, account) for _, repo, account in candidates])
+            if automatic:
+                choices[''] = '@'.join(automatic).lower()
+            record = {'subtree': bool(repository), 'choices': choices}
+        else:
+            choices = prior['choices'].copy()
+            slot = override or ''
+            renamed = selected and selected in choices.values() and override and slot not in choices
+            if selected and choices.get(slot) != selected:
+                if approval is None and not renamed:
+                    args = ['github-proxy-layer', '--approve', selected, str(checkout)]
+                    prefix = f'NONO_GITHUB_REMOTE={shlex.quote(override)} ' if override else ''
+                    raise ValueError('GitHub binding changed; verify the remote and approve from the host: '
+                                     + prefix + shlex.join(args))
+                choices[slot] = selected
+            record = {'subtree': prior['subtree'] or bool(repository), 'choices': choices}
+        st = root.stat()
+        record['identity'] = [st.st_dev, st.st_ino]
+        root_key = key if root == ancestor else str(root)
+        if pins.get(root_key) != record:
+            pins[root_key] = record
+            atomic_write(path, json.dumps(pins, sort_keys=True))
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--file', action='store_true', help='write a private host profile and print its path')
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--file', action='store_true', help='write a private host profile and print its path')
+    mode.add_argument('--approve', metavar='OWNER/REPO@ACCOUNT', help='authorize a changed binding on this host')
     parser.add_argument('checkout')
     args = parser.parse_args()
     accounts = account_map(os.environ.get('NONO_GITHUB_SSH_ACCOUNTS', ''))
-    if accounts and (binding := binding_for(args.checkout, accounts, os.environ.get('NONO_GITHUB_REMOTE'))):
-        data = json.dumps(profile(*binding), sort_keys=True)
-        print(write_profile(data) if args.file else data)
+    if not accounts and args.approve is None:
+        return
+    override = os.environ.get('NONO_GITHUB_REMOTE')
+    os.chdir(args.checkout)
+    checkout = Path.cwd()  # Physical spelling from the kernel, not the user's spelling of $PWD.
+    candidates = list(candidates_for(checkout, accounts))
+    binding = select(candidates, override)
+    authorize(checkout, candidates, binding, args.approve, override)
+    if binding and args.approve is None:
+        selected_repo, selected_account = binding
+        repos = sorted({repo for _, repo, account in candidates
+                        if repo.lower() == selected_repo.lower() and account.lower() == selected_account.lower()})
+        data = json.dumps(profile(repos, selected_account), sort_keys=True)
+        if args.file:
+            checker = Path(__file__).resolve().with_name('nono-proxy')
+            if subprocess.run([checker, '--github-layer', data, 'native-github-profile']).returncode:
+                raise ValueError('cannot safely extend installed pi profile')
+        else:
+            print(data)
 
 
 if __name__ == '__main__':

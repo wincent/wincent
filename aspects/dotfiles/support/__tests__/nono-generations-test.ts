@@ -211,16 +211,17 @@ test(
         min_nono_version: '0.44.0',
         artifacts: [{
           type: 'profile',
-          path: 'profiles/fixture-auth.json',
-          install_as: 'fixture-auth',
+          path: 'profiles/auth.json',
+          install_as: 'auth',
         }],
       }),
     );
     writeFileSync(
       join(profiles, 'pi.jsonc'),
-      '{"meta":{"name":"pi"},"extends":"fixture-auth"}',
+      '{"meta":{"name":"pi"},"extends":"fixture/auth"}',
     );
-    const packed = join(pack, 'profiles/fixture-auth.json');
+    writeFileSync(join(pack, 'profiles/auth.json'), '{"extends":"internal"}');
+    const packed = join(pack, 'profiles/internal.json');
     writeFileSync(packed, capture('pack-first'));
     const fingerprint = async () =>
       (await exec('python3', [

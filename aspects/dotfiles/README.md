@@ -34,6 +34,14 @@ Before activating the updated profile, provision `op://CLI/mistral-api-key/crede
 
 Run `./install dotfiles` from a trusted host shell, validate with `nono profile validate pi`, and start a new proxy-enabled Pi session. Existing sessions keep their previous proxy generation; `/reload` alone does not update its policy. The route is now part of the default profile, so provision the referenced key on each host that uses it. The extension still requires approval for each paid upload and sends the entire PDF even when processing selected pages. The proxy protects the key and endpoint policy, not the extension's per-document approval or spending limits against an agent with shell access.
 
+## GitHub checkout access
+
+`NONO_GITHUB_SSH_ACCOUNTS` maps Git remote hosts to host-side `gh` logins (for example, `github.com=personal,work-alias=managed_user`). The first host launch trusts the current checkout and its fetch remotes. If there are several distinct matches, set `NONO_GITHUB_REMOTE` to the remote name for that launch. The proxy permits only reads of repository metadata, issues, and pull requests for the selected repository; an empty account map disables checkout routing.
+
+If a later launch selects a different repository or account, no new authority is granted automatically. Inspect the fetch URL and account in a trusted host shell. If the change is intentional, run the exact `github-proxy-layer --approve OWNER/REPO@ACCOUNT CHECKOUT` command printed by the launcher (with the indicated remote override, if any), then relaunch. Approval does not change an already running session. As with the other host-side launchers, only run trusted copies of the helper and shell configuration.
+
+Native `pi` refuses a GitHub overlay if a built-in or installed package inherits a user profile by global lookup that cannot be pinned to the checked snapshot. For such custom profiles, make the user file an explicit parent of the checkout's base profile instead of shadowing a built-in dependency. Set `NONO_GITHUB_SSH_ACCOUNTS=''` to run the original sandbox profile without the GitHub overlay.
+
 ## Private proxy routes
 
 The Pi nono profile can include private credential routes without putting service names, hosts, or authentication commands in this repository. Export `NONO_PROXY_CONFIG` from your private shell configuration, pointing to a JSON file with two optional maps:
