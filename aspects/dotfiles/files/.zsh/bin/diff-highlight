@@ -170,7 +170,7 @@ sub highlight_stdin {
 # HACK: Depend on Git to turn $default color names into escape sequences.
 sub color_config {
 	my ($key, $default) = @_;
-	my $s = `git config --get-color $key $default 2>$NULL`;
+	my $s = `exec git config --get-color $key $default 2>$NULL`;
 	return length($s) ? $s : '';
 }
 
