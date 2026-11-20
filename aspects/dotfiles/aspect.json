@@ -12,6 +12,7 @@
       ".config/chrome-flags.conf",
       ".config/chromium-flags.conf",
       ".config/clipper",
+      ".config/control-plane",
       ".config/dunst",
       ".config/git",
       ".config/ghostty",

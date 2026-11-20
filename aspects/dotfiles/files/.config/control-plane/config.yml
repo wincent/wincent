@@ -1,0 +1,13 @@
+agent:
+  # Use the nono sandbox and its credential proxy by default.
+  defaultLaunch: sandboxed
+  # Use `control-plane --launch naked` for the proxy without an added sandbox.
+  # Use `control-plane --launch direct` to skip both adapters. Direct launch
+  # still inherits proxy settings from your shell. To run without a proxy:
+  #   env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY \
+  #       -u http_proxy -u https_proxy -u all_proxy control-plane --launch direct
+  launches:
+    sandboxed:
+      launcher: ["~/.zsh/bin/cp-agent-sandbox"]
+    naked:
+      launcher: ["~/.zsh/bin/cp-agent-proxy"]
