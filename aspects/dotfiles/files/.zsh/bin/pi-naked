@@ -18,23 +18,11 @@
 
 set -e
 
-pi_binary="${PI_REAL_BIN:-$HOME/n/bin/pi}"
-if [[ "$pi_binary" != /* ]] || [ ! -f "$pi_binary" ] || [ ! -x "$pi_binary" ]; then
-  echo 'pi-naked: PI_REAL_BIN must name an absolute executable file (default: $HOME/n/bin/pi)' >&2
-  exit 1
-fi
+. "$HOME/.zsh/bin/helpers/agent-launch.bash" || exit 1
+agent_launch_resolve_pi_binary || exit $?
 
 if [ "$(uname -s)" = Darwin ]; then
-  github_args=()
-  if [ -n "${NONO_GITHUB_SSH_ACCOUNTS:-}" ]; then
-    github_layer="$("$HOME/.zsh/bin/github-proxy-layer" "$PWD")" || exit $?
-    if [ -n "$github_layer" ]; then
-      github_args=(--github-layer "$github_layer")
-    fi
-  fi
-  generation="$(nono-proxy ${github_args[@]+"${github_args[@]}"} acquire "$$")" || exit $?
-  proxy_env="$(nono-proxy --generation "$generation" env)" || exit $?
-  eval "$proxy_env"
+  agent_launch_apply_proxy_env nono-proxy
 fi
 
 exec "$pi_binary" "$@"

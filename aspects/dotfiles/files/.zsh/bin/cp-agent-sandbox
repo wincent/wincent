@@ -4,16 +4,10 @@
 # Usage: cp-agent-sandbox -- <node> <worker-entrypoint> [args...]
 set -e
 
-if [[ $# -lt 3 || $1 != -- ]]; then
-  echo 'cp-agent-sandbox: expected -- <node> <worker-entrypoint>' >&2
-  exit 2
-fi
+. "$HOME/.zsh/bin/helpers/agent-launch.bash" || exit 1
+agent_launch_validate_worker "$@" || exit $?
 shift
 
-if [[ $1 != /* || $2 != /* || ! -x $1 || ! -f $2 ]]; then
-  echo 'cp-agent-sandbox: expected absolute Node and worker paths' >&2
-  exit 2
-fi
 endpoint="${CONTROL_PLANE_WORKER_ENDPOINT:-}"
 if [[ $endpoint != /* || ! -S $endpoint || -z ${CONTROL_PLANE_WORKER_TOKEN:-} ]]; then
   echo 'cp-agent-sandbox: missing or invalid Control Plane IPC configuration' >&2
@@ -26,37 +20,13 @@ if [[ $(uname -s) != Darwin || ! -x $nono ]]; then
   exit 1
 fi
 
-export PI_SUBAGENT_PI_ENTRYPOINT="$HOME/n/pi/node_modules/@earendil-works/pi-coding-agent/dist/bundle/cli.js"
+agent_launch_export_worker_entrypoint
 
-# Keep this in step with the pi wrapper and the pi profile.
-# nono resolves the subagent socket grant before launching the worker.
-TMPDIR="${TMPDIR:-/tmp}"
-if [[ $TMPDIR != /* || ! -d $TMPDIR ]]; then
-  echo 'cp-agent-sandbox: TMPDIR must be an existing absolute directory' >&2
-  exit 1
-fi
-export TMPDIR
-socket_root="${TMPDIR%/}/pi-sockets"
-(umask 077; mkdir -p "$socket_root")
-if [[ -L $socket_root || ! -d $socket_root || ! -O $socket_root ]]; then
-  echo 'cp-agent-sandbox: subagent socket root must be an owned directory, not a symlink' >&2
-  exit 1
-fi
-chmod 700 "$socket_root"
+agent_launch_prepare_socket_root || exit $?
 export PI_SUBAGENT_SOCKET_ROOT="$socket_root"
-export NONO_LOG_FILE="${NONO_LOG_FILE:-${TMPDIR%/}/nono-cp-$$.log}"
-
-profile=pi
-if [ -n "${NONO_GITHUB_SSH_ACCOUNTS:-}" ]; then
-  github_profile="$("$HOME/.zsh/bin/github-proxy-layer" --file "$PWD")"
-  if [ -n "$github_profile" ]; then
-    unset GH_TOKEN GITHUB_TOKEN
-    profile="$github_profile"
-  fi
-fi
 
 package_root="$(dirname "$(dirname "$2")")"
-exec "$nono" run --profile "$profile" --allow-cwd --no-rollback \
+agent_launch_exec_sandbox "$nono" cp --no-rollback \
   --allow-unix-socket "$endpoint" \
   --read-file "$1" --read-file "$2" \
   --read "$package_root/node_modules" \

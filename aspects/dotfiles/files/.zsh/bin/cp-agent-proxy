@@ -4,38 +4,22 @@
 # Usage: cp-agent-proxy -- <node> <worker-entrypoint> [args...]
 set -e
 
-if [[ $# -lt 3 || $1 != -- ]]; then
-  echo 'cp-agent-proxy: expected -- <node> <worker-entrypoint>' >&2
-  exit 2
-fi
+. "$HOME/.zsh/bin/helpers/agent-launch.bash" || exit 1
+agent_launch_validate_worker "$@" || exit $?
 shift
 
-if [[ $1 != /* || $2 != /* || ! -x $1 || ! -f $2 ]]; then
-  echo 'cp-agent-proxy: expected absolute Node and worker paths' >&2
-  exit 2
-fi
 if [[ -z ${CONTROL_PLANE_WORKER_ENDPOINT:-} || -z ${CONTROL_PLANE_WORKER_TOKEN:-} ]]; then
   echo 'cp-agent-proxy: missing Control Plane IPC configuration' >&2
   exit 2
 fi
 
-export PI_SUBAGENT_PI_ENTRYPOINT="$HOME/n/pi/node_modules/@earendil-works/pi-coding-agent/dist/bundle/cli.js"
+agent_launch_export_worker_entrypoint
 
 # The lease follows this PID through exec. In a Linux VM, sb ssh supplies
 # proxy/CA settings instead; never silently fall back to an unproxied worker.
 
 if [ "$(uname -s)" = Darwin ]; then
-  github_args=()
-  if [ -n "${NONO_GITHUB_SSH_ACCOUNTS:-}" ]; then
-    github_layer="$("$HOME/.zsh/bin/github-proxy-layer" "$PWD")" || exit $?
-    if [ -n "$github_layer" ]; then
-      github_args=(--github-layer "$github_layer")
-    fi
-  fi
-  helper="$HOME/.zsh/bin/nono-proxy"
-  generation="$("$helper" "${github_args[@]}" acquire "$$")"
-  proxy_env="$("$helper" --generation "$generation" env)"
-  eval "$proxy_env"
+  agent_launch_apply_proxy_env "$HOME/.zsh/bin/nono-proxy"
 fi
 
 if [[ -z ${https_proxy:-${HTTPS_PROXY:-}} ]]; then

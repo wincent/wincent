@@ -502,9 +502,15 @@ test('a killed launcher releases its lock and the next command cleans up its unp
 });
 
 test('pi-naked fails closed on acquire/export errors and preserves lease PID through exec', async (t) => {
-  const {bin, env} = await generationFixture(t);
+  const {bin, env, home} = await generationFixture(t);
   const wrapper =
     new URL('../../files/.zsh/bin/pi-naked', import.meta.url).pathname;
+  const helpers = join(home, '.zsh/bin/helpers');
+  mkdirSync(helpers, {recursive: true});
+  symlinkSync(
+    new URL('../../files/.zsh/bin/helpers/agent-launch.bash', import.meta.url),
+    join(helpers, 'agent-launch.bash'),
+  );
   const runtimeEnv = {...env, PI_REAL_BIN: join(bin, 'pi')};
   writeFileSync(join(bin, 'uname'), '#!/bin/sh\necho Darwin\n', {mode: 0o755});
   writeFileSync(

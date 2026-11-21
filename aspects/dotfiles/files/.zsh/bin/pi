@@ -14,45 +14,11 @@
 #
 # Invoke the managed runtime explicitly, not this wrapper on PATH.
 
-pi_binary="${PI_REAL_BIN:-$HOME/n/bin/pi}"
-if [[ "$pi_binary" != /* ]] || [ ! -f "$pi_binary" ] || [ ! -x "$pi_binary" ]; then
-  echo 'pi: PI_REAL_BIN must name an absolute executable file (default: $HOME/n/bin/pi)' >&2
-  exit 1
-fi
+. "$HOME/.zsh/bin/helpers/agent-launch.bash" || exit 1
+agent_launch_resolve_pi_binary || exit $?
 
 if command -v nono >/dev/null 2>&1 && [ "$(uname -s)" = Darwin ]; then
-  # nono resolves socket grants before launching Pi, so the root must already
-  # exist. Keep this in sync with the profile's PI_SUBAGENT_SOCKET_ROOT.
-  # Export the fallback too, so the profile resolves the same location.
-  TMPDIR="${TMPDIR:-/tmp}"
-  if [[ "$TMPDIR" != /* ]] || [ ! -d "$TMPDIR" ]; then
-    echo 'pi: TMPDIR must be an existing absolute directory' >&2
-    exit 1
-  fi
-  export TMPDIR
-  socket_root="${TMPDIR%/}/pi-sockets"
-  (umask 077; mkdir -p "$socket_root") || exit 1
-  if [ -L "$socket_root" ] || [ ! -d "$socket_root" ] || [ ! -O "$socket_root" ]; then
-    echo 'pi: subagent socket root must be an owned directory, not a symlink' >&2
-    exit 1
-  fi
-  chmod 700 "$socket_root" || exit 1
-
-  # Keep nono's own tracing output off the tty: the supervisor logs to stderr,
-  # which is the terminal pi's TUI owns, so warnings such as the network audit
-  # buffer filling at 4096 events corrupt the display. $$ becomes nono's PID
-  # after exec, which matches the session id suffix in `nono ps`, so concurrent
-  # launches each get their own file.
-  export NONO_LOG_FILE="${NONO_LOG_FILE:-${TMPDIR%/}/nono-pi-$$.log}"
-
-  profile=pi
-  if [ -n "${NONO_GITHUB_SSH_ACCOUNTS:-}" ]; then
-    github_profile="$("$HOME/.zsh/bin/github-proxy-layer" --file "$PWD")" || exit $?
-    if [ -n "$github_profile" ]; then
-      unset GH_TOKEN GITHUB_TOKEN
-      profile="$github_profile"
-    fi
-  fi
-  exec nono run --profile "$profile" --allow-cwd -- "$pi_binary" "$@"
+  agent_launch_prepare_socket_root || exit 1
+  agent_launch_exec_sandbox nono pi -- "$pi_binary" "$@" || exit $?
 fi
 exec "$pi_binary" "$@"

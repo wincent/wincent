@@ -11,6 +11,7 @@ import {
   symlinkSync,
   writeFileSync,
 } from 'node:fs';
+import {createServer} from 'node:net';
 import {tmpdir} from 'node:os';
 import {dirname, join} from 'node:path';
 import {test} from 'node:test';
@@ -37,9 +38,15 @@ function fixture(t: {after: (fn: () => void) => void}) {
   writeFileSync(runtime, '#!/bin/bash\nprintf "%s\\0" pi "$@"\n', {
     mode: 0o755,
   });
-  for (const name of ['pi', 'pi-naked']) {
+  for (const name of ['pi', 'pi-naked', 'cp-agent-proxy', 'cp-agent-sandbox']) {
     symlinkSync(join(launcherBin, name), join(bin, name));
   }
+  const helpers = join(home, '.zsh/bin/helpers');
+  mkdirSync(helpers, {recursive: true});
+  symlinkSync(
+    join(launcherBin, 'helpers/agent-launch.bash'),
+    join(helpers, 'agent-launch.bash'),
+  );
   function script(name: string, source: string) {
     writeFileSync(join(bin, name), '#!/bin/bash\n' + source, {mode: 0o755});
   }
@@ -56,6 +63,7 @@ function fixture(t: {after: (fn: () => void) => void}) {
   const env = {
     ...process.env,
     HOME: home,
+    NONO_GITHUB_SSH_ACCOUNTS: undefined,
     PI_REAL_BIN: undefined,
     PATH: `${bin}:${dirname(runtime)}:/usr/bin:/bin`,
     TMPDIR: temp + '/',
@@ -82,7 +90,7 @@ function fixture(t: {after: (fn: () => void) => void}) {
     assert.equal(result.signal, null, result.stderr);
     return result;
   };
-  return {bin, runtime, temp, root, run, script};
+  return {bin, home, runtime, temp, root, run, script};
 }
 
 test('Pi launcher creates a private socket root before nono without altering arguments or umask', (t) => {
@@ -292,6 +300,65 @@ test('PATH wrappers reject invalid runtime paths without falling back', (t) => {
       );
       assert.equal(existsSync(root), false);
     }
+  }
+});
+
+test('Control Plane proxy requires an inherited HTTPS proxy on Linux', (t) => {
+  const {bin, home, run, runtime, script} = fixture(t);
+  script('worker-node', 'printf "%s\\0" "$PI_SUBAGENT_PI_ENTRYPOINT" "$@"\n');
+  const env = {
+    FIXTURE_OS: 'Linux',
+    CONTROL_PLANE_WORKER_ENDPOINT: 'fixture-endpoint',
+    CONTROL_PLANE_WORKER_TOKEN: 'fixture-token',
+    https_proxy: undefined,
+    HTTPS_PROXY: undefined,
+  };
+  const args = ['--', join(bin, 'worker-node'), runtime, 'worker arg'];
+  const unproxied = run(env, args, 'cp-agent-proxy');
+  assert.equal(unproxied.status, 1);
+  assert.equal(unproxied.stdout, '');
+  assert.match(unproxied.stderr, /refusing unproxied launch/);
+
+  const proxied = run(
+    {...env, HTTPS_PROXY: 'http://127.0.0.1:1234'},
+    args,
+    'cp-agent-proxy',
+  );
+  assert.equal(proxied.status, 0, proxied.stderr);
+  assert.deepEqual(proxied.stdout.split('\0'), [
+    join(
+      home,
+      'n/pi/node_modules/@earendil-works/pi-coding-agent/dist/bundle/cli.js',
+    ),
+    runtime,
+    'worker arg',
+    '',
+  ]);
+});
+
+test('Control Plane sandbox refuses to launch directly even with valid IPC', async (t) => {
+  const {root, run, runtime, temp} = fixture(t);
+  const endpoint = join(dirname(temp), 'ipc');
+  const server = createServer();
+  await new Promise<void>((resolve, reject) => {
+    server.once('error', reject).listen(endpoint, resolve);
+  });
+  try {
+    const result = run(
+      {
+        FIXTURE_OS: 'Linux',
+        CONTROL_PLANE_WORKER_ENDPOINT: endpoint,
+        CONTROL_PLANE_WORKER_TOKEN: 'fixture-token',
+      },
+      ['--', runtime, runtime],
+      'cp-agent-sandbox',
+    );
+    assert.equal(result.status, 1);
+    assert.equal(result.stdout, '');
+    assert.match(result.stderr, /refusing direct launch/);
+    assert.equal(existsSync(root), false);
+  } finally {
+    server.close();
   }
 });
 
