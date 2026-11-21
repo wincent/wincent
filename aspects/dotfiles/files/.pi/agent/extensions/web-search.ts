@@ -210,7 +210,7 @@ async function searchKagi(
   const response = await fetch(KAGI_SEARCH_URL, {
     method: 'POST',
     headers: {
-      'Authorization': `Bot ${token}`,
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({query}),

@@ -70,7 +70,7 @@ for (const name of Object.keys(local.credentials)) {
         "upstream": "https://kagi.com",
         "credential_key": "op://CLI/kagi-api-token/credential",
         "inject_header": "Authorization",
-        "credential_format": "Bot {}",
+        "credential_format": "Bearer {}",
         "env_var": "KAGI_API_TOKEN",
         "endpoint_rules": [{"method": "POST", "path": "/api/v1/search"}]
       },
