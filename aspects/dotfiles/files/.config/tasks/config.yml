@@ -1,0 +1,6 @@
+models:
+  aliases:
+    deepseek: openrouter-zdr-deepinfra/deepseek/deepseek-v4.1-flash-1017
+    grok: xai/grok-4.7
+    neon: datadog-google/gemini-4-neon
+    sol: openai-codex/gpt-6.2-sol

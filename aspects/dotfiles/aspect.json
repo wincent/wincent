@@ -26,6 +26,7 @@
       ".config/pry",
       ".config/screenkey.json",
       ".config/sxhkd",
+      ".config/tasks",
       ".config/tmux",
       ".config/watchman",
       ".config/xkeysnail.py",
