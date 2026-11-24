@@ -57,7 +57,6 @@ PREFERRED_REMOTES = %w[
   github
   origin
 ]
-MAX_INT = 1 << (1.size * 8 - 2) - 1
 
 def capture(command)
   result = `#{command}`.chomp
@@ -76,14 +75,12 @@ def remote_config
     .split(/\n/)
     .grep(/github\.com/)
     .grep(/fetch/)
-    .sort { |a, b|
-      PREFERRED_REMOTES.find_index(a) || MAX_INT <=>
-      PREFERRED_REMOTES.find_index(b) || MAX_INT
-    }
     .select { |line|
-      ENV['REMOTE'] ? line.split(/\s+/).first === ENV['REMOTE'] : true
+      ENV['REMOTE'] ? line.split.first == ENV['REMOTE'] : true
     }
-    .first or die 'failed to locate GitHub remote'
+    .min_by { |line|
+      PREFERRED_REMOTES.index(line.split.first) || PREFERRED_REMOTES.length
+    } or die 'failed to locate GitHub remote'
 end
 
 def remote
