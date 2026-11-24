@@ -11,3 +11,6 @@ agent:
       launcher: ["~/.zsh/bin/cp-agent-sandbox"]
     naked:
       launcher: ["~/.zsh/bin/cp-agent-proxy"]
+    builtin:
+      sandbox:
+        type: nono
