@@ -50,6 +50,10 @@ The user's terminal (kitty inside tmux, with `*:hyperlinks` enabled in tmux's `t
 
 `rg` can also replace many uses of `find`. To list files, use `rg --files` (optionally with `-g '<glob>'` to filter by name or path pattern) instead of `find . -name '...'`. Reach for `find` only when you need predicates `rg` does not cover, such as filtering by mtime, size, or file type beyond simple globs.
 
+# Creating commits
+
+**ALWAYS** load and follow the `git-commit` skill (or `jj-commit` in a Jujutsu repository) before creating a commit or drafting a commit message.
+
 # Git worktree layout
 
 Some repositories here use a "bare-in-.git" worktree layout: the container directory holds a _bare_ `.git` (`core.bare=true`) plus sibling worktree directories (`main/`, `feature/`, and so on). There is deliberately no `.bare` directory and no `.git` gitlink file. **Do not try to "repair" this.** Running git from the container root reports a bare repository, and `git status` there fails with "must be run in a work tree": that is expected, not a problem. Operate inside a worktree directory.
